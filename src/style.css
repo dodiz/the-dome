@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+	--color-primary: #073942;
+	--color-secondary: #6aa0aa;
+	--color-accent: #ff3400;
+	--color-headings: #1b0760;
+	--color-body: #ccc;
+	--color-body-darker: #5c5577;
+	--color-border: #ccc;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: #02161a;
+	color: var(--color-body);
+	font-family: Electrolize, sans-serif;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+
+/* brand */
+.brand {
+	fill-rule: evenodd;
+	fill: rgba(255, 255, 255, 0);
+	stroke-dasharray: 350;
+	stroke: white;
+	stroke-linecap: round;
+	stroke-width: 2px;
+	transition: stroke-dashoffset 5s;
+	stroke-dashoffset: 350;
+	animation: brand-animation 3s 2s forwards;
+}
+
+@keyframes brand-animation {
+	from {
+		stroke-dashoffset: 350;
+	}
+	to {
+		fill: white;
+		stroke-width: 0;
+		stroke-dashoffset: 0;
+	}
+}
+
+/* Icon */
+
+.icon {
+	box-shadow: 0 0 5px var(--color-secondary);
+	width: 50px;
+}
+
+.icon-wrapper {
+	padding: 2px;
+	clip-path: polygon(
+		30% 0%,
+		70% 0%,
+		100% 30%,
+		100% 70%,
+		70% 100%,
+		30% 100%,
+		0% 70%,
+		0% 30%
+	);
+	align-items: center;
+	background: var(--color-secondary);
+	display: inline-flex;
+	justify-content: center;
+	filter: drop-shadow(10px 10px 10px red);
+}
+.icon-wrapper .icon {
+	clip-path: polygon(
+		30% 0%,
+		70% 0%,
+		100% 30%,
+		100% 70%,
+		70% 100%,
+		30% 100%,
+		0% 70%,
+		0% 30%
+	);
+	background: #073942;
+	box-shadow: inset 0 0 10px #000;
+}
+
+/* PEGI */
+.pegi {
+	display: flex;
+	justify-content: space-evenly;
+	max-width: 500px;
+	margin: auto;
+}
+
+.pegi__icon {
+	width: 45px;
+}
+.pegi__icon .icon {
+	padding: 4px;
+}
