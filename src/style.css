@@ -55,12 +55,14 @@ body {
 /* Icon */
 
 .icon {
-	box-shadow: 0 0 5px var(--color-secondary);
 	width: 50px;
 }
-
 .icon-wrapper {
-	padding: 2px;
+	filter: drop-shadow(0 0 2px var(--color-secondary));
+}
+.icon-clipper {
+	align-items: center;
+	background: var(--color-secondary);
 	clip-path: polygon(
 		30% 0%,
 		70% 0%,
@@ -71,11 +73,10 @@ body {
 		0% 70%,
 		0% 30%
 	);
-	align-items: center;
-	background: var(--color-secondary);
 	display: inline-flex;
 	justify-content: center;
-	filter: drop-shadow(10px 10px 10px red);
+	padding: 2px;
+	position: relative;
 }
 .icon-wrapper .icon {
 	clip-path: polygon(
@@ -89,7 +90,9 @@ body {
 		0% 30%
 	);
 	background: #073942;
-	box-shadow: inset 0 0 10px #000;
+}
+.icon-wrapper:hover .icon {
+	background: #174952;
 }
 
 /* PEGI */
@@ -105,4 +108,10 @@ body {
 }
 .pegi__icon .icon {
 	padding: 4px;
+}
+
+@media (min-width: 1024px) {
+	.pegi__icon {
+		width: 60px;
+	}
 }

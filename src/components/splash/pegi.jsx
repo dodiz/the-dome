@@ -5,27 +5,41 @@ class Pegi extends Component {
 		return (
 			<div className="pegi">
 				<span className="icon-wrapper pegi__icon">
-					<img
-						className="icon"
-						src="/images/pegi/bad-language.png"
-						alt="Bad Language"
-					/>
+					<span className="icon-clipper">
+						<img
+							className="icon"
+							src="/images/pegi/bad-language.png"
+							alt="Bad Language"
+						/>
+					</span>
 				</span>
 				<span className="icon-wrapper pegi__icon">
-					<img
-						className="icon"
-						src="/images/pegi/discrimination.png"
-						alt="Discrimination"
-					/>
+					<span className="icon-clipper">
+						<img
+							className="icon"
+							src="/images/pegi/discrimination.png"
+							alt="Discrimination"
+						/>
+					</span>
 				</span>
-				<span className=" icon-wrapper pegi__icon">
-					<img className="icon " src="/images/pegi/drugs.png" alt="Drugs" />
+				<span className="icon-wrapper pegi__icon">
+					<span className="icon-clipper">
+						<img className="icon " src="/images/pegi/drugs.png" alt="Drugs" />
+					</span>
 				</span>
-				<span className=" icon-wrapper pegi__icon  ">
-					<img className="icon " src="/images/pegi/sex.png" alt="Sex" />
+				<span className="icon-wrapper pegi__icon">
+					<span className=" icon-clipper ">
+						<img className="icon " src="/images/pegi/sex.png" alt="Sex" />
+					</span>
 				</span>
-				<span className=" icon-wrapper pegi__icon">
-					<img className="icon " src="/images/pegi/violent.png" alt="Violent" />
+				<span className="icon-wrapper pegi__icon">
+					<span className="icon-clipper">
+						<img
+							className="icon"
+							src="/images/pegi/violent.png"
+							alt="Violent"
+						/>
+					</span>
 				</span>
 			</div>
 		)
