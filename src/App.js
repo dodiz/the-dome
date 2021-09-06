@@ -16,6 +16,7 @@ function App() {
       <Background />
       <main className="main">
         <Logo />
+        test
         <Pegi />
       </main>
     </ArwesProvider>
