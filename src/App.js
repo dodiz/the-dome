@@ -1,9 +1,11 @@
 import React from "react"
 
+import Background from "./components/background"
 import Logo from "./components/logo"
 import SplashMenu from "./components/splashMenu"
-import ArwesProvider from "./tools/arwesProvider"
 import Pegi from "./components/splash/pegi"
+
+import ArwesProvider from "./tools/arwesProvider"
 
 import "./style.css"
 
@@ -11,8 +13,11 @@ function App() {
 
   return (
     <ArwesProvider>
-      <Logo />
-      <Pegi />
+      <Background />
+      <main className="main">
+        <Logo />
+        <Pegi />
+      </main>
     </ArwesProvider>
   )
 }
