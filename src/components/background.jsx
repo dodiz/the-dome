@@ -8,9 +8,8 @@ class Background extends React.Component {
 	horizontalLineSpace = 15
 
 	componentDidMount() {
-		const horizontalLines = Math.floor(
-			window.innerHeight / this.horizontalLineSpace
-		)
+		const horizontalLines =
+			Math.floor(window.innerHeight / this.horizontalLineSpace) + 1
 		this.setState({
 			horizontalLines
 		})

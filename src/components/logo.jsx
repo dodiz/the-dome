@@ -1,5 +1,3 @@
-import { Animator, withAnimator } from "@arwes/animation"
-import { FrameBox } from "@arwes/core"
 import React, { Component } from "react"
 
 import anime from "animejs"
