@@ -2,7 +2,6 @@ import React from "react"
 
 import Background from "./components/background"
 import Logo from "./components/logo"
-import SplashMenu from "./components/splashMenu"
 import Pegi from "./components/splash/pegi"
 
 import ArwesProvider from "./tools/arwesProvider"
@@ -15,6 +14,7 @@ function App() {
     <ArwesProvider>
       <Background />
       <main className="main">
+
         <Logo />
         <Pegi />
       </main>
