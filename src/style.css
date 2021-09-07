@@ -39,11 +39,15 @@ body {
 	background: #000;
 	z-index: -1;
 }
-.background__radial {
+.background__container {
 	position: absolute;
+	top: 0;
 	z-index: 0;
-	width: 100%;
+	display: block;
 	height: 100%;
+	width: 100%;
+}
+.background__radial {
 	background-image: radial-gradient(
 		rgba(39, 225, 250, 0.08) 25%,
 		transparent 100%
@@ -53,7 +57,6 @@ body {
 }
 
 .background__linear-container {
-	z-index: 0;
 	opacity: 0;
 	animation: animateOpacity 1s forwards;
 }
@@ -67,19 +70,32 @@ body {
 	box-shadow: 0 0 1px #000;
 	opacity: 0.1;
 }
-.background__dotted-container {
-	position: absolute;
-	z-index: 0;
-	display: block;
-	height: 100%;
-	width: 100%;
-}
 .background__dotted-line {
 	stroke: var(--color-primary);
 	stroke-dasharray: 6;
 	animation: animateVerticalLines 2s forwards;
 	stroke-dashoffset: 2000;
 	stroke-width: 1;
+}
+.background__circuit-container {
+	opacity: 0.1;
+	filter: drop-shadow(0 0 10px white);
+	stroke-dasharray: 1300;
+	stroke-dashoffset: 1300;
+	animation: animateVerticalLines 2s forwards;
+}
+.background__circuit-line {
+	fill: none;
+	stroke: var(--color-secondary);
+	stroke-width: 1;
+}
+.background__circuit-line-light {
+	fill: none;
+	stroke: white;
+	stroke-width: 1;
+}
+.background__circuit-dot {
+	fill: var(--color-secondary);
 }
 
 @media (min-width: 1024px) {
