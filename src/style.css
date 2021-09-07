@@ -49,7 +49,7 @@ body {
 }
 .background__radial {
 	background-image: radial-gradient(
-		rgba(39, 225, 250, 0.08) 25%,
+		rgba(39, 225, 250, 0.1) 25%,
 		transparent 100%
 	);
 	background-repeat: no-repeat;
@@ -68,7 +68,7 @@ body {
 	height: 1px;
 	background: var(--color-primary);
 	box-shadow: 0 0 1px #000;
-	opacity: 0.3;
+	opacity: 0.6;
 }
 .background__dotted-line {
 	stroke: var(--color-primary);
@@ -81,19 +81,31 @@ body {
 	stroke-dasharray: 1300;
 	stroke-dashoffset: 1300;
 	animation: animateVerticalLines 2s forwards;
-	opacity: 0.5;
+	opacity: 0.6;
 }
 .background__circuit-line {
 	fill: none;
-	stroke: #043b3b;
+	stroke: #065858;
 	stroke-width: 1;
 }
 .background__circuit-line-light {
 	fill: none;
-	stroke: #043b3b;
-	stroke-width: 1;
 	filter: drop-shadow(0 0 10px #ffffff66);
+	opacity: 0.5;
+	stroke-linejoin: round;
+	stroke-width: 1;
+	stroke: white;
+	animation: animateLine 1s infinite;
 }
+@keyframes animateLine {
+	from {
+		stroke-dasharray: 0 0 20 150%;
+	}
+	to {
+		stroke-dasharray: 0 100% 20 0;
+	}
+}
+
 .background__circuit-dot {
 	fill: #043b3b;
 }
@@ -118,7 +130,7 @@ body {
 /* brand */
 .brand {
 	margin: 0 auto 2rem auto;
-	padding: 0 5px;
+	padding: 0 15px;
 }
 .brand__logo {
 	fill-rule: evenodd;

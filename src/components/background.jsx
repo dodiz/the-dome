@@ -16,8 +16,8 @@ class Background extends React.Component {
 		circuitLines: []
 	}
 
-	horizontalLineSpace = 15
-	verticalLineSpace = 150
+	horizontalLineSpace = 10
+	verticalLineSpace = 100
 
 	componentDidMount() {
 		this.draw()
