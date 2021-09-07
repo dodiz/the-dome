@@ -23,6 +23,9 @@ class Background extends React.Component {
 		this.draw()
 		window.addEventListener("resize", this.draw)
 	}
+	componentWillUnmount() {
+		window.removeEventListener("resize", this.draw)
+	}
 	draw = () => {
 		const height = window.innerHeight
 		const width = window.innerWidth
