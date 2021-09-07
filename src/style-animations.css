@@ -14,3 +14,8 @@
 		background-size: 100% 100%;
 	}
 }
+@keyframes animateVerticalLines {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
