@@ -20,6 +20,10 @@ class Background extends React.Component {
 	verticalLineSpace = 150
 
 	componentDidMount() {
+		this.draw()
+		window.addEventListener("resize", this.draw)
+	}
+	draw = () => {
 		const height = window.innerHeight
 		const width = window.innerWidth
 
@@ -43,7 +47,7 @@ class Background extends React.Component {
 			circuitLines
 		})
 	}
-	getLinesPositions(width, space) {
+	getLinesPositions = (width, space) => {
 		const length = Math.floor(width / space)
 
 		const itemsPositions = []

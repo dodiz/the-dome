@@ -68,7 +68,7 @@ body {
 	height: 1px;
 	background: var(--color-primary);
 	box-shadow: 0 0 1px #000;
-	opacity: 0.1;
+	opacity: 0.3;
 }
 .background__dotted-line {
 	stroke: var(--color-primary);
@@ -78,24 +78,24 @@ body {
 	stroke-width: 1;
 }
 .background__circuit-container {
-	opacity: 0.1;
-	filter: drop-shadow(0 0 10px white);
 	stroke-dasharray: 1300;
 	stroke-dashoffset: 1300;
 	animation: animateVerticalLines 2s forwards;
+	opacity: 0.5;
 }
 .background__circuit-line {
 	fill: none;
-	stroke: var(--color-secondary);
+	stroke: #043b3b;
 	stroke-width: 1;
 }
 .background__circuit-line-light {
 	fill: none;
-	stroke: white;
+	stroke: #043b3b;
 	stroke-width: 1;
+	filter: drop-shadow(0 0 10px #ffffff66);
 }
 .background__circuit-dot {
-	fill: var(--color-secondary);
+	fill: #043b3b;
 }
 
 @media (min-width: 1024px) {
