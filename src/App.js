@@ -1,13 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 
-import Background from "./components/background"
-import Logo from "./components/logo"
 import Pegi from "./components/splash/pegi"
+import Background from "./components/background"
+import Brand from "./components/brand"
 
 import ArwesProvider from "./tools/arwesProvider"
 
 import "./style.css"
-import { Text } from "@arwes/core"
 
 function App() {
 
@@ -15,9 +14,7 @@ function App() {
     <ArwesProvider>
       < Background />
       <main className="main">
-
-        <Logo />
-        <Text className="brand__subtitle" as="div">A cyberpunk play by chat</Text>
+        <Brand />
         <Pegi />
       </main>
     </ArwesProvider>

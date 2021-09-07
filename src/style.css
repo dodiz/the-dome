@@ -6,7 +6,7 @@
 
 :root {
 	--color-primary: #02161a;
-	--color-secondary: #6aa0aa;
+	--color-secondary: #73e4de;
 	--color-accent: #ff3400;
 	--color-headings: #1b0760;
 	--color-body: #ccc;
@@ -117,6 +117,9 @@ body {
 
 /* brand */
 .brand {
+	margin: 0 2rem 3rem 2rem;
+}
+.brand__logo {
 	fill-rule: evenodd;
 	fill: rgba(255, 255, 255, 0);
 	stroke-dasharray: 350;
@@ -125,15 +128,16 @@ body {
 	stroke-width: 2px;
 	transition: stroke-dashoffset 5s;
 	stroke-dashoffset: 350;
+	height: 22px;
+	width: 100%;
 	animation: brand-animation 3s 2s forwards;
-	width: 80%;
-	height: 80px;
-	margin: 0 auto;
 }
 .brand__subtitle {
-	margin: 0.8rem 0 2rem 0;
 	text-transform: uppercase;
-	text-align: center;
+	text-align: right;
+	font-size: 1.2rem;
+	width: 100%;
+	color: var(--color-secondary);
 }
 
 @keyframes brand-animation {
@@ -147,6 +151,17 @@ body {
 	}
 }
 
+@media (min-width: 768px) {
+	.brand {
+		margin: 0 auto 2rem auto;
+	}
+	.brand__logo {
+		height: 44px;
+	}
+	.brand__subtitle {
+		font-size: 1.5rem;
+	}
+}
 /* Icon */
 
 .icon {

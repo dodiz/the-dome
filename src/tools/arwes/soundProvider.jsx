@@ -1,8 +1,8 @@
 import React from "react"
 import { BleepsProvider } from "@arwes/sounds"
 
-const SOUND_OBJECT_URL = "https://playground.arwes.dev/assets/sounds/object.mp3"
-const SOUND_TYPE_URL = "https://playground.arwes.dev/assets/sounds/type.mp3"
+const SOUND_OBJECT_URL = "/sounds/object.mp3"
+const SOUND_TYPE_URL = "/sounds/type.mp3"
 const audioSettings = { common: { volume: 0.25 } }
 const playersSettings = {
 	object: { src: [SOUND_OBJECT_URL] },

@@ -1,19 +1,24 @@
 import React from "react"
-import { ArwesThemeProvider, StylesBaseline } from "@arwes/core"
+import { createTheme } from "@arwes/design"
+import { ArwesThemeProvider } from "@arwes/core"
 
-const basicStyle = {
-	body: {
-		background: "none"
+const theme = createTheme({
+	palette: {
+		// Default theme palette basic colors.
+		tonalOffset: 0.1,
+		primary: { main: "#f00" },
+		secondary: { main: "#ff0" },
+		success: { main: "#0f0" },
+		error: { main: "#f00" },
+
+		// Default theme palette elevation colors.
+		elevationOffset: 0.025,
+		neutral: { main: "#000" }
 	}
-}
+})
 
 const Themeprovider = ({ children }) => {
-	return (
-		<ArwesThemeProvider>
-			<StylesBaseline styles={basicStyle} />
-			{children}
-		</ArwesThemeProvider>
-	)
+	return <ArwesThemeProvider theme={theme}>{children}</ArwesThemeProvider>
 }
 
 export default Themeprovider
