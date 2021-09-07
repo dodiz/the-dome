@@ -7,11 +7,14 @@ class Logo extends Component {
 	render() {
 		return (
 			<div className="brand">
-				<svg className="brand__logo">
+				<svg className="brand__logo" viewBox="0 0 500 40">
 					<use xlinkHref="images/sprite.svg#logo"></use>
 				</svg>
-				<Text className="brand__subtitle" as="div">
-					A cyberpunk play by chat
+				<Text
+					animator={{ duration: { enter: 500, delay: 3000 } }}
+					className="brand__subtitle"
+					as="h2">
+					An rpg scifi play by chat
 				</Text>
 			</div>
 		)

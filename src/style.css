@@ -7,7 +7,7 @@
 :root {
 	--color-primary: #02161a;
 	--color-secondary: #73e4de;
-	--color-accent: #ff3400;
+	--color-accent: rgba(255, 238, 0, 0.863);
 	--color-headings: #1b0760;
 	--color-body: #ccc;
 	--color-body-darker: #5c5577;
@@ -117,7 +117,8 @@ body {
 
 /* brand */
 .brand {
-	margin: 0 2rem 3rem 2rem;
+	margin: 0 auto 2rem auto;
+	padding: 0 5px;
 }
 .brand__logo {
 	fill-rule: evenodd;
@@ -128,7 +129,6 @@ body {
 	stroke-width: 2px;
 	transition: stroke-dashoffset 5s;
 	stroke-dashoffset: 350;
-	height: 22px;
 	width: 100%;
 	animation: brand-animation 3s 2s forwards;
 }
@@ -137,7 +137,7 @@ body {
 	text-align: right;
 	font-size: 1.2rem;
 	width: 100%;
-	color: var(--color-secondary);
+	color: var(--color-accent);
 }
 
 @keyframes brand-animation {
@@ -152,12 +152,6 @@ body {
 }
 
 @media (min-width: 768px) {
-	.brand {
-		margin: 0 auto 2rem auto;
-	}
-	.brand__logo {
-		height: 44px;
-	}
 	.brand__subtitle {
 		font-size: 1.5rem;
 	}
