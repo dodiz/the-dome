@@ -63,14 +63,14 @@ class Background extends React.Component {
 
 		return (
 			<div className="background">
-				<div className="background__horizontal-container">
+				<div className="background__linear-container">
 					{Array(horizontalLines)
 						.fill()
 						.map((_, index) => (
 							<div
 								key={index}
 								style={{ top: `${index * this.horizontalLineSpace}px` }}
-								className="background__horizontal-line"
+								className="background__linear-line"
 							/>
 						))}
 				</div>

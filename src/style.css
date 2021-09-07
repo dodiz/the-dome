@@ -53,7 +53,6 @@ body {
 }
 
 .background__linear-container {
-	position: absolute;
 	z-index: 0;
 	opacity: 0;
 	animation: animateOpacity 1s forwards;
@@ -66,13 +65,11 @@ body {
 	height: 1px;
 	background: var(--color-primary);
 	box-shadow: 0 0 1px #000;
-	opacity: 0.5;
+	opacity: 0.1;
 }
 .background__dotted-container {
 	position: absolute;
 	z-index: 0;
-	opacity: 0;
-	animation: animateOpacity 0.5s 0.5s forwards;
 	display: block;
 	height: 100%;
 	width: 100%;
