@@ -27,7 +27,7 @@ body {
 	line-height: 1.5;
 	margin: 0;
 	padding: 0;
-	background: none;
+	background: transparent;
 }
 
 /* BACKGROUND */
@@ -90,22 +90,11 @@ body {
 }
 .background__circuit-line-light {
 	fill: none;
-	filter: drop-shadow(0 0 10px #ffffff66);
-	opacity: 0.5;
+	opacity: 0;
 	stroke-linejoin: round;
 	stroke-width: 1;
 	stroke: white;
-	animation: animateLine 1s infinite;
 }
-@keyframes animateLine {
-	from {
-		stroke-dasharray: 0 0 20 150%;
-	}
-	to {
-		stroke-dasharray: 0 100% 20 0;
-	}
-}
-
 .background__circuit-dot {
 	fill: #043b3b;
 }
@@ -116,7 +105,26 @@ body {
 		animation: animateBackgroundSize 0.5s 1s forwards;
 	}
 }
+/* Assemble */
+.assemble {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #0a0a0a;
+}
+.assemble__popup {
+	border: 1px solid #333;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+.assemble__text {
+	color: var(--color-primary);
+}
 
+.assemble__button {
+}
 /* main */
 .main {
 	height: 100vh;
@@ -130,37 +138,20 @@ body {
 /* brand */
 .brand {
 	margin: 0 auto 2rem auto;
-	padding: 0 15px;
+	padding: 0 1rem;
 }
 .brand__logo {
 	fill-rule: evenodd;
-	fill: rgba(255, 255, 255, 0);
-	stroke-dasharray: 350;
-	stroke: white;
 	stroke-linecap: round;
-	stroke-width: 2px;
-	transition: stroke-dashoffset 5s;
-	stroke-dashoffset: 350;
 	width: 100%;
-	animation: brand-animation 3s 2s forwards;
+	fill: none;
+	stroke: white;
+	filter: drop-shadow(0 0 2px var(--color-secondary));
 }
 .brand__subtitle {
 	text-transform: uppercase;
-	text-align: right;
 	font-size: 1.2rem;
-	width: 100%;
 	color: var(--color-accent);
-}
-
-@keyframes brand-animation {
-	from {
-		stroke-dashoffset: 350;
-	}
-	to {
-		fill: white;
-		stroke-width: 0;
-		stroke-dashoffset: 0;
-	}
 }
 
 @media (min-width: 768px) {
@@ -218,7 +209,7 @@ body {
 }
 
 .pegi__icon {
-	margin-left: 1.4rem;
+	position: absolute;
 }
 .pegi__icon:nth-child(1) {
 	margin-left: 0;

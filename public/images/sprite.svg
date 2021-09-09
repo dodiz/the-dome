@@ -1,12 +1,13 @@
-<svg width="0" height="0">
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 319 25" id="logo">
+<svg>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 317 25" id="logo">
+
       <!-- T -->
-        <path d="M 1 1 H 13 V 5 H 5 V 25 H 1 V 1" /> 
+        <path class="brand__logo__path" d="M 1 1 H 13 V 5 H 5 V 25 H 1 V 1" /> 
       <!-- H -->
-        <path d="M 17 25 V 15 L 21 11 H 33 V 1 H 37 V 25 H 33 V 15 H 21 V 25 H 17" /> 
+        <path class="brand__logo__path" d="M 17 25 V 15 L 21 11 H 33 V 1 H 37 V 25 H 33 V 15 H 21 V 25 H 17" /> 
       <!-- E -->
-        <path d="M 41 25 H 56 V 21 H 45 L 41 25 M 41 1 H 56 V 5 H 45 L 41 1 M 41 11 H 56 V 15 H 41 V 11" /> 
-      
+        <path class="brand__logo__path"  d="M 41 25 H 56 V 21 H 45 L 41 25 M 41 1 H 56 V 5 H 45 L 41 1 M 41 11 H 56 V 15 H 41 V 11" /> 
+
       <!-- D -->
         <path d="M 67 1 H 75 C 89 1 89 25 75 25 H 67 L 71 21 H 75 C 84 21 84 5 75 5 H 70 L 67 1" />
       <!-- O -->

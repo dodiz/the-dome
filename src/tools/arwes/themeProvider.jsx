@@ -1,6 +1,6 @@
 import React from "react"
 import { createTheme } from "@arwes/design"
-import { ArwesThemeProvider } from "@arwes/core"
+import { ArwesThemeProvider, StylesBaseline } from "@arwes/core"
 
 const theme = createTheme({
 	palette: {

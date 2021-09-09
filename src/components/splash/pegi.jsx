@@ -3,15 +3,32 @@ import anime from "animejs"
 
 class Pegi extends Component {
 	componentDidMount() {
-		const pegis = document.querySelectorAll(".pegi__icon")
+		this.animateEnter()
+	}
+
+	animateEnter() {
+		const delay = 2000
+		const duration = 300
+		const space = 150
 
 		anime({
-			targets: pegis,
+			targets: ".pegi__icon",
 			easing: "easeOutCubic",
-			translateX: (link, index) => [[-120, -60, 0, 60, 120][index], 0],
-			delay: 1000,
-			duration: 1000,
-			complete: () => {}
+			translateY: {
+				delay,
+				duration,
+				value: ["200%", 0]
+			},
+			opacity: {
+				delay,
+				duration,
+				value: [0, 1]
+			},
+			translateX: {
+				value: (_, i, t) => `${space * i - (space * (t - 1)) / 2}%`,
+				delay: delay + duration,
+				duration
+			}
 		})
 	}
 
