@@ -1,31 +1,18 @@
 import React from "react"
 import { BleepsProvider } from "@arwes/sounds"
+import soundConfig from "../../config/sound.json"
 
 const SOUND_OBJECT_URL = "/sounds/object.mp3"
 const SOUND_TYPE_URL = "/sounds/type.mp3"
 const SOUND_ASSEMBLE_URL = "/sounds/assemble.mp3"
 const SOUND_CLICK_URL = "/sounds/click.mp3"
 
-const audioSettings = { common: { volume: 0.5 } }
-
-const playersSettings = {
-	object: { src: [SOUND_OBJECT_URL] },
-	assemble: { src: [SOUND_ASSEMBLE_URL], loop: true },
-	type: { src: [SOUND_TYPE_URL], loop: true },
-	click: { src: [SOUND_CLICK_URL] }
-}
-const bleepsSettings = {
-	assemble: { player: "assemble" },
-	type: { player: "type" },
-	click: { player: "click" }
-}
-
 const SoundProvider = ({ children }) => {
 	return (
 		<BleepsProvider
-			audioSettings={audioSettings}
-			playersSettings={playersSettings}
-			bleepsSettings={bleepsSettings}>
+			audioSettings={soundConfig.common}
+			playersSettings={soundConfig.players}
+			bleepsSettings={soundConfig.bleeps}>
 			{children}
 		</BleepsProvider>
 	)

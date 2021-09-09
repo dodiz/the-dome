@@ -6,10 +6,6 @@ class Assemble extends Component {
 		activate: true
 	}
 
-	classes = {
-		box: "assemble__popup"
-	}
-
 	activate = () => {
 		const { onAssemble } = this.props
 		this.setState({ activate: false })
@@ -24,7 +20,7 @@ class Assemble extends Component {
 				<FrameBox animator={{ activate }}>
 					<div className="assemble__popup">
 						<Text className="assemble__text" animator={{ activate }} as="div">
-							The dome project utilizza suoni
+							The Dome Project utilizza suoni
 						</Text>
 						<Button onClick={this.activate} animator={{ activate }}>
 							<Text className="assemble__button">Inizia</Text>
