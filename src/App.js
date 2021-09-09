@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import { Button, Text } from "@arwes/core"
-import { toast, ToastContainer } from "react-toastify"
+import React, { useState, useEffect } from "react"
+import { Button, Text, FrameBox } from "@arwes/core"
+import { Slide, toast, ToastContainer } from "react-toastify"
 
 import Pegi from "./components/splash/pegi"
 import Background from "./components/background"
@@ -9,23 +9,22 @@ import Assemble from "./components/assemble"
 
 import ArwesProvider from "./tools/arwesProvider"
 
-import "./style.css"
 import 'react-toastify/dist/ReactToastify.css'
+import "./style.css"
 
 function App() {
 
   const [assemble, setAssemble] = useState( false )
 
-
   return (
     <ArwesProvider>
-      <ToastContainer />
+      <ToastContainer theme="dark" draggablePercent={60} transition={Slide} icon={false} limit={4} />
       {assemble
         ? <>
           < Background />
           <main className="main">
             <Brand />
-            <Button onClick={() => toast.error( "This function is not available yet" )} style={{ width: "200px", fontSize: "2rem", margin: "0 auto 3rem auto" }} animator={{ duration: { delay: 5000 } }}><Text>Explore</Text></Button>
+            <Button palette="secondary" onClick={() => toast.error( "This function is not available yet" )} style={{ width: "200px", fontSize: "2rem", margin: "0 auto 3rem auto" }} animator={{ duration: { delay: 5000 } }}><Text>Explore</Text></Button>
             <Pegi />
           </main>
         </>
