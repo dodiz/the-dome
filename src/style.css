@@ -7,7 +7,7 @@
 :root {
 	--color-primary: #02161a;
 	--color-secondary: #73e4de;
-	--color-accent: rgba(255, 238, 0, 0.863);
+	--color-accent: rgb(255, 238, 0);
 	--color-headings: #1b0760;
 	--color-body: #ccc;
 	--color-body-darker: #5c5577;
@@ -114,16 +114,20 @@ body {
 	background: #0a0a0a;
 }
 .assemble__popup {
-	border: 1px solid #333;
-	padding: 2rem;
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 }
 .assemble__text {
-	color: var(--color-primary);
+	color: var(--color-secondary);
+	display: block;
+	margin-bottom: 1rem;
 }
 
 .assemble__button {
+	font-size: 1.5rem;
+	display: inline-block;
+	color: var(--color-secondary);
 }
 /* main */
 .main {

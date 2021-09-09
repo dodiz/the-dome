@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify"
 import Pegi from "./components/splash/pegi"
 import Background from "./components/background"
 import Brand from "./components/brand"
+import Assemble from "./components/assemble"
 
 import ArwesProvider from "./tools/arwesProvider"
 
@@ -28,12 +29,7 @@ function App() {
             <Pegi />
           </main>
         </>
-        : <div className="assemble">
-          <div className="assemble__popup">
-            <Text as="div">The dome project utilizza suoni</Text>
-            <Button className="assemble__button" onClick={() => setAssemble( true )}><Text>Assemble</Text></Button>
-          </div>
-        </div>
+        : <Assemble onAssemble={() => setAssemble( true )} />
       }
     </ArwesProvider >
   )
