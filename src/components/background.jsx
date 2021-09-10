@@ -1,7 +1,9 @@
 import React from "react"
+import anime from "animejs"
+
 import withSound from "../hoc/withSound"
 
-function getRandomNumber(min = 0, max = 1, decimal) {
+const getRandomNumber = (min = 0, max = 1, decimal) => {
 	let random = Math.random() * (max - min)
 	if (!decimal) {
 		random = Math.round(random)
@@ -23,6 +25,7 @@ class Background extends React.Component {
 	componentDidMount() {
 		this.draw()
 		this.play()
+		this.animate()
 		window.addEventListener("resize", this.draw)
 	}
 	componentWillUnmount() {
@@ -54,6 +57,37 @@ class Background extends React.Component {
 			verticalLinesPositions,
 			horizontalLinesPositions,
 			circuitLines
+		})
+	}
+	animate = () => {
+		const pathsAll = Array.from(
+			document.querySelectorAll(".background__circuit-line-light")
+		)
+
+		const paths = Array(getRandomNumber(2, 4))
+			.fill(0)
+			.map(() => pathsAll[getRandomNumber(0, pathsAll.length - 1)])
+
+		let longestDuration = 0
+
+		const length = 30
+		//const circuitDuration = this.getPathAnimationDuration(length)
+		const size = 20
+
+		//longestDuration = Math.max(longestDuration, circuitDuration)
+		anime({
+			targets: paths[0],
+			duration: 300,
+			direction: index % 2 === 0 ? "normal" : "reverse",
+			begin: () => anime.set(path, { opacity: 1 }),
+			change: anim => {
+				const progress = length * (anim.progress / 100)
+				paths[0].setAttribute(
+					"stroke-dasharray",
+					`0 ${progress} ${size} ${length}`
+				)
+			},
+			complete: () => anime.set(path, { opacity: 0 })
 		})
 	}
 	getLinesPositions = (width, space) => {
@@ -221,7 +255,7 @@ class Background extends React.Component {
 									.join(" ")}
 							/>
 							<path
-								className={"background__circuit-line-light"}
+								className="background__circuit-line-light"
 								d={line
 									.map(
 										([x, y], pIndex) => `${pIndex === 0 ? "M" : "L"}${x},${y}`
@@ -229,7 +263,7 @@ class Background extends React.Component {
 									.join(" ")}
 							/>
 							<circle
-								className={"background__circuit-dot"}
+								className="background__circuit-dot"
 								cx={`${line[0][0]}px`}
 								cy={`${line[0][1]}px`}
 								r="3px"
