@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react"
-import { Button, Text, FrameBox } from "@arwes/core"
-import { Slide, toast, ToastContainer } from "react-toastify"
+import React, { useState } from "react"
+import { Button, Text } from "@arwes/core"
+import { toast, ToastContainer, cssTransition, Slide } from "react-toastify"
 
 import Pegi from "./components/splash/pegi"
 import Background from "./components/background"
@@ -11,6 +11,15 @@ import ArwesProvider from "./tools/arwesProvider"
 
 import 'react-toastify/dist/ReactToastify.css'
 import "./style.css"
+import "animate.css"
+
+const Slide2 = cssTransition( {
+  enter: 'zoomIn',
+  exit: 'zoomOut',
+  appendPosition: false,
+  collapse: true,
+  collapseDuration: 300
+} );
 
 function App() {
 
@@ -18,13 +27,18 @@ function App() {
 
   return (
     <ArwesProvider>
-      <ToastContainer theme="dark" draggablePercent={60} transition={Slide} icon={false} limit={4} />
+      <ToastContainer
+        theme="dark"
+        draggablePercent={60}
+        limit={4}
+        transition={Slide}
+      />
       {assemble
         ? <>
           < Background />
           <main className="main">
             <Brand />
-            <Button palette="secondary" onClick={() => toast.error( "This function is not available yet" )} style={{ width: "200px", fontSize: "2rem", margin: "0 auto 3rem auto" }} animator={{ duration: { delay: 5000 } }}><Text>Explore</Text></Button>
+            <Button palette="secondary" onClick={() => toast.error( "This function is not yet available" )} style={{ width: "200px", fontSize: "2rem", margin: "0 auto 3rem auto" }} animator={{ duration: { delay: 3000 } }}><Text>Explore</Text></Button>
             <Pegi />
           </main>
         </>

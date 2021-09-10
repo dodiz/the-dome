@@ -44,10 +44,11 @@
 		"assemble": { "player": "assemble" },
 		"type": { "player": "type" },
 		"click": { "player": "click" },
-		"logo": { "player": "logo" },
+		"logo": { "player": "logo"},
 		"start": { "player": "start" },
 		"hover": { "player": "hover" },
 		"expand": { "player": "expand" },
-		"object": { "player": "object" }
+		"object": { "player": "object" },
+		"typing": { "player": "typing" }
 	}
 }

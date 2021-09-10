@@ -1,4 +1,5 @@
 import React from "react"
+import withSound from "../hoc/withSound"
 
 function getRandomNumber(min = 0, max = 1, decimal) {
 	let random = Math.random() * (max - min)
@@ -21,10 +22,15 @@ class Background extends React.Component {
 
 	componentDidMount() {
 		this.draw()
+		this.play()
 		window.addEventListener("resize", this.draw)
 	}
 	componentWillUnmount() {
 		window.removeEventListener("resize", this.draw)
+	}
+	play() {
+		const { sounds } = this.props
+		sounds.start.play()
 	}
 	draw = () => {
 		const height = window.innerHeight
@@ -243,4 +249,4 @@ class Background extends React.Component {
 	}
 }
 
-export default Background
+export default withSound(Background)

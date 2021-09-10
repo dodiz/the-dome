@@ -15,22 +15,19 @@ class Logo extends Component {
 			targets: ".brand__logo path",
 			strokeDashoffset: [anime.setDashoffset, 0],
 			fill: "#fff",
-			strokeWidth: 0,
-
+			strokeWidth: [5, 0],
 			easing: "easeInOutSine",
 			duration: 500,
 			delay: function (_, i) {
-				return i * 100
+				return i * 60
 			}
 		})
 	}
 
 	soundEnter() {
 		const { sounds } = this.props
-		if (sounds) {
-			sounds.assemble.play()
-			setTimeout(() => this.props.sounds.assemble.stop(), 1700)
-		}
+		sounds.typing.play()
+		setTimeout(() => sounds.typing.stop(), 700)
 	}
 
 	render() {

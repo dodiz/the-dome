@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { Text, Button, FrameBox } from "@arwes/core"
+import { Text, Button, FrameCorners } from "@arwes/core"
+import { toast } from "react-toastify"
 
 class Assemble extends Component {
 	state = {
@@ -9,7 +10,8 @@ class Assemble extends Component {
 	activate = () => {
 		const { onAssemble } = this.props
 		this.setState({ activate: false })
-		setTimeout(onAssemble, 1000)
+		toast.info("Welcome to the dome")
+		setTimeout(onAssemble, 300)
 	}
 
 	render() {
@@ -17,16 +19,16 @@ class Assemble extends Component {
 
 		return (
 			<div className="assemble">
-				<FrameBox animator={{ activate }}>
+				<FrameCorners animator={{ activate }}>
 					<div className="assemble__popup">
 						<Text className="assemble__text" animator={{ activate }} as="div">
 							The Dome Project utilizza suoni
 						</Text>
 						<Button onClick={this.activate} animator={{ activate }}>
-							<Text className="assemble__button">Inizia</Text>
+							<Text className="assemble__button">Accedi</Text>
 						</Button>
 					</div>
-				</FrameBox>
+				</FrameCorners>
 			</div>
 		)
 	}
