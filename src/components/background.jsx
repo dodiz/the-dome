@@ -211,7 +211,7 @@ class Background extends React.Component {
 					className="background__container background__circuit-container"
 					xmlns="http://www.w3.org/2000/svg">
 					{circuitLines.map((line, index) => (
-						<g className="classes.circuit" key={index} data-index={index}>
+						<g key={index} data-index={index}>
 							<path
 								className="background__circuit-line"
 								d={line

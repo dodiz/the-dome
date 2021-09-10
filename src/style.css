@@ -1,3 +1,5 @@
+@import "./style-animations.css";
+
 *,
 *::before,
 *::after {
@@ -45,15 +47,14 @@
 	color: var(--color-error);
 }
 
-@import "./style-animations.css";
-
 html {
 	font-size: 62.5%;
 }
 
 body {
 	color: var(--color-body);
-	font-family: Electrolize, sans-serif;
+	font-family: "Titillium Web", sans-serif;
+	letter-spacing: 1px;
 	font-size: 1.6rem;
 	line-height: 1.5;
 	margin: 0;
