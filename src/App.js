@@ -19,7 +19,7 @@ function App() {
     <ArwesProvider>
       <ToastContainer
         theme="dark"
-        draggablePercent={60}
+        draggablePercent={40}
         limit={4}
         transition={Slide}
       />

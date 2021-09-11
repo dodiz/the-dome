@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import anime from "animejs"
+import withSound from "../../hoc/withSound"
 
 class Pegi extends Component {
 	componentDidMount() {
@@ -30,11 +31,12 @@ class Pegi extends Component {
 				duration
 			}
 		})
+		this.props.sounds.hover.play()
 	}
 
 	render() {
 		return (
-			<div className="pegi">
+			<div onClick={() => this.props.sounds.assemble.play()} className="pegi">
 				<span className="icon-wrapper pegi__icon">
 					<span className="icon-clipper">
 						<img
@@ -77,4 +79,4 @@ class Pegi extends Component {
 	}
 }
 
-export default Pegi
+export default withSound(Pegi)

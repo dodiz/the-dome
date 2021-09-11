@@ -70,24 +70,22 @@ class Background extends React.Component {
 
 		let longestDuration = 0
 
-		const length = 30
-		//const circuitDuration = this.getPathAnimationDuration(length)
-		const size = 20
+		paths.forEach((path, index) => {
+			const length = 30
+			//const circuitDuration = this.getPathAnimationDuration(length)
+			const size = 20
 
-		//longestDuration = Math.max(longestDuration, circuitDuration)
-		anime({
-			targets: paths[0],
-			duration: 300,
-			direction: index % 2 === 0 ? "normal" : "reverse",
-			begin: () => anime.set(path, { opacity: 1 }),
-			change: anim => {
-				const progress = length * (anim.progress / 100)
-				paths[0].setAttribute(
-					"stroke-dasharray",
-					`0 ${progress} ${size} ${length}`
-				)
-			},
-			complete: () => anime.set(path, { opacity: 0 })
+			//longestDuration = Math.max(longestDuration, circuitDuration)
+			anime({
+				targets: path,
+				duration: 300,
+				direction: index % 2 === 0 ? "normal" : "reverse",
+				begin: () => anime.set(path, { opacity: 1 }),
+				change: anim => {
+					const progress = length * (anim.progress / 100)
+				},
+				complete: () => anime.set(path, { opacity: 0 })
+			})
 		})
 	}
 	getLinesPositions = (width, space) => {
@@ -269,7 +267,7 @@ class Background extends React.Component {
 								r="3px"
 							/>
 							<circle
-								className={"background__circuit-dot"}
+								className="background__circuit-dot"
 								cx={`${line[line.length - 1][0]}px`}
 								cy={`${line[line.length - 1][1]}px`}
 								r="3px"

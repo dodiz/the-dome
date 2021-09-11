@@ -9,10 +9,10 @@
 :root {
 	--color-primary: #02161a;
 	--color-secondary: #73e4de;
-	--color-accent: #f09e67;
+	--color-accent: #f29f67;
 	--color-success: rgb(102, 255, 102);
 	--color-warning: #f1c40f;
-	--color-error: rgb(205, 80, 80);
+	--color-error: rgb(224, 113, 113);
 	--color-headings: #1b0760;
 	--color-body: #fff;
 	--color-body-darker: #5c5577;
@@ -30,7 +30,7 @@
 
 .Toastify__toast {
 	border: 1px solid var(--color-secondary);
-	background: #00f8f816;
+	background: #00a8a866;
 	box-shadow: inset 0 0px 3px #02b0b0, 0 0 3px #02b0b0;
 	border-radius: 0;
 }
@@ -90,7 +90,7 @@ body {
 
 .background__linear-container {
 	opacity: 0;
-	animation: animateOpacity 1s forwards;
+	animation: animateOpacity 1s 1s forwards;
 }
 
 .background__linear-line {
@@ -105,14 +105,14 @@ body {
 .background__dotted-line {
 	stroke: var(--color-primary);
 	stroke-dasharray: 6;
-	animation: animateVerticalLines 2s forwards;
-	stroke-dashoffset: 2000;
 	stroke-width: 1;
+	stroke-dashoffset: 100;
+	animation: animateDashoffset 1s forwards;
 }
 .background__circuit-container {
 	stroke-dasharray: 1300;
 	stroke-dashoffset: 1300;
-	animation: animateVerticalLines 2s forwards;
+	animation: animateDashoffset 1s forwards;
 	opacity: 0.6;
 }
 .background__circuit-line {
@@ -122,10 +122,10 @@ body {
 }
 .background__circuit-line-light {
 	fill: none;
-	opacity: 0;
 	stroke-linejoin: round;
 	stroke-width: 1;
 	stroke: white;
+	opacity: 0;
 }
 .background__circuit-dot {
 	fill: #043b3b;
