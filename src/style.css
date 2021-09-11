@@ -112,7 +112,7 @@ body {
 	stroke-dasharray: 1300;
 	stroke-dashoffset: 1300;
 	animation: animateDashoffset 1s forwards;
-	opacity: 0.6;
+	opacity: 0.8;
 }
 .background__circuit-line {
 	fill: none;
@@ -122,9 +122,8 @@ body {
 .background__circuit-line-light {
 	fill: none;
 	stroke-linejoin: round;
-	stroke-width: 1;
+	stroke-width: 2;
 	stroke: white;
-	opacity: 0;
 }
 .background__circuit-dot {
 	fill: #043b3b;

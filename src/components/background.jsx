@@ -16,7 +16,8 @@ class Background extends React.Component {
 		horizontalLines: 0,
 		verticalLinesPositions: [],
 		horizontalLinesPositions: [],
-		circuitLines: []
+		circuitLines: [],
+		animateCircuit: false
 	}
 
 	horizontalLineSpace = 10
@@ -59,35 +60,62 @@ class Background extends React.Component {
 			circuitLines
 		})
 	}
-	animate = () => {
-		const pathsAll = Array.from(
+
+	stopStandByAnimation() {
+		const circuitLineLights = Array.from(
 			document.querySelectorAll(".background__circuit-line-light")
 		)
 
-		const paths = Array(getRandomNumber(2, 4))
-			.fill(0)
-			.map(() => pathsAll[getRandomNumber(0, pathsAll.length - 1)])
-
-		let longestDuration = 0
-
-		paths.forEach((path, index) => {
-			const length = 30
-			//const circuitDuration = this.getPathAnimationDuration(length)
-			const size = 20
-
-			//longestDuration = Math.max(longestDuration, circuitDuration)
-			anime({
-				targets: path,
-				duration: 300,
-				direction: index % 2 === 0 ? "normal" : "reverse",
-				begin: () => anime.set(path, { opacity: 1 }),
-				change: anim => {
-					const progress = length * (anim.progress / 100)
-				},
-				complete: () => anime.set(path, { opacity: 0 })
-			})
+		anime.remove(circuitLineLights)
+		circuitLineLights.forEach(circuitLineLight => {
+			circuitLineLight.removeAttribute("style")
 		})
+		anime.set(circuitLineLights, { opacity: 0 })
 	}
+
+	animate() {
+		const run = () => {
+			const pathsAll = Array.from(
+				document.querySelectorAll(".background__circuit-line-light")
+			)
+
+			const paths = Array(getRandomNumber(2, 4))
+				.fill(0)
+				.map(() => pathsAll[getRandomNumber(0, pathsAll.length - 1)])
+
+			let longestDuration = 0
+
+			paths.forEach((path, i) => {
+				const length = 3000
+				const circuitDuration = 2000
+				const size = 20
+
+				longestDuration = Math.max(longestDuration, circuitDuration)
+
+				anime({
+					targets: path,
+					duration: circuitDuration,
+					direction: i % 2 === 0 ? "normal" : "reverse",
+					begin: () => anime.set(path, { opacity: 1 }),
+					change: anim => {
+						const progress = length * (anim.progress / 100)
+						path.setAttribute(
+							"stroke-dasharray",
+							`0 ${progress} ${size} ${length}`
+						)
+					},
+					complete: () => anime.set(path, { opacity: 0 })
+				})
+			})
+
+			this.standByAnimationId = setTimeout(run, longestDuration)
+		}
+
+		this.stopStandByAnimation()
+
+		run()
+	}
+
 	getLinesPositions = (width, space) => {
 		const length = Math.floor(width / space)
 
@@ -108,9 +136,6 @@ class Background extends React.Component {
 
 		const widthScale = width / widthOriginal
 		const heightScale = height / heightOriginal
-
-		// Lines go from left to right when they start in the left half.
-		// And go from right to left when they start in the right half.
 
 		let linesOriginal = [
 			[
