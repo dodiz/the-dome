@@ -12,7 +12,7 @@
 	--color-accent: #f29f67;
 	--color-success: rgb(102, 255, 102);
 	--color-warning: #f1c40f;
-	--color-error: rgb(0, 0, 0);
+	--color-error: var(--color-accent);
 	--color-headings: #1b0760;
 	--color-body: #fff;
 	--color-body-darker: #5c5577;
