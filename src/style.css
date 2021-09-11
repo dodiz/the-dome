@@ -79,6 +79,10 @@ body {
 	height: 100%;
 	width: 100%;
 }
+.background--animate {
+	opacity: 0;
+	animation: animateOpacity 0.5s forwards;
+}
 .background__radial {
 	background-image: radial-gradient(
 		rgba(39, 225, 250, 0.1) 25%,
@@ -86,11 +90,6 @@ body {
 	);
 	background-repeat: no-repeat;
 	background-position: center;
-}
-
-.background__linear-container {
-	opacity: 0;
-	animation: animateOpacity 1s 1s forwards;
 }
 
 .background__linear-line {

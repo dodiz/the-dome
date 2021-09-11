@@ -204,7 +204,7 @@ class Background extends React.Component {
 
 		return (
 			<div className="background">
-				<div className="background__container background__linear-container">
+				<div className="background__container background--animate">
 					{Array(horizontalLines)
 						.fill()
 						.map((_, index) => (
@@ -216,7 +216,7 @@ class Background extends React.Component {
 						))}
 				</div>
 				<svg
-					className="background__container background__dotted-container"
+					className="background__container background--animate background__dotted-container"
 					xmlns="http://www.w3.org/2000/svg">
 					{verticalLinesPositions.map((value, index) => (
 						<line
@@ -240,7 +240,7 @@ class Background extends React.Component {
 					))}
 				</svg>
 				<svg
-					className="background__container background__circuit-container"
+					className="background__container background__circuit-container background--animate"
 					xmlns="http://www.w3.org/2000/svg">
 					{circuitLines.map((line, index) => (
 						<g key={index} data-index={index}>
