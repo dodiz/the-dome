@@ -109,8 +109,8 @@ body {
 	animation: animateDashoffset 1s forwards;
 }
 .background__circuit-container {
-	stroke-dasharray: 1300;
-	stroke-dashoffset: 1300;
+	stroke-dasharray: 2000;
+	stroke-dashoffset: 2000;
 	animation: animateDashoffset 1s forwards;
 	opacity: 0.8;
 }
@@ -172,8 +172,8 @@ body {
 
 /* brand */
 .brand {
-	margin: 0 auto 2rem auto;
 	padding: 0 1rem;
+	margin: 0 auto;
 }
 .brand__logo {
 	fill-rule: evenodd;
@@ -185,11 +185,14 @@ body {
 }
 .brand__subtitle {
 	text-transform: uppercase;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: var(--color-accent);
 }
 
 @media (min-width: 768px) {
+	.brand {
+		width: 80%;
+	}
 	.brand__subtitle {
 		font-size: 1.5rem;
 	}
@@ -258,4 +261,31 @@ body {
 	.pegi__icon .icon {
 		width: 40px;
 	}
+}
+
+/* LINK */
+.link {
+	color: #cccccc;
+	text-shadow: 0 0 5px var(--color-secondary);
+	font-size: 1.6rem;
+}
+.link:hover {
+	color: #fff;
+}
+
+@media (min-width: 768px) {
+	.link {
+		font-size: 2.1rem;
+	}
+}
+
+/* splash menu */
+.splash-menu {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 3rem 0 4rem 0;
+}
+.splash-menu__link {
+	text-transform: uppercase;
+	position: relative;
 }

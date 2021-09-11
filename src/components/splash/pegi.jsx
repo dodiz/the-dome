@@ -31,7 +31,7 @@ class Pegi extends Component {
 				duration
 			}
 		})
-		setTimeout(() => this.props.sounds.logo.play(), delay)
+		setTimeout(() => this.props.sounds.assemble.play(), delay)
 	}
 
 	render() {

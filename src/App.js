@@ -29,17 +29,6 @@ function App() {
           <Background />
           <main className="main">
             <Brand />
-            <Button
-              palette="secondary"
-              onClick={() => toast.error( "This function is not yet available" )}
-              style={{
-                width: "200px",
-                fontSize: "2rem",
-                margin: "0 auto 3rem auto"
-              }}
-              animator={{ duration: { delay: 3000 } }}>
-              <Text>Explore</Text>
-            </Button>
             <SplashMenu />
             <Pegi />
           </main>
