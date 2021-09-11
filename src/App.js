@@ -1,12 +1,9 @@
 import React, { useState } from "react"
-import { Button, Text } from "@arwes/core"
-import { toast, ToastContainer, Slide } from "react-toastify"
+import { ToastContainer, Slide } from "react-toastify"
 
 import Background from "./components/background"
-import Brand from "./components/brand"
-import Pegi from "./components/splash/pegi"
 import Assemble from "./components/splash/assemble"
-import SplashMenu from "./components/splash/menu"
+import SplashPage from "./components/splashPage"
 
 import ArwesProvider from "./tools/arwesProvider"
 
@@ -27,11 +24,7 @@ function App() {
       {assemble ? (
         <React.Fragment>
           <Background />
-          <main className="main">
-            <Brand />
-            <SplashMenu />
-            <Pegi />
-          </main>
+          <SplashPage />
         </React.Fragment>
       ) : (
         <Assemble onAssemble={() => setAssemble( true )} />
