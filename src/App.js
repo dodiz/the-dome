@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { Button, Text } from "@arwes/core"
 import { toast, ToastContainer, Slide } from "react-toastify"
 
-import Pegi from "./components/splash/pegi"
 import Background from "./components/background"
 import Brand from "./components/brand"
-import Assemble from "./components/assemble"
+import Pegi from "./components/splash/pegi"
+import Assemble from "./components/splash/assemble"
+import SplashMenu from "./components/splash/menu"
 
 import ArwesProvider from "./tools/arwesProvider"
 
@@ -39,6 +40,7 @@ function App() {
               animator={{ duration: { delay: 3000 } }}>
               <Text>Explore</Text>
             </Button>
+            <SplashMenu />
             <Pegi />
           </main>
         </React.Fragment>
