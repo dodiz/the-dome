@@ -31,12 +31,12 @@ class Pegi extends Component {
 				duration
 			}
 		})
-		this.props.sounds.hover.play()
+		setTimeout(() => this.props.sounds.logo.play(), delay)
 	}
 
 	render() {
 		return (
-			<div onClick={() => this.props.sounds.assemble.play()} className="pegi">
+			<div className="pegi">
 				<span className="icon-wrapper pegi__icon">
 					<span className="icon-clipper">
 						<img

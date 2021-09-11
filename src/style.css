@@ -124,6 +124,7 @@ body {
 	stroke-linejoin: round;
 	stroke-width: 2;
 	stroke: white;
+	opacity: 0;
 }
 .background__circuit-dot {
 	fill: #043b3b;
