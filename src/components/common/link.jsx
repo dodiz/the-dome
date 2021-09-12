@@ -7,7 +7,8 @@ import withSound from "../../hoc/withSound"
 function LinkComponent(props) {
 	return (
 		<Link
-			onMouseover={() => props.sounds.hover.play()}
+			onMouseOver={() => props.sounds.hover.play()}
+			onClick={() => props.sounds.click.play()}
 			to={props.to}
 			className="link">
 			<Text>{props.children}</Text>

@@ -4,7 +4,11 @@ import { useBleeps } from "@arwes/sounds"
 function withSound(Component) {
 	return function WithSound(props) {
 		const bleeps = useBleeps()
-		return <Component sounds={bleeps}>{props.children}</Component>
+		return (
+			<Component sounds={bleeps} {...props}>
+				{props.children}
+			</Component>
+		)
 	}
 }
 

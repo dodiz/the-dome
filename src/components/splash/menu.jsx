@@ -1,13 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 
 import Link from "../common/link"
 
 export default function SplashMenu() {
 	return (
-		<div class="splash-menu">
-			<Link>Info</Link>
-			<Link>Accedi</Link>
-			<Link>Privacy</Link>
+		<div className="splash-menu">
+			<Link to={"/info"}>Info</Link>
+			<Link to={"/login"}>Accedi</Link>
+			<Link to={"/privacy"}>Privacy</Link>
 		</div>
 	)
 }

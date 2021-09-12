@@ -6,10 +6,10 @@ const theme = createTheme({
 	palette: {
 		// Default theme palette basic colors.
 		tonalOffset: 0.1,
-		primary: { main: "#f00" },
-		secondary: { main: "#ff0" },
-		success: { main: "#0f0" },
-		error: { main: "#f00" },
+		primary: { main: "var(--color-secondary)" },
+		secondary: { main: "var(--color-accent)" },
+		success: { main: "var(--color-success" },
+		error: { main: "var(--color-error)" },
 
 		// Default theme palette elevation colors.
 		elevationOffset: 0.025,

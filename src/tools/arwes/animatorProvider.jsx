@@ -1,11 +1,10 @@
 import React from "react"
 import { AnimatorGeneralProvider } from "@arwes/animation"
-
-const animatorGeneral = { duration: { enter: 400, exit: 300 } }
+import animatorConfig from "../../config/animation.json"
 
 const AnimatorProvider = ({ children }) => {
 	return (
-		<AnimatorGeneralProvider animator={animatorGeneral}>
+		<AnimatorGeneralProvider animator={animatorConfig}>
 			{children}
 		</AnimatorGeneralProvider>
 	)
