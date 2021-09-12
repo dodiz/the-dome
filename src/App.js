@@ -1,9 +1,11 @@
 import React, { useState } from "react"
+import { Switch, Route } from "react-router"
 import { ToastContainer, Slide } from "react-toastify"
 
 import Background from "./components/background"
 import Assemble from "./components/splash/assemble"
 import SplashPage from "./components/splashPage"
+import InfoPage from "./components/infoPage"
 
 import ArwesProvider from "./tools/arwesProvider"
 
@@ -24,7 +26,10 @@ function App() {
       {assemble ? (
         <React.Fragment>
           <Background />
-          <SplashPage />
+          <Switch>
+            <Route path="/info" component={InfoPage} />
+            <Route exact path="/" component={SplashPage} />
+          </Switch>
         </React.Fragment>
       ) : (
         <Assemble onAssemble={() => setAssemble( true )} />

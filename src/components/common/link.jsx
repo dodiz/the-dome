@@ -10,7 +10,9 @@ function LinkComponent(props) {
 	return (
 		<Link
 			onMouseOver={() => props.sounds.hover.play()}
-			onClick={() => props.sounds.click.play()}
+			onClick={() => {
+				props.sounds.click.play()
+			}}
 			to={props.to}
 			className={`link ${className}`}>
 			<Text>{props.children}</Text>
