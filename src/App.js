@@ -28,6 +28,8 @@ function App() {
           <Background />
           <Switch>
             <Route path="/info" component={InfoPage} />
+            <Route path="/login" component={InfoPage} />
+            <Route path="/privacy" component={InfoPage} />
             <Route exact path="/" component={SplashPage} />
           </Switch>
         </React.Fragment>

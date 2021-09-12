@@ -10,7 +10,6 @@ class Assemble extends Component {
 	activate = () => {
 		const { onAssemble } = this.props
 		this.setState({ activate: false })
-		toast.info("Welcome to the dome")
 		setTimeout(onAssemble, 300)
 	}
 

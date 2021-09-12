@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Text, Button, FrameCorners } from "@arwes/core"
-import { toast } from "react-toastify"
 
 class Assemble extends Component {
 	state = {
