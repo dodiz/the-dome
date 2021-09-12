@@ -8,9 +8,11 @@ export default function SplashMenu() {
 			<Link className="splash-menu__link" to={"/info"}>
 				Info
 			</Link>
+			<em className="splash-menu__link-line" />
 			<Link className="splash-menu__link" to={"/login"}>
 				Accedi
 			</Link>
+			<em className="splash-menu__link-line" />
 			<Link className="splash-menu__link" to={"/privacy"}>
 				Privacy
 			</Link>

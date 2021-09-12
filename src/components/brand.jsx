@@ -54,7 +54,7 @@ class Logo extends Component {
 					<path d="M 304 1 H 316 V 5 H 308 V 25 H 304 V 1" />
 				</svg>
 				<Text
-					animator={{ duration: { enter: 200, delay: 3000 } }}
+					animator={{ duration: { enter: 200, delay: 1500 } }}
 					className="brand__subtitle"
 					as="h2">
 					cyberpunk rpg play by chat
