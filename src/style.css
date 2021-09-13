@@ -333,18 +333,45 @@ h2 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	padding: 1rem 2rem;
-	position: relative;
 }
-.navbar .splash-menu {
+.navbar .brand {
+	cursor: pointer;
+	flex: 1;
+}
+.collapse {
 	display: none;
 }
-@media (min-width: 768px) {
+.navbar__toggler {
+	align-items: center;
+	background: var(--color-primary);
+	cursor: pointer;
+	display: flex;
+	font-size: 2rem;
+	justify-content: center;
+	opacity: 0.8;
+	padding: 0.6rem 1rem 1rem 1rem;
+	transform: rotate(90deg);
+	transition: all 0.3s;
+}
+.navbar__toggler:hover,
+.navbar__toggler.active {
+	opacity: 1;
+	color: var(--color-accent);
+}
+.navbar__toggler::after {
+	content: "|||";
+}
+@media (min-width: 1024px) {
 	.navbar {
-		clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 100%);
+		clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
 	}
-	.navbar .splash-menu {
-		display: inline-flex;
+	.navbar__collapse {
+		display: inline-block;
+	}
+	.navbar__toggler {
+		display: none;
 	}
 }
 
