@@ -4,18 +4,22 @@ import Link from "../common/link"
 
 export default function SplashMenu() {
 	return (
-		<div className="splash-menu">
-			<Link className="splash-menu__link" to={"/info"}>
-				Info
-			</Link>
-			<em className="splash-menu__link-line" />
-			<Link className="splash-menu__link" to={"/login"}>
-				Accedi
-			</Link>
-			<em className="splash-menu__link-line" />
-			<Link className="splash-menu__link" to={"/privacy"}>
-				Privacy
-			</Link>
-		</div>
+		<ul className="list splash-menu">
+			<li className="splash-menu__item">
+				<Link className="splash-menu__link" to={"/info"}>
+					Info
+				</Link>
+			</li>
+			<li className="splash-menu__item">
+				<Link className="splash-menu__link" to={"/login"}>
+					Accedi
+				</Link>
+			</li>
+			<li className="splash-menu__item">
+				<Link className="splash-menu__link" to={"/privacy"}>
+					Privacy
+				</Link>
+			</li>
+		</ul>
 	)
 }
