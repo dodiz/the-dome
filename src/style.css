@@ -410,11 +410,14 @@ h2 {
 }
 
 /* info box */
-.box-container {
+.box {
 	margin: 1rem auto;
-	max-width: 768px;
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
 }
 .box__info {
 	animation: animateBlackBackground 1s 1s forwards;
 	padding: 1rem;
+	max-width: 1024px;
 }

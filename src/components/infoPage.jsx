@@ -6,11 +6,11 @@ const InfoPage = props => {
 	return (
 		<div>
 			<Navbar {...props} />
-			<div className="box-container">
+			<div className="box">
 				<FrameBox
 					className="arwes-framebox"
 					animator={{ duration: { enter: 1000 } }}
-					hideShapes>
+					palette="secondary">
 					<div className="box__info">
 						<Text as="h2">The Dome Project</Text>
 						<Text as="p">
