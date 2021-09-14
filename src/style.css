@@ -169,13 +169,16 @@ h2 {
 	color: var(--color-secondary);
 }
 /* main */
-.main {
+.splash {
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	max-width: 780px;
 	margin: 0 auto;
+}
+.splash .splash-menu {
+	margin: 2.5rem 0 5rem 0;
 }
 
 /* brand */
@@ -199,9 +202,6 @@ h2 {
 	bottom: 6px;
 }
 @media (min-width: 768px) {
-	.brand {
-		width: 80%;
-	}
 	.brand__subtitle {
 		font-size: 1.5rem;
 	}
@@ -294,7 +294,6 @@ h2 {
 
 /* splash menu */
 .splash-menu {
-	margin: 2.5rem 0 5rem 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -309,7 +308,7 @@ h2 {
 .splash-menu__item {
 	display: inline-block;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 	.splash-menu__item::before {
 		content: "|";
 		vertical-align: center;
@@ -328,50 +327,73 @@ h2 {
 }
 
 /* navbar*/
-.navbar {
+.nav {
 	background: rgba(0, 0, 0, 0.7);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	padding: 1rem 2rem;
+	padding: 2rem;
 }
-.navbar .brand {
+.collapse .nav__list {
+	max-height: 0;
+	opacity: 0;
+}
+.nav__list {
+	max-height: 100vh;
+	opacity: 1;
+	width: 100%;
+	transition: max-height 0.3s, opacity 0.3s;
+	overflow: hidden;
+}
+.nav__list .splash-menu {
+	flex-direction: column;
+	align-items: flex-start;
+}
+.nav__logo {
 	cursor: pointer;
-	flex: 1;
+	max-width: 80%;
 }
-.collapse {
-	display: none;
-}
-.navbar__toggler {
+.nav__toggler {
+	margin-left: auto;
 	align-items: center;
 	background: var(--color-primary);
 	cursor: pointer;
-	display: flex;
+	display: block;
 	font-size: 2rem;
 	justify-content: center;
 	opacity: 0.8;
-	padding: 0.6rem 1rem 1rem 1rem;
+	padding: 0.8rem;
 	transform: rotate(90deg);
 	transition: all 0.3s;
+	flex-wrap: nowrap;
 }
-.navbar__toggler:hover,
-.navbar__toggler.active {
+.nav__toggler:hover,
+.nav__toggler.active {
 	opacity: 1;
 	color: var(--color-accent);
 }
-.navbar__toggler::after {
+.nav__toggler::after {
 	content: "|||";
+	position: relative;
+	bottom: 2px;
 }
 @media (min-width: 1024px) {
-	.navbar {
+	.nav {
 		clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
 	}
-	.navbar__collapse {
-		display: inline-block;
-	}
-	.navbar__toggler {
+	.nav__toggler {
 		display: none;
+	}
+	.collapse .nav__list,
+	.nav__list {
+		display: flex;
+		width: auto;
+		max-height: 100%;
+		opacity: 1;
+	}
+	.nav__list .splash-menu {
+		flex-direction: row;
 	}
 }
 

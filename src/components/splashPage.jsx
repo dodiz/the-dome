@@ -6,7 +6,7 @@ import Pegi from "./splash/pegi"
 
 const SplashPage = () => {
 	return (
-		<main className="main">
+		<main className="splash">
 			<Brand />
 			<Menu />
 			<Pegi />

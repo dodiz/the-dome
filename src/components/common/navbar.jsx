@@ -11,7 +11,7 @@ const Navbar = props => {
 
 	useEffect(() => {
 		anime({
-			targets: ".navbar",
+			targets: ".nav",
 			translateY: [-200, 0],
 			duration: 1000
 		})
@@ -19,15 +19,15 @@ const Navbar = props => {
 	}, [])
 
 	return (
-		<nav className="navbar">
-			<span className="navbar__logo" onClick={() => props.history.push("/")}>
+		<nav className={`nav ${!open && "collapse"}`}>
+			<span className="nav__logo" onClick={() => props.history.push("/")}>
 				<Brand />
 			</span>
 			<span
-				className={`navbar__toggler ${open && "active"}`}
+				className={`nav__toggler ${open && "active"}`}
 				onClick={() => setOpen(prev => !prev)}
 			/>
-			<div className={`navbar__collapse ${!open && "collapse"}`}>
+			<div className="nav__list collapse">
 				<SplashMenu />
 			</div>
 		</nav>
