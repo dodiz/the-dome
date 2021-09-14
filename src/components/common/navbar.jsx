@@ -18,16 +18,18 @@ const Navbar = props => {
 		props.sounds.assemble.play()
 	}, [])
 
+	const toggleOpen = () => {
+		props.sounds.click.play()
+		setOpen(prev => !prev)
+	}
+
 	return (
-		<nav className={`nav ${!open && "collapse"}`}>
+		<nav className={`nav ${open && "collapsible--expanded"}`}>
 			<span className="nav__logo" onClick={() => props.history.push("/")}>
 				<Brand />
 			</span>
-			<span
-				className={`nav__toggler ${open && "active"}`}
-				onClick={() => setOpen(prev => !prev)}
-			/>
-			<div className="nav__list collapse">
+			<span className="nav__toggler collapsible__icon" onClick={toggleOpen} />
+			<div className="nav__list collapsible__content">
 				<SplashMenu />
 			</div>
 		</nav>
