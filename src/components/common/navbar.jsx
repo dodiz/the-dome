@@ -29,7 +29,7 @@ const Navbar = props => {
 				<Brand />
 			</span>
 			<span className="nav__toggler collapsible__icon" onClick={toggleOpen} />
-			<div className="nav__list collapsible__content">
+			<div className="nav__list collapsible__content" onClick={toggleOpen}>
 				<SplashMenu />
 			</div>
 		</nav>
