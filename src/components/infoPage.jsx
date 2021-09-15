@@ -28,7 +28,7 @@ const Feature = props => (
 	</article>
 )
 
-const FeatureComponent = props => {
+const InfoPage = props => {
 	return (
 		<div>
 			<Navbar {...props} />
