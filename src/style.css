@@ -59,7 +59,7 @@ body {
 	line-height: 1.5;
 	margin: 0;
 	padding: 0;
-	background: transparent;
+	background: #0a0a0a;
 }
 
 h2 {
@@ -68,6 +68,12 @@ h2 {
 	text-transform: uppercase;
 	text-shadow: rgb(0 248 248) 0px 0px 2px;
 	font-size: 2.8rem;
+}
+
+em {
+	color: var(--color-accent);
+	font-weight: bold;
+	font-style: normal;
 }
 /* BACKGROUND */
 
@@ -408,16 +414,26 @@ h2 {
 		flex-direction: row;
 	}
 }
+/* Grid */
+.grid {
+	display: grid;
+}
 
 /* info box */
 .box {
 	margin: 1rem auto;
-	display: flex;
-	justify-content: center;
 	padding: 2rem;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 4rem;
+	justify-items: center;
+}
+.box__preview {
+	margin-right: 3rem;
 }
 .box__info {
 	animation: animateBlackBackground 1s 1s forwards;
-	padding: 1rem;
-	max-width: 1024px;
+	align-self: center;
+}
+.box__title {
+	margin: 0;
 }
