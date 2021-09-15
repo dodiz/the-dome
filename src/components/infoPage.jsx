@@ -2,44 +2,65 @@ import React from "react"
 import Navbar from "./common/navbar"
 import { FrameBox, Figure, Text } from "@arwes/core"
 
-const InfoPage = props => {
+const Feature = props => (
+	<article className="feature grid">
+		<Figure
+			className="feature__image"
+			src={props.image}
+			palette={"secondary"}
+			alt="A nebula"
+			fluid></Figure>
+		<FrameBox
+			className="arwes-framebox feature__content"
+			animator={{ duration: { enter: 1000 } }}
+			hideShapes
+			linesWidths={[2, 0, 4, 0]}
+			palette={props.accent && "secondary"}>
+			<div className="feature__box">
+				<Text
+					as="h2"
+					className={`feature__title ${props.accent && "text--accent"}`}>
+					{props.title}
+				</Text>
+				<Text as="p">{props.children}</Text>
+			</div>
+		</FrameBox>
+	</article>
+)
+
+const FeatureComponent = props => {
 	return (
 		<div>
 			<Navbar {...props} />
-			<div className="box grid">
-				<Figure
-					className="box__preview"
-					src={"/images/preview.png"}
-					alt="A nebula"
-					fluid>
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic
-					dignissimos ipsa, architecto distinctio quis aliquid fugit pariatur
-					illum corrupti quasi.
-				</Figure>
-
-				<FrameBox
-					className="arwes-framebox box__info"
-					animator={{ duration: { enter: 1000 } }}
-					hideShapes>
-					<Text as="h2" className="box__title">
-						The world ends, the dome stands
-					</Text>
-					<Text as="p">
-						Lorem ipsum <em>dolor sit</em>, amet consectetur adipisicing elit.
-						Explicabo ad, nulla doloribus illum nam aliquam temporibus molestias
-						nesciunt laboriosam omnis! Modi ullam similique consequuntur
-						quibusdam? Error, eum nulla dignissimos eos commodi quibusdam
-						provident reprehenderit quis quia quaerat fugit minus doloribus
-						repudiandae, ad architecto excepturi animi cum earum minima! Vero
-						nisi suscipit temporibus <em>consequuntur</em> nihil incidunt atque
-						consequatur, iure asperiores at, quod delectus id magni distinctio
-						sunt nulla placeat voluptatibus ab alias nobis consectetur, quas
-						velit dolorum! Autem cumque velit sapiente unde facere rem et
-						voluptates recusandae quam, ab provident sint, sunt possimus earum,
-						incidunt dolor. Vel ratione qui impedit aliquam!
-					</Text>
-				</FrameBox>
-			</div>
+			<section>
+				<Feature image="/images/preview.png" title="What's left of us">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat
+					repudiandae, nemo molestiae sequi expedita officia ullam perspiciatis
+					quis corrupti et neque nulla commodi animi, inventore dolore
+					architecto eius! Cum maiores vel delectus amet facilis laboriosam
+					accusantium aliquid eum eveniet qui laudantium, exercitationem
+					voluptatibus corrupti recusandae. Ipsum cumque pariatur expedita.
+				</Feature>
+				<Feature
+					image="/images/meteorite.jpg"
+					accent
+					title="The world ends, the dome stands">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+					deserunt voluptates! Voluptatem autem magni amet cum nihil harum id
+					sequi illum vero maiores ipsa ex aut porro accusantium optio, nam
+					voluptates iure odio corrupti quas explicabo excepturi qui possimus.
+					Ipsum obcaecati assumenda doloribus aliquam officia praesentium est!
+					Repellendus, modi provident.
+				</Feature>
+				<Feature image="/images/ship.jpg" title="Mankind adjusted">
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
+					ducimus nihil molestiae dignissimos doloribus minima ex at autem?
+					Voluptatibus reiciendis, id sequi officia consectetur accusantium quam
+					odit doloremque? Laborum nesciunt eum optio eveniet doloribus
+					laboriosam saepe maiores perspiciatis quos, odio sit id at itaque
+					repudiandae quisquam quo suscipit sint molestias.
+				</Feature>
+			</section>
 		</div>
 	)
 }
