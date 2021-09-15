@@ -428,7 +428,7 @@ em {
 	justify-items: center;
 }
 .box__preview {
-	margin-right: 3rem;
+	margin-right: 2rem;
 }
 .box__info {
 	animation: animateBlackBackground 1s 1s forwards;
