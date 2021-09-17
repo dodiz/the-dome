@@ -51,6 +51,24 @@ html {
 	font-size: 62.5%;
 }
 
+::-webkit-scrollbar,
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+	background-color: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+	border: 2px solid var(--color-primary);
+	background-color: var(--color-secondary);
+	transition: background-color 100ms ease-out;
+}
+
 body {
 	color: var(--color-body);
 	font-family: "Titillium Web", sans-serif;
