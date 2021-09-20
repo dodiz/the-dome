@@ -1,13 +1,13 @@
-import React from "react"
-
+import React, { useState } from "react"
 import { Text } from "@arwes/core"
+
 import Icon from "../common/icon"
 
 const Explore = () => {
-	return (
-		<div className="splash__explore">
-			<Text as="h1">Explore</Text>
+	const [show, setShow] = useState(false)
 
+	return (
+		<div className="splash__explore" onMouseOver={() => setShow(true)}>
 			<Icon className="splash__explore-icon" round>
 				<a href="#explore">
 					<svg
@@ -20,6 +20,11 @@ const Explore = () => {
 					</svg>
 				</a>
 			</Icon>
+			{show && (
+				<Text as="h1" className="splash__explore-heading">
+					Esplora
+				</Text>
+			)}
 		</div>
 	)
 }
