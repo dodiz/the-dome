@@ -5,31 +5,35 @@ import FeatureComponent from "./splash/featureComponent"
 import Menu from "./splash/menu"
 import Pegi from "./splash/pegi"
 import Explore from "./splash/explore"
+import Navbar from "./common/navbar"
 
 class SplashPage extends Component {
 	state = {
-		activate: false
+		activate: false,
+		showNavbar: false
 	}
 
-	checkScroll = () => {
-		if (window.pageYOffset > 0) {
-			window.removeEventListener("scroll", this.checkScroll)
+	startAnimations = () => {
+		const showNavbar = window.pageYOffset >= window.innerHeight - 50
+		this.setState({ showNavbar })
+
+		if (window.scrollY > 10 && !this.state.activate)
 			this.setState({ activate: true })
-		}
 	}
 
 	componentDidMount() {
-		window.addEventListener("scroll", this.checkScroll)
+		window.addEventListener("scroll", this.startAnimations)
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener("scroll", this.checkScroll)
+		window.removeEventListener("scroll", this.startAnimations)
 	}
 
 	render() {
 		return (
 			<div>
-				<main className="splash">
+				<Navbar show={this.state.showNavbar} />
+				<main className="splash" onClick={this.firstScroll}>
 					<Brand />
 					<Menu />
 					<Pegi />

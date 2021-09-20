@@ -418,7 +418,7 @@ em {
 
 /* navbar*/
 .nav {
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.9);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
