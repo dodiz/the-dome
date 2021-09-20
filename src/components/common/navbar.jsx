@@ -8,7 +8,7 @@ import withSound from "../../hoc/withSound"
 
 const Navbar = props => {
 	const [open, setOpen] = useState(false)
-	const { show, history, sounds } = props
+	const { show, sounds } = props
 	useEffect(() => {
 		anime({
 			targets: ".nav",
@@ -24,8 +24,8 @@ const Navbar = props => {
 	}
 
 	return (
-		<nav className={`nav ${open && "collapsible--expanded"}`}>
-			<span className="nav__logo" onClick={() => history.push("/")}>
+		<nav className={`nav ${open && show && "collapsible--expanded"}`}>
+			<span className="nav__logo">
 				<Brand />
 			</span>
 			<span className="nav__toggler collapsible__icon" onClick={toggleOpen} />

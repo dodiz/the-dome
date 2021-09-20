@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import Brand from "./brand"
-import FeatureComponent from "./splash/featureComponent"
+import FeatureComponent from "./splash/features"
 import Menu from "./splash/menu"
 import Pegi from "./splash/pegi"
 import Explore from "./splash/explore"
