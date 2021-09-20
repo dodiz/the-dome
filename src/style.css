@@ -202,7 +202,7 @@ em {
 	display: inline-block;
 	color: var(--color-secondary);
 }
-/* main */
+/* SPLASH */
 .splash {
 	height: 100vh;
 	display: flex;
@@ -221,12 +221,17 @@ em {
 	align-items: center;
 }
 .splash__explore h1 {
-	margin: 0;
+	margin: 2.5rem 0 1rem 0;
 }
-.splash__explore-icon {
+.splash__explore-icon .icon {
 	stroke: #fff;
-	stroke-width: 0.3;
+	stroke-width: 0.6;
 	fill: none;
+	width: 40px;
+	padding: 0.6rem;
+	cursor: pointer;
+
+	animation: pulse-icon 2s infinite;
 }
 
 /* brand */
@@ -257,41 +262,45 @@ em {
 }
 
 /* Icon */
-.icon {
-	padding: 1rem;
-}
 .icon-wrapper {
 	filter: drop-shadow(0 0 2px var(--color-secondary));
 }
-.icon-clipper {
+.icon-wrapper--round .icon {
+	border-radius: 50%;
+	border: 2px solid var(--color-secondary);
+}
+.icon-wrapper--clipper .icon-sub {
+	clip-path: polygon(
+		30% 0%,
+		70% 0%,
+		100% 30%,
+		100% 70%,
+		70% 100%,
+		30% 100%,
+		0% 70%,
+		0% 30%
+	);
+	padding: 2px;
+}
+.icon-wrapper--clipper .icon {
+	clip-path: polygon(
+		30% 0%,
+		70% 0%,
+		100% 30%,
+		100% 70%,
+		70% 100%,
+		30% 100%,
+		0% 70%,
+		0% 30%
+	);
+}
+.icon-sub {
 	align-items: center;
 	background: var(--color-secondary);
-	clip-path: polygon(
-		30% 0%,
-		70% 0%,
-		100% 30%,
-		100% 70%,
-		70% 100%,
-		30% 100%,
-		0% 70%,
-		0% 30%
-	);
 	display: inline-flex;
 	justify-content: center;
-	padding: 2px;
-	position: relative;
 }
-.icon-wrapper .icon {
-	clip-path: polygon(
-		30% 0%,
-		70% 0%,
-		100% 30%,
-		100% 70%,
-		70% 100%,
-		30% 100%,
-		0% 70%,
-		0% 30%
-	);
+.icon {
 	background: #073942;
 }
 .icon-wrapper:hover .icon {
