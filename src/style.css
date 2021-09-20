@@ -424,6 +424,11 @@ em {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	padding: 2rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
 }
 .nav__list {
 	width: 100%;

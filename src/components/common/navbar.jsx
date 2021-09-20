@@ -8,24 +8,24 @@ import withSound from "../../hoc/withSound"
 
 const Navbar = props => {
 	const [open, setOpen] = useState(false)
-
+	const { show, history, sounds } = props
 	useEffect(() => {
 		anime({
 			targets: ".nav",
-			translateY: [-200, 0],
+			translateY: show ? [-200, 0] : [0, -200],
 			duration: 1000
 		})
-		props.sounds.assemble.play()
-	}, [])
+		sounds.assemble.play()
+	}, [show])
 
 	const toggleOpen = () => {
-		props.sounds.click.play()
+		sounds.click.play()
 		setOpen(prev => !prev)
 	}
 
 	return (
 		<nav className={`nav ${open && "collapsible--expanded"}`}>
-			<span className="nav__logo" onClick={() => props.history.push("/")}>
+			<span className="nav__logo" onClick={() => history.push("/")}>
 				<Brand />
 			</span>
 			<span className="nav__toggler collapsible__icon" onClick={toggleOpen} />
