@@ -226,11 +226,16 @@ em {
 	stroke: #fff;
 	stroke-width: 0.6;
 	fill: none;
-	width: 45px;
+	width: 35px;
 	padding: 0.6rem;
 	cursor: pointer;
 
 	animation: pulse-icon--secondary 2s infinite;
+}
+@media (min-width: 768px) {
+	.explore-icon .icon__image {
+		width: 45px;
+	}
 }
 
 /* brand */
