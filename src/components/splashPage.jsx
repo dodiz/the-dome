@@ -17,7 +17,6 @@ const SplashPage = () => {
 				<Explore />
 			</main>
 			<a name="explore" />
-			<Text as="h1">A new world to rebuild</Text>
 			<FeatureComponent />
 		</div>
 	)
