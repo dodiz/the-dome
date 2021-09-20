@@ -5,7 +5,7 @@ import FeatureComponent from "./splash/features"
 import Menu from "./splash/menu"
 import Pegi from "./splash/pegi"
 import Explore from "./splash/explore"
-import Navbar from "./common/navbar"
+import Navbar from "./splash/navbar"
 
 class SplashPage extends Component {
 	state = {
@@ -14,7 +14,7 @@ class SplashPage extends Component {
 	}
 
 	startAnimations = () => {
-		const showNavbar = window.pageYOffset >= window.innerHeight - 50
+		const showNavbar = window.pageYOffset >= window.innerHeight
 		this.setState({ showNavbar })
 
 		if (window.scrollY > 10 && !this.state.activate)
@@ -39,8 +39,10 @@ class SplashPage extends Component {
 					<Pegi />
 					<Explore />
 				</main>
-				<a name="explore" />
-				<FeatureComponent activate={this.state.activate} />
+				<section className="explore">
+					<a name="explore" />
+					<FeatureComponent activate={this.state.activate} />
+				</section>
 			</div>
 		)
 	}

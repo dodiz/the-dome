@@ -4,7 +4,7 @@ import Icon from "../common/icon"
 
 const Explore = () => {
 	return (
-		<div className="explore">
+		<div className="explore-container">
 			<Icon className="explore-icon" secondary round>
 				<a href="#explore">
 					<svg className="icon__image" viewBox="0 0 10 10">

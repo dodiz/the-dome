@@ -1,5 +1,5 @@
 import React from "react"
-import Navbar from "./common/navbar"
+import Navbar from "./splash/navbar"
 
 const InfoPage = props => {
 	return (

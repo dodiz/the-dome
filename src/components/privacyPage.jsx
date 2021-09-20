@@ -1,6 +1,6 @@
 import React from "react"
-import Navbar from "./common/navbar"
 import { FrameBox, Text } from "@arwes/core"
+import Navbar from "./splash/navbar"
 
 const InfoPage = props => {
 	return (
