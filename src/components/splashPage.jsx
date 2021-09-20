@@ -8,14 +8,14 @@ import Explore from "./splash/explore"
 
 class SplashPage extends Component {
 	state = {
-		show: false
+		activate: false
 	}
 
-	checkScroll() {
-		if (window.scrollY > 200) {
+	checkScroll = () => {
+		if (window.pageYOffset > 0) {
 			window.removeEventListener("scroll", this.checkScroll)
+			this.setState({ activate: true })
 		}
-		console.log(window.scrollY)
 	}
 
 	componentDidMount() {
@@ -36,7 +36,7 @@ class SplashPage extends Component {
 					<Explore />
 				</main>
 				<a name="explore" />
-				<FeatureComponent />
+				<FeatureComponent activate={this.state.activate} />
 			</div>
 		)
 	}
