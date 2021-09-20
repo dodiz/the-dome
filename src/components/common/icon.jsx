@@ -1,20 +1,19 @@
 import React from "react"
+import withSound from "../../hoc/withSound"
 
-const Icon = ({ src, alt, round, className, children }) => {
+const Icon = ({ sounds, src, alt, round, className, children }) => {
+	const Image = children || <img className="icon" src={src} alt={alt} />
+
 	return (
 		<span
+			onMouseOver={() => sounds.hover.play()}
+			onClick={() => sounds.click.play()}
 			className={`icon-wrapper ${
 				round ? "icon-wrapper--round" : "icon-wrapper--clipper"
 			} ${className || ""}`}>
-			{round ? (
-				children || <img className="icon" src={src} alt={alt} />
-			) : (
-				<span className="icon-sub">
-					{children || <img className="icon" src={src} alt={alt} />}
-				</span>
-			)}
+			{round ? Image : <span className="icon-sub">{Image}</span>}
 		</span>
 	)
 }
 
-export default Icon
+export default withSound(Icon)
