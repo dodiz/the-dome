@@ -230,7 +230,7 @@ em {
 	padding: 0.6rem;
 	cursor: pointer;
 
-	animation: pulse-icon 2s infinite;
+	animation: pulse-icon--secondary 2s infinite;
 }
 
 /* brand */

@@ -31,7 +31,7 @@
 
 @keyframes pulse-icon {
 	0% {
-		transform: scale(0.95);
+		transform: scale(0.9);
 		box-shadow: 0 0 0 0 rgba(26, 221, 255, 0.7);
 	}
 
@@ -41,7 +41,24 @@
 	}
 
 	100% {
-		transform: scale(0.95);
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+@keyframes pulse-icon--secondary {
+	0% {
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(255, 148, 26, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.9);
 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 	}
 }
