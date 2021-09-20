@@ -50,6 +50,7 @@
 
 html {
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar,
@@ -217,11 +218,11 @@ em {
 .splash__explore {
 	display: flex;
 	flex-direction: column;
-	margin-top: 7rem;
+	margin-top: 10rem;
 	align-items: center;
 }
 .splash__explore h1 {
-	margin: 2.5rem 0 1rem 0;
+	margin: 1rem;
 }
 .splash__explore-icon .icon {
 	stroke: #fff;
