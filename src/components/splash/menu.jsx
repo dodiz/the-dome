@@ -2,24 +2,31 @@ import React from "react"
 
 import Link from "../common/link"
 
+const links = [
+	{
+		label: "Info",
+		to: "/info"
+	},
+	{
+		label: "Login",
+		to: "/login"
+	},
+	{
+		label: "Privacy",
+		to: "/privacy"
+	}
+]
+
 export default function SplashMenu() {
 	return (
 		<ul className="list splash-menu">
-			<li className="splash-menu__item">
-				<Link className="splash-menu__link" to="/info">
-					Info
-				</Link>
-			</li>
-			<li className="splash-menu__item">
-				<Link className="splash-menu__link" to="/login">
-					Accedi
-				</Link>
-			</li>
-			<li className="splash-menu__item">
-				<Link className="splash-menu__link" to="/privacy">
-					Privacy
-				</Link>
-			</li>
+			{links.map(link => (
+				<li className="splash-menu__item">
+					<Link className="splash-menu__link" to={link.to}>
+						{link.label}
+					</Link>
+				</li>
+			))}
 		</ul>
 	)
 }
