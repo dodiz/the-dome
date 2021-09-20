@@ -502,6 +502,13 @@ em {
 	justify-content: center;
 	flex-direction: column;
 }
+.feature .css-15iu09m-Figure,
+.feature .css-2i6t3z-Figure,
+.feature .css-utb7zd-Figure,
+.feature .css-13ehvh8-Figure {
+	background-color: var(--color-accent);
+	box-shadow: 0 0 2px var(--color-accent);
+}
 
 @media screen and (min-width: 768px) {
 	.feature {

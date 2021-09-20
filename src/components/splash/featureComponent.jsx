@@ -6,7 +6,7 @@ const Feature = props => (
 		<Figure
 			className="feature__image"
 			src={props.image}
-			palette={"secondary"}
+			palette="secondary"
 			alt="A nebula"
 			fluid></Figure>
 		<FrameBox
@@ -14,11 +14,9 @@ const Feature = props => (
 			animator={{ duration: { enter: 1000 } }}
 			hideShapes
 			linesWidths={[2, 0, 2, 0]}
-			palette={props.accent && "secondary"}>
+			palette="secondary">
 			<div className="feature__box">
-				<Text
-					as="h2"
-					className={`feature__title ${props.accent && "text--accent"}`}>
+				<Text as="h2" className="feature__title">
 					{props.title}
 				</Text>
 				<Text as="p">{props.children}</Text>
