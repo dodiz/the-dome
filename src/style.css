@@ -8,6 +8,7 @@
 
 :root {
 	--color-primary: #02161a;
+	/* 00F8F8F8 backup secondary*/
 	--color-secondary: #73e4de;
 	--color-accent: #f29f67;
 	--color-success: rgb(102, 255, 102);
@@ -80,12 +81,17 @@ body {
 	background: #0a0a0a;
 }
 
-h2 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: bold;
 	color: var(--color-secondary);
 	text-transform: uppercase;
-	text-shadow: rgb(0 248 248) 0px 0px 2px;
-	font-size: 2.8rem;
+	letter-spacing: 0.5px;
+	text-shadow: 0 0 2px var(--color-secondary);
 }
 
 em {
@@ -95,7 +101,7 @@ em {
 }
 .text--accent {
 	color: var(--color-accent);
-	text-shadow: var(--color-accent) 0px 0px 2px;
+	text-shadow: 0 0 var(--color-accent);
 }
 /* BACKGROUND */
 
@@ -208,6 +214,20 @@ em {
 .splash .splash-menu {
 	margin: 2.5rem 0 5rem 0;
 }
+.splash__explore {
+	display: flex;
+	flex-direction: column;
+	margin-top: 7rem;
+	align-items: center;
+}
+.splash__explore h1 {
+	margin: 0;
+}
+.splash__explore-icon {
+	stroke: #fff;
+	stroke-width: 0.3;
+	fill: none;
+}
 
 /* brand */
 .brand {
@@ -226,6 +246,7 @@ em {
 	text-transform: uppercase;
 	font-size: 1.1rem;
 	color: var(--color-accent);
+	text-shadow: 0 0 2px var(--color-accent);
 	position: relative;
 	bottom: 6px;
 }
@@ -237,7 +258,7 @@ em {
 
 /* Icon */
 .icon {
-	width: 50px;
+	padding: 1rem;
 }
 .icon-wrapper {
 	filter: drop-shadow(0 0 2px var(--color-secondary));

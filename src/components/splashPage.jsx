@@ -4,6 +4,7 @@ import Brand from "./brand"
 import FeatureComponent from "./splash/featureComponent"
 import Menu from "./splash/menu"
 import Pegi from "./splash/pegi"
+import Explore from "./splash/explore"
 
 const SplashPage = () => {
 	return (
@@ -12,6 +13,7 @@ const SplashPage = () => {
 				<Brand />
 				<Menu />
 				<Pegi />
+				<Explore />
 			</main>
 			<FeatureComponent />
 		</div>
