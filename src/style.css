@@ -233,13 +233,12 @@ em {
 
 	animation: pulse-icon--secondary 2s infinite;
 }
-.explore {
-	margin-top: 10rem;
-	display: block;
-}
 @media (min-width: 768px) {
 	.explore-icon .icon__image {
 		width: 45px;
+	}
+	.explore {
+		margin-top: 12rem;
 	}
 }
 
@@ -498,7 +497,7 @@ em {
 	display: grid;
 }
 
-/* info box */
+/* FEATURES */
 .feature {
 	margin: 0 auto 3rem auto;
 	padding: 2rem;
@@ -533,3 +532,5 @@ em {
 		order: 2;
 	}
 }
+
+/* CARDS */
