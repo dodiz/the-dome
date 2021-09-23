@@ -15,12 +15,19 @@ class SplashPage extends Component {
 		showNavbar: false
 	}
 
-	startAnimations = () => {
+	animateNavbar = () => {
 		const showNavbar = window.pageYOffset >= window.innerHeight - 200
 		this.setState({ showNavbar })
 
 		if (window.scrollY > 10 && !this.state.activate)
 			this.setState({ activate: true })
+	}
+
+	componentDidMount() {
+		window.addEventListener("scroll", this.animateNavbar)
+	}
+	componentWillUnmount() {
+		window.removeEventListener("scroll", this.animateNavbar)
 	}
 
 	render() {
