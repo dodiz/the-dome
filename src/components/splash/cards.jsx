@@ -1,9 +1,10 @@
 import React from "react"
+import { Animator } from "@arwes/animation"
 import { Card, Text, Button } from "@arwes/core"
+import handleViewport from "react-in-viewport"
 
 const CardComponent = () => (
 	<Card
-		animator={{ animate: false }}
 		image={{
 			src: "https://playground.arwes.dev/assets/images/wallpaper.jpg"
 		}}
@@ -22,17 +23,19 @@ const CardComponent = () => (
 	</Card>
 )
 
-const Cards = () => {
+const Cards = props => {
 	return (
-		<section class="cards-container">
+		<section className="cards-container" ref={props.forwardedRef}>
 			<Text as="h1">Scegli la tua razza</Text>
 			<div className="cards">
-				<CardComponent />
-				<CardComponent />
-				<CardComponent />
+				<Animator animator={{ activate: props.enterCount > 0 }}>
+					<CardComponent />
+					<CardComponent />
+					<CardComponent />
+				</Animator>
 			</div>
 		</section>
 	)
 }
 
-export default Cards
+export default handleViewport(Cards)

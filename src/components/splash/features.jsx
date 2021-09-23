@@ -1,6 +1,7 @@
 import React from "react"
 import { FrameBox, Figure, Text } from "@arwes/core"
 import { Animator } from "@arwes/animation"
+import handleViewport from "react-in-viewport"
 
 const Feature = props => (
 	<article className="feature grid">
@@ -26,9 +27,9 @@ const Feature = props => (
 		</FrameBox>
 	</article>
 )
-const FeatureComponent = ({ activate }) => (
-	<section>
-		<Animator animator={{ activate }}>
+const FeatureComponent = props => (
+	<section className="explore" ref={props.forwardedRef}>
+		<Animator animator={{ activate: props.enterCount > 0 }}>
 			<Feature image="/images/preview.png" title="What's left of us">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat
 				repudiandae, nemo molestiae sequi expedita officia ullam perspiciatis
@@ -58,4 +59,4 @@ const FeatureComponent = ({ activate }) => (
 		</Animator>
 	</section>
 )
-export default FeatureComponent
+export default handleViewport(FeatureComponent)
