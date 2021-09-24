@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import handleViewport from "react-in-viewport"
 
 import Brand from "./brand"
 import Menu from "./splash/menu"
