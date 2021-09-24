@@ -12,6 +12,7 @@ const Explore = () => {
 					</svg>
 				</a>
 			</Icon>
+			<div id="explore" />
 		</div>
 	)
 }

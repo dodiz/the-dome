@@ -39,7 +39,6 @@ class SplashPage extends Component {
 					<Pegi />
 					<Explore />
 				</main>
-				<div id="explore" />
 				<Features />
 				<section className="">
 					<Cards />
