@@ -26,21 +26,21 @@ const Cards = props => {
 			<Text as="h1">Scegli la tua razza</Text>
 			<div className="cards">
 				<Animator animator={{ activate: inViewport }}>
-					<CardComponent image="https://playground.arwes.dev/assets/images/wallpaper.jpg">
+					<CardComponent image="/images/races/humans.jpg" title="Umani">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
 						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
 						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
 						reiciendis consectetur neque. Error, quod voluptate recusandae
 						accusamus et animi incidunt
 					</CardComponent>
-					<CardComponent image="https://playground.arwes.dev/assets/images/wallpaper.jpg">
+					<CardComponent title="Mutanti" image="/images/races/mutants.png">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
 						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
 						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
 						reiciendis consectetur neque. Error, quod voluptate recusandae
 						accusamus et animi incidunt
 					</CardComponent>
-					<CardComponent image="https://playground.arwes.dev/assets/images/wallpaper.jpg">
+					<CardComponent image="/images/races/robots.png" title="Sintetici">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
 						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
 						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
