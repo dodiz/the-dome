@@ -1,7 +1,8 @@
 import React from "react"
 import { FrameBox, Figure, Text } from "@arwes/core"
 import { Animator } from "@arwes/animation"
-import handleViewport from "react-in-viewport"
+
+import withScrollAnimation from "../../hoc/withScrollAnimation"
 
 const Feature = props => (
 	<article className="feature grid">
@@ -59,4 +60,4 @@ const FeatureComponent = props => (
 		</Animator>
 	</section>
 )
-export default handleViewport(FeatureComponent)
+export default withScrollAnimation(FeatureComponent)

@@ -1,25 +1,21 @@
 import React from "react"
 import { Animator } from "@arwes/animation"
 import { Card, Text, Button } from "@arwes/core"
-import handleViewport from "react-in-viewport"
+import withScrollAnimation from "../../hoc/withScrollAnimation"
 
-const CardComponent = () => (
+const CardComponent = props => (
 	<Card
 		image={{
-			src: "https://playground.arwes.dev/assets/images/wallpaper.jpg"
+			src: props.image
 		}}
-		title="Nebula"
+		title={props.title}
 		options={
 			<Button palette="secondary">
-				<Text>Learn More</Text>
+				<Text>Scopri</Text>
 			</Button>
 		}
 		style={{ maxWidth: 400 }}>
-		<Text>
-			A nebula is an interstellar cloud of dust, hydrogen, helium and other
-			ionized gases. Originally, the term was used to describe any diffused
-			astronomical object, including galaxies beyond the Milky Way.
-		</Text>
+		<Text>{props.children}</Text>
 	</Card>
 )
 
@@ -29,13 +25,31 @@ const Cards = props => {
 			<Text as="h1">Scegli la tua razza</Text>
 			<div className="cards">
 				<Animator animator={{ activate: props.enterCount > 0 }}>
-					<CardComponent />
-					<CardComponent />
-					<CardComponent />
+					<CardComponent image="https://playground.arwes.dev/assets/images/wallpaper.jpg">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
+						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
+						reiciendis consectetur neque. Error, quod voluptate recusandae
+						accusamus et animi incidunt
+					</CardComponent>
+					<CardComponent image="https://playground.arwes.dev/assets/images/wallpaper.jpg">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
+						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
+						reiciendis consectetur neque. Error, quod voluptate recusandae
+						accusamus et animi incidunt
+					</CardComponent>
+					<CardComponent image="https://playground.arwes.dev/assets/images/wallpaper.jpg">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
+						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
+						reiciendis consectetur neque. Error, quod voluptate recusandae
+						accusamus et animi incidunt
+					</CardComponent>
 				</Animator>
 			</div>
 		</section>
 	)
 }
 
-export default handleViewport(Cards)
+export default withScrollAnimation(Cards)
