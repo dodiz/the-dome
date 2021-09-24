@@ -9,19 +9,22 @@ import withSound from "../../hoc/withSound"
 const Navbar = props => {
 	const [open, setOpen] = useState(false)
 	const { show, sounds } = props
-	useEffect(() => {
+
+	const animateNavbar = () => {
 		anime({
 			targets: ".nav",
 			translateY: show ? [-200, 0] : [0, -200],
 			duration: 1000
 		})
 		sounds.assemble.play()
-	}, [show])
+	}
 
 	const toggleOpen = () => {
 		sounds.click.play()
 		setOpen(prev => !prev)
 	}
+
+	useEffect(animateNavbar, [show, sounds])
 
 	return (
 		<nav className={`nav ${open && show && "collapsible--expanded"}`}>
