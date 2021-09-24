@@ -434,6 +434,9 @@ em {
 	width: 100%;
 	z-index: 1;
 }
+.nav--static {
+	position: static;
+}
 .nav__list {
 	width: 100%;
 }
@@ -498,6 +501,9 @@ em {
 }
 
 /* FEATURES */
+.features {
+	margin-top: 3rem;
+}
 .feature {
 	margin: 0 auto 3rem auto;
 	padding: 2rem;

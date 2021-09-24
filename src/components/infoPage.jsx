@@ -1,10 +1,10 @@
 import React from "react"
 import Navbar from "./splash/navbar"
 
-const InfoPage = props => {
+const InfoPage = () => {
 	return (
 		<div>
-			<Navbar {...props} />
+			<Navbar stick show={true} />
 		</div>
 	)
 }

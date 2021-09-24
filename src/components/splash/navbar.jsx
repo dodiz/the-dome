@@ -8,7 +8,7 @@ import withSound from "../../hoc/withSound"
 
 const Navbar = props => {
 	const [open, setOpen] = useState(false)
-	const { show, sounds } = props
+	const { show, sounds, stick } = props
 
 	const animateNavbar = () => {
 		anime({
@@ -27,7 +27,10 @@ const Navbar = props => {
 	useEffect(animateNavbar, [show, sounds])
 
 	return (
-		<nav className={`nav ${open && show && "collapsible--expanded"}`}>
+		<nav
+			className={`nav ${open && show && "collapsible--expanded"} ${
+				stick && "nav--static"
+			}`}>
 			<span className="nav__logo">
 				<Brand />
 			</span>

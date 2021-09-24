@@ -2,10 +2,10 @@ import React from "react"
 import { FrameBox, Text } from "@arwes/core"
 import Navbar from "./splash/navbar"
 
-const InfoPage = props => {
+const PrivacyPage = () => {
 	return (
 		<div>
-			<Navbar {...props} />
+			<Navbar stick show={true} />
 			<div className="box">
 				<FrameBox
 					className="arwes-framebox"
@@ -36,4 +36,4 @@ const InfoPage = props => {
 	)
 }
 
-export default InfoPage
+export default PrivacyPage
