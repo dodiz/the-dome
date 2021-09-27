@@ -81,7 +81,12 @@ body {
 	padding: 0;
 	background: #0a0a0a;
 }
-
+a,
+a:hover,
+a:active,
+a:visited {
+	text-decoration: none;
+}
 h1,
 h2,
 h3,
@@ -558,7 +563,7 @@ em {
 .cards {
 	display: flex;
 	flex-direction: column;
-	margin: 0 auto;
+	margin: 0 auto 5rem auto;
 }
 .card {
 	margin: 0 auto 4rem auto;
@@ -600,10 +605,15 @@ em {
 	width: 100%;
 	margin: 0 3rem;
 }
+.login__links {
+	margin-top: 3rem;
+}
 @media screen and (min-width: 768px) {
 	.login {
-		width: 400px;
+		width: 470px;
 		margin: 0;
+		background: rgba(0, 0, 0, 0.3);
+		padding: 3rem;
 	}
 }
 
@@ -655,7 +665,7 @@ em {
 	display: flex;
 	justify-content: center;
 }
-.form-step-btn {
+.form-step-margin {
 	margin-right: 4rem;
 }
 
