@@ -115,7 +115,9 @@ class Form extends Component {
 						{currentStep > 1 && (
 							<Button
 								FrameComponent={FrameCorners}
-								className="form-step-btn"
+								className={
+									currentStep !== this.state.steps && "form-step-margin"
+								}
 								onClick={e => this.nextStep(e, -1)}>
 								Indietro
 							</Button>
