@@ -4,9 +4,9 @@ import { Animator } from "@arwes/animation"
 
 import withScrollAnimation from "../../hoc/withScrollAnimation"
 
-const EXPLORE__WHEN__URL = "/images/explore/when.png"
+const EXPLORE__WHEN__URL = "/images/explore/how.png"
 const EXPLORE__WHERE__URL = "/images/explore/where.png"
-const EXPLORE__HOW__URL = "/images/explore/how.png"
+const EXPLORE__HOW__URL = "/images/explore/when.png"
 
 const Feature = props => (
 	<article className="feature grid">
