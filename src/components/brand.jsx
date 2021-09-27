@@ -56,7 +56,7 @@ class Logo extends Component {
 				<Text
 					animator={{ duration: { enter: 200, delay: 1500 } }}
 					className="brand__subtitle"
-					as="h3">
+					as="p">
 					cyberpunk rpg play by chat
 				</Text>
 			</div>
