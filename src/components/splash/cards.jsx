@@ -29,7 +29,7 @@ const Cards = props => {
 			</div>
 			<div className="cards">
 				<Animator animator={{ activate: inViewport }}>
-					<CardComponent image="/images/races/humans.jpg" title="Umani">
+					<CardComponent image="/images/races/humans.png" title="Umani">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
 						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
 						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
