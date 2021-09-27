@@ -40,9 +40,7 @@ class SplashPage extends Component {
 					<Explore />
 				</main>
 				<Features />
-				<section className="">
-					<Cards />
-				</section>
+				<Cards />
 			</div>
 		)
 	}

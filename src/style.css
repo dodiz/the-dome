@@ -104,6 +104,9 @@ em {
 	color: var(--color-accent);
 	text-shadow: 0 0 var(--color-accent);
 }
+
+/* ARWES OVERWRITE */
+
 /* BACKGROUND */
 
 .background {
@@ -214,6 +217,12 @@ em {
 }
 .splash .splash-menu {
 	margin: 2.5rem 0 5rem 0;
+}
+
+.splash__title {
+	text-align: center;
+	font-size: 2.4rem;
+	margin: 4rem auto 1rem auto;
 }
 /* EXPLORE */
 .explore-container {
@@ -418,6 +427,9 @@ em {
 	.splash-menu__link {
 		padding: 0 3rem;
 	}
+	.splash-menu__item:last-child .splash-menu__link {
+		padding-right: 0;
+	}
 }
 
 /* navbar*/
@@ -514,7 +526,7 @@ em {
 	align-self: center;
 }
 .feature__content {
-	animation: animateBlackBackground 1s 1s forwards;
+	background: rgba(62, 251, 251, 0.05);
 }
 .feature__box {
 	padding: 1rem;
@@ -549,19 +561,16 @@ em {
 .card {
 	margin: 0 auto 4rem auto;
 }
-.cards__title {
-	text-align: center;
-	font-size: 2.4rem;
-	margin: 4rem auto 1rem auto;
+.card .css-f8z0ma-Card {
+	background: var(--color-accent);
+	box-shadow: 0 0 3px var(--color-accent);
 }
-
 .card .arwes-card__title {
 	font-size: 2.2rem;
 }
 .card__button span {
 	font-size: 1.6rem;
 }
-
 @media screen and (min-width: 1024px) {
 	.cards {
 		flex-direction: row;
@@ -569,9 +578,6 @@ em {
 	}
 	.card {
 		margin: 0 4rem 0 0;
-	}
-	.cards__title {
-		font-size: 2.8rem;
 	}
 	.card .arwes-card__title {
 		font-size: 2rem;

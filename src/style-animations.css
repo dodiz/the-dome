@@ -19,16 +19,6 @@
 		stroke-dashoffset: 0;
 	}
 }
-
-@keyframes animateBlackBackground {
-	from {
-		background: rgba(0, 0, 0, 0);
-	}
-	to {
-		background: rgba(0, 0, 0, 0.5);
-	}
-}
-
 @keyframes pulse-icon {
 	0% {
 		transform: scale(0.9);

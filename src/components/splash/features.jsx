@@ -32,6 +32,9 @@ const FeatureComponent = props => {
 	const { forwardedRef, inViewport } = props
 	return (
 		<section className="features" ref={forwardedRef}>
+			<div className="splash__title">
+				<Text as="h1">Esplora un mondo distopico</Text>
+			</div>
 			<Animator animator={{ activate: inViewport }}>
 				<Feature image="/images/preview.png" title="What's left of us">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat

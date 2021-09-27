@@ -24,7 +24,7 @@ const Cards = props => {
 	const { forwardedRef, inViewport } = props
 	return (
 		<section className="cards-container" ref={forwardedRef}>
-			<div className="cards__title">
+			<div className="splash__title">
 				<Text as="h1">Scegli la tua razza</Text>
 			</div>
 			<div className="cards">
