@@ -15,7 +15,7 @@
 	--color-warning: #f1c40f;
 	--color-error: var(--color-accent);
 	--color-headings: #1b0760;
-	--color-body: #fff;
+	--color-body: #cafffb;
 	--color-body-darker: #5c5577;
 	--color-border: #ccc;
 
@@ -88,11 +88,13 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: "averox";
 	font-weight: bold;
 	color: var(--color-secondary);
-	text-transform: uppercase;
+	text-transform: lowercase;
 	letter-spacing: 0.5px;
-	text-shadow: 0 0 2px var(--color-secondary);
+	text-shadow: 0 0 4px var(--color-secondary);
+	letter-spacing: 3px;
 }
 
 em {
@@ -551,7 +553,7 @@ em {
 	}
 }
 
-/* CARDS */
+/* CARDS - RAZZE*/
 
 .cards {
 	display: flex;
@@ -581,5 +583,84 @@ em {
 	}
 	.card .arwes-card__title {
 		font-size: 2rem;
+	}
+}
+
+/* BOX */
+
+.box {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* LOGIN */
+.login {
+	width: 100%;
+	margin: 0 3rem;
+}
+@media screen and (min-width: 768px) {
+	.login {
+		width: 400px;
+		margin: 0;
+	}
+}
+
+/* FORM */
+
+.form-label {
+	display: block;
+}
+.form-group {
+	margin-bottom: 3rem;
+}
+.form-group h2 {
+	margin-bottom: 1rem;
+	font-size: 2rem;
+}
+.form-control {
+	display: block;
+	outline: none;
+	border-width: 0px 0px 2px;
+	border-style: solid;
+	border-color: var(--color-secondary);
+	padding: 5px 10px;
+	width: 100%;
+	line-height: 30px;
+	color: var(--color-body);
+	background-color: transparent;
+	transition: 0.3s all;
+	font-family: "Titillium web";
+	font-size: 1.8rem;
+}
+.form-text::placeholder {
+	text-transform: uppercase;
+}
+.form-text:focus {
+	background: rgba(255, 255, 255, 0.05);
+}
+.alert {
+	margin-top: 2rem;
+}
+.form-btn {
+	display: flex;
+	justify-content: flex-end;
+}
+.btn button {
+	font-size: 1.6rem;
+}
+.form-steps {
+	margin-top: 6rem;
+	display: flex;
+	justify-content: center;
+}
+.form-step-btn {
+	margin-right: 4rem;
+}
+
+@media (min-width: 768px) {
+	.form-group h2 {
+		font-size: 2.4rem;
 	}
 }

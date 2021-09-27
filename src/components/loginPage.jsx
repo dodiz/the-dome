@@ -1,28 +1,53 @@
 import React from "react"
-import Navbar from "./splash/navbar"
-import { FrameBox, Text } from "@arwes/core"
+import Joi from "joi-browser"
+import { Text } from "@arwes/core"
 
-const InfoPage = props => {
-	return (
-		<div>
-			<Navbar {...props} />
+import Form from "./common/form"
+import withSound from "../hoc/withSound"
+import { toast } from "react-toastify"
+
+class InfoPage extends Form {
+	state = {
+		currentStep: 1,
+		steps: 2,
+		data: {
+			username: "",
+			password: ""
+		},
+		errors: {}
+	}
+
+	schema = {
+		username: Joi.string().required().label("Username"),
+		password: Joi.string().required().label("Password")
+	}
+
+	doSubmit = () => {}
+
+	render() {
+		return (
 			<div className="box">
-				<FrameBox
-					className="arwes-framebox"
-					animator={{ duration: { enter: 1000 } }}
-					hideShapes>
-					<div className="box__info">
-						<Text as="h2" className="box__title">
-							Login
-						</Text>
-						<FrameBox palette="secondary" style={{ display: "block" }}>
-							<input />
-						</FrameBox>
-					</div>
-				</FrameBox>
+				<form onSubmit={this.handleSubmit} className="login">
+					<this.RenderStep step={1} validatedFields={["username"]}>
+						{this.renderInput(
+							"username",
+							"Please identify yourself",
+							"Username"
+						)}
+					</this.RenderStep>
+					<this.RenderStep step={2} validatedFields={["password"]}>
+						{this.renderInput("password", "Password", "Password", "Password")}
+						{this.renderButton("Accedi")}
+					</this.RenderStep>
+				</form>
+				<div className="login__links">
+					<Text as="div">
+						<em>Password dimenticata?</em>
+					</Text>
+				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
-export default InfoPage
+export default withSound(InfoPage)
