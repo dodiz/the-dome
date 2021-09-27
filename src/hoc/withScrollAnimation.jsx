@@ -1,5 +1,6 @@
 import React from "react"
 import handleViewport from "react-in-viewport"
+import { useEffect } from "react/cjs/react.development"
 
 function withScrollAnimation(Component) {
 	const ScrollComponent = handleViewport(Component)

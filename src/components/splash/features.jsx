@@ -4,6 +4,10 @@ import { Animator } from "@arwes/animation"
 
 import withScrollAnimation from "../../hoc/withScrollAnimation"
 
+const EXPLORE__WHEN__URL = "/images/explore/when.png"
+const EXPLORE__WHERE__URL = "/images/explore/where.png"
+const EXPLORE__HOW__URL = "/images/explore/how.png"
+
 const Feature = props => (
 	<article className="feature grid">
 		<Figure
@@ -36,7 +40,7 @@ const FeatureComponent = props => {
 				<Text as="h1">Esplora un mondo distopico</Text>
 			</div>
 			<Animator animator={{ activate: inViewport }}>
-				<Feature image="/images/preview.png" title="What's left of us">
+				<Feature image={EXPLORE__WHEN__URL} title="What's left of us">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat
 					repudiandae, nemo molestiae sequi expedita officia ullam perspiciatis
 					quis corrupti et neque nulla commodi animi, inventore dolore
@@ -45,7 +49,7 @@ const FeatureComponent = props => {
 					voluptatibus corrupti recusandae. Ipsum cumque pariatur expedita.
 				</Feature>
 				<Feature
-					image="/images/meteorite.jpg"
+					image={EXPLORE__WHERE__URL}
 					title="The world ends, the dome stands">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
 					deserunt voluptates! Voluptatem autem magni amet cum nihil harum id
@@ -54,7 +58,7 @@ const FeatureComponent = props => {
 					Ipsum obcaecati assumenda doloribus aliquam officia praesentium est!
 					Repellendus, modi provident.
 				</Feature>
-				<Feature image="/images/ship.jpg" title="Mankind adjusted">
+				<Feature image={EXPLORE__HOW__URL} title="Mankind adjusted">
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
 					ducimus nihil molestiae dignissimos doloribus minima ex at autem?
 					Voluptatibus reiciendis, id sequi officia consectetur accusantium quam
