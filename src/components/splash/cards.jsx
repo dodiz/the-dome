@@ -9,8 +9,9 @@ const CardComponent = props => (
 			src: props.image
 		}}
 		title={props.title}
+		className="card"
 		options={
-			<Button palette="secondary">
+			<Button className="card__button" palette="secondary">
 				<Text>Scopri</Text>
 			</Button>
 		}
@@ -23,7 +24,9 @@ const Cards = props => {
 	const { forwardedRef, inViewport } = props
 	return (
 		<section className="cards-container" ref={forwardedRef}>
-			<Text as="h1">Scegli la tua razza</Text>
+			<div className="cards__title">
+				<Text as="h1">Scegli la tua razza</Text>
+			</div>
 			<div className="cards">
 				<Animator animator={{ activate: inViewport }}>
 					<CardComponent image="/images/races/humans.jpg" title="Umani">
