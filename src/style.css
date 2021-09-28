@@ -97,11 +97,30 @@ h6 {
 	font-weight: bold;
 	color: var(--color-secondary);
 	text-transform: lowercase;
-	letter-spacing: 0.5px;
 	text-shadow: 0 0 4px var(--color-secondary);
 	letter-spacing: 3px;
 }
-
+/* HEADINGS */
+.h1 {
+	font-size: 2.6rem;
+}
+.h2 {
+	font-size: 2.2rem;
+}
+.h3 {
+	font-size: 2rem;
+}
+@media screen and (min-width: 768px) {
+	.h1 {
+		font-size: 3rem;
+	}
+	.h2 {
+		font-size: 2.4rem;
+	}
+	.h3 {
+		font-size: 1.8rem;
+	}
+}
 em {
 	color: var(--color-accent);
 	font-weight: bold;
@@ -110,6 +129,24 @@ em {
 .text--accent {
 	color: var(--color-accent);
 	text-shadow: 0 0 var(--color-accent);
+}
+
+/* LINK */
+.link {
+	color: #cccccc;
+	text-shadow: 0 0 5px var(--color-secondary);
+	font-size: 1.6rem;
+	position: relative;
+}
+.link:hover,
+.link--active {
+	color: var(--color-accent);
+	text-shadow: 0 0 3px var(--color-accent);
+}
+@media (min-width: 768px) {
+	.link {
+		font-size: 2.1rem;
+	}
 }
 
 /* ARWES OVERWRITE */
@@ -228,7 +265,6 @@ em {
 
 .splash__title {
 	text-align: center;
-	font-size: 2.4rem;
 	margin: 4rem auto 1rem auto;
 }
 /* EXPLORE */
@@ -372,23 +408,6 @@ em {
 	}
 }
 
-/* LINK */
-.link {
-	color: #cccccc;
-	text-shadow: 0 0 5px var(--color-secondary);
-	font-size: 1.6rem;
-	position: relative;
-}
-.link:hover,
-.link--active {
-	color: var(--color-accent);
-	text-shadow: 0 0 3px var(--color-accent);
-}
-@media (min-width: 768px) {
-	.link {
-		font-size: 2.1rem;
-	}
-}
 /* COLLAPSIBLE */
 .collapsible__content {
 	max-height: 0;
@@ -616,11 +635,19 @@ em {
 }
 /* PRIVACY */
 .privacy {
-	margin: 3rem auto;
+	margin: 2rem;
 	max-width: 1024px;
 }
 .privacy__box {
-	padding: 3rem;
+	padding: 1rem;
+}
+@media (min-width: 768px) {
+	.privacy__box {
+		padding: 3rem;
+	}
+	.privacy {
+		margin: 3rem auto;
+	}
 }
 /* LOGIN */
 .login {
@@ -647,10 +674,6 @@ em {
 }
 .form-group {
 	margin-bottom: 3rem;
-}
-.form-group h2 {
-	margin-bottom: 1rem;
-	font-size: 2rem;
 }
 .form-control {
 	display: block;
@@ -690,10 +713,4 @@ em {
 }
 .form-step-margin {
 	margin-right: 4rem;
-}
-
-@media (min-width: 768px) {
-	.form-group h2 {
-		font-size: 2.4rem;
-	}
 }
