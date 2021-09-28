@@ -4,10 +4,10 @@ import { Animator } from "@arwes/animation"
 
 function WithScrollAnimation({ children }) {
 	const myRef = useRef()
-	const { inViewport } = useInViewport(myRef, {}, {}, {})
+	const { enterCount } = useInViewport(myRef, {}, {}, {})
 	return (
 		<section ref={myRef}>
-			<Animator animator={{ activate: inViewport }}>{children}</Animator>
+			<Animator animator={{ activate: enterCount > 0 }}>{children}</Animator>
 		</section>
 	)
 }
