@@ -99,6 +99,7 @@ h6 {
 	text-transform: lowercase;
 	text-shadow: 0 0 4px var(--color-secondary);
 	letter-spacing: 3px;
+	margin: 0;
 }
 /* HEADINGS */
 .h1 {
@@ -150,7 +151,13 @@ em {
 }
 
 /* ARWES OVERWRITE */
-
+div.css-13g2lpz-Card {
+	margin-top: 20px;
+}
+div.css-f8z0ma-Card {
+	background: var(--color-accent);
+	box-shadow: 0 0 3px var(--color-accent);
+}
 /* BACKGROUND */
 
 .background {
@@ -592,22 +599,15 @@ em {
 }
 
 /* CARDS - RAZZE*/
-
 .cards {
 	display: flex;
 	flex-direction: column;
-	margin: 0 auto 5rem auto;
+	margin: 2rem 2rem 5rem 2rem;
 }
 .card {
-	margin: 0 auto 4rem auto;
+	margin-bottom: 4rem;
 }
-.card .css-f8z0ma-Card {
-	background: var(--color-accent);
-	box-shadow: 0 0 3px var(--color-accent);
-}
-.card .arwes-card__title {
-	font-size: 2.2rem;
-}
+
 .card__button span {
 	font-size: 1.6rem;
 }
@@ -615,12 +615,16 @@ em {
 	.cards {
 		flex-direction: row;
 		justify-content: center;
+		margin: 2rem auto;
+		width: 85%;
+		max-width: 1024px;
 	}
 	.card {
-		margin: 0 4rem 0 0;
+		margin-right: 4rem;
+		margin-bottom: 0;
 	}
-	.card .arwes-card__title {
-		font-size: 2rem;
+	.card:last-child {
+		margin-right: 0;
 	}
 }
 

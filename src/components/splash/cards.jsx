@@ -7,7 +7,7 @@ const CardComponent = props => (
 		image={{
 			src: props.image
 		}}
-		title={props.title}
+		title={<h2 className="h2">{props.title}</h2>}
 		className="card"
 		options={
 			<Button className="card__button" palette="secondary">
