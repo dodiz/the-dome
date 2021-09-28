@@ -19,7 +19,7 @@ class Logo extends Component {
 			easing: "easeInOutSine",
 			duration: 500,
 			delay: function (_, i) {
-				return i * 60
+				return i * 30
 			}
 		})
 	}
@@ -54,7 +54,7 @@ class Logo extends Component {
 					<path d="M 304 1 H 316 V 5 H 308 V 25 H 304 V 1" />
 				</svg>
 				<Text
-					animator={{ duration: { enter: 200, delay: 1500 } }}
+					animator={{ duration: { delay: 1500 } }}
 					className="brand__subtitle"
 					as="p">
 					cyberpunk rpg play by chat

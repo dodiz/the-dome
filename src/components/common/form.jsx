@@ -103,11 +103,11 @@ class Form extends Component {
 		this.setState({ currentStep: currentStep - 1 })
 	}
 
-	RenderStep = ({ step, validatedFields, children }) => {
+	RenderStep = ({ step, fields, children }) => {
 		const { currentStep, steps } = this.state
 
 		let isValidated = true
-		validatedFields.forEach(field => {
+		fields.forEach(field => {
 			if (this.state.errors[field] || !this.state.data[field])
 				isValidated = false
 		})
