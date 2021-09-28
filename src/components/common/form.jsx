@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Joi from "joi-browser"
 import Input from "./input"
 import Select from "./select"
-import { Button, FrameBox, FrameCorners } from "@arwes/core"
+import { Button, FrameCorners } from "@arwes/core"
 
 class Form extends Component {
 	state = {
@@ -65,7 +65,7 @@ class Form extends Component {
 				error={errors[name]}
 				value={data[name]}
 				type={type}
-				placeHolder={placeholder}
+				placeholder={placeholder}
 			/>
 		)
 	}
@@ -116,7 +116,7 @@ class Form extends Component {
 							<Button
 								FrameComponent={FrameCorners}
 								className={
-									currentStep !== this.state.steps && "form-step-margin"
+									currentStep !== this.state.steps ? "form-step-margin" : ""
 								}
 								onClick={e => this.nextStep(e, -1)}>
 								Indietro

@@ -23,7 +23,9 @@ class InfoPage extends Form {
 		password: Joi.string().required().label("Password")
 	}
 
-	doSubmit = () => {}
+	doSubmit = () => {
+		toast.error("Login not available yet")
+	}
 
 	render() {
 		return (
