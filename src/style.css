@@ -94,21 +94,27 @@ h4,
 h5,
 h6 {
 	font-family: "averox";
-	font-weight: bold;
 	color: var(--color-secondary);
 	text-transform: lowercase;
 	text-shadow: 0 0 4px var(--color-secondary);
 	letter-spacing: 3px;
-	margin: 0;
+	margin: 2rem 0 0rem 0;
 }
 /* HEADINGS */
+
+.heading--secondary {
+	font-family: "gardane";
+	font-weight: normal;
+	text-shadow: 0 0 3px var(--color-secondary);
+}
+
 .h1 {
 	font-size: 2.6rem;
 }
 .h2 {
 	font-size: 2.2rem;
 }
-.h3 {
+h3 {
 	font-size: 2rem;
 }
 @media screen and (min-width: 768px) {
@@ -151,10 +157,14 @@ em {
 }
 
 /* ARWES OVERWRITE */
-div.css-13g2lpz-Card {
-	margin-top: 20px;
+div.arwes-figure__line {
+	background-color: var(--color-accent);
+	box-shadow: 0 0 2px var(--color-accent);
 }
-div.css-f8z0ma-Card {
+header.arwes-card__header {
+	margin-bottom: 0;
+}
+div.arwes-card__line {
 	background: var(--color-accent);
 	box-shadow: 0 0 3px var(--color-accent);
 }
@@ -566,13 +576,6 @@ div.css-f8z0ma-Card {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-}
-.feature .css-15iu09m-Figure,
-.feature .css-2i6t3z-Figure,
-.feature .css-utb7zd-Figure,
-.feature .css-13ehvh8-Figure {
-	background-color: var(--color-accent);
-	box-shadow: 0 0 2px var(--color-accent);
 }
 
 @media screen and (min-width: 768px) {

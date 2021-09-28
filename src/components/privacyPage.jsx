@@ -40,7 +40,7 @@ const PrivacyPage = () => {
 							maxime eveniet eos modi animi, deleniti
 							<em>sequi</em> illum cupiditate!
 						</Text>
-						<Text as="h3" classname="h3">
+						<Text as="h3" className="h3 heading--secondary">
 							Iscrizione
 						</Text>
 						<Text as="p">
