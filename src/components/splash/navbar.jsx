@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router"
 import anime from "animejs"
 
 import Brand from "../brand"
@@ -8,6 +9,7 @@ import withSound from "../../hoc/withSound"
 
 const Navbar = props => {
 	const [open, setOpen] = useState(false)
+	const history = useHistory()
 	const { show, sounds, stick } = props
 
 	const animateNavbar = () => {
@@ -31,7 +33,7 @@ const Navbar = props => {
 			className={`nav ${open && show && "collapsible--expanded"} ${
 				stick && "nav--static"
 			}`}>
-			<span className="nav__logo">
+			<span className="nav__logo" onClick={() => history.push("/")}>
 				<Brand />
 			</span>
 			<span className="nav__toggler collapsible__icon" onClick={toggleOpen} />
