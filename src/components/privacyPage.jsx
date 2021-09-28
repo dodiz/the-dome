@@ -6,28 +6,39 @@ const PrivacyPage = () => {
 	return (
 		<div>
 			<Navbar stick show={true} />
-			<div className="box">
-				<FrameBox
-					className="arwes-framebox"
-					animator={{ duration: { enter: 1000 } }}
-					palette="secondary">
-					<div className="box__info">
-						<Text as="h2" className="box__title">
+			<div className="privacy">
+				<FrameBox palette="secondary">
+					<div className="privacy__box">
+						<Text as="h2" className="title">
 							Privacy policy
 						</Text>
 						<Text as="p">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-							Explicabo ad, nulla doloribus illum nam aliquam temporibus
-							molestias nesciunt laboriosam omnis! Modi ullam similique
-							consequuntur quibusdam? Error, eum nulla dignissimos eos commodi
-							quibusdam provident reprehenderit quis quia quaerat fugit minus
-							doloribus repudiandae, ad architecto excepturi animi cum earum
-							minima! Vero nisi suscipit temporibus consequuntur nihil incidunt
-							atque consequatur, iure asperiores at, quod delectus id magni
-							distinctio sunt nulla placeat voluptatibus ab alias nobis
-							consectetur, quas velit dolorum! Autem cumque velit sapiente unde
-							facere rem et voluptates recusandae quam, ab provident sint, sunt
-							possimus earum, incidunt dolor. Vel ratione qui impedit aliquam!
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa
+							temporibus, adipisci sunt placeat delectus nihil, <em>quis</em>{" "}
+							fugiat optio similique totam rerum reprehenderit? Fugiat iure
+							similique porro, atque illo deleniti non natus veritatis ex iusto
+							quaerat nemo? Pariatur eligendi, veniam illum rem sed nemo neque
+							placeat nostrum maxime voluptates odio assumenda a voluptatibus,
+							excepturi eveniet. Corrupti quidem dignissimos accusamus quas
+							omnis, pariatur, <em>culpa</em>, tenetur repudiandae dolorem
+							cumque ipsa dolore natus? Consectetur, sint officia modi accusamus
+							non repellat eum placeat neque consequatur. Neque tenetur at,
+							iusto excepturi suscipit esse saepe deserunt consequatur quam ex,
+							distinctio eveniet maiores necessitatibus, dolorum velit et
+							facilis temporibus accusamus perferendis voluptate. Molestias
+							veniam doloribus officia, rerum repellat corrupti earum obcaecati
+							possimus. Nihil placeat <em>velit</em> temporibus doloremque
+							optio, voluptate eius possimus sunt commodi asperiores accusantium
+							unde ipsum quos molestias animi perferendis libero natus
+							voluptatum numquam voluptatibus similique illo dolor, maiores
+							earum. Vel sit at facere aliquam assumenda similique accusantium
+							eaque alias commodi delectus, quos maxime minima aliquid
+							voluptates quaerat deleniti deserunt velit voluptatum neque qui
+							nobis ducimus magnam! Unde, voluptate nihil pariatur adipisci
+							quaerat qui cum magni debitis tenetur quisquam laborum{" "}
+							<em>libero</em> exercitationem maxime ex? Beatae aperiam ut facere
+							maxime eveniet eos modi animi, deleniti
+							<em>sequi</em> illum cupiditate!
 						</Text>
 					</div>
 				</FrameBox>

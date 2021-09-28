@@ -614,6 +614,14 @@ em {
 	align-items: center;
 	justify-content: center;
 }
+/* PRIVACY */
+.privacy {
+	margin: 3rem auto;
+	max-width: 1024px;
+}
+.privacy__box {
+	padding: 3rem;
+}
 /* LOGIN */
 .login {
 	width: 100%;
