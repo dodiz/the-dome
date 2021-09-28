@@ -43,7 +43,7 @@ class InfoPage extends Form {
 						{this.renderButton("Accedi")}
 					</this.RenderStep>
 					<div className="login__links">
-						<Text as="div">
+						<Text>
 							<Link to="">
 								<em>Password dimenticata?</em>
 							</Link>

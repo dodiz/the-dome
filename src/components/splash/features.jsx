@@ -1,6 +1,5 @@
 import React from "react"
 import { FrameBox, Figure, Text } from "@arwes/core"
-import { Animator } from "@arwes/animation"
 
 import withScrollAnimation from "../../hoc/withScrollAnimation"
 
@@ -20,7 +19,7 @@ const Feature = props => (
 			linesWidths={[2, 0, 2, 0]}
 			palette="secondary">
 			<div className="feature__box">
-				<Text as="h2" className="feature__title">
+				<Text as="h2" className="h2">
 					{props.title}
 				</Text>
 				<Text as="p">{props.children}</Text>
@@ -32,7 +31,9 @@ const FeatureComponent = () => {
 	return (
 		<section className="features">
 			<div className="splash__title">
-				<Text as="h1">Esplora un mondo distopico</Text>
+				<Text className="h1" as="h1">
+					Esplora un mondo distopico
+				</Text>
 			</div>
 			<Feature image={EXPLORE__WHEN__URL} title="What's left of us">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat

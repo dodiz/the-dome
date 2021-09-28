@@ -1,5 +1,4 @@
 import React from "react"
-import { Animator } from "@arwes/animation"
 import { Card, Text, Button } from "@arwes/core"
 import withScrollAnimation from "../../hoc/withScrollAnimation"
 
@@ -14,9 +13,8 @@ const CardComponent = props => (
 			<Button className="card__button" palette="secondary">
 				<Text>Scopri</Text>
 			</Button>
-		}
-		style={{ maxWidth: 400 }}>
-		<Text>{props.children}</Text>
+		}>
+		<Text as="p">{props.children}</Text>
 	</Card>
 )
 
@@ -24,7 +22,9 @@ const Cards = props => {
 	return (
 		<section className="cards-container">
 			<div className="splash__title">
-				<Text as="h1">Scegli la tua razza</Text>
+				<Text as="h1" className="h1">
+					Scegli la tua razza
+				</Text>
 			</div>
 			<div className="cards">
 				<CardComponent image="/images/races/humans.png" title="Umani">

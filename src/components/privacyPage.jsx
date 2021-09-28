@@ -9,7 +9,7 @@ const PrivacyPage = () => {
 			<div className="privacy">
 				<FrameBox palette="secondary">
 					<div className="privacy__box">
-						<Text as="h2" className="title">
+						<Text as="h2" className="h2">
 							Privacy policy
 						</Text>
 						<Text as="p">
@@ -39,6 +39,49 @@ const PrivacyPage = () => {
 							<em>libero</em> exercitationem maxime ex? Beatae aperiam ut facere
 							maxime eveniet eos modi animi, deleniti
 							<em>sequi</em> illum cupiditate!
+						</Text>
+						<Text as="h3" classname="h3">
+							Iscrizione
+						</Text>
+						<Text as="p">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
+							quaerat expedita aperiam excepturi dolorem recusandae? Sit fuga
+							labore modi asperiores quia recusandae tenetur eveniet nostrum a
+							quisquam delectus quos ratione, expedita veritatis corporis,
+							blanditiis ipsa at error provident porro? Dignissimos error soluta
+							quia, aliquid <em>temporibus</em> animi hic, nisi quisquam eius
+							nulla ad pariatur praesentium odio quo. Dolores repellat porro
+							quia ipsa fugiat libero harum ut culpa asperiores nisi aperiam
+							quas enim excepturi ducimus, corrupti voluptatem laboriosam
+							aliquam dolorem facere iusto error est ratione? Ea expedita
+							officiis aut
+							<em>aspernatur</em> atque quae sit neque odio voluptatem
+							architecto. Odio maxime eos cum, sapiente vel dolore eveniet
+							placeat nostrum cumque delectus sint porro cupiditate quo quam
+							veritatis neque optio hic voluptas provident id? Quaerat,
+							doloremque nihil <em>atque</em> rem enim nam magni maxime et,
+							reiciendis, modi nostrum molestiae dicta natus porro nisi a ipsum
+							exercitationem! Asperiores earum nemo voluptates ut repudiandae
+							tempora modi, facilis iste ipsum voluptatum mollitia fugiat
+							assumenda quia labore suscipit, velit provident saepe reiciendis{" "}
+							<em>aliquid</em> ex eum repellat! Quae dolorem nisi tempore
+							mollitia enim atque animi explicabo quas reiciendis reprehenderit
+							sint dicta quidem omnis non, nihil ad <em>tenetur</em> totam harum
+							modi iusto minus. Optio nostrum non sed deserunt. Tempore
+							<em>dignissimos</em>, nobis architecto perferendis, doloremque
+							iure facilis atque necessitatibus, laborum eligendi quis
+							blanditiis! Dolorem consequatur inventore blanditiis quia minus
+							quaerat a explicabo, illo ut dolor iusto! Cum minima et id
+							voluptatum veritatis facilis ad! Praesentium, eveniet totam
+							tempore, natus vero quam eligendi sint iusto numquam eum beatae
+							inventore aliquam laudantium deserunt delectus laboriosam quod
+							nulla a pariatur accusantium
+							<em>asperiores</em> obcaecati officia nesciunt? Necessitatibus
+							maxime ab et distinctio est <em>alias</em> quo! Cumque nam qui
+							impedit voluptas aut eum, ea ab libero blanditiis quibusdam fugiat
+							doloremque, deserunt, odio iure possimus? Dignissimos deleniti,
+							magni odit est impedit incidunt, omnis cupiditate mollitia
+							eligendi consequatur voluptatem veniam iste!
 						</Text>
 					</div>
 				</FrameBox>

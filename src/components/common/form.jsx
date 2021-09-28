@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Joi from "joi-browser"
 import Input from "./input"
 import Select from "./select"
-import { Button, FrameCorners } from "@arwes/core"
+import { Button, FrameCorners, Text } from "@arwes/core"
 
 class Form extends Component {
 	state = {
@@ -92,10 +92,15 @@ class Form extends Component {
 		)
 	}
 
-	nextStep = (e, increment) => {
+	nextStep = e => {
 		e.preventDefault()
 		const { currentStep } = this.state
-		this.setState({ currentStep: currentStep + increment })
+		this.setState({ currentStep: currentStep + 1 })
+	}
+	previousStep = e => {
+		e.preventDefault()
+		const { currentStep } = this.state
+		this.setState({ currentStep: currentStep - 1 })
 	}
 
 	RenderStep = ({ step, validatedFields, children }) => {
@@ -118,15 +123,13 @@ class Form extends Component {
 								className={
 									currentStep !== this.state.steps ? "form-step-margin" : ""
 								}
-								onClick={e => this.nextStep(e, -1)}>
-								Indietro
+								onClick={this.previousStep}>
+								<Text>Indietro</Text>
 							</Button>
 						)}
 						{currentStep < steps && isValidated && (
-							<Button
-								FrameComponent={FrameCorners}
-								onClick={e => this.nextStep(e, 1)}>
-								Procedi
+							<Button FrameComponent={FrameCorners} onClick={this.nextStep}>
+								<Text>Procedi</Text>
 							</Button>
 						)}
 					</div>

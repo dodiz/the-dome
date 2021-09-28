@@ -5,7 +5,7 @@ const Input = ({ name, label, error, ...rest }) => {
 	return (
 		<div className="form-group">
 			<label htmlFor="">
-				<Text as="h2" palette="secondary">
+				<Text as="h2" className="h2" palette="secondary">
 					{label}
 				</Text>
 			</label>
