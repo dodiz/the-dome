@@ -21,36 +21,33 @@ const CardComponent = props => (
 )
 
 const Cards = props => {
-	const { forwardedRef, inViewport } = props
 	return (
-		<section className="cards-container" ref={forwardedRef}>
+		<section className="cards-container">
 			<div className="splash__title">
 				<Text as="h1">Scegli la tua razza</Text>
 			</div>
 			<div className="cards">
-				<Animator animator={{ activate: inViewport }}>
-					<CardComponent image="/images/races/humans.png" title="Umani">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
-						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
-						reiciendis consectetur neque. Error, quod voluptate recusandae
-						accusamus et animi incidunt
-					</CardComponent>
-					<CardComponent title="Mutanti" image="/images/races/mutants.png">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
-						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
-						reiciendis consectetur neque. Error, quod voluptate recusandae
-						accusamus et animi incidunt
-					</CardComponent>
-					<CardComponent image="/images/races/robots.png" title="Sintetici">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-						atque consequuntur veniam explicabo voluptatibus vel perferendis rem
-						quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
-						reiciendis consectetur neque. Error, quod voluptate recusandae
-						accusamus et animi incidunt
-					</CardComponent>
-				</Animator>
+				<CardComponent image="/images/races/humans.png" title="Umani">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+					atque consequuntur veniam explicabo voluptatibus vel perferendis rem
+					quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
+					reiciendis consectetur neque. Error, quod voluptate recusandae
+					accusamus et animi incidunt
+				</CardComponent>
+				<CardComponent title="Mutanti" image="/images/races/mutants.png">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+					atque consequuntur veniam explicabo voluptatibus vel perferendis rem
+					quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
+					reiciendis consectetur neque. Error, quod voluptate recusandae
+					accusamus et animi incidunt
+				</CardComponent>
+				<CardComponent image="/images/races/robots.png" title="Sintetici">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+					atque consequuntur veniam explicabo voluptatibus vel perferendis rem
+					quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
+					reiciendis consectetur neque. Error, quod voluptate recusandae
+					accusamus et animi incidunt
+				</CardComponent>
 			</div>
 		</section>
 	)

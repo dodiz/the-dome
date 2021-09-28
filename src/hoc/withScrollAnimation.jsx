@@ -1,14 +1,23 @@
-import React from "react"
-import handleViewport from "react-in-viewport"
-import { useEffect } from "react/cjs/react.development"
+import React, { useRef } from "react"
+import { useInViewport } from "react-in-viewport"
+import { Animator } from "@arwes/animation"
+
+function WithScrollAnimation({ children }) {
+	const myRef = useRef()
+	const { inViewport } = useInViewport(myRef, {}, {}, {})
+	return (
+		<section ref={myRef}>
+			<Animator animator={{ activate: inViewport }}>{children}</Animator>
+		</section>
+	)
+}
 
 function withScrollAnimation(Component) {
-	const ScrollComponent = handleViewport(Component)
-	return props => {
-		const _props = { ...props }
-		delete _props.children
-		return <ScrollComponent {..._props}>{props.children}</ScrollComponent>
-	}
+	return props => (
+		<WithScrollAnimation>
+			<Component />
+		</WithScrollAnimation>
+	)
 }
 
 export default withScrollAnimation
