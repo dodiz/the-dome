@@ -339,6 +339,38 @@ div.arwes-card__line {
 	max-height: 100vh;
 	opacity: 1;
 }
+.collapsible__icon {
+	margin-left: auto;
+	align-items: center;
+	background: var(--color-primary);
+	cursor: pointer;
+	display: inline-block;
+	font-size: 2rem;
+	justify-content: center;
+	opacity: 0.8;
+	padding: 0.8rem;
+	transform: rotate(90deg);
+	transition: all 0.3s;
+	flex-wrap: nowrap;
+}
+.collapsible__icon--secondary {
+	background: none;
+}
+.collapsible__icon:hover,
+.collapsible--expanded .collapsible__icon {
+	opacity: 1;
+	color: var(--color-accent);
+}
+.collapsible__icon::after {
+	content: "|||";
+	position: relative;
+	bottom: 2px;
+}
+@media screen and (min-width: 1024px) {
+	.collapsible__icon {
+		display: none;
+	}
+}
 
 /* FORM */
 
@@ -416,30 +448,6 @@ div.arwes-card__line {
 	cursor: pointer;
 	max-width: 80%;
 }
-.nav__toggler {
-	margin-left: auto;
-	align-items: center;
-	background: var(--color-primary);
-	cursor: pointer;
-	display: block;
-	font-size: 2rem;
-	justify-content: center;
-	opacity: 0.8;
-	padding: 0.8rem;
-	transform: rotate(90deg);
-	transition: all 0.3s;
-	flex-wrap: nowrap;
-}
-.nav__toggler:hover,
-.nav__toggler.collapsible__icon {
-	opacity: 1;
-	color: var(--color-accent);
-}
-.nav__toggler::after {
-	content: "|||";
-	position: relative;
-	bottom: 2px;
-}
 .nav .splash-menu__item {
 	margin-bottom: 1rem;
 }
@@ -450,9 +458,6 @@ div.arwes-card__line {
 	.nav {
 		clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
 	}
-	.nav__toggler {
-		display: none;
-	}
 	.nav__list {
 		display: flex;
 		width: auto;
@@ -461,5 +466,34 @@ div.arwes-card__line {
 	}
 	.nav__list .splash-menu {
 		flex-direction: row;
+	}
+}
+
+/* LIST GROUP */
+.list-group {
+	background: var(--color-primary);
+	border-top: 2px solid var(--color-secondary);
+	box-shadow: 0 0px 5px var(--color-secondary);
+	padding: 1rem;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	margin: 0;
+}
+.list-group__mobile-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.list-group .collapsible__icon {
+	margin: unset;
+}
+
+@media screen and (min-width: 1024px) {
+	.list-group {
+		position: static;
+	}
+	.list-group__mobile-title {
+		display: none;
 	}
 }

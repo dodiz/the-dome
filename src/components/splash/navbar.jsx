@@ -36,7 +36,7 @@ const Navbar = props => {
 			<span className="nav__logo" onClick={() => history.push("/")}>
 				<Brand />
 			</span>
-			<span className="nav__toggler collapsible__icon" onClick={toggleOpen} />
+			<span className="collapsible__icon" onClick={toggleOpen} />
 			<div className="nav__list collapsible__content" onClick={toggleOpen}>
 				<SplashMenu />
 			</div>

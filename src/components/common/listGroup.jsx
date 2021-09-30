@@ -1,0 +1,58 @@
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+
+import Icon from "./icon"
+
+export default function ListGroup({
+	items,
+	valueProperty,
+	textProperty,
+	onItemSelect,
+	selectedItem
+}) {
+	const [expanded, setExpanded] = useState(false)
+
+	const toggleOpen = () => setExpanded(prev => !prev)
+
+	const findSelectedItem = () => {
+		try {
+			return selectedItem[textProperty]
+		} catch {
+			return items[0][textProperty]
+		}
+	}
+
+	return (
+		<ul className={`list list-group ${expanded && "collapsible--expanded"}`}>
+			<div className="list-group__mobile-title" onClick={toggleOpen}>
+				<div className="link--active link">{findSelectedItem()}</div>
+				<Icon className="explore-icon" secondary={expanded} round>
+					<svg className="icon__image" viewBox="0 0 10 10">
+						<path d="M 0 0 L 5 7 L 10 0" />
+					</svg>
+				</Icon>
+			</div>
+			<div className="collapsible__content">
+				{items.map(item => (
+					<li
+						onClick={() => onItemSelect(item)}
+						className={`link list-group__item ${
+							selectedItem === item && "link--active"
+						} `}
+						key={item[valueProperty]}>
+						{item[textProperty]}
+					</li>
+				))}
+			</div>
+		</ul>
+	)
+}
+
+ListGroup.propTypes = {
+	items: PropTypes.array.isRequired,
+	onItemSelect: PropTypes.func.isRequired
+}
+ListGroup.defaultProps = {
+	valueProperty: "_id",
+	textProperty: "name"
+}
