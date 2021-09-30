@@ -28,8 +28,8 @@ class LoginForm extends Form {
 
 	render() {
 		return (
-			<div className="box">
-				<form onSubmit={this.handleSubmit} className="login">
+			<div className="fullview">
+				<form onSubmit={this.handleSubmit} className="fullview-box">
 					<this.RenderStep step={1} fields={["username"]}>
 						{this.renderInput(
 							"username",
@@ -41,7 +41,7 @@ class LoginForm extends Form {
 						{this.renderInput("password", "Password", "Password", "Password")}
 						{this.renderButton("Accedi")}
 					</this.RenderStep>
-					<div className="login__links">
+					<div className="fullview-box__links">
 						<Text>
 							<Link to="">
 								<em>Password dimenticata?</em>

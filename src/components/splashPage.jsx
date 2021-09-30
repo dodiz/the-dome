@@ -8,6 +8,8 @@ import Navbar from "./splash/navbar"
 import Cards from "./splash/cards"
 import Features from "./splash/features"
 
+import "../css/splash.css"
+
 class SplashPage extends Component {
 	state = {
 		activateFeatures: false,

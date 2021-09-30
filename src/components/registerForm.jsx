@@ -35,8 +35,8 @@ class RegisterForm extends Form {
 
 	render() {
 		return (
-			<div className="box">
-				<form onSubmit={this.handleSubmit} className="login">
+			<div className="fullview">
+				<form onSubmit={this.handleSubmit} className="fullview-box">
 					<this.RenderStep step={1} fields={["username", "email"]}>
 						{this.renderInput("username", "Nome utente", "Username")}
 						{this.renderInput("email", "Email", "your@mail.it", "email")}
@@ -46,7 +46,7 @@ class RegisterForm extends Form {
 						{this.renderInput("rpassword", "conferma password", "", "Password")}
 						{this.renderButton("Registrati")}
 					</this.RenderStep>
-					<div className="login__links">
+					<div className="fullview-box__links">
 						<Text>
 							<Link to="">
 								<em>Login</em>

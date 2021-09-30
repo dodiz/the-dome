@@ -6,9 +6,9 @@ const PrivacyPage = () => {
 	return (
 		<div>
 			<Navbar stick show={true} />
-			<div className="privacy">
+			<div className="info-box">
 				<FrameBox palette="secondary">
-					<div className="privacy__box">
+					<div className="arwes__box">
 						<Text as="h2" className="h2">
 							Privacy policy
 						</Text>

@@ -13,7 +13,7 @@ import PrivacyPage from "./components/privacyPage"
 import ArwesProvider from "./tools/arwesProvider"
 
 import "react-toastify/dist/ReactToastify.css"
-import "./style.css"
+import "./css/global.css"
 
 function App() {
   const [assemble, setAssemble] = useState( false )

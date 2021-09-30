@@ -16,7 +16,7 @@ class Assemble extends Component {
 		const { activate } = this.state
 
 		return (
-			<div className="assemble">
+			<div className="fullview">
 				<FrameCorners animator={{ activate }}>
 					<div className="assemble__popup">
 						<Text className="assemble__text" animator={{ activate }} as="div">
