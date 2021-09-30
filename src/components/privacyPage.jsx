@@ -7,7 +7,7 @@ const PrivacyPage = () => {
 		<div>
 			<Navbar stick show={true} />
 			<div className="info-box">
-				<FrameBox palette="secondary">
+				<FrameBox hideShapes linesWidths={[2, 0, 2, 0]} palette="secondary">
 					<div className="arwes__box">
 						<Text as="h2" className="h2">
 							Privacy policy

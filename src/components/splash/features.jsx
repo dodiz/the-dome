@@ -13,7 +13,7 @@ const Feature = props => (
 			<Figure src={props.image} palette="secondary" alt="A nebula" fluid />
 		</div>
 		<FrameBox
-			className="arwes-framebox feature__content"
+			className="feature__content"
 			animator={{ duration: { enter: 500 } }}
 			hideShapes
 			linesWidths={[2, 0, 2, 0]}
