@@ -533,6 +533,11 @@ div.arwes-card__line {
 .list-group__icon {
 	transition: transform 0.3s;
 }
+.list-group__item {
+	font-size: 1.8rem;
+	padding: 0.4rem 0;
+	cursor: pointer;
+}
 .collapsible--expanded .list-group__icon {
 	transform: rotate(-90deg);
 }
@@ -548,5 +553,17 @@ div.arwes-card__line {
 		margin-right: 2rem;
 		padding: 0;
 		position: static;
+	}
+}
+
+/* INFO */
+.info {
+	margin: 1rem auto;
+}
+@media screen and (min-width: 1024px) {
+	.info {
+		grid-template-columns: 1fr 5fr;
+		max-width: 980px;
+		grid-gap: 3rem;
 	}
 }

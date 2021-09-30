@@ -34,14 +34,7 @@ class InfoPage extends Component {
 		return (
 			<div>
 				<Navbar stick show={true} />
-				<div
-					className=""
-					style={{
-						display: "flex",
-						margin: ".5rem auto",
-						justifyContent: "space-evenly",
-						width: "100%"
-					}}>
+				<section className="grid info">
 					<ListGroup
 						items={items}
 						onItemSelect={this.handleInfoSelect}
@@ -66,7 +59,7 @@ class InfoPage extends Component {
 							odio eius tempore error neque quisquam, recusandae fugit!
 						</Text>
 					</FrameBox>
-				</div>
+				</section>
 			</div>
 		)
 	}
