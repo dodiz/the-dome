@@ -26,11 +26,13 @@ export default function ListGroup({
 		<ul className={`list list-group ${expanded && "collapsible--expanded"}`}>
 			<div className="list-group__mobile-title" onClick={toggleOpen}>
 				<div className="link--active link">{findSelectedItem()}</div>
-				<Icon className="explore-icon" secondary={expanded} round>
-					<svg className="icon__image" viewBox="0 0 10 10">
-						<path d="M 0 0 L 5 7 L 10 0" />
-					</svg>
-				</Icon>
+				<Icon
+					pulse
+					secondary={expanded}
+					round
+					src="/images/icons/arrow-down.svg"
+					className="icon--arrow-down"
+				/>
 			</div>
 			<div className="collapsible__content">
 				{items.map(item => (

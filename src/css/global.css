@@ -313,6 +313,12 @@ div.arwes-card__line {
 .icon__image {
 	background: #073942;
 }
+.icon--pulse .icon__image {
+	animation: pulse-icon 2s infinite;
+}
+.icon--secondary.icon--pulse .icon__image {
+	animation: pulse-icon--secondary 2s infinite;
+}
 .icon--secondary .icon__image {
 	background: rgb(99, 71, 36);
 }
@@ -322,7 +328,9 @@ div.arwes-card__line {
 .icon--secondary:hover .icon__image {
 	background: #522f17;
 }
-
+.icon--arrow-down .icon__image {
+	padding: 0.6rem;
+}
 /* LIST */
 .list {
 	list-style: none;
