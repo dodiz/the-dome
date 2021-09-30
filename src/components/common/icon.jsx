@@ -9,10 +9,11 @@ const Icon = ({
 	className,
 	secondary,
 	pulse,
-	children
+	children,
+	...rest
 }) => {
 	const Image = children || (
-		<img className="icon__image" src={src} alt={alt || ""} />
+		<img className="icon__image" src={src} alt={alt || ""} {...rest} />
 	)
 
 	return (

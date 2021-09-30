@@ -9,6 +9,7 @@ import InfoPage from "./components/infoPage"
 import LoginForm from "./components/loginForm"
 import RegisterForm from "./components/registerForm"
 import PrivacyPage from "./components/privacyPage"
+import Land from "./components/land"
 
 import ArwesProvider from "./tools/arwesProvider"
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="/privacy" component={PrivacyPage} />
             <Route path="/login" component={LoginForm} />
             <Route path="/register" component={RegisterForm} />
+            <Route path="/land" component={Land} />
             <Route exact path="/" component={SplashPage} />
           </Switch>
         </React.Fragment>
