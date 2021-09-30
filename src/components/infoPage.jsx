@@ -47,7 +47,11 @@ class InfoPage extends Component {
 						onItemSelect={this.handleInfoSelect}
 						selectedItem={this.state.selectedInfo}
 					/>
-					<FrameBox palette="secondary">
+					<FrameBox
+						className="arwes-framebox"
+						hideShapes
+						linesWidths={[2, 0, 2, 0]}
+						palette="secondary">
 						<div className="arwes__box">
 							<Text as="h2" className="h2">
 								{this.state.selectedInfo.name}

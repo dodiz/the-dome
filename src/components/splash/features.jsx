@@ -14,7 +14,7 @@ const Feature = props => (
 		</div>
 		<FrameBox
 			className="arwes-framebox feature__content"
-			animator={{ duration: { enter: 1000 } }}
+			animator={{ duration: { enter: 500 } }}
 			hideShapes
 			linesWidths={[2, 0, 2, 0]}
 			palette="secondary">
