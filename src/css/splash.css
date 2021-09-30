@@ -151,9 +151,6 @@
 	align-self: center;
 	max-height: 300px;
 }
-.feature__content {
-	background: rgba(62, 251, 251, 0.05);
-}
 .feature__box {
 	padding: 1rem;
 	display: flex;
