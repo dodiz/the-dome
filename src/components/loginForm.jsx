@@ -29,6 +29,7 @@ class LoginForm extends Form {
 			const { email, password } = this.state.data
 			const { displayName } = await auth.login(email, password)
 			this.setState({ displayName })
+			setTimeout(() => this.props.history.push("/land"), 2000)
 		} catch (ex) {
 			toast.error("Accesso negato")
 		}
@@ -69,7 +70,9 @@ class LoginForm extends Form {
 					<div
 						className="fullview-box"
 						style={{ textAlign: "center", fontSize: "2rem" }}>
-						<Text as="h1">ACCESS GRANTED</Text>
+						<Text as="h1" className="heading--success">
+							ACCESS GRANTED
+						</Text>
 						<Text as="h3" palette="secondary">
 							Bentornato, <em>{displayName}</em>
 						</Text>

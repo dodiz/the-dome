@@ -125,6 +125,10 @@ h6 {
 	font-weight: normal;
 	text-shadow: 0 0 3px var(--color-secondary);
 }
+.heading--success {
+	color: var(--color-success);
+	text-shadow: 0 0 3px var(--color-success);
+}
 
 .h1 {
 	font-size: 2.6rem;
@@ -579,4 +583,15 @@ div.arwes-card__line {
 		max-width: 980px;
 		grid-gap: 3rem;
 	}
+}
+
+/* MENU */
+.menu {
+	position: relative;
+}
+.menu__icon {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
 }
