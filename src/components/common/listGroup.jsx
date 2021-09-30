@@ -22,6 +22,11 @@ export default function ListGroup({
 		}
 	}
 
+	const selectItem = item => {
+		toggleOpen()
+		onItemSelect(item)
+	}
+
 	return (
 		<ul className={`list list-group ${expanded && "collapsible--expanded"}`}>
 			<div className="list-group__mobile-title" onClick={toggleOpen}>
@@ -37,7 +42,7 @@ export default function ListGroup({
 			<div className="collapsible__content">
 				{items.map(item => (
 					<li
-						onClick={() => onItemSelect(item)}
+						onClick={() => selectItem(item)}
 						className={`link list-group__item ${
 							selectedItem === item && "link--active"
 						} `}
