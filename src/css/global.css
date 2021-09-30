@@ -317,6 +317,7 @@ div.arwes-card__line {
 }
 .icon__image {
 	background: #073942;
+	display: flex;
 }
 .icon--pulse .icon__image {
 	animation: pulse-icon 2s infinite;
@@ -477,6 +478,9 @@ div.arwes-card__line {
 .nav .splash-menu__item:last-of-type {
 	margin: 0;
 }
+.nav .splash-menu__link {
+	padding: 0;
+}
 @media screen and (min-width: 1024px) {
 	.nav {
 		clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
@@ -484,6 +488,9 @@ div.arwes-card__line {
 	.nav__list {
 		display: flex;
 		width: auto;
+	}
+	.nav .splash-menu__link {
+		padding: 0 3rem;
 	}
 	.nav__list .splash-menu {
 		flex-direction: row;
@@ -532,9 +539,11 @@ div.arwes-card__line {
 	}
 	.list-group,
 	.collapsible--expanded.list-group {
-		position: static;
 		background: none;
 		border-top: 0;
 		box-shadow: none;
+		margin-right: 2rem;
+		padding: 0;
+		position: static;
 	}
 }
