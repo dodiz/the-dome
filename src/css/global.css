@@ -264,7 +264,6 @@ div.arwes-card__line {
 /* Icon */
 .icon {
 	filter: drop-shadow(0 0 2px var(--color-secondary));
-	transition: all 0.3s;
 }
 .icon--secondary {
 	filter: drop-shadow(0 0 2px var(--color-accent));
@@ -379,6 +378,10 @@ div.arwes-card__line {
 	.collapsible__icon {
 		display: none;
 	}
+	.collapsible__content {
+		max-height: 100%;
+		opacity: 1;
+	}
 }
 
 /* FORM */
@@ -470,8 +473,6 @@ div.arwes-card__line {
 	.nav__list {
 		display: flex;
 		width: auto;
-		max-height: 100%;
-		opacity: 1;
 	}
 	.nav__list .splash-menu {
 		flex-direction: row;
@@ -481,8 +482,8 @@ div.arwes-card__line {
 /* LIST GROUP */
 .list-group {
 	background: var(--color-primary);
-	border-top: 2px solid var(--color-secondary);
-	box-shadow: 0 0px 5px var(--color-secondary);
+	border-top: 2px solid var(--color-accent);
+	box-shadow: 0 0px 5px var(--color-accent);
 	padding: 1rem;
 	position: fixed;
 	width: 100%;
@@ -497,9 +498,15 @@ div.arwes-card__line {
 .list-group .collapsible__icon {
 	margin: unset;
 }
-
+.list-group__icon {
+	transition: transform 0.3s;
+}
 .collapsible--expanded .list-group__icon {
 	transform: rotate(-90deg);
+}
+.collapsible--expanded.list-group {
+	box-shadow: 0 0px 5px var(--color-secondary);
+	border-top: 2px solid var(--color-secondary);
 }
 @media screen and (min-width: 1024px) {
 	.list-group {

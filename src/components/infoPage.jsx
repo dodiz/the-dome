@@ -33,12 +33,13 @@ class InfoPage extends Component {
 		return (
 			<div>
 				<Navbar stick show={true} />
-				<div>
+				<div className="" style={{ display: "flex" }}>
 					<ListGroup
 						items={items}
 						onItemSelect={this.handleInfoSelect}
 						selectedItem={this.state.selectedInfo}
 					/>
+					<div className="">test</div>
 				</div>
 			</div>
 		)

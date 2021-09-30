@@ -30,10 +30,12 @@ export default function ListGroup({
 	return (
 		<ul className={`list list-group ${expanded && "collapsible--expanded"}`}>
 			<div className="list-group__mobile-title" onClick={toggleOpen}>
-				<div className="link--active link">{findSelectedItem()}</div>
+				<div className={`${!expanded && "link--active"} link`}>
+					{findSelectedItem()}
+				</div>
 				<Icon
 					pulse
-					secondary={expanded}
+					secondary={!expanded}
 					round
 					src="/images/icons/arrow-down.svg"
 					className="icon--arrow-down list-group__icon"
