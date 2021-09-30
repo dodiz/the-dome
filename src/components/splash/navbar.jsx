@@ -3,7 +3,7 @@ import { useHistory } from "react-router"
 import anime from "animejs"
 
 import Brand from "../brand"
-import SplashMenu from "../splash/menu"
+import SplashMenu from "../splash/splashMenu"
 
 import withSound from "../../hoc/withSound"
 

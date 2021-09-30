@@ -352,7 +352,7 @@ div.arwes-card__line {
 	background: #174952;
 }
 .icon--secondary:hover .icon__image {
-	background: #522f17;
+	background: #9e6d4d;
 }
 .icon--arrow-down .icon__image {
 	padding: 0.6rem;
@@ -594,4 +594,7 @@ div.arwes-card__line {
 	top: 0;
 	left: 50%;
 	transform: translateX(-50%);
+}
+.menu__icon .icon__image {
+	width: 40px;
 }

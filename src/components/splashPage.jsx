@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 
 import Brand from "./brand"
-import Menu from "./splash/menu"
 import Pegi from "./splash/pegi"
 import Explore from "./splash/explore"
 import Navbar from "./splash/navbar"
 import Cards from "./splash/cards"
 import Features from "./splash/features"
+import SplashMenu from "./splash/splashMenu"
 
 import "../css/splash.css"
 
@@ -37,7 +37,7 @@ class SplashPage extends Component {
 				<Navbar show={this.state.showNavbar} />
 				<main className="splash" onClick={this.firstScroll}>
 					<Brand />
-					<Menu />
+					<SplashMenu />
 					<Pegi />
 					<Explore />
 				</main>
