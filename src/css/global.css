@@ -264,6 +264,7 @@ div.arwes-card__line {
 /* Icon */
 .icon {
 	filter: drop-shadow(0 0 2px var(--color-secondary));
+	transition: all 0.3s;
 }
 .icon--secondary {
 	filter: drop-shadow(0 0 2px var(--color-accent));
@@ -497,6 +498,9 @@ div.arwes-card__line {
 	margin: unset;
 }
 
+.collapsible--expanded .list-group__icon {
+	transform: rotate(-90deg);
+}
 @media screen and (min-width: 1024px) {
 	.list-group {
 		position: static;

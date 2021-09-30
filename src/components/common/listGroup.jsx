@@ -31,7 +31,7 @@ export default function ListGroup({
 					secondary={expanded}
 					round
 					src="/images/icons/arrow-down.svg"
-					className="icon--arrow-down"
+					className="icon--arrow-down list-group__icon"
 				/>
 			</div>
 			<div className="collapsible__content">
