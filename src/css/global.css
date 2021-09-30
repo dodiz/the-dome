@@ -330,6 +330,7 @@ div.arwes-card__line {
 }
 .icon--arrow-down .icon__image {
 	padding: 0.6rem;
+	width: 30px;
 }
 /* LIST */
 .list {
@@ -490,10 +491,19 @@ div.arwes-card__line {
 	bottom: 0;
 	margin: 0;
 }
-.list-group__mobile-title {
+.list-group__mobile {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0.3rem;
+}
+.collapsible--expanded .list-group__mobile-title {
+	opacity: 0;
+}
+.collapsible--expanded .list-group__mobile {
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
 .list-group .collapsible__icon {
 	margin: unset;
