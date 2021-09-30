@@ -587,13 +587,17 @@ div.arwes-card__line {
 
 /* MENU */
 .menu {
-	position: relative;
+	position: absolute;
+	top: 1rem;
+	right: 4rem;
 }
 .menu__icon {
 	position: absolute;
 	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
+	cursor: pointer;
+}
+.menu__icon--first {
+	z-index: 9;
 }
 .menu__icon .icon__image {
 	width: 40px;

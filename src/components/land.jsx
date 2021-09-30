@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { FrameHexagon, FrameLines } from "@arwes/core"
+import { FrameHexagon, Figure, FrameLines } from "@arwes/core"
 import Menu from "./land/menu"
 
 class Land extends Component {
@@ -11,12 +11,13 @@ class Land extends Component {
 					boxSizing: "border-box",
 					padding: ".6rem",
 					height: "100vh",
-					gridTemplate: "1fr / 300px 1fr 70px",
+					gridTemplate: "1fr / 300px 1fr",
 					gridGap: "2rem"
 				}}>
 				<FrameHexagon>UI</FrameHexagon>
-				<FrameLines>mappa</FrameLines>
-				<Menu />
+				<FrameLines lineWidth={1} squareSize={40} hideShapes hover>
+					<Menu />
+				</FrameLines>
 			</div>
 		)
 	}

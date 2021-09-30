@@ -1,59 +1,70 @@
 import React from "react"
 import anime from "animejs"
-import { FrameCorners } from "@arwes/core"
 
 import Icon from "../common/icon"
 
 class Menu extends React.Component {
-	componentDidMount() {
-		const delay = 2000
+	state = {
+		open: false
+	}
+
+	toggleMenu = () => {
 		const duration = 400
 		const space = 65
-		anime({
-			targets: ".menu__icon",
-			easing: "easeOutCubic",
-			opacity: {
-				delay: (_, i, __) => (i * duration) / 2,
-				duration,
-				value: [0, 1]
-			},
-			top: {
-				value: (_, i, __) => `${space * i}px`,
-				delay: (_, __, t) => duration * t,
-				duration
-			}
-		})
+		const targets = ".menu__icon--animate"
+		const easing = "easeOutCubic"
+
+		!this.state.open
+			? anime({
+					targets,
+					easing,
+					top: {
+						value: (_, i, __) => `${space * (1 + i)}px`,
+						duration
+					}
+			  })
+			: anime({
+					targets,
+					easing,
+					top: {
+						value: 0,
+						duration
+					}
+			  })
+		this.setState({ open: !this.state.open })
 	}
 	render() {
 		return (
-			<FrameCorners className="menu" palette="secondary">
+			<div className="menu">
 				<Icon
-					className="menu__icon"
+					className="menu__icon menu__icon--first"
 					secondary
 					src="/images/icons/power.svg"
 					style={{
-						padding: ".5rem"
+						padding: ".5rem",
+						zIndex: "9999"
 					}}
+					onClick={this.toggleMenu}
 				/>
 				<Icon
-					className="menu__icon"
+					className="menu__icon menu__icon--animate"
 					secondary
 					src="/images/icons/cart.svg"
 					style={{ padding: ".5rem" }}
 				/>
 				<Icon
-					className="menu__icon"
+					className="menu__icon menu__icon--animate"
 					secondary
 					src="/images/icons/settings.svg"
 					style={{ padding: ".5rem" }}
 				/>
 				<Icon
-					className="menu__icon"
+					className="menu__icon menu__icon--animate"
 					secondary
 					src="/images/icons/user-add.svg"
 					style={{ padding: ".5rem" }}
 				/>
-			</FrameCorners>
+			</div>
 		)
 	}
 }
