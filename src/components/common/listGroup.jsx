@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 import Icon from "./icon"
+import { FrameCorners } from "@arwes/core"
 
 export default function ListGroup({
 	items,
@@ -29,33 +30,35 @@ export default function ListGroup({
 
 	return (
 		<ul className={`list list-group ${expanded && "collapsible--expanded"}`}>
-			<div className="list-group__mobile" onClick={toggleOpen}>
-				<div
-					className={`${
-						!expanded && "link--active"
-					} link list-group__mobile-title`}>
-					{findSelectedItem()}
+			<FrameCorners style={{ width: "100%" }}>
+				<div className="list-group__mobile" onClick={toggleOpen}>
+					<div
+						className={`${
+							!expanded && "link--active"
+						} link list-group__mobile-title`}>
+						{findSelectedItem()}
+					</div>
+					<Icon
+						pulse
+						secondary={!expanded}
+						round
+						src="/images/icons/arrow-down.svg"
+						className="icon--arrow-down list-group__icon"
+					/>
 				</div>
-				<Icon
-					pulse
-					secondary={!expanded}
-					round
-					src="/images/icons/arrow-down.svg"
-					className="icon--arrow-down list-group__icon"
-				/>
-			</div>
-			<div className="collapsible__content">
-				{items.map(item => (
-					<li
-						onClick={() => selectItem(item)}
-						className={`link list-group__item ${
-							selectedItem === item && "link--active"
-						} `}
-						key={item[valueProperty]}>
-						{item[textProperty]}
-					</li>
-				))}
-			</div>
+				<div className="collapsible__content">
+					{items.map(item => (
+						<li
+							onClick={() => selectItem(item)}
+							className={`link list-group__item ${
+								selectedItem === item && "link--active"
+							} `}
+							key={item[valueProperty]}>
+							{item[textProperty]}
+						</li>
+					))}
+				</div>
+			</FrameCorners>
 		</ul>
 	)
 }

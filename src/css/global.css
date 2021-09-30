@@ -75,11 +75,16 @@ body {
 	color: var(--color-body);
 	font-family: "Titillium Web", sans-serif;
 	letter-spacing: 1px;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	line-height: 1.5;
 	margin: 0;
 	padding: 0;
 	background: #0a0a0a;
+}
+@media screen and (min-width: 768px) {
+	body {
+		font-size: 1.6rem;
+	}
 }
 a,
 a:hover,
@@ -487,10 +492,8 @@ div.arwes-card__line {
 
 /* LIST GROUP */
 .list-group {
-	background: var(--color-primary);
-	border-top: 2px solid var(--color-accent);
-	box-shadow: 0 0px 5px var(--color-accent);
-	padding: 1rem;
+	background: linear-gradient(to top, var(--color-primary) 90%, #00000000 100%);
+	padding: 1rem 0.6rem 0.6rem 0.6rem;
 	position: fixed;
 	width: 100%;
 	bottom: 0;
@@ -523,21 +526,15 @@ div.arwes-card__line {
 .collapsible--expanded .list-group__icon {
 	transform: rotate(-90deg);
 }
-.collapsible--expanded.list-group {
-	box-shadow: 0 0px 5px var(--color-secondary);
-	border-top: 2px solid var(--color-secondary);
-}
 @media screen and (min-width: 1024px) {
-	.list-group {
-		position: static;
-	}
 	.list-group__mobile {
 		display: none;
 	}
 	.list-group,
 	.collapsible--expanded.list-group {
-		border-top: 2px solid var(--color-accent);
-		box-shadow: 0 0px 5px var(--color-accent);
-		width: auto;
+		position: static;
+		background: none;
+		border-top: 0;
+		box-shadow: none;
 	}
 }
