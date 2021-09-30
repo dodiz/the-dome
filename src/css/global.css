@@ -521,8 +521,8 @@ div.arwes-card__line {
 }
 .collapsible--expanded .list-group__mobile {
 	position: absolute;
-	top: 5px;
-	right: 5px;
+	top: 3px;
+	right: 3px;
 }
 .list-group .collapsible__icon {
 	margin: unset;

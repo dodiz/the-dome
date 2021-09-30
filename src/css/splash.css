@@ -112,6 +112,9 @@
 .splash-menu__item {
 	display: inline-block;
 }
+.splash-menu__item:last-child .splash-menu__link {
+	padding-right: 0;
+}
 @media (min-width: 1024px) {
 	.splash-menu__item::before {
 		content: "|";
@@ -127,9 +130,6 @@
 	}
 	.splash-menu__link {
 		padding: 0 3rem;
-	}
-	.splash-menu__item:last-child .splash-menu__link {
-		padding-right: 0;
 	}
 }
 
