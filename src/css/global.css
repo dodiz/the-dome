@@ -332,6 +332,11 @@ div.arwes-card__line {
 	padding: 0.6rem;
 	width: 30px;
 }
+@media screen and (min-width: 1024px) {
+	.icon--arrow-down .icon__image {
+		width: 40px;
+	}
+}
 /* LIST */
 .list {
 	list-style: none;
@@ -497,6 +502,9 @@ div.arwes-card__line {
 	align-items: center;
 	padding: 0.3rem;
 }
+.list-group__mobile-tile {
+	transition: opacity 0.3s;
+}
 .collapsible--expanded .list-group__mobile-title {
 	opacity: 0;
 }
@@ -522,7 +530,13 @@ div.arwes-card__line {
 	.list-group {
 		position: static;
 	}
-	.list-group__mobile-title {
+	.list-group__mobile {
 		display: none;
+	}
+	.list-group,
+	.collapsible--expanded.list-group {
+		border-top: 2px solid var(--color-accent);
+		box-shadow: 0 0px 5px var(--color-accent);
+		width: auto;
 	}
 }
