@@ -353,7 +353,7 @@ div.arwes-card__line {
 	animation: pulse-icon--secondary 2s infinite;
 }
 .icon--secondary .icon__image {
-	background: rgb(99, 71, 36);
+	background: #634724;
 }
 .icon:hover .icon__image {
 	background: #174952;
