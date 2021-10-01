@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Switch, Route } from "react-router"
-import { ToastContainer, Slide } from "react-toastify"
+import { ToastContainer, Slide, toast } from "react-toastify"
 
 import Background from "./components/background"
 import Assemble from "./components/splash/assemble"
@@ -14,10 +14,11 @@ import Land from "./components/land"
 import ArwesProvider from "./tools/arwesProvider"
 
 import "react-toastify/dist/ReactToastify.css"
-import "./css/global.css"
+import "./index.css"
 
 function App() {
   const [assemble, setAssemble] = useState( false )
+
   return (
     <ArwesProvider>
       <ToastContainer
