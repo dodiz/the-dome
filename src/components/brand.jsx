@@ -31,6 +31,8 @@ class Logo extends Component {
 	}
 
 	render() {
+		const { hideSub } = this.props
+
 		return (
 			<div className="brand">
 				<svg className="brand__logo" viewBox="0 0 317 25">
@@ -53,12 +55,14 @@ class Logo extends Component {
 					<path d="M 292 1 A 1 1 0 0 0 292 25 C 294 25 295 24 295 24 L 292 21 C 281 21 281 5 292 5 C 292 5 295 5 297 7 L 300 4 C 296 1 292 1 292 1" />
 					<path d="M 304 1 H 316 V 5 H 308 V 25 H 304 V 1" />
 				</svg>
-				<Text
-					animator={{ duration: { delay: 1500 } }}
-					className="brand__subtitle"
-					as="p">
-					cyberpunk rpg play by chat
-				</Text>
+				{!hideSub && (
+					<Text
+						animator={{ duration: { delay: 1500 } }}
+						className="brand__subtitle"
+						as="p">
+						cyberpunk rpg play by chat
+					</Text>
+				)}
 			</div>
 		)
 	}
