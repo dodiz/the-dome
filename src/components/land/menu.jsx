@@ -51,11 +51,11 @@ class Menu extends React.Component {
 
 				<MenuOption title="Negozio" src="/images/icons/cart.svg" />
 				<MenuOption title="Settings" src="/images/icons/settings.svg" />
-				<MenuOption title="Crea un pg" src="/images/icons/user-add.svg" />
 				<MenuOption title="Agenda" src="/images/icons/calendar.svg" />
 				<MenuOption title="Manuale" src="/images/icons/folder.svg" />
 				<MenuOption title="Utility" src="/images/icons/voice.svg" />
 				<MenuOption title="Logout" src="/images/icons/power.svg" />
+				<MenuOption title="Crea un pg" src="/images/icons/user-add.svg" />
 			</div>
 		)
 	}
