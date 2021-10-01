@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import anime from "animejs"
+import { FrameCorners } from "@arwes/core"
 
 class Map extends Component {
 	state = {
@@ -54,9 +55,19 @@ class Map extends Component {
 	render() {
 		const { hCells, vCells } = this.state
 		return (
-			<div ref={this.mapRef} className="map">
-				<div className="map__pattern" />
-			</div>
+			<FrameCorners
+				origins={["left", "top", "right", "bottom"]}
+				palette="secondary"
+				cornerWidth={3}
+				cornerLength={50}
+				showContentLines
+				hideShapes
+				hover
+				className="map-frame">
+				<div ref={this.mapRef} className="map">
+					<div className="map__pattern" />
+				</div>
+			</FrameCorners>
 		)
 	}
 }
