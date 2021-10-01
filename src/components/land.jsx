@@ -1,24 +1,30 @@
 import React, { Component } from "react"
-import { FrameHexagon, Figure, FrameLines } from "@arwes/core"
+import { Card, FrameCorners } from "@arwes/core"
 import Menu from "./land/menu"
+import Map from "./land/map"
+import Brand from "./brand"
 
 class Land extends Component {
 	render() {
 		return (
-			<div
-				style={{
-					display: "grid",
-					boxSizing: "border-box",
-					padding: ".6rem",
-					height: "100vh",
-					gridTemplate: "1fr / 300px 1fr",
-					gridGap: "2rem"
-				}}>
-				<FrameHexagon>UI</FrameHexagon>
-				<FrameLines lineWidth={1} squareSize={40} hideShapes hover>
-					<Menu />
-				</FrameLines>
-			</div>
+			<main className="land">
+				<FrameCorners className="ui" animator={{ duration: 1000, delay: 1000 }}>
+					<Brand hideSub />
+					<Card image={"https://i.ibb.co/gP4crDc/nomi-mappa.jpg"} />
+				</FrameCorners>
+				<FrameCorners
+					origins={["left", "top", "right", "bottom"]}
+					palette="secondary"
+					cornerWidth={3}
+					cornerLength={50}
+					showContentLines
+					hideShapes
+					hover
+					className="map-frame">
+					<Map />
+				</FrameCorners>
+				<Menu />
+			</main>
 		)
 	}
 }
