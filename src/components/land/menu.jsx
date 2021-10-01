@@ -3,67 +3,59 @@ import anime from "animejs"
 
 import Icon from "../common/icon"
 
+const MenuOption = ({ title, src, ...rest }) => (
+	<div className="menu__icon menu__icon--animate">
+		<div className="menu__icon-text">{title}</div>
+		<Icon padding secondary src={src} {...rest} />
+	</div>
+)
+
 class Menu extends React.Component {
 	state = {
 		open: false
 	}
 
 	toggleMenu = () => {
+		const { open } = this.state
 		const duration = 400
-		const space = 65
+		const delay = 50
+		const space = 6.5
 		const targets = ".menu__icon--animate"
 		const easing = "easeOutCubic"
+		anime({
+			targets,
+			easing,
+			opacity: open ? 0 : 1,
+			bottom: {
+				value: open ? 0 : (_, i) => `${space * (i + 1)}rem`,
+				duration,
+				delay: (_, i, t) => delay * (open ? i : t - i)
+			}
+		})
 
-		!this.state.open
-			? anime({
-					targets,
-					easing,
-					top: {
-						value: (_, i, __) => `${space * (1 + i)}px`,
-						duration
-					}
-			  })
-			: anime({
-					targets,
-					easing,
-					top: {
-						value: 0,
-						duration
-					}
-			  })
-		this.setState({ open: !this.state.open })
+		this.setState({ open: !open })
 	}
 	render() {
 		return (
 			<div className="menu">
-				<Icon
-					className="menu__icon menu__icon--first"
-					secondary
-					src="/images/icons/power.svg"
-					style={{
-						padding: ".5rem",
-						zIndex: "9999"
-					}}
-					onClick={this.toggleMenu}
-				/>
-				<Icon
-					className="menu__icon menu__icon--animate"
-					secondary
-					src="/images/icons/cart.svg"
-					style={{ padding: ".5rem" }}
-				/>
-				<Icon
-					className="menu__icon menu__icon--animate"
-					secondary
-					src="/images/icons/settings.svg"
-					style={{ padding: ".5rem" }}
-				/>
-				<Icon
-					className="menu__icon menu__icon--animate"
-					secondary
-					src="/images/icons/user-add.svg"
-					style={{ padding: ".5rem" }}
-				/>
+				<div className="menu__icon menu__icon--first">
+					<Icon
+						pulse
+						round
+						secondary={!this.state.open}
+						src="/images/icons/menu.svg"
+						onClick={this.toggleMenu}
+						padding
+					/>
+				</div>
+
+				<MenuOption title="Negozio" src="/images/icons/cart.svg" />
+				<MenuOption title="Settings" src="/images/icons/settings.svg" />
+				<MenuOption title="Crea un pg" src="/images/icons/user-add.svg" />
+				<MenuOption title="Agenda" src="/images/icons/calendar.svg" />
+				<MenuOption title="Manuale" src="/images/icons/folder.svg" />
+				<MenuOption title="Utility" src="/images/icons/voice.svg" />
+				<MenuOption title="Logout" src="/images/icons/power.svg" />
 			</div>
 		)
 	}

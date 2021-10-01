@@ -31,20 +31,27 @@
 
 .Toastify__toast {
 	border: 1px solid var(--color-secondary);
-	background: #00a8a866;
-	box-shadow: inset 0 0px 3px #02b0b0, 0 0 3px #02b0b0;
+	background: #00303088;
 	border-radius: 0;
 }
-.Toastify__toast-theme--dark.Toastify__toast--info {
+.Toastify__toast--default {
+	border-color: var(--color-secondary);
 	color: var(--color-secondary);
+	box-shadow: inset 0 0px 3px #02b0b0, 0 0 3px #02b0b0;
 }
-.Toastify__toast-theme--dark.Toastify__toast--success {
+.Toastify__toast--success {
+	border-color: var(--color-success);
+	box-shadow: inset 0 0px 3px var(--color-success), 0 0 3px var(--color-success);
 	color: var(--color-success);
 }
-.Toastify__toast-theme--dark.Toastify__toast--warning {
+.Toastify__toast--warning {
+	border-color: var(--color-warning);
+	box-shadow: inset 0 0px 3px var(--color-warning), 0 0 3px var(--color-warning);
 	color: var(--color-warning);
 }
-.Toastify__toast-theme--dark.Toastify__toast--error {
+.Toastify__toast--error {
+	border-color: var(--color-accent);
+	box-shadow: inset 0 0px 3px var(--color-accent), 0 0 3px var(--color-accent);
 	color: var(--color-error);
 }
 
@@ -358,6 +365,9 @@ div.arwes-card__line {
 	padding: 0.6rem;
 	width: 30px;
 }
+.icon--padding .icon__image {
+	padding: 0.5rem;
+}
 @media screen and (min-width: 1024px) {
 	.icon--arrow-down .icon__image {
 		width: 40px;
@@ -587,18 +597,74 @@ div.arwes-card__line {
 
 /* MENU */
 .menu {
-	position: absolute;
-	top: 1rem;
-	right: 4rem;
+	position: fixed;
+	bottom: 2rem;
+	right: 6rem;
+	display: flex;
+	justify-content: center;
 }
 .menu__icon {
 	position: absolute;
-	top: 0;
 	cursor: pointer;
+	bottom: 0;
+	opacity: 0;
+}
+.menu__icon-text {
+	position: absolute;
+	left: -12rem;
+	width: 100px;
+	text-align: right;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.menu__icon:hover .menu__icon-text {
+	color: var(--color-accent);
 }
 .menu__icon--first {
+	bottom: 0;
 	z-index: 9;
+	opacity: 1;
 }
 .menu__icon .icon__image {
 	width: 40px;
+}
+
+/* LAND */
+.land {
+	display: grid;
+	padding: 0.6rem;
+	height: 100vh;
+	grid-template: 1fr / 300px 1fr;
+	grid-gap: 2rem;
+}
+
+/* MAP */
+div.map-frame {
+	padding: 4px;
+	display: flex;
+}
+div.map-frame .arwes-frame__content {
+	width: 100%;
+}
+
+.map {
+	height: 100%;
+	background: url("../assets/map/base.png");
+	position: relative;
+	overflow: hidden;
+	background-position: center center;
+	opacity: 0;
+}
+
+.map__pattern {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../assets/map/pattern_grid.png");
+	transition: transform 0.5s;
+}
+.map:hover .map__pattern {
+	transform: scale(1.05);
 }

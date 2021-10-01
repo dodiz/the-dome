@@ -10,6 +10,7 @@ const Icon = ({
 	secondary,
 	pulse,
 	children,
+	padding,
 	...rest
 }) => {
 	const Image = children || (
@@ -20,9 +21,11 @@ const Icon = ({
 		<span
 			onMouseOver={() => sounds.hover.play()}
 			onClick={() => sounds.click.play()}
-			className={`icon ${pulse && "icon--pulse"} ${
-				secondary && "icon--secondary"
-			} ${round ? "icon--round" : "icon--clipper"} ${className || ""}`}>
+			className={`icon ${padding && "icon--padding"} ${
+				pulse && "icon--pulse"
+			} ${secondary && "icon--secondary"} ${
+				round ? "icon--round" : "icon--clipper"
+			} ${className || ""}`}>
 			{round ? Image : <span className="icon__sub">{Image}</span>}
 		</span>
 	)
