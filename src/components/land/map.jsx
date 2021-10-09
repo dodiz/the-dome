@@ -43,11 +43,6 @@ class Map extends Component {
 			opacity: {
 				value: [0, 1],
 				delay: 2000
-			},
-			backgroundSize: {
-				value: ["300% 300%", "100% 100%"],
-				duration,
-				delay: duration * 2
 			}
 		})
 	}
@@ -55,19 +50,21 @@ class Map extends Component {
 	render() {
 		const { hCells, vCells } = this.state
 		return (
-			<FrameCorners
-				origins={["left", "top", "right", "bottom"]}
-				palette="secondary"
-				cornerWidth={3}
-				cornerLength={50}
-				showContentLines
-				hideShapes
-				hover
-				className="map-frame">
-				<div ref={this.mapRef} className="map">
-					<div className="map__pattern" />
-				</div>
-			</FrameCorners>
+			<div className="map-frame">
+				<FrameCorners
+					origins={["left", "top", "right", "bottom"]}
+					palette="secondary"
+					cornerWidth={3}
+					cornerLength={50}
+					showContentLines
+					hideShapes
+					hover
+					className="map-framecorners">
+					<div ref={this.mapRef} className="map">
+						<div className="map__pattern" />
+					</div>
+				</FrameCorners>
+			</div>
 		)
 	}
 }
