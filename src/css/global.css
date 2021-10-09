@@ -647,10 +647,11 @@ div.arwes-card__line {
 	max-height: 100vh;
 	overflow: hidden;
 	grid-template: 100px 1fr / 1fr;
-	grid-gap: 2rem;
+	grid-gap: 3rem;
 }
 @media (min-width: 768px) {
 	.land {
+		grid-gap: 1.5rem;
 		padding: 0.6rem;
 		grid-template: 1fr / 300px 1fr;
 	}
@@ -703,7 +704,7 @@ div.map-framecorners {
 
 /* UI */
 .ui {
-	z-index: 2;
+	z-index: 1;
 }
 .ui__head-logo {
 	padding: 1rem 0 2rem 0;
@@ -711,15 +712,18 @@ div.map-framecorners {
 .ui__head-menu {
 	display: flex;
 	justify-content: space-evenly;
+	margin-bottom: 1rem;
 }
 .ui__head-icon .icon__image {
 	width: 35px;
 }
-.ui__framecorners {
+div.ui__framecorners {
 	width: 100%;
-	height: 100%;
+	transition: background 0.5s;
+}
+.collapsible--expanded div.ui__framecorners {
+	background: var(--color-primary);
 }
 .ui__content {
-}
-@media screen and (min-width: 768px) {
+	overflow: auto;
 }

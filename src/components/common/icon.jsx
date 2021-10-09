@@ -11,6 +11,7 @@ const Icon = ({
 	pulse,
 	children,
 	padding,
+	onClick,
 	...rest
 }) => {
 	const Image = children || (
@@ -20,7 +21,10 @@ const Icon = ({
 	return (
 		<span
 			onMouseOver={() => sounds.hover.play()}
-			onClick={() => sounds.click.play()}
+			onClick={() => {
+				sounds.click.play()
+				if (onClick) onClick()
+			}}
 			className={`icon ${padding && "icon--padding"} ${
 				pulse && "icon--pulse"
 			} ${secondary && "icon--secondary"} ${
