@@ -17,30 +17,33 @@ class UI extends React.Component {
 		const { expanded } = this.state
 		return (
 			<div className={`ui ${expanded && "collapsible--expanded"}`}>
-				<div
-					onClick={this.toggleExpand}
-					className="collapsible__head ui__toggler">
-					<div className="ui__head-logo">
-						<Brand hideSub />
+				<FrameCorners>
+					<div
+						onClick={this.toggleExpand}
+						className="collapsible__head ui__toggler">
+						<div className="ui__head-logo">
+							<Brand hideSub />
+						</div>
+						<div className="ui__head-menu">
+							<Icon
+								padding
+								className="ui__head-icon"
+								src="/images/icons/globe.svg"
+							/>
+							<Icon
+								padding
+								className="ui__head-icon"
+								src="/images/icons/person.svg"
+							/>
+							<Icon
+								padding
+								className="ui__head-icon"
+								src="/images/icons/group.svg"
+							/>
+						</div>
 					</div>
-					<div className="ui__head-menu">
-						<Icon
-							padding
-							className="ui__head-icon"
-							src="/images/icons/globe.svg"
-						/>
-						<Icon
-							padding
-							className="ui__head-icon"
-							src="/images/icons/person.svg"
-						/>
-						<Icon
-							padding
-							className="ui__head-icon"
-							src="/images/icons/group.svg"
-						/>
-					</div>
-				</div>
+				</FrameCorners>
+
 				<div className="ui__content collapsible__content">
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
 					deleniti quaerat magnam voluptates reiciendis? Provident, minima quae
