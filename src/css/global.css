@@ -602,7 +602,7 @@ div.arwes-card__line {
 .menu {
 	position: fixed;
 	bottom: 2rem;
-	right: 6rem;
+	right: 4rem;
 	display: flex;
 	justify-content: center;
 }
@@ -611,6 +611,9 @@ div.arwes-card__line {
 	cursor: pointer;
 	bottom: 0;
 	opacity: 0;
+}
+.menu__icon .icon__image {
+	width: 35px;
 }
 .menu__icon-text {
 	position: absolute;
@@ -628,8 +631,13 @@ div.arwes-card__line {
 	z-index: 9;
 	opacity: 1;
 }
-.menu__icon .icon__image {
-	width: 40px;
+@media (min-width: 768px) {
+	.menu {
+		right: 6rem;
+	}
+	.menu__icon .icon__image {
+		width: 40px;
+	}
 }
 
 /* LAND */
