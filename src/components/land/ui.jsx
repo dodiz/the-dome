@@ -5,9 +5,9 @@ import Icon from "../common/icon"
 import { FrameCorners, Card, Text } from "@arwes/core"
 
 const MenuIcons = [
-	"/images/icons/globe.svg",
-	"/images/icons/person.svg",
-	"/images/icons/group.svg"
+	{ src: "/images/icons/globe.svg", label: "Info" },
+	{ src: "/images/icons/person.svg", label: "Pg" },
+	{ src: "/images/icons/group.svg", label: "Online" }
 ]
 
 class UI extends React.Component {
@@ -22,31 +22,34 @@ class UI extends React.Component {
 	render() {
 		const { mobileSelection } = this.state
 		return (
-			<div className={`ui ${mobileSelection > 0 && "collapsible--expanded"}`}>
-				<FrameCorners className="ui__framecorners">
+			<FrameCorners
+				className={`ui ${mobileSelection > 0 ? "collapsible--expanded" : ""}`}>
+				<section className="ui__container">
 					<div className="collapsible__head ui__toggler">
-						<div className="ui__head-logo">
-							<Brand hideSub />
-						</div>
 						<div className="ui__head-menu">
-							<Icon
-								padding
-								className="ui__head-icon"
-								src="/images/icons/home.svg"
-							/>
-							{MenuIcons.map((image, i) => (
+							<div className="ui__head-menu-item">
 								<Icon
-									secondary={i + 1 === mobileSelection}
-									onClick={() => this.toggleExpand(i + 1)}
-									key={i}
 									padding
 									className="ui__head-icon"
-									src={image}
+									src="/images/icons/home.svg"
 								/>
+								Home
+							</div>
+							{MenuIcons.map((item, i) => (
+								<div className="ui__head-menu-item">
+									<Icon
+										secondary={i + 1 === mobileSelection}
+										onClick={() => this.toggleExpand(i + 1)}
+										key={i}
+										padding
+										className="ui__head-icon"
+										src={item.src}
+									/>
+									{item.label}
+								</div>
 							))}
 						</div>
 					</div>
-
 					<div className="ui__content collapsible__content">
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
 						deleniti quaerat magnam voluptates reiciendis? Provident, minima
@@ -108,8 +111,8 @@ class UI extends React.Component {
 						mollitia perspiciatis quos. Ratione amet tempora eos aliquid, culpa
 						consectetur quibusdam. Voluptates provident quasi aperiam?
 					</div>
-				</FrameCorners>
-			</div>
+				</section>
+			</FrameCorners>
 		)
 	}
 }

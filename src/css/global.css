@@ -598,6 +598,23 @@ div.arwes-card__line {
 	}
 }
 
+/* LAND */
+.land {
+	padding: 3px;
+	display: grid;
+	grid-gap: 10px;
+	height: 100vh;
+	overflow: auto;
+	grid-template: 1fr;
+}
+@media (min-width: 1024px) {
+	.land {
+		grid-gap: 1.5rem;
+		padding: 0.6rem;
+		grid-template: 1fr / 300px 1fr;
+	}
+}
+
 /* MENU */
 .menu {
 	position: fixed;
@@ -631,7 +648,7 @@ div.arwes-card__line {
 	z-index: 9;
 	opacity: 1;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 	.menu {
 		right: 6rem;
 	}
@@ -640,37 +657,14 @@ div.arwes-card__line {
 	}
 }
 
-/* LAND */
-.land {
-	display: grid;
-	height: 100vh;
-	max-height: 100vh;
-	overflow: hidden;
-	grid-template: 100px 1fr / 1fr;
-	grid-gap: 3rem;
-}
-@media (min-width: 768px) {
-	.land {
-		grid-gap: 1.5rem;
-		padding: 0.6rem;
-		grid-template: 1fr / 300px 1fr;
-	}
-}
-
 /* MAP */
-div.map-frame {
-	padding: 5px;
-	max-height: 100vh;
-}
-div.map-framecorners {
+div.map-box {
 	display: flex;
 	width: 100%;
 	height: 100%;
-}
-div.map-framecorners {
 	padding: 4px;
 }
-.map-framecorners .arwes-frame__content {
+.map-box .arwes-frame__content {
 	width: 100%;
 }
 
@@ -696,34 +690,40 @@ div.map-framecorners {
 .map:hover .map__pattern {
 	transform: scale(1.05);
 }
-@media (min-width: 768px) {
-	div.map-frame {
-		padding: 0px;
-	}
-}
 
 /* UI */
-.ui {
+div.ui {
 	z-index: 1;
+	transition: background 0.5s;
+	position: fixed;
 }
-.ui__head-logo {
-	padding: 1rem 0 2rem 0;
+.ui__container {
+	grid-template-rows: auto 1fr;
+	display: grid;
+	height: 100%;
+}
+.collapsible--expanded.ui {
+	background: var(--color-primary);
 }
 .ui__head-menu {
 	display: flex;
 	justify-content: space-evenly;
-	margin-bottom: 1rem;
+}
+.ui__head-menu-item {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 .ui__head-icon .icon__image {
 	width: 35px;
 }
-div.ui__framecorners {
-	width: 100%;
-	transition: background 0.5s;
-}
-.collapsible--expanded div.ui__framecorners {
-	background: var(--color-primary);
-}
 .ui__content {
 	overflow: auto;
+}
+@media screen and (min-width: 1024px) {
+	div.ui {
+		position: unset;
+	}
 }

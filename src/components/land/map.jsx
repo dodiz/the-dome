@@ -21,7 +21,7 @@ class Map extends Component {
 			hCells: Math.floor(height / 100) + 1,
 			vCells: Math.floor(width / 150) + 1
 		})
-		const duration = 3000
+		const duration = 500
 		const easing = "easeOutCubic"
 
 		anime({
@@ -32,7 +32,7 @@ class Map extends Component {
 				duration
 			},
 			scale: {
-				value: [0.01, 1],
+				value: [0, 1],
 				delay: duration,
 				duration
 			}
@@ -42,7 +42,7 @@ class Map extends Component {
 			easing,
 			opacity: {
 				value: [0, 1],
-				delay: 2000
+				delay: 500
 			}
 		})
 	}
@@ -50,21 +50,19 @@ class Map extends Component {
 	render() {
 		const { hCells, vCells } = this.state
 		return (
-			<div className="map-frame">
-				<FrameCorners
-					origins={["left", "top", "right", "bottom"]}
-					palette="secondary"
-					cornerWidth={3}
-					cornerLength={50}
-					showContentLines
-					hideShapes
-					hover
-					className="map-framecorners">
-					<div ref={this.mapRef} className="map">
-						<div className="map__pattern" />
-					</div>
-				</FrameCorners>
-			</div>
+			<FrameCorners
+				origins={["left", "top", "right", "bottom"]}
+				palette="secondary"
+				cornerWidth={3}
+				cornerLength={50}
+				showContentLines
+				hideShapes
+				hover
+				className="map-box">
+				<div ref={this.mapRef} className="map">
+					<div className="map__pattern" />
+				</div>
+			</FrameCorners>
 		)
 	}
 }
