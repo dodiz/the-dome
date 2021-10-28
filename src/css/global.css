@@ -724,6 +724,6 @@ div.ui {
 }
 @media screen and (min-width: 1024px) {
 	div.ui {
-		position: unset;
+		position: static;
 	}
 }

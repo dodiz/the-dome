@@ -51,9 +51,9 @@ class Menu extends React.Component {
 
 				<MenuOption title="Negozio" src="/images/icons/cart.svg" />
 				<MenuOption title="Settings" src="/images/icons/settings.svg" />
-				{/*<MenuOption title="Agenda" src="/images/icons/calendar.svg" />*/}
+				<MenuOption title="Agenda" src="/images/icons/calendar.svg" />
 				<MenuOption title="Manuale" src="/images/icons/book.svg" />
-				{/*<MenuOption title="Banca" src="/images/icons/bank.svg" />*/}
+				<MenuOption title="Banca" src="/images/icons/bank.svg" />
 				<MenuOption title="Corporazioni" src="/images/icons/suitcase.svg" />
 				<MenuOption title="Logout" src="/images/icons/power.svg" />
 				<MenuOption title="Crea un pg" src="/images/icons/user-add.svg" />
