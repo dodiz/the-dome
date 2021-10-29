@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import Menu from "./land/menu"
-import Map from "./land/map"
-import UI from "./land/ui"
+import Menu from "./menu"
+import Map from "./map"
+import UI from "./ui"
 
 class Land extends Component {
 	render() {
