@@ -1,14 +1,16 @@
+body {
+	height: 100vh;
+}
+
 .land {
 	padding: 3px;
-	height: 100vh;
+	height: 100%;
 	overflow: hidden;
 	background: url("../media/pattern.png");
 }
 @media (min-width: 1024px) {
 	.land {
-		display: grid;
-		grid-gap: 1.5rem;
-		padding: 0.6rem;
-		grid-template-columns: 300px 1fr;
+		display: flex;
+		padding: 1rem;
 	}
 }

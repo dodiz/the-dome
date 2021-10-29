@@ -1,10 +1,12 @@
 /* UI */
 div.ui {
+	width: 400px;
+	margin-right: 2rem;
 }
 .ui__container {
 	grid-template-rows: auto 1fr;
 	display: grid;
-	height: 100%;
+	overflow: auto;
 }
 .collapsible--expanded.ui {
 	background: var(--color-primary);
@@ -24,7 +26,6 @@ div.ui {
 	width: 35px;
 }
 .ui__content {
-	overflow: auto;
 }
 @media screen and (min-width: 1024px) {
 }

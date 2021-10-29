@@ -5,7 +5,9 @@
 *::after {
 	box-sizing: border-box;
 }
-
+#root {
+	height: 100%;
+}
 :root {
 	--color-primary: #02161a;
 	/* 00F8F8F8 backup secondary*/
