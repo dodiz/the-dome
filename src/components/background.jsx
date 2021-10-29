@@ -30,7 +30,6 @@ class Background extends React.Component {
 	}
 	componentWillUnmount() {
 		this.unanimateCircuitLines()
-		clearTimeout(this.circuitAnimationTimeout)
 		window.removeEventListener("resize", this.draw)
 	}
 	componentDidUpdate(_, state) {
@@ -64,16 +63,6 @@ class Background extends React.Component {
 			horizontalLinesPositions,
 			circuitLines,
 			animateCircuitLines: true
-		})
-	}
-	stopStandByAnimation() {
-		const circuitLineLights = Array.from(
-			document.querySelectorAll(".background__circuit-line-light")
-		)
-
-		anime.remove(circuitLineLights)
-		circuitLineLights.forEach(circuitLineLight => {
-			circuitLineLight.removeAttribute("style")
 		})
 	}
 	animateCircuitLines = () => {
@@ -214,8 +203,7 @@ class Background extends React.Component {
 	}
 	unanimateCircuitLines = () => {
 		anime.remove(this.circuitContainer.querySelectorAll("*"))
-
-		this.stopStandByAnimation()
+		clearTimeout(this.circuitAnimationTimeout)
 	}
 
 	render() {
