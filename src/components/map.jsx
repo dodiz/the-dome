@@ -50,7 +50,7 @@ class Map extends Component {
 	}
 
 	render() {
-		const { hCells, vCells } = this.state
+		//const { hCells, vCells } = this.state
 		return (
 			<FrameCorners
 				origins={["left", "top", "right", "bottom"]}

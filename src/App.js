@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Switch, Route } from "react-router"
-import { ToastContainer, Slide, toast } from "react-toastify"
+import { ToastContainer, Slide } from "react-toastify"
 import Assemble from "./components/splash/assemble"
 import SplashPage from "./components/splashPage"
 import Land from "./components/land"
