@@ -1,8 +1,8 @@
-/* LAND */
 .land {
 	padding: 3px;
 	height: 100vh;
 	overflow: hidden;
+	background: url("../media/pattern.png");
 }
 @media (min-width: 1024px) {
 	.land {

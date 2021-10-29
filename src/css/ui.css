@@ -1,8 +1,5 @@
 /* UI */
 div.ui {
-	z-index: 1;
-	transition: background 0.5s;
-	position: fixed;
 }
 .ui__container {
 	grid-template-rows: auto 1fr;
@@ -30,7 +27,4 @@ div.ui {
 	overflow: auto;
 }
 @media screen and (min-width: 1024px) {
-	div.ui {
-		position: static;
-	}
 }

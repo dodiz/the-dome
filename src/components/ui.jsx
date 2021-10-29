@@ -3,7 +3,7 @@ import Brand from "./brand"
 import Icon from "./common/icon"
 import "../css/ui.css"
 
-import { FrameCorners, Card, Text } from "@arwes/core"
+import { FrameCorners, Card, Text, FrameHexagon } from "@arwes/core"
 
 const MenuIcons = [
 	{ src: "/images/icons/globe.svg", label: "Info" },
@@ -23,7 +23,8 @@ class UI extends React.Component {
 	render() {
 		const { mobileSelection } = this.state
 		return (
-			<FrameCorners
+			<FrameHexagon
+				hideShapes
 				className={`ui ${mobileSelection > 0 ? "collapsible--expanded" : ""}`}>
 				<section className="ui__container">
 					<div className="collapsible__head ui__toggler">
@@ -52,6 +53,7 @@ class UI extends React.Component {
 						</div>
 					</div>
 					<div className="ui__content collapsible__content">
+						<Brand hideSub />
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
 						deleniti quaerat magnam voluptates reiciendis? Provident, minima
 						quae corporis esse qui saepe maxime inventore labore, ab aliquam
@@ -113,7 +115,7 @@ class UI extends React.Component {
 						consectetur quibusdam. Voluptates provident quasi aperiam?
 					</div>
 				</section>
-			</FrameCorners>
+			</FrameHexagon>
 		)
 	}
 }

@@ -197,7 +197,7 @@ div.arwes-card__line {
 	background: var(--color-accent);
 	box-shadow: 0 0 3px var(--color-accent);
 }
-.arwes-frame {
+.arwes-custom-background {
 	background: rgba(62, 251, 251, 0.05);
 }
 .arwes-frame-corners {

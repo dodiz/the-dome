@@ -40,7 +40,11 @@ class InfoPage extends Component {
 						onItemSelect={this.handleInfoSelect}
 						selectedItem={this.state.selectedInfo}
 					/>
-					<FrameBox hideShapes linesWidths={[2, 0, 2, 0]} palette="secondary">
+					<FrameBox
+						className="arwes-custom-background"
+						hideShapes
+						linesWidths={[2, 0, 2, 0]}
+						palette="secondary">
 						<Text as="h2" className="h2">
 							{this.state.selectedInfo.name}
 						</Text>
