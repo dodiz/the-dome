@@ -1,0 +1,36 @@
+/* UI */
+div.ui {
+	z-index: 1;
+	transition: background 0.5s;
+	position: fixed;
+}
+.ui__container {
+	grid-template-rows: auto 1fr;
+	display: grid;
+	height: 100%;
+}
+.collapsible--expanded.ui {
+	background: var(--color-primary);
+}
+.ui__head-menu {
+	display: flex;
+	justify-content: space-evenly;
+}
+.ui__head-menu-item {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.ui__head-icon .icon__image {
+	width: 35px;
+}
+.ui__content {
+	overflow: auto;
+}
+@media screen and (min-width: 1024px) {
+	div.ui {
+		position: static;
+	}
+}

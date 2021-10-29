@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import anime from "animejs"
 import { FrameCorners } from "@arwes/core"
 
+import "../css/map.css"
+
 class Map extends Component {
 	state = {
 		hCells: 0,

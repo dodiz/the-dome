@@ -3,6 +3,8 @@ import Menu from "./menu"
 import Map from "./map"
 import UI from "./ui"
 
+import "../css/land.css"
+
 class Land extends Component {
 	render() {
 		return (

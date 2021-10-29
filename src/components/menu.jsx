@@ -3,6 +3,8 @@ import anime from "animejs"
 
 import Icon from "./common/icon"
 
+import "../css/menu.css"
+
 const MenuOption = ({ title, src, ...rest }) => (
 	<div className="menu__icon menu__icon--animate">
 		<div className="menu__icon-text">{title}</div>

@@ -1,0 +1,41 @@
+/* MENU */
+.menu {
+	position: fixed;
+	bottom: 2rem;
+	right: 4rem;
+	display: flex;
+	justify-content: center;
+}
+.menu__icon {
+	position: absolute;
+	cursor: pointer;
+	bottom: 0;
+	opacity: 0;
+}
+.menu__icon .icon__image {
+	width: 35px;
+}
+.menu__icon-text {
+	position: absolute;
+	left: -12rem;
+	width: 100px;
+	text-align: right;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.menu__icon:hover .menu__icon-text {
+	color: var(--color-accent);
+}
+.menu__icon--first {
+	bottom: 0;
+	z-index: 9;
+	opacity: 1;
+}
+@media (min-width: 1024px) {
+	.menu {
+		right: 6rem;
+	}
+	.menu__icon .icon__image {
+		width: 40px;
+	}
+}

@@ -1,6 +1,7 @@
 import React from "react"
 import Brand from "./brand"
 import Icon from "./common/icon"
+import "../css/ui.css"
 
 import { FrameCorners, Card, Text } from "@arwes/core"
 
