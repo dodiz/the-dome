@@ -17,20 +17,25 @@ class Background extends React.Component {
 		verticalLinesPositions: [],
 		horizontalLinesPositions: [],
 		circuitLines: [],
-		animateCircuit: false
+		animateCircuitLines: false
 	}
-
+	circuitAnimationTimeout = null
 	horizontalLineSpace = 10
 	verticalLineSpace = 100
 
 	componentDidMount() {
 		this.draw()
 		this.play()
-		this.animate()
 		window.addEventListener("resize", this.draw)
 	}
 	componentWillUnmount() {
+		this.unanimateCircuitLines()
+		clearTimeout(this.circuitAnimationTimeout)
 		window.removeEventListener("resize", this.draw)
+	}
+	componentDidUpdate(_, state) {
+		if (!state.animateCircuitLines && this.state.animateCircuitLines)
+			this.animateCircuitLines()
 	}
 	play() {
 		const { sounds } = this.props
@@ -57,10 +62,10 @@ class Background extends React.Component {
 			horizontalLines,
 			verticalLinesPositions,
 			horizontalLinesPositions,
-			circuitLines
+			circuitLines,
+			animateCircuitLines: true
 		})
 	}
-
 	stopStandByAnimation() {
 		const circuitLineLights = Array.from(
 			document.querySelectorAll(".background__circuit-line-light")
@@ -70,52 +75,44 @@ class Background extends React.Component {
 		circuitLineLights.forEach(circuitLineLight => {
 			circuitLineLight.removeAttribute("style")
 		})
-		anime.set(circuitLineLights, { opacity: 0 })
 	}
+	animateCircuitLines = () => {
+		const pathsAll = Array.from(
+			document.querySelectorAll(".background__circuit-line-light")
+		)
 
-	animate() {
-		const run = () => {
-			const pathsAll = Array.from(
-				document.querySelectorAll(".background__circuit-line-light")
-			)
+		const paths = Array(getRandomNumber(1, 2))
+			.fill(0)
+			.map(() => pathsAll[getRandomNumber(0, pathsAll.length - 1)])
 
-			const paths = Array(getRandomNumber(2, 4))
-				.fill(0)
-				.map(() => pathsAll[getRandomNumber(0, pathsAll.length - 1)])
+		let longestDuration = 0
+		paths.forEach((path, i) => {
+			let length = path.getTotalLength()
 
-			let longestDuration = 0
+			const circuitDuration = length * 2
+			const size = 20
 
-			paths.forEach((path, i) => {
-				const length = 3000
-				const circuitDuration = 2000
-				const size = 20
-
-				longestDuration = Math.max(longestDuration, circuitDuration)
-
-				anime({
-					targets: path,
-					duration: circuitDuration,
-					direction: i % 2 === 0 ? "normal" : "reverse",
-					begin: () => anime.set(path, { opacity: 1 }),
-					change: anim => {
-						const progress = length * (anim.progress / 100)
-						path.setAttribute(
-							"stroke-dasharray",
-							`0 ${progress} ${size} ${length}`
-						)
-					},
-					complete: () => anime.set(path, { opacity: 0 })
-				})
+			longestDuration = Math.max(longestDuration, circuitDuration)
+			anime({
+				targets: path,
+				duration: circuitDuration,
+				direction: i % 2 === 0 ? "normal" : "reverse",
+				begin: () => anime.set(path, { opacity: 1 }),
+				change: anim => {
+					const progress = length * (anim.progress / 30)
+					path.setAttribute(
+						"stroke-dasharray",
+						`0 ${progress} ${size} ${length}`
+					)
+				},
+				complete: () => anime.set(path, { opacity: 0 })
 			})
-
-			this.standByAnimationId = setTimeout(run, longestDuration)
-		}
-
-		this.stopStandByAnimation()
-
-		run()
+		})
+		this.circuitAnimationTimeout = setTimeout(
+			this.animateCircuitLines,
+			longestDuration
+		)
 	}
-
 	getLinesPositions(width, space) {
 		const length = Math.floor(width / space)
 
@@ -215,6 +212,11 @@ class Background extends React.Component {
 
 		return lines
 	}
+	unanimateCircuitLines = () => {
+		anime.remove(this.circuitContainer.querySelectorAll("*"))
+
+		this.stopStandByAnimation()
+	}
 
 	render() {
 		const {
@@ -266,6 +268,7 @@ class Background extends React.Component {
 				</svg>
 				<svg
 					className="background__container background__circuit-container background--animate"
+					ref={ref => (this.circuitContainer = ref)}
 					xmlns="http://www.w3.org/2000/svg">
 					{circuitLines.map((line, index) => (
 						<g key={index} data-index={index}>
