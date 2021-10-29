@@ -3,7 +3,7 @@ body {
 }
 
 .land {
-	padding: 3px;
+	padding: 10px;
 	height: 100%;
 	overflow: hidden;
 	background: url("../media/pattern.png");
