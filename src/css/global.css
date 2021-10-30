@@ -427,6 +427,7 @@ div.arwes-card__line {
 	}
 	.collapsible__content {
 		max-height: 100%;
+		overflow: auto;
 		opacity: 1;
 	}
 }
