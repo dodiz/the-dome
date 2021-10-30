@@ -40,6 +40,9 @@ class Menu extends React.Component {
 	render() {
 		return (
 			<div className="menu">
+				{this.state.open && (
+					<div className="menu__overlay" onClick={this.toggleMenu} />
+				)}
 				<div className="menu__icon menu__icon--first">
 					<Icon
 						pulse
