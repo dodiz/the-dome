@@ -42,11 +42,10 @@ class UI extends React.Component {
 								Home
 							</div>
 							{MenuIcons.map((item, i) => (
-								<div className="ui__head-menu-item">
+								<div className="ui__head-menu-item" key={i}>
 									<Icon
 										secondary={i + 1 === mobileSelection}
 										onClick={() => this.toggleExpand(i + 1)}
-										key={i}
 										padding
 										className="ui__head-icon"
 										src={item.src}
