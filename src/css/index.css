@@ -1,4 +1,5 @@
-@import "./style-animations.css";
+@import "./animations.css";
+@import "./normalize.css";
 
 *,
 *::before,
@@ -427,7 +428,7 @@ div.arwes-card__line {
 	}
 	.collapsible__content {
 		max-height: 100%;
-		overflow: auto;
+		overflow-y: auto;
 		opacity: 1;
 	}
 }
