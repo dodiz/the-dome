@@ -1,35 +1,130 @@
 /* UI */
 div.ui {
-	width: 400px;
-	margin-right: 2rem;
 	margin-bottom: 1rem;
-}
-.ui__container {
-	grid-template-rows: auto 1fr;
-	display: grid;
-	overflow: auto;
-}
-.collapsible--expanded.ui {
-	background: var(--color-primary);
+	padding: 5px;
 }
 .ui__head-menu {
 	display: flex;
-	justify-content: space-evenly;
-}
-.ui__head-menu-item {
-	margin: auto;
-	display: flex;
-	flex-direction: column;
+	justify-content: space-between;
 	align-items: center;
-	justify-content: center;
 }
 .ui__head-icon .icon__image {
-	width: 35px;
+	width: 30px;
+}
+.ui__head-icon {
+	margin-left: 5rem;
 }
 .ui__content {
+	overflow: auto;
+	height: 100%;
+}
+/* UI UTILITIES */
+div.ui__box {
+	display: block;
+}
+.ui__flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.ui__flex-content {
+	flex: 1;
 }
 @media screen and (min-width: 1024px) {
 	div.ui {
+		width: 400px;
+		margin-right: 2rem;
 		margin-bottom: 0;
+	}
+}
+
+/* UI HEADER */
+div.ui__header {
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-shadow: 0 0 5px var(--color-secondary);
+	margin-bottom: 1.5rem;
+}
+.ui__logo {
+	filter: drop-shadow(0 0 5px var(--color-secondary));
+	height: 70px;
+}
+/* WEATHER */
+.ui__weather {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.ui__line {
+	width: 80%;
+	margin: 0.6rem auto;
+	height: 1px;
+	background: var(--color-secondary);
+	box-shadow: 0 0 5px var(--color-secondary);
+	display: flex;
+	align-items: center;
+	position: relative;
+	opacity: 0;
+	animation: resetOpacity 1s 0.5s forwards;
+}
+.ui__line:after,
+.ui__line:before {
+	position: absolute;
+	left: 0;
+	content: "";
+	width: 6px;
+	height: 3px;
+	background: var(--color-secondary);
+	box-shadow: 0 0 5px var(--color-secondary);
+	opacity: 0;
+	animation: resetOpacity 1s 0.5s forwards;
+}
+.ui__line:after {
+	right: 0;
+	left: unset;
+}
+.ui__weather-icon {
+	width: 35px;
+	fill: white;
+	filter: drop-shadow(0 0 3px var(--color-secondary));
+}
+/* UI__DATE */
+.ui__date {
+	margin-top: 1rem;
+	text-align: center;
+	width: 100%;
+}
+
+/* UI pg*/
+.ui__pg {
+	width: 80px;
+	height: 80px;
+	border: 2px solid var(--color-accent);
+	box-shadow: 0 0 5px var(--color-accent);
+}
+
+.ui__health {
+	display: flex;
+	margin: auto;
+	align-items: flex-end;
+}
+
+.ui__health--secondary {
+	align-items: flex-start;
+}
+
+.ui__bar {
+	width: 8px;
+	background: red;
+	margin-right: 5px;
+	background: linear-gradient(to top, var(--color-success) 90%, #00000000 100%);
+	border: 1px solid var(--color-primary);
+	box-shadow: 0 0 2px var(--color-secondary);
+	animation: animateHeight 1s;
+}
+@keyframes animateHeight {
+	from {
+		height: 0;
 	}
 }
