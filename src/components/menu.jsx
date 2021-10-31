@@ -3,6 +3,16 @@ import anime from "animejs"
 
 import Icon from "./common/icon"
 
+import MenuIcon from "../media/icons/menu.svg"
+import ShopIcon from "../media/icons/cart.svg"
+import SettingsIcon from "../media/icons/settings.svg"
+import QuestIcon from "../media/icons/calendar.svg"
+import GuideIcon from "../media/icons/book.svg"
+import BankIcon from "../media/icons/bank.svg"
+import GroupsIcon from "../media/icons/suitcase.svg"
+import LogoutIcon from "../media/icons/power.svg"
+import AddPgIcon from "../media/icons/user-add.svg"
+
 import "../css/menu.css"
 
 const MenuOption = ({ title, src, ...rest }) => (
@@ -48,20 +58,20 @@ class Menu extends React.Component {
 						pulse
 						round
 						secondary={!this.state.open}
-						src="/images/icons/menu.svg"
+						src={MenuIcon}
 						onClick={this.toggleMenu}
 						padding
 					/>
 				</div>
 
-				<MenuOption title="Negozio" src="/images/icons/cart.svg" />
-				<MenuOption title="Settings" src="/images/icons/settings.svg" />
-				<MenuOption title="Agenda" src="/images/icons/calendar.svg" />
-				<MenuOption title="Manuale" src="/images/icons/book.svg" />
-				<MenuOption title="Banca" src="/images/icons/bank.svg" />
-				<MenuOption title="Corporazioni" src="/images/icons/suitcase.svg" />
-				<MenuOption title="Logout" src="/images/icons/power.svg" />
-				<MenuOption title="Crea un pg" src="/images/icons/user-add.svg" />
+				<MenuOption title="Negozio" src={ShopIcon} />
+				<MenuOption title="Settings" src={SettingsIcon} />
+				<MenuOption title="Agenda" src={QuestIcon} />
+				<MenuOption title="Manuale" src={GuideIcon} />
+				<MenuOption title="Banca" src={BankIcon} />
+				<MenuOption title="Corporazioni" src={GroupsIcon} />
+				<MenuOption title="Logout" src={LogoutIcon} />
+				<MenuOption title="Crea un pg" src={AddPgIcon} />
 			</div>
 		)
 	}
