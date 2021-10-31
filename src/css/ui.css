@@ -128,3 +128,13 @@ div.ui__header {
 		height: 0;
 	}
 }
+
+.ui__menu {
+	margin: 2rem 0 2rem 0;
+	display: grid;
+	grid-template: 1fr 1fr / 1fr 1fr;
+	grid-gap: 2rem;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
