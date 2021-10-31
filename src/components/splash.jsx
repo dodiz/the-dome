@@ -9,10 +9,10 @@ import Cards from "./splash-cards"
 import Features from "./splash-features"
 import SplashMenu from "./splash-menu"
 
-import InfoPage from "./infoPage"
+import InfoPage from "./splash-info"
 import LoginForm from "./loginForm"
 import RegisterForm from "./registerForm"
-import PrivacyPage from "./privacyPage"
+import PrivacyPage from "./splash-privacy"
 import Background from "./background"
 
 import "../css/splash.css"
@@ -39,19 +39,19 @@ class SplashPage extends Component {
 	}
 
 	render() {
+		const isRootPath = this.props.location.pathname !== "/"
+
 		return (
 			<div>
 				<Background />
-				<Navbar
-					show={this.state.showNavbar || this.props.location.pathname !== "/"}
-				/>
+				<Navbar stick={isRootPath} show={this.state.showNavbar || isRootPath} />
 				<Switch>
 					<Route path="/info" component={InfoPage} />
 					<Route path="/privacy" component={PrivacyPage} />
 					<Route path="/login" component={LoginForm} />
 					<Route path="/register" component={RegisterForm} />
 					<Route exact path="/">
-						<main className="splash" onClick={this.firstScroll}>
+						<main className="splash">
 							<Brand />
 							<SplashMenu />
 							<Pegi />

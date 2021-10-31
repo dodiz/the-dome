@@ -31,7 +31,7 @@ const Explore = () => {
 					pulse
 					secondary
 					round
-					src="/images/icons/arrow-down.svg"
+					Icon="/images/icons/arrow-down.svg"
 					className="icon--arrow-down"
 				/>
 			</a>
