@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import anime from "animejs"
 
+import ArrowDownIcon from "../media/icons/arrow-down.svg"
 import Icon from "./common/icon"
 
 const Explore = () => {
@@ -31,7 +32,7 @@ const Explore = () => {
 					pulse
 					secondary
 					round
-					Icon="/images/icons/arrow-down.svg"
+					src={ArrowDownIcon}
 					className="icon--arrow-down"
 				/>
 			</a>
