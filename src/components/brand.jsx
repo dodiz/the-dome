@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import anime from "animejs"
 import { Text } from "@arwes/core"
 
-import { ReactComponent as Brand } from "../media/svg/brand.svg"
+import { ReactComponent as Brand } from "../media/icons/brand.svg"
 import withSound from "../hoc/withSound"
 
 class Logo extends Component {
