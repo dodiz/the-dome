@@ -3,25 +3,31 @@ import anime from "animejs"
 import withSound from "../hoc/withSound"
 import Icon from "./common/icon"
 
+import languagePegi from "../media/icons/pegi/bad-language.png"
+import discriminationPegi from "../media/icons/pegi/discrimination.png"
+import drugsPegi from "../media/icons/pegi/drugs.png"
+import sexPegi from "../media/icons/pegi/sex.png"
+import violentPegi from "../media/icons/pegi/violent.png"
+
 const PegiList = [
 	{
-		src: "/images/pegi/bad-language.png",
+		src: languagePegi,
 		alt: "Linguaggio volgare"
 	},
 	{
-		src: "/images/pegi/discrimination.png",
+		src: discriminationPegi,
 		alt: "Discriminazione"
 	},
 	{
-		src: "/images/pegi/drugs.png",
+		src: drugsPegi,
 		alt: "Utilizzo di droga"
 	},
 	{
-		src: "/images/pegi/sex.png",
+		src: sexPegi,
 		alt: "Contenuti a sfondo sessuale"
 	},
 	{
-		src: "/images/pegi/violent.png",
+		src: violentPegi,
 		alt: "Violenza"
 	}
 ]
