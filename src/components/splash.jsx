@@ -2,18 +2,20 @@ import React, { Component } from "react"
 import { Switch, Route } from "react-router-dom"
 
 import Brand from "./brand"
-import Pegi from "./splash/pegi"
-import Explore from "./splash/explore"
-import Navbar from "./splash/navbar"
-import Cards from "./splash/cards"
-import Features from "./splash/features"
-import SplashMenu from "./splash/splashMenu"
+import Pegi from "./splash-pegi"
+import Explore from "./splash-explore"
+import Navbar from "./splash-navbar"
+import Cards from "./splash-cards"
+import Features from "./splash-features"
+import SplashMenu from "./splash-menu"
 
 import InfoPage from "./infoPage"
 import LoginForm from "./loginForm"
 import RegisterForm from "./registerForm"
 import PrivacyPage from "./privacyPage"
 import Background from "./background"
+
+import "../css/splash.css"
 
 class SplashPage extends Component {
 	state = {

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import anime from "animejs"
-import withSound from "../../hoc/withSound"
-import Icon from "../common/icon"
+import withSound from "../hoc/withSound"
+import Icon from "./common/icon"
 
 const PegiList = [
 	{

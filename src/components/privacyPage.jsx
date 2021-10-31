@@ -1,6 +1,6 @@
 import React from "react"
 import { FrameBox, Text } from "@arwes/core"
-import Navbar from "./splash/navbar"
+import Navbar from "./splash-navbar"
 
 const PrivacyPage = () => {
 	return (

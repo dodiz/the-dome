@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import anime from "animejs"
 
-import Icon from "../common/icon"
+import Icon from "./common/icon"
 
 const Explore = () => {
 	useEffect(() => {

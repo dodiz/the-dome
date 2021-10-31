@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router"
 import anime from "animejs"
 
-import Brand from "../brand"
-import SplashMenu from "../splash/splashMenu"
+import Brand from "./brand"
+import SplashMenu from "./splash-menu"
 
-import withSound from "../../hoc/withSound"
+import withSound from "../hoc/withSound"
 
 const Navbar = props => {
 	const [open, setOpen] = useState(false)

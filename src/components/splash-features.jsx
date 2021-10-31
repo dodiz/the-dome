@@ -1,7 +1,7 @@
 import React from "react"
 import { FrameBox, Figure, Text } from "@arwes/core"
 
-import withScrollAnimation from "../../hoc/withScrollAnimation"
+import withScrollAnimation from "../hoc/withScrollAnimation"
 
 const EXPLORE__WHEN__URL = "/images/explore/how.png"
 const EXPLORE__WHERE__URL = "/images/explore/where.png"

@@ -1,6 +1,6 @@
 import React from "react"
 import { Card, Text, Button } from "@arwes/core"
-import withScrollAnimation from "../../hoc/withScrollAnimation"
+import withScrollAnimation from "../hoc/withScrollAnimation"
 
 const CardComponent = props => (
 	<Card

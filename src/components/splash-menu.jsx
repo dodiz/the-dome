@@ -1,6 +1,6 @@
 import React from "react"
 
-import Link from "../common/link"
+import Link from "./common/link"
 
 const links = [
 	{

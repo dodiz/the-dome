@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import ListGroup from "./common/listGroup"
-import Navbar from "./splash/navbar"
+import Navbar from "./splash-navbar"
 import { FrameBox, Text } from "@arwes/core"
 
 const items = [
