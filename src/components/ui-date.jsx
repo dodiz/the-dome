@@ -1,7 +1,7 @@
 import React from "react"
 import { Text } from "@arwes/core"
 
-class HeaderUI extends React.Component {
+class DateUI extends React.Component {
 	printDate() {
 		const date = new Date(Date.now())
 		return `${date.getDate()} / ${date.getMonth() + 1} / ${
@@ -18,4 +18,4 @@ class HeaderUI extends React.Component {
 	}
 }
 
-export default HeaderUI
+export default DateUI
