@@ -4,7 +4,7 @@ import { FrameLines, FrameBox, Text } from "@arwes/core"
 import MobileHeadUI from "./ui-mobile-head"
 import DateUI from "./ui-date"
 import WeatherUI from "./ui-weather"
-import IndicatorsUI from "./ui-indicators"
+import PgUI from "./ui-pg"
 import MenuUI from "./ui-menu"
 
 import dome from "../media/dome.png"
@@ -43,7 +43,7 @@ class UI extends React.Component {
 							</div>
 						</div>
 					</FrameLines>
-					<IndicatorsUI />
+					<PgUI health={10} stamina={50} />
 					<MenuUI />
 					<FrameBox className="ui__box ui__flex-extend">
 						<div
