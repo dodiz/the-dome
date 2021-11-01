@@ -22,6 +22,8 @@
 	--color-body-darker: #5c5577;
 	--color-border: #ccc;
 
+	--font-primary: "averox";
+
 	--toastify-color-info: var(--color-secondary);
 	--toastify-color-success: var(--color-success);
 	--toastify-color-warning: var(--color-warning);
@@ -121,7 +123,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "averox";
+	font-family: var(--font-primary);
 	color: var(--color-secondary);
 	text-transform: lowercase;
 	text-shadow: 0 0 4px var(--color-secondary);
