@@ -12,6 +12,7 @@ function RadialMenu( params ) {
     self.size = params.size || DEFAULT_SIZE;
     self.onClick = params.onClick || null;
     self.onClose = params.onClose || null;
+    self.onHover = params.onHover || null;
     self.menuItems = params.menuItems ? params.menuItems : [{ id: 'one', title: 'One' }, { id: 'two', title: 'Two' }];
 
     self.radius = 50;
@@ -384,7 +385,7 @@ RadialMenu.prototype.appendSectorPath = function ( startAngleDeg, endAngleDeg, s
     var path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
     path.setAttribute( 'd', self.createSectorCmds( startAngleDeg, endAngleDeg ) );
     g.appendChild( path );
-
+    if ( this.onHover ) path.addEventListener( "mouseover", this.onHover )
     if ( item ) {
         g.setAttribute( 'class', 'sector' );
         if ( index == 0 ) {

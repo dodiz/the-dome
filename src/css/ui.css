@@ -188,6 +188,7 @@ div.ui__header {
 	z-index: 9;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	transition: opacity 0.5s;
 }
 .ui__pg-menu-overlay.hide {
@@ -196,18 +197,12 @@ div.ui__header {
 .ui__circle {
 	width: 600px;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 .ui__circle-avatar {
 	position: absolute;
-	top: 50%;
-	left: 50%;
 	border-radius: 50%;
 	height: 100px;
 	width: 100px;
-	transform: translate(-50%, -50%);
 	border: 2px solid var(--color-secondary);
 	box-shadow: 0 0 10px var(--color-secondary);
 }
@@ -220,22 +215,22 @@ svg.icons {
 
 svg.menu {
 	position: absolute;
-	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	top: 50%;
 	overflow: visible;
 	transition: 0.2s;
+	transform: translate(-50%, -50%);
 	transition-timing-function: ease-out;
 }
 
 svg.menu.inner {
-	transform: scale(0.66) rotate(-10deg) translate(-50%, -50%);
+	transform: translate(-50%, -50%) scale(0) rotate(-10deg);
 	opacity: 0;
 	visibility: hidden;
 }
 
 svg.menu.outer {
-	transform: scale(1.5) rotate(10deg) translate(-50%, -50%);
+	transform: translate(-50%, -50%) scale(1.5) rotate(10deg);
 	opacity: 0;
 	visibility: hidden;
 }
@@ -259,14 +254,10 @@ svg.menu > g.sector > use {
 	font-size: 0.4rem;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	text-shadow: 1px 1px 0 #000000a0;
 }
 
 svg.menu > g.sector:hover > path {
 	fill: #00f7f744;
-}
-
-svg.menu > g.sector.selected > path {
 }
 
 svg.menu > g.center:hover > circle {

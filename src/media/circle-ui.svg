@@ -4,9 +4,10 @@
 .st0, .st1, .st2, .st3 {
   fill: none;
   stroke: #00f7f766;
-  stroke-width: 15;
+  stroke-width: 0;
   stroke-miterlimit: 10;
   filter: drop-shadow(0 0 10px #00f7f7);
+  animation: anim0 .5s forwards
 }
 @keyframes anim0 {
   to {
@@ -14,9 +15,7 @@
   }
 }
 .st0 {
-  stroke-width: 0;
   stroke-dasharray: 12;
-  animation: anim0 1s 1s forwards
 }
 
 .st1  {
@@ -40,5 +39,5 @@
   <circle class="st2" cx="500" cy="500" r="377.8" transform="rotate(0 500 500)">
     <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 500 500" to="-360 500 500" dur="30s" repeatCount="indefinite" />
   </circle>
-  <circle class="st3" cx="500" cy="500" r="395.1" />
+  <circle class="st3" cx="500" cy="500" r="405.1" />
 </svg>

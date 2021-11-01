@@ -1,54 +1,74 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useRef } from "react"
+import anime from "animejs"
+import { useHistory } from "react-router"
 import CircleUI from "../media/circle-ui.svg"
 import RadialMenu from "../classes/radial-menu"
+import withSound from "./../hoc/withSound"
 
-const PgMenuUI = ({ show, onClose }) => {
+const menuItems = [
+	{
+		id: "schda",
+		title: "Scheda",
+		path: "/land/scheda"
+	},
+	{
+		id: "skills",
+		title: "Skills",
+		path: "/land/skills"
+	},
+	{
+		id: "inventory",
+		title: "Inventario",
+		path: "/land/inventario"
+	},
+	{
+		id: "known",
+		title: "Affetti",
+		path: "/land/affetti"
+	},
+	{
+		id: "bank",
+		title: "Banca",
+		path: "/land/banca"
+	},
+	{
+		id: "off",
+		title: "Social",
+		path: "/land/social"
+	},
+	{
+		id: "more",
+		title: "Cambia Pg",
+		items: [
+			{
+				id: "subitem1",
+				title: "Subitem 1"
+			},
+			{
+				id: "item2",
+				title: "Subitem 2"
+			}
+		]
+	}
+]
+
+const PgMenuUI = ({ show, onClose, sounds }) => {
 	const overlayRef = useRef()
+	const history = useHistory()
+
 	useEffect(() => {
 		const svgMenu = new RadialMenu({
 			parent: overlayRef.current,
+			menuItems,
 			size: 380,
 			closeOnClick: true,
-			menuItems: [
-				{
-					id: "item1",
-					title: "Anagrafica"
-				},
-				{
-					id: "item2",
-					title: "Skills"
-				},
-				{
-					id: "item2",
-					title: "Inventario"
-				},
-				{
-					id: "item2",
-					title: "Affetti"
-				},
-				{
-					id: "item2",
-					title: "Banca"
-				},
-				{
-					id: "more",
-					title: "Cambia Pg",
-					items: [
-						{
-							id: "subitem1",
-							title: "Subitem 1"
-						},
-						{
-							id: "item2",
-							title: "Subitem 2"
-						}
-					]
-				}
-			],
-			onClick: function (item) {
-				console.log("You have clicked:", item)
+
+			onClick: item => {
+				sounds.click.play()
+				if (item.path) history.push(item.path)
 			},
-			onClose: onClose
+			onClose: onClose,
+			onHover: () => sounds.hover.play()
 		})
 		svgMenu.open()
 	}, [])
@@ -65,4 +85,4 @@ const PgMenuUI = ({ show, onClose }) => {
 	)
 }
 
-export default PgMenuUI
+export default withSound(PgMenuUI)
