@@ -1,22 +1,14 @@
 import React from "react"
-import {
-	FrameCorners,
-	FrameHexagon,
-	FrameLines,
-	FrameBox,
-	Text
-} from "@arwes/core"
+import { FrameLines, FrameBox, Text } from "@arwes/core"
 
-import Brand from "./brand"
-import Icon from "./common/icon"
-
+import MobileHeadUI from "./ui-mobile-head"
 import DateUI from "./ui-date"
 import WeatherUI from "./ui-weather"
-import BarsUI from "./ui-bars"
+import IndicatorsUI from "./ui-indicators"
+import MenuUI from "./ui-menu"
 
 import dome from "../media/dome.png"
 import "../css/ui.css"
-import MenuUI from "./ui-menu"
 
 class UI extends React.Component {
 	state = {
@@ -31,25 +23,7 @@ class UI extends React.Component {
 		const { expandMobile } = this.state
 		return (
 			<div className={`ui ${expandMobile ? "collapsible--expanded" : ""}`}>
-				<div className="collapsible__head ui__toggler">
-					<FrameCorners
-						hideShapes
-						cornerWidth={1}
-						cornerLength={20}
-						showContentLines
-						contentLineWidth={1}>
-						<div className="ui__head-menu">
-							<Brand hideSub />
-							<Icon
-								secondary={expandMobile}
-								padding
-								className="ui__head-icon"
-								src="/images/icons/globe.svg"
-								onClick={this.toggleExpand}
-							/>
-						</div>
-					</FrameCorners>
-				</div>
+				<MobileHeadUI isExpanded={expandMobile} onExpand={this.toggleExpand} />
 				<div className="ui__content collapsible__content">
 					<FrameLines
 						largeLineWidth={2}
@@ -62,30 +36,19 @@ class UI extends React.Component {
 								className="ui__logo animate__animated animate__bounceIn animate__delay-1s"
 								src={dome}
 							/>
-							<div className="ui__flex-content">
+							<div className="ui__flex-extend">
 								<WeatherUI />
 								<div className="ui__line" />
 								<DateUI />
 							</div>
 						</div>
 					</FrameLines>
-					<FrameHexagon className="ui__box">
-						<div className="ui__flex">
-							<img
-								className="ui__pg"
-								src="https://pbs.twimg.com/profile_images/1236608518347788295/IaKy3w-m_400x400.png"
-							/>
-							<div className="ui__box">
-								<BarsUI />
-								<BarsUI secondary />
-							</div>
-						</div>
-					</FrameHexagon>
+					<IndicatorsUI />
 					<MenuUI />
-					<FrameBox className="ui__box">
+					<FrameBox className="ui__box ui__flex-extend">
 						<div
 							style={{
-								height: "200px",
+								height: "180px",
 								overflow: "auto"
 							}}>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
