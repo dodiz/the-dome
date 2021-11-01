@@ -5,6 +5,7 @@ import MobileHeadUI from "./ui-mobile-head"
 import DateUI from "./ui-date"
 import WeatherUI from "./ui-weather"
 import PgUI from "./ui-pg"
+import PgMenuUI from "./ui-pg-menu"
 import MenuUI from "./ui-menu"
 
 import dome from "../media/dome.png"
@@ -12,17 +13,28 @@ import "../css/ui.css"
 
 class UI extends React.Component {
 	state = {
-		expandMobile: false
+		expandMobile: false,
+		showPgMenu: false,
+		health: 0,
+		stamina: 0
 	}
 
 	toggleExpand = () => {
 		this.setState(prev => ({ expandMobile: !prev.expandMobile }))
 	}
+	toggleShowPgMenu = () => {
+		this.setState(prev => ({ showPgMenu: !prev.showPgMenu }))
+	}
+
+	componentDidMount() {}
 
 	render() {
-		const { expandMobile } = this.state
+		const { expandMobile, showPgMenu } = this.state
 		return (
 			<div className={`ui ${expandMobile ? "collapsible--expanded" : ""}`}>
+				{showPgMenu && (
+					<PgMenuUI show={showPgMenu} onClose={this.toggleShowPgMenu} />
+				)}
 				<MobileHeadUI isExpanded={expandMobile} onExpand={this.toggleExpand} />
 				<div className="ui__content collapsible__content">
 					<FrameLines
@@ -43,12 +55,12 @@ class UI extends React.Component {
 							</div>
 						</div>
 					</FrameLines>
-					<PgUI health={10} stamina={50} />
+					<PgUI health={10} stamina={50} onClick={this.toggleShowPgMenu} />
 					<MenuUI />
 					<FrameBox className="ui__box ui__flex-extend">
 						<div
 							style={{
-								height: "180px",
+								maxHeight: "180px",
 								overflow: "auto"
 							}}>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
