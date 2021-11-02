@@ -13,19 +13,22 @@ const BarUI = ({ id, label, flip, level, levelClass }) => {
 		setBars(_bars)
 	}, [])
 
+	function animateBars() {
+		anime({
+			targets: `#${id} .ui__bar`,
+			easing: "linear",
+			direction: "alternate",
+			loop: true,
+			height: {
+				value: "-=2",
+				duration: 50,
+				delay: (_, i) => i * 20
+			}
+		})
+	}
+
 	useEffect(() => {
-		if (bars.length)
-			anime({
-				targets: `#${id} .ui__bar`,
-				easing: "linear",
-				direction: "alternate",
-				loop: true,
-				height: {
-					value: (v, i, t) => "-=2",
-					duration: 50,
-					delay: (_, i) => i * 20
-				}
-			})
+		if (bars.length) animateBars()
 	}, [bars])
 
 	return (
@@ -36,8 +39,8 @@ const BarUI = ({ id, label, flip, level, levelClass }) => {
 				{label}: {level}
 			</div>
 			<div className="ui__bars">
-				{bars.map(bar => (
-					<div className="ui__bar" style={{ height: `${bar}px` }} />
+				{bars.map((bar, i) => (
+					<div key={i} className="ui__bar" style={{ height: `${bar}px` }} />
 				))}
 			</div>
 		</div>
@@ -57,6 +60,7 @@ const PgUI = ({ health, stamina, onClick }) => {
 			style={{ cursor: "pointer" }}>
 			<div className="ui__flex">
 				<img
+					alt=""
 					className="ui__pg"
 					src="https://pbs.twimg.com/profile_images/1236608518347788295/IaKy3w-m_400x400.png"
 				/>

@@ -1,4 +1,4 @@
-export default [
+const items = [
 	{
 		name: "Regolamento",
 		content: (
@@ -100,3 +100,5 @@ export default [
 		name: "Cazzi e mazzi"
 	}
 ]
+
+export default items

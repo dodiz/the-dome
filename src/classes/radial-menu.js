@@ -1,5 +1,3 @@
-'use strict';
-
 var DEFAULT_SIZE = 100;
 var MIN_SECTORS = 6;
 
@@ -55,7 +53,7 @@ RadialMenu.prototype.close = function () {
 
     if ( self.currentMenu ) {
         var parentMenu;
-        while ( parentMenu = self.parentMenu.pop() ) {
+        while ( parentMenu === self.parentMenu.pop() ) {
             parentMenu.remove();
         }
         self.parentItems = [];
@@ -155,7 +153,7 @@ RadialMenu.prototype.createCenter = function ( svg, title, icon, size ) {
 
     var centerCircle = self.createCircle( 0, 0, self.innerRadius - self.sectorSpace / 3 );
     g.appendChild( centerCircle );
-    if ( text ) {
+    if ( title ) {
         var text = self.createText( 0, 0, title );
         g.appendChild( text );
     }
@@ -301,6 +299,8 @@ RadialMenu.prototype.onKeyDown = function ( event ) {
                 self.selectDelta( -1 );
                 event.preventDefault();
                 break;
+            default:
+                break;
         }
     }
 };
@@ -388,7 +388,7 @@ RadialMenu.prototype.appendSectorPath = function ( startAngleDeg, endAngleDeg, s
     if ( this.onHover ) path.addEventListener( "mouseover", this.onHover )
     if ( item ) {
         g.setAttribute( 'class', 'sector' );
-        if ( index == 0 ) {
+        if ( index === 0 ) {
             g.setAttribute( 'class', 'sector selected' );
         }
         g.setAttribute( 'data-id', item.id );
@@ -445,7 +445,6 @@ RadialMenu.prototype.createSectorCmds = function ( startAngleDeg, endAngleDeg ) 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 RadialMenu.prototype.createText = function ( x, y, title ) {
-    var self = this;
     var text = document.createElementNS( 'http://www.w3.org/2000/svg', 'text' );
     text.setAttribute( 'text-anchor', 'middle' );
     text.setAttribute( 'x', RadialMenu.numberToString( x ) );
@@ -564,7 +563,7 @@ RadialMenu.degToRad = function ( deg ) {
 RadialMenu.setClassAndWaitForTransition = function ( node, newClass ) {
     return new Promise( function ( resolve ) {
         function handler( event ) {
-            if ( event.target == node && event.propertyName == 'visibility' ) {
+            if ( event.target === node && event.propertyName === 'visibility' ) {
                 node.removeEventListener( 'transitionend', handler );
                 resolve();
             }

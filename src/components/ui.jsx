@@ -45,6 +45,7 @@ class UI extends React.Component {
 						className="ui__header ui__box">
 						<div className="ui__flex">
 							<img
+								alt="logo"
 								className="ui__logo animate__animated animate__bounceIn animate__delay-1s"
 								src={dome}
 							/>

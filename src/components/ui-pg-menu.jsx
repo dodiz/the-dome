@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react"
-import anime from "animejs"
 import { useHistory } from "react-router"
 import CircleUI from "../media/circle-ui.svg"
 import RadialMenu from "../classes/radial-menu"
@@ -56,7 +55,7 @@ const PgMenuUI = ({ show, onClose, sounds }) => {
 	const overlayRef = useRef()
 	const history = useHistory()
 
-	useEffect(() => {
+	function generateMenu() {
 		const svgMenu = new RadialMenu({
 			parent: overlayRef.current,
 			menuItems,
@@ -70,14 +69,20 @@ const PgMenuUI = ({ show, onClose, sounds }) => {
 			onClose: onClose,
 			onHover: () => sounds.hover.play()
 		})
+		sounds.assemble.play()
 		svgMenu.open()
+	}
+
+	useEffect(() => {
+		generateMenu()
 	}, [])
 	return (
 		<div
 			ref={overlayRef}
 			className={`${show ? "" : "hide"} ui__pg-menu-overlay`}>
-			<img src={CircleUI} className="ui__circle" />
+			<img alt="" src={CircleUI} className="ui__circle" />
 			<img
+				alt=""
 				src="https://pbs.twimg.com/profile_images/1236608518347788295/IaKy3w-m_400x400.png"
 				className="ui__circle-avatar"
 			/>

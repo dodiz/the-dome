@@ -8,7 +8,7 @@ class WeatherUI extends React.Component {
 		return (
 			<div className="ui__weather">
 				<Text as="div">27°C</Text>
-				<img src={SunIcon} className="ui__weather-icon" />
+				<img alt="" src={SunIcon} className="ui__weather-icon" />
 			</div>
 		)
 	}
