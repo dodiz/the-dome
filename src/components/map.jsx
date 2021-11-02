@@ -5,10 +5,7 @@ import { FrameCorners } from "@arwes/core"
 import "../css/map.css"
 
 class Map extends Component {
-	state = {
-		hCells: 0,
-		vCells: 0
-	}
+	state = {}
 
 	mapRef = React.createRef()
 
@@ -50,12 +47,12 @@ class Map extends Component {
 	}
 
 	render() {
-		//const { hCells, vCells } = this.state
 		return (
 			<FrameCorners
 				origins={["left", "top", "right", "bottom"]}
 				palette="secondary"
 				cornerWidth={3}
+				animator={{ animate: this.state.animate }}
 				cornerLength={50}
 				showContentLines
 				hideShapes
