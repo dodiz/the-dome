@@ -264,9 +264,11 @@ svg.menu > g.center > use {
 	text-align: center;
 	font-weight: bold;
 	text-transform: uppercase;
+	font-size: 1.5rem;
+	cursor: pointer;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
 	.ui__menu {
 		font-size: 1.2rem;
 	}
@@ -274,21 +276,24 @@ svg.menu > g.center > use {
 
 /* PREVIEW */
 .ui__preview {
-	height: 200px;
+	font-size: 1.3rem;
 	overflow: auto;
 }
 
 /* NEWS BOX */
 .ui__news {
-	max-height: 140px;
-	overflow: auto;
-}
-.ui__news-content {
 	font-size: 1.3rem;
+	height: 50px;
 	overflow: auto;
 }
 .ui__news-item {
 	background: rgba(255, 255, 255, 0.07);
-	margin: 1rem 0;
+	margin: 0.5rem 0;
 	padding: 0.3rem;
+	display: block;
+}
+@media screen and (min-width: 1440px) {
+	.ui__news {
+		height: 80px;
+	}
 }

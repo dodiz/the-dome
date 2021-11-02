@@ -9,6 +9,11 @@ import PgMenuUI from "./ui-pg-menu"
 import MenuUI from "./ui-menu"
 import NewsUI from "./ui-news"
 
+import MessagesUI from "./ui-messages"
+import SocialUI from "./ui-social"
+import OnlineUI from "./ui-online"
+import ForumUI from "./ui-forum"
+
 import dome from "../media/dome.png"
 import "../css/ui.css"
 
@@ -17,7 +22,8 @@ class UI extends React.Component {
 		expandMobile: false,
 		showPgMenu: false,
 		health: 0,
-		stamina: 0
+		stamina: 0,
+		selectedMenu: 1
 	}
 
 	toggleExpand = () => {
@@ -27,10 +33,12 @@ class UI extends React.Component {
 		this.setState(prev => ({ showPgMenu: !prev.showPgMenu }))
 	}
 
-	componentDidMount() {}
+	selectMenu = i => {
+		this.setState({ selectedMenu: i })
+	}
 
 	render() {
-		const { expandMobile, showPgMenu } = this.state
+		const { expandMobile, showPgMenu, selectedMenu } = this.state
 		return (
 			<div className={`ui ${expandMobile ? "collapsible--expanded" : ""}`}>
 				{showPgMenu && (
@@ -58,36 +66,11 @@ class UI extends React.Component {
 						</div>
 					</FrameLines>
 					<PgUI health={10} stamina={50} onClick={this.toggleShowPgMenu} />
-					<MenuUI />
-					<FrameBox className="ui__box ui__flex-extend">
-						<div className="ui__preview">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
-							nemo fugiat vero ipsum ab voluptates quam dicta iste veniam
-							accusantium eveniet expedita, asperiores quia, id nesciunt tempora
-							illum harum eos. Inventore, nam at praesentium non dignissimos
-							nemo ea laboriosam autem itaque cupiditate neque culpa ullam
-							quidem ex officiis, harum et iusto reiciendis ducimus assumenda!
-							Ipsum, ullam. Voluptas quisquam asperiores odio iusto harum
-							eveniet illum ipsa quidem! Quod quaerat, ad aliquam est sint quis
-							sunt rerum sequi dignissimos consequuntur exercitationem
-							voluptates corrupti soluta sit ut dicta commodi praesentium magnam
-							culpa debitis veritatis qui, quas, molestiae numquam! Neque
-							eveniet suscipit, ad dolore voluptatem placeat at deserunt
-							aspernatur soluta blanditiis maxime. Nobis voluptas saepe
-							exercitationem doloremque sunt deleniti eaque, ex pariatur
-							repellendus illo, ipsa nisi. Porro repudiandae ipsa consectetur
-							corporis sit? Amet tempora placeat illum nostrum qui id fugit
-							omnis dolorum earum! Optio excepturi similique possimus dolorem
-							voluptatum porro quasi. Velit delectus non deserunt quasi aperiam
-							magnam, voluptate dolores doloribus doloremque porro eius repellat
-							placeat obcaecati ratione ipsum corrupti enim dolorum
-							exercitationem tempora rerum vitae accusamus. Incidunt molestias
-							maxime minus, dolorem optio illo. Repudiandae fugit consequuntur
-							rerum, rem beatae aperiam ratione provident unde libero porro
-							architecto eos aliquid numquam distinctio incidunt eius
-							dignissimos?
-						</div>
-					</FrameBox>
+					<MenuUI selectedMenu={selectedMenu} onSelect={this.selectMenu} />
+					{selectedMenu === 1 && <OnlineUI />}
+					{selectedMenu === 2 && <SocialUI />}
+					{selectedMenu === 3 && <ForumUI />}
+					{selectedMenu === 4 && <MessagesUI />}
 					<NewsUI />
 				</div>
 			</div>
