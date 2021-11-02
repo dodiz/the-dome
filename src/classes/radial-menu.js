@@ -53,7 +53,7 @@ RadialMenu.prototype.close = function () {
 
     if ( self.currentMenu ) {
         var parentMenu;
-        while ( parentMenu === self.parentMenu.pop() ) {
+        while ( parentMenu = self.parentMenu.pop() ) {
             parentMenu.remove();
         }
         self.parentItems = [];
