@@ -68,7 +68,6 @@ class Menu extends React.Component {
 				<MenuOption title="Settings" src={SettingsIcon} />
 				<MenuOption title="Agenda" src={QuestIcon} />
 				<MenuOption title="Manuale" src={GuideIcon} />
-				<MenuOption title="Banca" src={BankIcon} />
 				<MenuOption title="Corporazioni" src={GroupsIcon} />
 				<MenuOption title="Logout" src={LogoutIcon} />
 				<MenuOption title="Crea un pg" src={AddPgIcon} />
