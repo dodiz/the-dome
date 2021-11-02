@@ -7,6 +7,7 @@ import WeatherUI from "./ui-weather"
 import PgUI from "./ui-pg"
 import PgMenuUI from "./ui-pg-menu"
 import MenuUI from "./ui-menu"
+import NewsUI from "./ui-news"
 
 import dome from "../media/dome.png"
 import "../css/ui.css"
@@ -42,7 +43,7 @@ class UI extends React.Component {
 						smallLineWidth={4}
 						smallLineLength={20}
 						hideShapes
-						className="ui__header ui__box">
+						className="ui__header">
 						<div className="ui__flex">
 							<img
 								alt="logo"
@@ -51,7 +52,7 @@ class UI extends React.Component {
 							/>
 							<div className="ui__flex-extend">
 								<WeatherUI />
-								<div className="ui__line" />
+								<div className="line" />
 								<DateUI />
 							</div>
 						</div>
@@ -59,11 +60,7 @@ class UI extends React.Component {
 					<PgUI health={10} stamina={50} onClick={this.toggleShowPgMenu} />
 					<MenuUI />
 					<FrameBox className="ui__box ui__flex-extend">
-						<div
-							style={{
-								maxHeight: "180px",
-								overflow: "auto"
-							}}>
+						<div className="ui__preview">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
 							nemo fugiat vero ipsum ab voluptates quam dicta iste veniam
 							accusantium eveniet expedita, asperiores quia, id nesciunt tempora
@@ -91,18 +88,7 @@ class UI extends React.Component {
 							dignissimos?
 						</div>
 					</FrameBox>
-					<FrameBox
-						palette="secondary"
-						className="ui__box"
-						style={{ marginTop: "2rem" }}>
-						<div style={{ height: "100px", overflow: "auto" }}>
-							<Text>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-								non pariatur odio autem quibusdam eligendi quasi eius magnam,
-								quam cupiditate.
-							</Text>
-						</div>
-					</FrameBox>
+					<NewsUI />
 				</div>
 			</div>
 		)

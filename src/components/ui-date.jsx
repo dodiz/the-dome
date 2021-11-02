@@ -10,11 +10,7 @@ class DateUI extends React.Component {
 	}
 
 	render() {
-		return (
-			<Text as="div" className="ui__date">
-				{this.printDate()}
-			</Text>
-		)
+		return <Text as="div">{this.printDate()}</Text>
 	}
 }
 

@@ -297,6 +297,50 @@ div.arwes-card__line {
 		stroke-dashoffset: 2000;
 	}
 }
+/* LINE */
+
+/* LINE */
+.line {
+	width: 80%;
+	margin: 0.4rem auto;
+	height: 1px;
+	background: var(--color-secondary);
+	box-shadow: 0 0 5px var(--color-secondary);
+	display: flex;
+	align-items: center;
+	position: relative;
+	opacity: 0;
+	animation: resetOpacity 1s 0.5s forwards;
+}
+
+.line:after,
+.line:before {
+	position: absolute;
+	left: 0;
+	content: "";
+	width: 6px;
+	height: 3px;
+	background: var(--color-secondary);
+	box-shadow: 0 0 5px var(--color-secondary);
+	opacity: 0;
+	animation: resetOpacity 1s 0.5s forwards;
+}
+.line:after {
+	right: 0;
+	left: unset;
+}
+.line.extend {
+	width: 100%;
+}
+.line.secondary {
+	background: var(--color-accent);
+	box-shadow: 0 0 5px var(--color-accent);
+}
+.secondary.line:after,
+.secondary.line:before {
+	background: var(--color-accent);
+	box-shadow: 0 0 5px var(--color-accent);
+}
 
 /* Icon */
 .icon {

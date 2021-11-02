@@ -3,7 +3,7 @@ import { FrameCorners, Text } from "@arwes/core"
 
 const MenuUI = () => {
 	return (
-		<div className="ui__menu">
+		<div className="ui__menu ui__box">
 			<FrameCorners hover>
 				<Text>Presenti</Text>
 			</FrameCorners>

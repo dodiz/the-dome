@@ -53,15 +53,11 @@ const PgUI = ({ health, stamina, onClick }) => {
 		stamina < 15 ? "danger" : stamina < 70 ? "warning" : ""
 
 	return (
-		<FrameHexagon
-			className="ui__box"
-			hover
-			onClick={onClick}
-			style={{ cursor: "pointer" }}>
+		<FrameHexagon hover onClick={onClick} className="ui__pg">
 			<div className="ui__flex">
 				<img
 					alt=""
-					className="ui__pg"
+					className="ui__avatar"
 					src="https://pbs.twimg.com/profile_images/1236608518347788295/IaKy3w-m_400x400.png"
 				/>
 				<div className="ui__box ui__indicators">
@@ -71,7 +67,7 @@ const PgUI = ({ health, stamina, onClick }) => {
 						level={health}
 						levelClass={healthLevelClass}
 					/>
-					<div className="ui__line" style={{ width: "100%" }} />
+					<div className="line extend" />
 					<BarUI
 						id="stamina"
 						label="Vigore"
