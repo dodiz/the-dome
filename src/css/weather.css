@@ -1,7 +1,4 @@
 /* WEATHER */
-.weather {
-	justify-content: center;
-}
 .weather__icon {
 	margin: 0 1rem;
 	width: 35px;

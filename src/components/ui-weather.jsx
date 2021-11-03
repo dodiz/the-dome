@@ -7,7 +7,7 @@ import "../css/weather.css"
 class WeatherUI extends React.Component {
 	render() {
 		return (
-			<div className="weather">
+			<div className="flex center">
 				<Text as="div">27°C</Text>
 				<img alt="" src={SunIcon} className="weather__icon" />
 			</div>

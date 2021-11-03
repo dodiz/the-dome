@@ -616,6 +616,9 @@ div.arwes-card__line {
 	justify-content: space-between;
 	align-items: center;
 }
+.flex.center {
+	justify-content: center;
+}
 .flex__extend {
 	flex: 1;
 }
