@@ -9,7 +9,7 @@ const MenuUI = ({ selectedMenu, onSelect, sounds }) => {
 	}
 
 	return (
-		<div className="ui__menu ui__box">
+		<div className="ui__menu">
 			<FrameCorners
 				hover
 				onClick={() => selectMenu(1)}
