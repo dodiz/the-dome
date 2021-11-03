@@ -31,7 +31,7 @@ function getUsers() {
 			isAdmin: false
 		}
 	]
-	return users
+	return [...users, ...users]
 }
 
 export default {

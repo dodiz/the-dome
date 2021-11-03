@@ -1,6 +1,5 @@
 /* UI */
 div.ui {
-	margin-bottom: 1rem;
 	padding: 5px;
 }
 .ui__head-menu {
@@ -13,19 +12,9 @@ div.ui {
 }
 div.ui__content {
 	display: grid;
-	grid-template-rows: auto auto auto 1fr auto;
 	grid-gap: 1rem;
-	flex-direction: column;
+	grid-template-rows: auto auto auto 1fr 100px;
 	padding: 2px;
-}
-@media (min-width: 1024px) {
-	div.ui__content {
-		height: 100vh;
-	}
-}
-/* UI UTILITIES */
-.ui__title {
-	margin: 0;
 }
 @media screen and (min-width: 1024px) {
 	div.ui {
@@ -33,12 +22,45 @@ div.ui__content {
 		margin-right: 1rem;
 		margin-bottom: 0;
 	}
+	div.ui__content {
+		height: 100vh;
+	}
 }
 @media screen and (min-width: 1440px) {
 	div.ui {
 		width: 300px;
-		margin-right: 2rem;
+		margin-right: 1rem;
 	}
+}
+/* BOXES */
+div.ui__box {
+	font-size: 1.3rem;
+	height: 100%;
+	overflow: hidden;
+	padding: 0;
+}
+.ui__box div.arwes-frame__content {
+	overflow: auto;
+	max-height: 100%;
+	position: relative;
+}
+.ui__title {
+	margin: 0;
+	position: sticky;
+	background: var(--color-primary);
+	border: 1px solid var(--color-secondary);
+	border-bottom: 0;
+	border-right: 0;
+	top: 0;
+	display: block;
+	z-index: 2;
+	padding: 0.3rem 0.5rem;
+}
+.ui__title.secondary {
+	border: 1px solid var(--color-accent);
+	border-bottom: 0;
+	border-right: 0;
+	background: rgb(80, 51, 24);
 }
 
 /* UI HEADER */
@@ -153,10 +175,6 @@ div.ui__pg {
 	background: var(--color-error);
 	box-shadow: 0 0 3px var(--color-error);
 }
-
-.ui__pg-menu-overlay.hide {
-	display: none;
-}
 .ui__circle {
 	width: 600px;
 	position: absolute;
@@ -236,11 +254,11 @@ svg.menu > g.center > use {
 	text-align: center;
 	font-weight: bold;
 	text-transform: uppercase;
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	cursor: pointer;
 }
 .ui__menu .arwes-frame {
-	padding: 3px;
+	padding: 5px;
 }
 @media screen and (min-width: 768px) and (max-width: 1440px) {
 	.ui__menu {
@@ -248,16 +266,7 @@ svg.menu > g.center > use {
 	}
 }
 
-/* PREVIEW */
-.ui__preview {
-	font-size: 1.3rem;
-}
-
 /* NEWS BOX */
-.ui__news {
-	font-size: 1.3rem;
-	overflow: scroll;
-}
 .ui__news-item {
 	background: rgba(255, 255, 255, 0.07);
 	margin: 0.5rem 0;
@@ -267,10 +276,7 @@ svg.menu > g.center > use {
 @media screen and (min-width: 1440px) {
 }
 /* ONLINE USERS */
-.ui__title {
-	margin: 0;
-}
-.ui__user {
+.ui__o-user {
 	display: flex;
 	align-items: center;
 	padding: 0.5rem;
@@ -287,28 +293,27 @@ svg.menu > g.center > use {
 	box-shadow: 0 0 3px var(--color-accent);
 }
 
-.ui__icon img {
-	fill: var(--color-secondary);
+.ui__o-icon img {
 	filter: drop-shadow(0 0 2px var(--color-secondary));
 }
-.ui__icon {
+.ui__o-icon {
 	margin-right: 0.5rem;
 	position: relative;
 	display: flex;
 	align-items: center;
 	cursor: pointer;
 }
-.ui__icon:hover::before {
+.ui__o-icon:hover::before {
 	transform: scale(1);
 }
-.ui__icon.msg::before {
+.ui__o-icon.msg::before {
 	content: "Messaggio";
 }
-.ui__icon.admin::before {
+.ui__o-icon.admin::before {
 	content: "Admin";
 }
 @media screen and (min-width: 1024px) {
-	.ui__icon::before {
+	.ui__o-icon::before {
 		transition: transform 0.2s;
 		transform: scale(0);
 		position: absolute;
