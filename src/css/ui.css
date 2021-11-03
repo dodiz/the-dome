@@ -14,16 +14,24 @@ div.ui {
 .ui__head-icon {
 	margin-left: 5rem;
 }
-.ui__content {
-	overflow: auto;
-	display: flex;
+div.ui__content {
+	display: grid;
+	grid-template-rows: auto auto auto 1fr 100px;
 	flex-direction: column;
-	height: 100%;
 	padding: 2px;
 }
+@media (min-width: 1024px) {
+	div.ui__content {
+		height: 100vh;
+	}
+}
 /* UI UTILITIES */
+.ui__title {
+	margin: 0;
+}
 div.ui__box {
 	margin-top: 1rem;
+	height: 100%;
 }
 .ui__flex {
 	display: flex;
@@ -54,6 +62,12 @@ div.ui__header {
 	margin-bottom: 1.5rem;
 	font-size: 2rem;
 	text-align: center;
+}
+.ui__toggler .arwes-frame {
+	width: 100%;
+}
+.ui__toggler .brand {
+	margin: 0;
 }
 .ui__logo {
 	filter: drop-shadow(0 0 5px var(--color-secondary));
@@ -168,20 +182,6 @@ div.ui__pg {
 	box-shadow: 0 0 3px var(--color-error);
 }
 
-/* UI PG MENU */
-.ui__pg-menu-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	background: rgba(0, 0, 0, 0.7);
-	width: 100%;
-	height: 100%;
-	z-index: 9;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: opacity 0.5s;
-}
 .ui__pg-menu-overlay.hide {
 	display: none;
 }
@@ -267,7 +267,9 @@ svg.menu > g.center > use {
 	font-size: 1.5rem;
 	cursor: pointer;
 }
-
+.ui__menu .arwes-frame {
+	padding: 3px;
+}
 @media screen and (min-width: 768px) and (max-width: 1440px) {
 	.ui__menu {
 		font-size: 1.2rem;
@@ -277,14 +279,12 @@ svg.menu > g.center > use {
 /* PREVIEW */
 .ui__preview {
 	font-size: 1.3rem;
-	overflow: auto;
 }
 
 /* NEWS BOX */
 .ui__news {
 	font-size: 1.3rem;
-	height: 50px;
-	overflow: auto;
+	overflow: scroll;
 }
 .ui__news-item {
 	background: rgba(255, 255, 255, 0.07);
@@ -293,7 +293,59 @@ svg.menu > g.center > use {
 	display: block;
 }
 @media screen and (min-width: 1440px) {
-	.ui__news {
-		height: 80px;
+}
+/* ONLINE USERS */
+.ui__title {
+	margin: 0;
+}
+.ui__user {
+	display: flex;
+	align-items: center;
+	padding: 0.5rem;
+	background: rgba(255, 255, 255, 0.1);
+	margin-top: 0.5rem;
+}
+.ui__o-avatar {
+	width: 30px;
+	height: 30px;
+	object-fit: cover;
+	margin-right: 0.5rem;
+	border-radius: 50%;
+	border: 1px solid var(--color-accent);
+	box-shadow: 0 0 3px var(--color-accent);
+}
+
+.ui__icon img {
+	fill: var(--color-secondary);
+	filter: drop-shadow(0 0 2px var(--color-secondary));
+}
+.ui__icon {
+	margin-right: 0.5rem;
+	position: relative;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+.ui__icon:hover::before {
+	transform: scale(1);
+}
+.ui__icon.msg::before {
+	content: "Messaggio";
+}
+.ui__icon.admin::before {
+	content: "Admin";
+}
+@media screen and (min-width: 1024px) {
+	.ui__icon::before {
+		transition: transform 0.2s;
+		transform: scale(0);
+		position: absolute;
+		font-size: 1rem;
+		top: 22px;
+		left: 0;
+		padding: 4px;
+		background: var(--color-primary);
+		border: 2px solid var(--color-secondary);
+		z-index: 9;
 	}
 }

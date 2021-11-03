@@ -77,9 +77,7 @@ const PgMenuUI = ({ show, onClose, sounds }) => {
 		generateMenu()
 	}, [])
 	return (
-		<div
-			ref={overlayRef}
-			className={`${show ? "" : "hide"} ui__pg-menu-overlay`}>
+		<div ref={overlayRef} className={`${show ? "" : "hide"} overlay`}>
 			<img alt="" src={CircleUI} className="ui__circle" />
 			<img
 				alt=""

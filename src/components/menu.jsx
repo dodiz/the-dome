@@ -30,7 +30,7 @@ class Menu extends React.Component {
 		const { open } = this.state
 		const duration = 400
 		const delay = 50
-		const space = 9
+		const space = 8
 		const targets = ".menu__icon--animate"
 		const easing = "easeOutCubic"
 		anime({
@@ -50,7 +50,7 @@ class Menu extends React.Component {
 		return (
 			<div className="menu">
 				{this.state.open && (
-					<div className="menu__overlay" onClick={this.toggleMenu} />
+					<div className="overlay" onClick={this.toggleMenu} />
 				)}
 				<div className="menu__icon menu__icon--first">
 					<Icon
