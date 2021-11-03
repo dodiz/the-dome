@@ -281,9 +281,23 @@ svg.menu > g.center > use {
 	align-items: center;
 	padding: 0.5rem;
 	background: rgba(255, 255, 255, 0.1);
-	margin-top: 0.5rem;
+	margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+	padding-left: 1rem;
 	animation: resetScale 0.5s forwards;
 	transform: scale(0);
+}
+.ui__o-user::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	content: "";
+	background: var(--color-success);
+	width: 3px;
+	z-index: 2;
+}
+.busy.ui__o-user::before {
+	background: var(--color-error);
 }
 .ui__o-avatar {
 	width: 30px;

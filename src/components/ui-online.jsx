@@ -19,11 +19,12 @@ class OnlineUI extends React.Component {
 		const { users } = this.state
 
 		return (
-			<FrameBox className="ui__box ui__online">
+			<FrameBox className="ui__box">
 				<h4 className="ui__title">Utenti online</h4>
 				{users.map(user => (
-					<div key={user._id} className="ui__o-user">
-						<div className="ui__o-status" />
+					<div
+						key={user._id}
+						className={`ui__o-user ${user.isBusy ? "busy" : ""}`}>
 						<div className="ui__o-icon msg">
 							<img src={MailIcon} />
 						</div>
