@@ -2,6 +2,7 @@ import React from "react"
 import { Text } from "@arwes/core"
 
 import SunIcon from "../media/icons/weather/sun.svg"
+import "../css/weather.css"
 
 class WeatherUI extends React.Component {
 	render() {

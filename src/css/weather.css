@@ -2,7 +2,7 @@
 .weather {
 	justify-content: center;
 }
-ì .weather__icon {
+.weather__icon {
 	margin: 0 1rem;
 	width: 35px;
 	fill: white;
