@@ -54,13 +54,13 @@ const PgUI = ({ health, stamina, onClick }) => {
 
 	return (
 		<FrameHexagon hover onClick={onClick} className="ui__pg">
-			<div className="ui__flex">
+			<div className="flex">
 				<img
 					alt=""
 					className="ui__avatar"
 					src="https://pbs.twimg.com/profile_images/1236608518347788295/IaKy3w-m_400x400.png"
 				/>
-				<div className="ui__box ui__indicators">
+				<div className=" ui__indicators">
 					<BarUI
 						id="health"
 						label="Salute"

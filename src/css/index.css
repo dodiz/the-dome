@@ -594,3 +594,28 @@ div.arwes-card__line {
 		grid-gap: 3rem;
 	}
 }
+
+/* OVERLAY */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	height: 100%;
+	z-index: 9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.5s;
+}
+
+/* standard flex */
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.flex__extend {
+	flex: 1;
+}

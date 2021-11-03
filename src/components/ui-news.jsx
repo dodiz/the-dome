@@ -14,8 +14,8 @@ class NewsUI extends React.Component {
 	render() {
 		const { news } = this.state
 		return (
-			<FrameBox palette="secondary" className="ui__box">
-				<Text as="h4" style={{ margin: "0" }}>
+			<FrameBox palette="secondary">
+				<Text as="h4" style={{ margin: 0 }}>
 					News
 				</Text>
 				<div className="line extend secondary" />

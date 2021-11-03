@@ -52,13 +52,13 @@ class UI extends React.Component {
 						smallLineLength={20}
 						hideShapes
 						className="ui__header">
-						<div className="ui__flex">
+						<div className="flex">
 							<img
 								alt="logo"
 								className="ui__logo animate__animated animate__bounceIn animate__delay-1s"
 								src={dome}
 							/>
-							<div className="ui__flex-extend">
+							<div className="flex__extend">
 								<WeatherUI />
 								<div className="line" />
 								<DateUI />
