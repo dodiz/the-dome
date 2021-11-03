@@ -1,0 +1,10 @@
+/* WEATHER */
+.weather {
+	justify-content: center;
+}
+ì .weather__icon {
+	margin: 0 1rem;
+	width: 35px;
+	fill: white;
+	filter: drop-shadow(0 0 3px var(--color-secondary));
+}

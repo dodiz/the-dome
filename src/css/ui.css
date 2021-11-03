@@ -67,21 +67,7 @@ div.ui__header {
 		height: 40px;
 	}
 }
-/* WEATHER */
-.ui__weather {
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: center;
-	align-items: center;
-}
-.ui__weather-icon {
-	margin: 0 1rem;
-}
-.ui__weather-icon {
-	width: 35px;
-	fill: white;
-	filter: drop-shadow(0 0 3px var(--color-secondary));
-}
+
 /* UI pg*/
 div.ui__pg {
 	cursor: pointer;
