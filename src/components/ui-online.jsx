@@ -19,7 +19,7 @@ class OnlineUI extends React.Component {
 		const { users } = this.state
 
 		return (
-			<FrameBox className="ui__box ui__flex-extend">
+			<FrameBox>
 				<div className="ui__preview">
 					<Text as="h4" className="ui__title">
 						Utenti online
