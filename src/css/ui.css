@@ -282,6 +282,8 @@ svg.menu > g.center > use {
 	padding: 0.5rem;
 	background: rgba(255, 255, 255, 0.1);
 	margin-top: 0.5rem;
+	animation: resetScale 0.5s forwards;
+	transform: scale(0);
 }
 .ui__o-avatar {
 	width: 30px;
