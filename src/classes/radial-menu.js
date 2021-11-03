@@ -29,8 +29,6 @@ function RadialMenu( params ) {
     self.addIconSymbols();
 
     self.currentMenu = null;
-    document.addEventListener( 'wheel', self.onMouseWheel.bind( self ) );
-    document.addEventListener( 'keydown', self.onKeyDown.bind( self ) );
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -274,51 +272,6 @@ RadialMenu.prototype.selectDelta = function ( indexDelta ) {
     }
     self.setSelectedIndex( selectedIndex );
 };
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-RadialMenu.prototype.onKeyDown = function ( event ) {
-    var self = this;
-    if ( self.currentMenu ) {
-        switch ( event.key ) {
-            case 'Escape':
-            case 'Backspace':
-                self.handleCenterClick();
-                event.preventDefault();
-                break;
-            case 'Enter':
-                self.handleClick();
-                event.preventDefault();
-                break;
-            case 'ArrowRight':
-            case 'ArrowUp':
-                self.selectDelta( 1 );
-                event.preventDefault();
-                break;
-            case 'ArrowLeft':
-            case 'ArrowDown':
-                self.selectDelta( -1 );
-                event.preventDefault();
-                break;
-            default:
-                break;
-        }
-    }
-};
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-RadialMenu.prototype.onMouseWheel = function ( event ) {
-    var self = this;
-    if ( self.currentMenu ) {
-        var delta = -event.deltaY;
-
-        if ( delta > 0 ) {
-            self.selectDelta( 1 )
-        } else {
-            self.selectDelta( -1 )
-        }
-    }
-};
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 RadialMenu.prototype.getSelectedNode = function () {
     var self = this;
