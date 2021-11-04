@@ -130,6 +130,12 @@ h6 {
 	letter-spacing: 3px;
 	margin: 1rem 0 1rem 0;
 }
+
+/* MODALS */
+.modal-content {
+	background: #0a0a0a88;
+}
+
 /* HEADINGS */
 
 .heading--secondary {

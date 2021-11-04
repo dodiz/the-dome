@@ -8,6 +8,7 @@ import Land from "./components/land"
 import ArwesProvider from "./tools/arwesProvider"
 
 import "react-toastify/dist/ReactToastify.css"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "./css/index.css"
 import "animate.css"
 

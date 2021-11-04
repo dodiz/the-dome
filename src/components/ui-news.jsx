@@ -15,7 +15,7 @@ class NewsUI extends React.Component {
 		const { news } = this.state
 		return (
 			<FrameBox palette="secondary" className="ui__box">
-				<h4 className="ui__title secondary">News</h4>
+				<h4 className="ui__title">News</h4>
 				<div className="ui__box-content">
 					{news.map(item => (
 						<div className="ui__news-item">

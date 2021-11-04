@@ -1,5 +1,6 @@
 import React from "react"
 import { FrameBox, Text } from "@arwes/core"
+
 import onlineService from "../services/onlineService"
 
 import MailIcon from "../media/icons/mail.svg"
@@ -20,7 +21,9 @@ class OnlineUI extends React.Component {
 
 		return (
 			<FrameBox className="ui__box">
-				<h4 className="ui__title">Utenti online</h4>
+				<h4 className="ui__title" onClick={this.props.onOpen}>
+					Mostra tutto
+				</h4>
 				{users.map(user => (
 					<div
 						key={user._id}
@@ -29,7 +32,7 @@ class OnlineUI extends React.Component {
 							<img src={MailIcon} />
 						</div>
 						<img src={user.img} className="ui__o-avatar" />
-						<Text>{user.name}</Text>
+						<Text className="ui__o-username">{user.name}</Text>
 						{user.isAdmin && (
 							<div className="ui__o-icon admin">
 								<img src={StarIcon} />

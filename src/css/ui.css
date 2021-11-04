@@ -46,21 +46,13 @@ div.ui__box {
 }
 .ui__title {
 	margin: 0;
-	position: sticky;
-	background: var(--color-primary);
-	border: 1px solid var(--color-secondary);
-	border-bottom: 0;
-	border-right: 0;
-	top: 0;
-	display: block;
-	z-index: 2;
+	background: #0a0a0a88;
 	padding: 0.3rem 0.5rem;
 }
-.ui__title.secondary {
-	border: 1px solid var(--color-accent);
-	border-bottom: 0;
-	border-right: 0;
-	background: rgb(80, 51, 24);
+.ui__title.stick {
+	position: sticky;
+	z-index: 2;
+	top: 0;
 }
 
 /* UI HEADER */
@@ -275,6 +267,11 @@ svg.menu > g.center > use {
 @media screen and (min-width: 1440px) {
 }
 /* ONLINE USERS */
+div.ui__online {
+	top: 0;
+	left: 0;
+	transition: left 0.5s;
+}
 .ui__o-user {
 	display: flex;
 	align-items: center;
@@ -284,6 +281,12 @@ svg.menu > g.center > use {
 	padding-left: 1rem;
 	animation: resetScale 0.5s forwards;
 	transform: scale(0);
+}
+.ui__o-username {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-right: 1rem;
 }
 .ui__o-user::before {
 	position: absolute;
@@ -318,27 +321,27 @@ svg.menu > g.center > use {
 	align-items: center;
 	cursor: pointer;
 }
-.ui__o-icon:hover::before {
-	transform: scale(1);
-}
-.ui__o-icon.msg::before {
-	content: "Messaggio";
-}
-.ui__o-icon.admin::before {
-	content: "Admin";
+.ui__o-icon.admin {
+	margin-left: auto;
 }
 @media screen and (min-width: 1024px) {
+	.ui__o-icon.admin::before {
+		content: "Admin";
+	}
 	.ui__o-icon::before {
 		transition: transform 0.2s;
-		transform: scale(0);
+		transform: scale(0) translateX(-50%);
 		position: absolute;
 		font-size: 1rem;
 		top: 22px;
-		left: 0;
+		left: 50%;
 		padding: 4px;
 		background: var(--color-primary);
 		border: 2px solid var(--color-secondary);
-		z-index: 9;
+		z-index: 92000;
+	}
+	.ui__o-icon:hover::before {
+		transform: scale(1) translateX(-50%);
 	}
 }
 
@@ -348,6 +351,8 @@ svg.menu > g.center > use {
 	border-radius: 10px;
 	margin: 1rem;
 	background: rgba(255, 255, 255, 0.1);
+	transform: scale(0);
+	animation: resetScale 0.3s forwards;
 }
 .social__avatar {
 	width: 40px;
@@ -357,4 +362,5 @@ svg.menu > g.center > use {
 }
 .social__date {
 	font-size: 1rem;
+	color: var(--color-accent);
 }
