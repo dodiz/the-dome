@@ -67,7 +67,6 @@ div.ui__box {
 div.ui__header {
 	font-weight: bold;
 	text-shadow: 0 0 5px var(--color-secondary);
-	margin-bottom: 1.5rem;
 	font-size: 2rem;
 	text-align: center;
 }
@@ -341,4 +340,21 @@ svg.menu > g.center > use {
 		border: 2px solid var(--color-secondary);
 		z-index: 9;
 	}
+}
+
+/* UI SOCIAL */
+.social__post {
+	padding: 5px;
+	border-radius: 10px;
+	margin: 1rem;
+	background: rgba(255, 255, 255, 0.1);
+}
+.social__avatar {
+	width: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-right: 1rem;
+}
+.social__date {
+	font-size: 1rem;
 }
