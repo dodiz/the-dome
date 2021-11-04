@@ -33,7 +33,6 @@ class SocialUI extends React.Component {
 						</div>
 					))}
 				</div>
-				<div className="ui__box">Social UI</div>
 			</FrameBox>
 		)
 	}
