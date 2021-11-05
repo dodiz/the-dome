@@ -121,6 +121,7 @@
 	text-shadow: 0 0 2px var(--color-accent);
 	position: relative;
 	bottom: 6px;
+	margin-top: 1rem;
 }
 @media (min-width: 768px) {
 	.brand__subtitle {
