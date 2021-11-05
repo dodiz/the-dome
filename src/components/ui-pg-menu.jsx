@@ -17,7 +17,7 @@ const menuItems = [
 	},
 	{
 		id: "inventory",
-		title: "Inventario",
+		title: "Zaino",
 		path: "/land/inventario"
 	},
 	{
