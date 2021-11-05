@@ -1,6 +1,7 @@
 import React from "react"
 import Modal from "./common/modal"
-import { FrameBox } from "@arwes/core"
+import { FrameBox, Button, Text } from "@arwes/core"
+import PgPopup from "./common/pg-popup"
 
 import MobileHeadUI from "./ui-mobile-head"
 import HeaderUI from "./ui-header"
@@ -24,10 +25,14 @@ class UI extends React.Component {
 		expandMobile: false,
 		expandPgMenu: false,
 		expandOnline: false,
-		expandNews: false
+		expandNews: false,
+		selectedPg: null
 	}
 	toggleExpand = item => {
-		this.setState(prev => ({ [item]: !prev[item] }))
+		this.setState(prev => ({ expandMobile: false, [item]: !prev[item] }))
+	}
+	handlePgClick = selectedPg => {
+		this.setState({ expandOnline: false, selectedPg })
 	}
 	selectMenu = i => {
 		this.setState({ selectedMenu: i })
@@ -39,17 +44,21 @@ class UI extends React.Component {
 			expandMobile,
 			expandPgMenu,
 			expandOnline,
-			expandNews
+			expandNews,
+			selectedPg
 		} = this.state
 		return (
 			<>
+				{selectedPg && (
+					<PgPopup data={selectedPg} onClose={() => this.handlePgClick(null)} />
+				)}
 				{expandOnline && (
 					<Modal
 						centered
 						show
 						onHide={() => this.toggleExpand("expandOnline")}
 						title="Utenti online">
-						<OnlineUI />
+						<OnlineUI onSelectUser={this.handlePgClick} />
 					</Modal>
 				)}
 				{expandNews && (
@@ -71,13 +80,13 @@ class UI extends React.Component {
 					)}
 					<MobileHeadUI
 						isExpanded={expandMobile}
-						onExpand={this.toggleExpand}
+						onExpand={() => this.toggleExpand("expandMobile")}
 					/>
 					<div className="ui__content collapsible__content">
 						<HeaderUI />
 						<PgUI
-							health={10}
-							stamina={50}
+							health={90}
+							stamina={80}
 							onClick={() => this.toggleExpand("expandPgMenu")}
 						/>
 						<MenuUI selectedMenu={selectedMenu} onSelect={this.selectMenu} />
@@ -90,7 +99,7 @@ class UI extends React.Component {
 								</h4>
 								<OnlineUI
 									title="Mostra tutti"
-									onOpen={() => this.toggleExpand("expandOnline")}
+									onSelectUser={this.handlePgClick}
 								/>
 							</FrameBox>
 						)}

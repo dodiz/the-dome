@@ -3,7 +3,6 @@ import { Text } from "@arwes/core"
 
 import onlineService from "../services/onlineService"
 
-import MailIcon from "../media/icons/mail.svg"
 import StarIcon from "../media/icons/star.svg"
 
 class OnlineUI extends React.Component {
@@ -18,14 +17,15 @@ class OnlineUI extends React.Component {
 
 	render() {
 		const { users } = this.state
+		const { onSelectUser } = this.props
 
 		return users.map(user => (
-			<div key={user._id} className={`ui__o-user ${user.isBusy ? "busy" : ""}`}>
-				<div className="ui__o-icon msg">
-					<img src={MailIcon} />
-				</div>
-				<img src={user.img} className="ui__o-avatar" />
-				<Text className="ui__o-username">{user.name}</Text>
+			<div
+				key={user._id}
+				className={`ui__o-user ${user.isBusy ? "busy" : ""}`}
+				onClick={() => onSelectUser(user)}>
+				<img src={user.pg.img} className="ui__o-avatar" />
+				<Text className="ui__o-username">{user.pg.name}</Text>
 				{user.isAdmin && (
 					<div className="ui__o-icon admin">
 						<img src={StarIcon} />

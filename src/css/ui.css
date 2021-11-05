@@ -286,6 +286,10 @@ div.ui__online {
 	padding-left: 1rem;
 	animation: resetScale 0.5s forwards;
 	transform: scale(0);
+	cursor: pointer;
+}
+.ui__o-user:hover {
+	background: rgba(255, 255, 255, 0.3);
 }
 .ui__o-username {
 	overflow: hidden;
