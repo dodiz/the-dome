@@ -6,7 +6,7 @@ function getUsers() {
 			pg: {
 				_id: "78473892",
 				name: "Michael Douglas",
-				img: "https://picsum.photos/200"
+				img: "https://thispersondoesnotexist.com/image"
 			},
 			isAdmin: true
 		},
@@ -16,7 +16,7 @@ function getUsers() {
 			pg: {
 				_id: "847392",
 				name: "Julia Roberts",
-				img: "https://picsum.photos/200"
+				img: "https://thispersondoesnotexist.com/image"
 			},
 			isAdmin: false,
 			isBusy: true
@@ -27,7 +27,7 @@ function getUsers() {
 			pg: {
 				_id: "390348029",
 				name: "Jack Nicholson",
-				img: "https://picsum.photos/200"
+				img: "https://thispersondoesnotexist.com/image"
 			},
 			isAdmin: true
 		},
@@ -37,7 +37,7 @@ function getUsers() {
 			pg: {
 				_id: "..iuqweioe",
 				name: "Will Smith",
-				img: "https://picsum.photos/200"
+				img: "https://thispersondoesnotexist.com/image"
 			},
 			isAdmin: false,
 			isBusy: true
@@ -48,7 +48,7 @@ function getUsers() {
 			pg: {
 				_id: "9548503",
 				name: "Jennifer Lawrence",
-				img: "https://picsum.photos/200"
+				img: "https://thispersondoesnotexist.com/image"
 			},
 			isAdmin: false,
 			isBusy: true
