@@ -39,20 +39,18 @@ class SplashPage extends Component {
 	}
 
 	render() {
-		const isRootPath = this.props.location.pathname !== "/"
-		const hiddenPaths =
+		const isRootPath = this.props.location.pathname === "/"
+		const stickyPaths =
 			this.props.location.pathname === "/login" ||
 			this.props.location.pathname === "/register"
 
 		return (
 			<div>
 				<Background />
-				{!hiddenPaths && (
-					<Navbar
-						stick={isRootPath}
-						show={this.state.showNavbar || isRootPath}
-					/>
-				)}
+				<Navbar
+					stick={!isRootPath && !stickyPaths}
+					show={this.state.showNavbar || !isRootPath}
+				/>
 				<Switch>
 					<Route path="/info" component={InfoPage} />
 					<Route path="/privacy" component={PrivacyPage} />
