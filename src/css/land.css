@@ -7,6 +7,7 @@ body {
 	height: 100%;
 	overflow: hidden;
 	background: url("../media/pattern.png");
+	background-size: 10px 10px;
 }
 @media (min-width: 1024px) {
 	.land {
@@ -17,19 +18,19 @@ body {
 .pg-p {
 	margin-bottom: 2rem;
 }
-.pg-p__content {
-	text-align: left;
+.pg-p__title {
+	width: 100%;
 }
 .pg-p__avatar {
 	border-radius: 50%;
-	width: 80px;
+	width: 70px;
 	border: 2px solid var(--color-secondary);
 	box-shadow: 0 0 5px var(--color-secondary);
 	margin-right: 1rem;
 }
-button.pg-p__button {
-	font-size: 1.5rem;
-	display: block;
+.pg-p__button {
 	width: 100%;
 	margin-top: 1rem;
+	text-align: center;
+	cursor: pointer;
 }
