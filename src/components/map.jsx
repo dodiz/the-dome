@@ -56,7 +56,6 @@ class Map extends Component {
 				cornerLength={50}
 				showContentLines
 				hideShapes
-				hover
 				className="map-box">
 				<div ref={this.mapRef} className="map">
 					<div className="map__pattern" />
