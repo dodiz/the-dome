@@ -14,3 +14,22 @@ body {
 		padding: 1rem;
 	}
 }
+.pg-p {
+	margin-bottom: 2rem;
+}
+.pg-p__content {
+	text-align: left;
+}
+.pg-p__avatar {
+	border-radius: 50%;
+	width: 80px;
+	border: 2px solid var(--color-secondary);
+	box-shadow: 0 0 5px var(--color-secondary);
+	margin-right: 1rem;
+}
+button.pg-p__button {
+	font-size: 1.5rem;
+	display: block;
+	width: 100%;
+	margin-top: 1rem;
+}
