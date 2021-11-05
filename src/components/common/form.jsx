@@ -37,6 +37,26 @@ const Textarea = ({ name, label, error, value, ...rest }) => {
 	)
 }
 
+const Checkbox = ({ name, label, value, ...rest }) => {
+	return (
+		<div className="form-group">
+			<label class="form-checkbox" for={name}>
+				<input
+					type="checkbox"
+					class="form-checkbox__input"
+					id={name}
+					checked={value}
+					{...rest}
+				/>
+				<span class="form-checkbox__track">
+					<span class="form-checkbox__indicator" />
+				</span>
+				{label}
+			</label>
+		</div>
+	)
+}
+
 class Form extends Component {
 	state = {
 		steps: 0,
@@ -99,6 +119,22 @@ class Form extends Component {
 				value={data[name]}
 				type={type}
 				placeholder={placeholder}
+			/>
+		)
+	}
+	renderCheckbox(name, label) {
+		const { data } = this.state
+
+		return (
+			<Checkbox
+				name={name}
+				label={label}
+				onChange={({ target }) => {
+					const data = { ...this.state.data }
+					data[name] = target.checked
+					this.setState({ data })
+				}}
+				value={data[name]}
 			/>
 		)
 	}
