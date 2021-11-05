@@ -6,7 +6,7 @@ import withSound from "./../hoc/withSound"
 
 const menuItems = [
 	{
-		id: "schda",
+		id: "scheda",
 		title: "Scheda",
 		path: "/land/scheda"
 	},
