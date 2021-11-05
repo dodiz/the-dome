@@ -48,6 +48,11 @@ div.ui__box {
 	margin: 0;
 	background: #0a0a0a88;
 	padding: 0.3rem 0.5rem;
+	cursor: pointer;
+	transition: filter 0.3s;
+}
+.ui__title:hover {
+	filter: brightness(2);
 }
 .ui__title.stick {
 	position: sticky;

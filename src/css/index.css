@@ -132,6 +132,14 @@ h6 {
 }
 
 /* MODALS */
+.modal-header {
+	border: 0;
+}
+.btn-close {
+	background: transparent url("../media/icons/cross.svg") 100% / 100%;
+	width: 3rem;
+	height: 3rem;
+}
 .modal-content {
 	background: #0a0a0a88;
 }
