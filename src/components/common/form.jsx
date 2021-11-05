@@ -1,8 +1,41 @@
 import React, { Component } from "react"
 import Joi from "joi-browser"
-import Input from "./input"
 import Select from "./select"
 import { Button, FrameCorners, Text } from "@arwes/core"
+
+const Input = ({ name, label, error, ...rest }) => {
+	return (
+		<div className="form-group">
+			{label && (
+				<label htmlFor="">
+					<Text as="h2" className="h2" palette="secondary">
+						{label}
+					</Text>
+				</label>
+			)}
+			<input name={name} className="form-control" {...rest} />
+			{error && <div className="alert alert-danger">{error}</div>}
+		</div>
+	)
+}
+
+const Textarea = ({ name, label, error, value, ...rest }) => {
+	return (
+		<div className="form-group">
+			{label && (
+				<label htmlFor="">
+					<Text as="h2" className="h2" palette="secondary">
+						{label}
+					</Text>
+				</label>
+			)}
+			<textarea name={name} {...rest} className="form-control">
+				{value}
+			</textarea>
+			{error && <div className="alert alert-danger">{error}</div>}
+		</div>
+	)
+}
 
 class Form extends Component {
 	state = {
@@ -65,6 +98,20 @@ class Form extends Component {
 				error={errors[name]}
 				value={data[name]}
 				type={type}
+				placeholder={placeholder}
+			/>
+		)
+	}
+	renderTextarea(name, label, placeholder = "") {
+		const { data, errors } = this.state
+
+		return (
+			<Textarea
+				name={name}
+				label={label}
+				onChange={this.handleChange}
+				error={errors[name]}
+				value={data[name]}
 				placeholder={placeholder}
 			/>
 		)
