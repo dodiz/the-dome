@@ -1,33 +1,32 @@
-import React, { useState } from "react"
-import { Text, Button } from "@arwes/core"
+import React from "react"
+import { Text, FrameCorners } from "@arwes/core"
 
 import Modal from "./modal"
-import NewMessage from "./new-message"
+import QuickMessage from "./quick-message"
 
 const PgPopup = ({ data, onClose }) => {
 	return (
 		<Modal small centered show onHide={onClose}>
-			<div className="flex pg-p">
+			<div className="flex">
 				<img className="pg-p__avatar" alt="" src={data.pg.img} />
-				<div className="pg-p__content">
-					<Text as="h3" className="no-margin">
-						{data.pg.name}
-					</Text>
-					<Text as="h6" className="no-margin">
-						<em>Utente: </em>
-						{data.name}
-					</Text>
-					<Text as="h6" className="no-margin">
-						<em>Status: </em>
-						{data.isBusy ? "Occupato" : "Disponibile"}
-					</Text>
-					<Button className="pg-p__button">Accedi alla scheda</Button>
-				</div>
+				<Text as="h3" className="no-margin">
+					{data.pg.name}
+				</Text>
 			</div>
-			<div className="line extend" />
-			<div style={{ marginTop: "2rem" }}>
-				<NewMessage data={data} />
+			<div className="pg-p">
+				<Text as="h6" className="no-margin pg-p__title">
+					<em>Utente: </em>
+					{data.name}
+				</Text>
+				<Text as="h6" className="no-margin pg-p__title">
+					<em>Status: </em>
+					{data.isBusy ? "Occupato" : "Disponibile"}
+				</Text>
+				<FrameCorners className="pg-p__button">
+					<Text>Accedi alla scheda</Text>
+				</FrameCorners>
 			</div>
+			<QuickMessage data={data} />
 		</Modal>
 	)
 }
