@@ -1,7 +1,4 @@
 /* UI */
-div.ui {
-	padding: 5px;
-}
 .ui__head-menu {
 	display: flex;
 	justify-content: space-between;
