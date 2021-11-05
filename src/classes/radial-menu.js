@@ -203,7 +203,7 @@ RadialMenu.prototype.createMenu = function ( classValue, levelItems, nested ) {
     svg.setAttribute( 'height', self.size );
 
     var angleStep = 360 / self.sectorCount;
-    var angleShift = angleStep / 2 + 270;
+    var angleShift = angleStep / 2;
 
     var indexOffset = self.getIndexOffset();
 
