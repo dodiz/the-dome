@@ -22,10 +22,12 @@ const PgPopup = ({ data, onClose }) => {
 					<em>Status: </em>
 					{data.isBusy ? "Occupato" : "Disponibile"}
 				</Text>
-				<Text className="no-margin pg-p__title">
-					<em>Ruolo: </em>
-					Admin
-				</Text>
+				{data.isAdmin && (
+					<Text className="no-margin pg-p__title">
+						<em>Ruolo: </em>
+						Admin
+					</Text>
+				)}
 				<FrameCorners className="pg-p__button">
 					<Text>Accedi alla scheda</Text>
 				</FrameCorners>
