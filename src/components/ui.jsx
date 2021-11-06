@@ -1,6 +1,6 @@
 import React from "react"
 import Modal from "./common/modal"
-import { FrameBox, Button, Text } from "@arwes/core"
+import { FrameBox } from "@arwes/core"
 import PgPopup from "./common/pg-popup"
 
 import MobileHeadUI from "./ui-mobile-head"

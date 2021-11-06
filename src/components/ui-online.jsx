@@ -24,11 +24,11 @@ class OnlineUI extends React.Component {
 				key={user._id}
 				className={`ui__o-user ${user.isBusy ? "busy" : ""}`}
 				onClick={() => onSelectUser(user)}>
-				<img src={user.pg.img} className="ui__o-avatar" />
+				<img alt={user.pg.name} src={user.pg.img} className="ui__o-avatar" />
 				<Text className="ui__o-username">{user.pg.name}</Text>
 				{user.isAdmin && (
 					<div className="ui__o-icon admin">
-						<img src={StarIcon} />
+						<img src={StarIcon} alt="admin" />
 					</div>
 				)}
 			</div>

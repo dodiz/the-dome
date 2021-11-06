@@ -55,25 +55,24 @@ const PgMenuUI = ({ show, onClose, sounds }) => {
 	const overlayRef = useRef()
 	const history = useHistory()
 
-	function generateMenu() {
-		const svgMenu = new RadialMenu({
-			parent: overlayRef.current,
-			menuItems,
-			size: 380,
-			closeOnClick: true,
-
-			onClick: item => {
-				sounds.click.play()
-				if (item.path) history.push(item.path)
-			},
-			onClose: onClose,
-			onHover: () => sounds.hover.play()
-		})
-		sounds.assemble.play()
-		svgMenu.open()
-	}
-
 	useEffect(() => {
+		function generateMenu() {
+			const svgMenu = new RadialMenu({
+				parent: overlayRef.current,
+				menuItems,
+				size: 380,
+				closeOnClick: true,
+
+				onClick: item => {
+					sounds.click.play()
+					if (item.path) history.push(item.path)
+				},
+				onClose: onClose,
+				onHover: () => sounds.hover.play()
+			})
+			sounds.assemble.play()
+			svgMenu.open()
+		}
 		generateMenu()
 	}, [])
 	return (

@@ -15,7 +15,7 @@ class NewsUI extends React.Component {
 		return (
 			<div className="ui__box-content">
 				{news.map(item => (
-					<div className="ui__news-item">
+					<div key={item._id} className="ui__news-item">
 						<em>{item.date}</em>: {item.content}
 					</div>
 				))}
