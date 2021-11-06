@@ -1,5 +1,5 @@
 import React from "react"
-import Joi from "joi-browser"
+import Joi from "joi"
 import { Text } from "@arwes/core"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -19,10 +19,13 @@ class LoginForm extends Form {
 		errors: {}
 	}
 
-	schema = {
-		email: Joi.string().email().required().label("Email"),
+	schema = Joi.object({
+		email: Joi.string()
+			.email({ tlds: { allow: false } })
+			.required()
+			.label("Email"),
 		password: Joi.string().required().label("Password")
-	}
+	})
 
 	doSubmit = async () => {
 		try {
@@ -61,7 +64,7 @@ class LoginForm extends Form {
 								</Link>
 								<br />
 								<Link to="/register">
-									<em>Registrati</em>
+									<em>Non hai un account? Registrati</em>
 								</Link>
 							</Text>
 						</div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Joi from "joi-browser"
+import Joi from "../../tools/joi"
 import Select from "./select"
 import { Button, FrameCorners, Text } from "@arwes/core"
 
@@ -8,7 +8,7 @@ const Input = ({ name, label, error, ...rest }) => {
 		<div className="form-group">
 			{label && (
 				<label htmlFor="">
-					<Text as="h2" className="h2" palette="secondary">
+					<Text as="h3" className="h3" palette="secondary">
 						{label}
 					</Text>
 				</label>
@@ -24,14 +24,12 @@ const Textarea = ({ name, label, error, value, ...rest }) => {
 		<div className="form-group">
 			{label && (
 				<label htmlFor="">
-					<Text as="h2" className="h2" palette="secondary">
+					<Text as="h3" className="h3" palette="secondary">
 						{label}
 					</Text>
 				</label>
 			)}
-			<textarea name={name} {...rest} className="form-control">
-				{value}
-			</textarea>
+			<textarea value={value} name={name} {...rest} className="form-control" />
 			{error && <div className="alert alert-danger">{error}</div>}
 		</div>
 	)
@@ -40,16 +38,16 @@ const Textarea = ({ name, label, error, value, ...rest }) => {
 const Checkbox = ({ name, label, value, ...rest }) => {
 	return (
 		<div className="form-group">
-			<label class="form-checkbox" for={name}>
+			<label className="form-checkbox" htmlFor={name}>
 				<input
 					type="checkbox"
-					class="form-checkbox__input"
+					className="form-checkbox__input"
 					id={name}
 					checked={value}
 					{...rest}
 				/>
-				<span class="form-checkbox__track">
-					<span class="form-checkbox__indicator" />
+				<span className="form-checkbox__track">
+					<span className="form-checkbox__indicator" />
 				</span>
 				{label}
 			</label>
@@ -79,10 +77,8 @@ class Form extends Component {
 	}
 
 	validateProperty = ({ name, value }) => {
-		const obj = { [name]: value }
-		const schema = { [name]: this.schema[name] }
-		const { error } = Joi.validate(obj, schema)
-
+		const schema = this.schema.extract(name)
+		const { error } = schema.validate(value)
 		return error ? error.details[0].message : null
 	}
 

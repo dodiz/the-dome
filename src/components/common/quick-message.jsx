@@ -1,5 +1,5 @@
 import React from "react"
-import Joi from "joi-browser"
+import Joi from "joi"
 import { toast } from "react-toastify"
 
 import Form from "./form"
@@ -13,10 +13,10 @@ class NewMessage extends Form {
 		errors: {}
 	}
 
-	schema = {
+	schema = Joi.object({
 		message: Joi.string().required().label("message"),
 		isOn: Joi.boolean()
-	}
+	})
 
 	doSubmit = () => {
 		toast.error("Funzione non disponibile")
