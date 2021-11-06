@@ -8,7 +8,7 @@ const links = [
 		to: "/info"
 	},
 	{
-		label: "Login",
+		label: "Accedi",
 		to: "/login"
 	},
 	{
