@@ -370,3 +370,7 @@ div.ui__online {
 	font-size: 1rem;
 	color: var(--color-accent);
 }
+.social__user:hover {
+	color: #fff;
+	cursor: pointer;
+}
