@@ -103,7 +103,7 @@ class UI extends React.Component {
 								/>
 							</FrameBox>
 						)}
-						{selectedMenu === 2 && <SocialUI />}
+						{selectedMenu === 2 && <SocialUI onPgSelect={this.handlePgClick} />}
 						{selectedMenu === 3 && <ForumUI />}
 						{selectedMenu === 4 && <MessagesUI />}
 						<FrameBox palette="secondary" className="ui__box">

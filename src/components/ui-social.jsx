@@ -14,6 +14,7 @@ class SocialUI extends React.Component {
 
 	render() {
 		const { posts } = this.state
+		const { onPgSelect } = this.props
 
 		return (
 			<FrameBox className="ui__box">
@@ -22,10 +23,14 @@ class SocialUI extends React.Component {
 					{posts.map(post => (
 						<div key={post._id} className="social__post">
 							<div className="flex start">
-								<img src={post.avatar} alt="" className="social__avatar" />
+								<img src={post.pg.img} alt="" className="social__avatar" />
 								<div>
 									<div className="social__date">{post.date}</div>
-									<div className="social__user">{post.user}</div>
+									<div
+										className="social__user"
+										onClick={() => onPgSelect(post)}>
+										{post.pg.name}
+									</div>
 								</div>
 							</div>
 							<div className="social__content">{post.content}</div>
