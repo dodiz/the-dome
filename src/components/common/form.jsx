@@ -64,13 +64,10 @@ class Form extends Component {
 	}
 
 	validate = () => {
-		const options = { abortEarly: false }
-		const { error } = Joi.validate(this.state.data, this.schema, options)
-
+		const { error } = this.schema.validate(this.state.data)
 		if (!error) return null
 
 		const errors = {}
-
 		for (let item of error.details) errors[item.path[0]] = item.message
 
 		return errors
@@ -78,6 +75,8 @@ class Form extends Component {
 
 	validateProperty = ({ name, value }) => {
 		const schema = this.schema.extract(name)
+		const refs = schema._refs.refs
+		if (refs.length) return null
 		const { error } = schema.validate(value)
 		return error ? error.details[0].message : null
 	}

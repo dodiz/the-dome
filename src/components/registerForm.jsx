@@ -20,16 +20,18 @@ class RegisterForm extends Form {
 	}
 
 	schema = Joi.object({
-		username: Joi.string().required().max(20).label("username"),
+		username: Joi.string()
+			.alphanum()
+			.required()
+			.min(5)
+			.max(15)
+			.label("username"),
 		email: Joi.string()
 			.email({ tlds: { allow: false } })
 			.required()
 			.label("Email"),
 		password: Joi.string().required().label("Password"),
-		rpassword: Joi.string()
-			.valid(Joi.ref("password"))
-			.required()
-			.label("Password")
+		rpassword: Joi.string().valid(Joi.ref("password"))
 	})
 
 	doSubmit = () => {
