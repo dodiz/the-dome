@@ -1,8 +1,7 @@
 import React, { useState } from "react"
+import { BrowserRouter } from 'react-router-dom'
 import { Switch, Route } from "react-router"
 import { ToastContainer, Slide } from "react-toastify"
-
-import firebaseApp from "./fire"
 
 import Assemble from "./components/splash-assemble"
 import SplashPage from "./components/splash"
@@ -19,22 +18,24 @@ function App() {
   const [assemble, setAssemble] = useState( false )
 
   return (
-    <ArwesProvider>
-      <ToastContainer
-        theme="dark"
-        draggablePercent={40}
-        limit={4}
-        transition={Slide}
-      />
-      {assemble ? (
-        <Switch>
-          <Route path="/land" component={Land} />
-          <Route path="/" component={SplashPage} />
-        </Switch>
-      ) : (
-        <Assemble onAssemble={() => setAssemble( true )} />
-      )}
-    </ArwesProvider>
+    <BrowserRouter>
+      <ArwesProvider>
+        <ToastContainer
+          theme="dark"
+          draggablePercent={40}
+          limit={4}
+          transition={Slide}
+        />
+        {assemble ? (
+          <Switch>
+            <Route path="/land" component={Land} />
+            <Route path="/" component={SplashPage} />
+          </Switch>
+        ) : (
+          <Assemble onAssemble={() => setAssemble( true )} />
+        )}
+      </ArwesProvider>
+    </BrowserRouter>
   )
 }
 
