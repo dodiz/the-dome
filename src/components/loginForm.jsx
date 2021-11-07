@@ -1,5 +1,5 @@
 import React from "react"
-import Joi from "joi"
+import Joi from "../classes/joi"
 import { Text } from "@arwes/core"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -14,7 +14,8 @@ class LoginForm extends Form {
 		displayName: "",
 		data: {
 			email: "",
-			password: ""
+			password: "",
+			keepConnection: false
 		},
 		errors: {}
 	}
@@ -24,7 +25,8 @@ class LoginForm extends Form {
 			.email({ tlds: { allow: false } })
 			.required()
 			.label("Email"),
-		password: Joi.string().required().label("Password")
+		password: Joi.string().required().label("Password"),
+		keepConnection: Joi.boolean()
 	})
 
 	doSubmit = async () => {
@@ -53,8 +55,9 @@ class LoginForm extends Form {
 								"email"
 							)}
 						</this.RenderStep>
-						<this.RenderStep step={2} fields={["password"]}>
+						<this.RenderStep step={2} fields={["password", "keepConnection"]}>
 							{this.renderInput("password", "Password", "Password", "Password")}
+							{this.renderCheckbox("keepConnection", "Resta collegato")}
 							{this.renderButton("Accedi")}
 						</this.RenderStep>
 						<div className="fullview-box__links">

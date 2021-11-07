@@ -1,17 +1,14 @@
 import { toast } from "react-toastify"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+
+import { auth } from "../fire"
 
 async function signUp(username, email, password) {
-	const auth = getAuth()
-	createUserWithEmailAndPassword(auth, email, password)
-		.then(userCredential => {
-			toast.success("Welcome to the dome")
-		})
-		.catch(error => {
-			const errorCode = error.code
-			const errorMessage = error.message
-			// ..
-		})
+	try {
+		throw new Error("Non è possibile registrarsi")
+	} catch (e) {
+		console.log(e)
+		toast.error(e)
+	}
 }
 
 async function login(email, password) {
@@ -21,5 +18,6 @@ async function login(email, password) {
 }
 
 export default {
+	signUp,
 	login
 }

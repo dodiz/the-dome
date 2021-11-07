@@ -1,10 +1,10 @@
 import React from "react"
-import Joi from "../tools/joi"
+import Joi from "../classes/joi"
 import { Text } from "@arwes/core"
 import { Link } from "react-router-dom"
-import { toast } from "react-toastify"
 
 import Form from "./common/form"
+import authService from "../services/authService"
 
 class RegisterForm extends Form {
 	state = {
@@ -34,8 +34,9 @@ class RegisterForm extends Form {
 		rpassword: Joi.string().valid(Joi.ref("password"))
 	})
 
-	doSubmit = () => {
-		toast.error("Login not available yet")
+	doSubmit = async () => {
+		const { username, email, password } = this.state.data
+		const res = await authService.signUp(username, email, password)
 	}
 
 	render() {

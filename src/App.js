@@ -7,7 +7,7 @@ import Assemble from "./components/splash-assemble"
 import SplashPage from "./components/splash"
 import Land from "./components/land"
 
-import ArwesProvider from "./tools/arwesProvider"
+import ArwesProvider from "./context/arwesProvider"
 
 import "react-toastify/dist/ReactToastify.css"
 import "./css/modal.css"

@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import Joi from "../../tools/joi"
 import Select from "./select"
 import { Button, FrameCorners, Text } from "@arwes/core"
 
