@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# resources
+/resources
+
 # firebase
 /functions
 .firebaserc
