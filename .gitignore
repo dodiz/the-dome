@@ -8,11 +8,21 @@
 # testing
 /coverage
 
+# firebase
+/functions
+.firebaserc
+database.rules.json
+firestore.indexes.json
+firestore.rules
+storage.rules
+firebase.json
+
 # production
 /build
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
