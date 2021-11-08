@@ -16,7 +16,8 @@ class RegisterForm extends Form {
 			email: "",
 			username: "",
 			password: "",
-			rpassword: ""
+			rpassword: "",
+			privacy: false
 		},
 		errors: {}
 	}
@@ -33,13 +34,17 @@ class RegisterForm extends Form {
 			.required()
 			.label("Email"),
 		password: Joi.string().min(6).required().label("Password"),
-		rpassword: Joi.string().valid(Joi.ref("password"))
+		rpassword: Joi.string().valid(Joi.ref("password")),
+		privacy: Joi.boolean().valid(true).messages({
+			"any.only": "Dai il tuo consenso per procedere"
+		})
 	})
 
 	doSubmit = async () => {
 		const { username, email, password } = this.state.data
 		try {
 			await authService.signup(username, email, password)
+			alert()
 			const isSubmitted = true
 			this.setState({ isSubmitted })
 		} catch (e) {
@@ -53,36 +58,48 @@ class RegisterForm extends Form {
 
 		return (
 			<div className="fullview">
-				<form onSubmit={this.handleSubmit} className="fullview-box">
-					<this.RenderStep step={1} fields={["username", "email"]}>
-						{this.renderInput(
-							"username",
-							"Username",
-							"Non equivale al nome del tuo personaggio"
-						)}
-						{this.renderInput("email", "Email", "your@mail.it", "email")}
-					</this.RenderStep>
-					<this.RenderStep step={2} fields={["password, rpassword"]}>
-						{this.renderInput("password", "Password", "Password", "Password")}
-						{this.renderInput("rpassword", "conferma password", "", "Password")}
-						{this.renderButton("Registrati")}
-					</this.RenderStep>
-					<div className="form-footer">
-						<Text>
-							<Link to="/login">
-								<em>Hai già un account? Accedi</em>
-							</Link>
-						</Text>
-					</div>
-					{isSubmitted && (
-						<div className="alert--info">
+				{!isSubmitted ? (
+					<form onSubmit={this.handleSubmit} className="fullview-box">
+						<this.RenderStep step={1} fields={["username", "email"]}>
+							{this.renderInput(
+								"username",
+								"Username",
+								"Non equivale al nome del tuo personaggio"
+							)}
+							{this.renderInput("email", "Email", "your@mail.it", "email")}
+						</this.RenderStep>
+						<this.RenderStep step={2} fields={["password, rpassword"]}>
+							{this.renderInput("password", "Password", "Password", "Password")}
+							{this.renderInput(
+								"rpassword",
+								"conferma password",
+								"",
+								"Password"
+							)}
+							{this.renderCheckbox(
+								"privacy",
+								"Acconsento al trattamento dei dati personali"
+							)}
+							{this.renderButton("Registrati")}
+						</this.RenderStep>
+						<div className="form-footer">
 							<Text>
-								Ti abbiamo mandato una mail all'indirizzo{" "}
-								<em>{this.state.data.email}</em>
+								<Link to="/login">
+									<em>Hai già un account? Accedi</em>
+								</Link>
 							</Text>
 						</div>
-					)}
-				</form>
+					</form>
+				) : (
+					<div className="fullview-box">
+						<Text as="h3">Email inviata</Text>
+						<Text as="p">
+							Ti abbiamo inviato una mail all'indirizzo{" "}
+							<em>{this.state.data.email}</em> <br />
+							Chiudi pure questa finestra
+						</Text>
+					</div>
+				)}
 			</div>
 		)
 	}

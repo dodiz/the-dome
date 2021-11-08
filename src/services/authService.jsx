@@ -1,14 +1,33 @@
-import { toast } from "react-toastify"
+import {
+	getAuth,
+	createUserWithEmailAndPassword,
+	onAuthStateChanged,
+	sendEmailVerification
+} from "firebase/auth"
 
-import { auth } from "../fire"
+function signup(username, email, password) {
+	const auth = getAuth()
+	return new Promise((resolve, reject) => {
+		createUserWithEmailAndPassword(auth, email, password)
+			.then(async userCredential => {
+				try {
+					await sendEmailVerification(userCredential.user)
+					resolve()
+				} catch (e) {
+					reject(e.message)
+				}
+			})
+			.catch(e => {
+				if (e.code === "auth/email-already-in-use")
+					reject("La mail selezionata è già in uso")
+				else reject(e.message)
+			})
+	})
+}
 
-async function signUp(username, email, password) {
-	try {
-		throw new Error("Non è possibile registrarsi")
-	} catch (e) {
-		console.log(e)
-		toast.error(e)
-	}
+function authListener(cb) {
+	const auth = getAuth()
+	return onAuthStateChanged(auth, cb)
 }
 
 async function login(email, password) {
@@ -18,6 +37,7 @@ async function login(email, password) {
 }
 
 export default {
-	signUp,
-	login
+	signup,
+	login,
+	authListener
 }
