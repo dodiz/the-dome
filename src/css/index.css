@@ -130,7 +130,10 @@ h6 {
 	letter-spacing: 3px;
 	margin: 1rem 0 1rem 0;
 }
-/* UTILITY MARGINS */
+/* UTILITY MARGINS AND TEXT */
+.t-center {
+	text-align: center;
+}
 .mt-1 {
 	margin-top: 1rem;
 }
