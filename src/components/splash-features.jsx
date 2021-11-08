@@ -1,11 +1,11 @@
 import React from "react"
 import { FrameBox, Figure, Text } from "@arwes/core"
 
-import withScrollAnimation from "../hoc/withScrollAnimation"
+import whenImage from "../media/feature/when.jpg"
+import whereImage from "../media/feature/where.jpg"
+import howImage from "../media/feature/how.jpg"
 
-const EXPLORE__WHEN__URL = "/images/explore/how.png"
-const EXPLORE__WHERE__URL = "/images/explore/where.png"
-const EXPLORE__HOW__URL = "/images/explore/when.png"
+import withScrollAnimation from "../hoc/withScrollAnimation"
 
 const Feature = props => (
 	<article className="feature grid">
@@ -35,7 +35,7 @@ const FeatureComponent = () => {
 					Esplora un mondo distopico
 				</Text>
 			</div>
-			<Feature image={EXPLORE__WHEN__URL} title="What's left of us">
+			<Feature image={whenImage} title="What's left of us">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repellat
 				repudiandae, nemo molestiae sequi expedita officia ullam perspiciatis
 				quis corrupti et neque nulla commodi animi, inventore dolore architecto
@@ -43,9 +43,7 @@ const FeatureComponent = () => {
 				aliquid eum eveniet qui laudantium, exercitationem voluptatibus corrupti
 				recusandae. Ipsum cumque pariatur expedita.
 			</Feature>
-			<Feature
-				image={EXPLORE__WHERE__URL}
-				title="The world ends, the dome stands">
+			<Feature image={whereImage} title="The world ends, the dome stands">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
 				deserunt voluptates! Voluptatem autem magni amet cum nihil harum id
 				sequi illum vero maiores ipsa ex aut porro accusantium optio, nam
@@ -53,7 +51,7 @@ const FeatureComponent = () => {
 				Ipsum obcaecati assumenda doloribus aliquam officia praesentium est!
 				Repellendus, modi provident.
 			</Feature>
-			<Feature image={EXPLORE__HOW__URL} title="Mankind adjusted">
+			<Feature image={howImage} title="Mankind adjusted">
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
 				ducimus nihil molestiae dignissimos doloribus minima ex at autem?
 				Voluptatibus reiciendis, id sequi officia consectetur accusantium quam
