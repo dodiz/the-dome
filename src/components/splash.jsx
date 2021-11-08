@@ -61,7 +61,7 @@ class SplashPage extends Component {
 					<Route path="/info" component={InfoPage} />
 					<Route path="/privacy" component={PrivacyPage} />
 					<IsUserRedirect path="/login" component={LoginForm} />
-					<IsUserRedirect path="/register" component={RegisterForm} />
+					<Route path="/register" component={RegisterForm} />
 					<ProtectedRoute
 						path="/accesso-confermato"
 						component={AccessGranted}
