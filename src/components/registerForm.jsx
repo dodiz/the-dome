@@ -44,7 +44,6 @@ class RegisterForm extends Form {
 		const { username, email, password } = this.state.data
 		try {
 			await authService.signup(username, email, password)
-			alert()
 			const isSubmitted = true
 			this.setState({ isSubmitted })
 		} catch (e) {
