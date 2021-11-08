@@ -34,21 +34,24 @@ const Textarea = ({ name, label, error, value, ...rest }) => {
 	)
 }
 
-const Checkbox = ({ name, label, value, ...rest }) => {
+const Checkbox = ({ name, label, value, error, ...rest }) => {
 	return (
-		<label className="form-checkbox" htmlFor={name}>
-			<input
-				type="checkbox"
-				className="form-checkbox__input"
-				id={name}
-				checked={value}
-				{...rest}
-			/>
-			<span className="form-checkbox__track">
-				<span className="form-checkbox__indicator" />
-			</span>
-			{label}
-		</label>
+		<div>
+			<label className="form-checkbox" htmlFor={name}>
+				<input
+					type="checkbox"
+					className="form-checkbox__input"
+					id={name}
+					checked={value}
+					{...rest}
+				/>
+				<span className="form-checkbox__track">
+					<span className="form-checkbox__indicator" />
+				</span>
+				{label}
+			</label>
+			{error && <div className="alert alert-danger">{error}</div>}
+		</div>
 	)
 }
 
@@ -115,12 +118,13 @@ class Form extends Component {
 		)
 	}
 	renderCheckbox(name, label) {
-		const { data } = this.state
+		const { data, errors } = this.state
 
 		return (
 			<Checkbox
 				name={name}
 				label={label}
+				error={errors[name]}
 				onChange={({ target }) => {
 					const data = { ...this.state.data }
 					data[name] = target.checked
