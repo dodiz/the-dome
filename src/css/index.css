@@ -223,7 +223,19 @@ div.arwes-card__line {
 	align-items: center;
 	justify-content: center;
 }
-
+.fullview-box {
+	width: 100%;
+	margin: 0 3rem;
+}
+@media screen and (min-width: 768px) {
+	.fullview-box {
+		width: 470px;
+		margin: 0;
+		background: rgba(0, 0, 0, 0.3);
+		padding: 3rem;
+		box-shadow: 0 0 10px #000;
+	}
+}
 /* BACKGROUND */
 .background {
 	position: fixed;
@@ -487,7 +499,7 @@ div.arwes-card__line {
 	display: block;
 }
 .form-group {
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 .form-control,
 .form-control:focus {
@@ -518,6 +530,15 @@ div.arwes-card__line {
 	margin-top: 1rem;
 	font-size: 1.3rem;
 	color: var(--color-error);
+}
+.alert--info {
+	background: #00f7f733;
+	border: 2px solid var(--color-primary);
+	padding: 1rem;
+	margin: 1rem 0;
+}
+.form-footer {
+	margin-top: 2rem;
 }
 .form-btn {
 	display: flex;
