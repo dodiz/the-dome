@@ -8,12 +8,15 @@ import Navbar from "./splash-navbar"
 import Cards from "./splash-cards"
 import Features from "./splash-features"
 import SplashMenu from "./splash-menu"
+import Verify from "./verify"
 
 import InfoPage from "./splash-info"
 import LoginForm from "./loginForm"
 import RegisterForm from "./registerForm"
 import PrivacyPage from "./splash-privacy"
 import Background from "./background"
+
+import { IsUserRedirect } from "../tools/redirect"
 
 import "../css/splash.css"
 
@@ -42,7 +45,8 @@ class SplashPage extends Component {
 		const isRootPath = this.props.location.pathname === "/"
 		const stickyPaths =
 			this.props.location.pathname === "/login" ||
-			this.props.location.pathname === "/register"
+			this.props.location.pathname === "/register" ||
+			this.props.location.pathname === "/verify"
 
 		return (
 			<div>
@@ -54,8 +58,9 @@ class SplashPage extends Component {
 				<Switch>
 					<Route path="/info" component={InfoPage} />
 					<Route path="/privacy" component={PrivacyPage} />
-					<Route path="/login" component={LoginForm} />
-					<Route path="/register" component={RegisterForm} />
+					<IsUserRedirect path="/login" component={LoginForm} />
+					<IsUserRedirect path="/register" component={RegisterForm} />
+					<Route path="/verify" component={Verify} />
 					<Route exact path="/">
 						<main className="splash">
 							<Brand />

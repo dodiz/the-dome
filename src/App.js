@@ -12,6 +12,8 @@ import Land from "./components/land"
 import ArwesProvider from "./context/arwesProvider"
 import AuthProvider from "./context/authContext"
 
+import { ProtectedRoute } from './tools/redirect'
+
 import "react-toastify/dist/ReactToastify.css"
 import "./css/modal.css"
 import "./css/index.css"
@@ -32,7 +34,7 @@ function App() {
         <AuthProvider>
           {assemble ? (
             <Switch>
-              <Route path="/land" component={Land} />
+              <ProtectedRoute path="/land" component={Land} />
               <Route path="/" component={SplashPage} />
             </Switch>
           ) : (
