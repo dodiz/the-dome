@@ -7,13 +7,7 @@ export function ProtectedRoute({ component: Component, ...rest }) {
 	return (
 		<Route
 			{...rest}
-			render={props =>
-				user && user.emailVerified ? (
-					<Component {...props} />
-				) : (
-					<Redirect to="/" />
-				)
-			}
+			render={props => (user ? <Component {...props} /> : <Redirect to="/" />)}
 		/>
 	)
 }
@@ -23,11 +17,7 @@ export function IsUserRedirect({ component: Component, ...rest }) {
 		<Route
 			{...rest}
 			render={props =>
-				user && user.emailVerified ? (
-					<Redirect to="/land" />
-				) : (
-					<Component {...props} />
-				)
+				user ? <Redirect to="/accesso-confermato" /> : <Component {...props} />
 			}
 		/>
 	)
