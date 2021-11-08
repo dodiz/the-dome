@@ -48,7 +48,7 @@ class SplashPage extends Component {
 			this.props.location.pathname === "/login" ||
 			this.props.location.pathname === "/register" ||
 			this.props.location.pathname === "/verify" ||
-			this.props.location.pathname === "/accesso-confermato"
+			this.props.location.pathname === "/accesso"
 
 		return (
 			<div>
@@ -61,11 +61,8 @@ class SplashPage extends Component {
 					<Route path="/info" component={InfoPage} />
 					<Route path="/privacy" component={PrivacyPage} />
 					<IsUserRedirect path="/login" component={LoginForm} />
+					<ProtectedRoute path="/accesso" component={AccessGranted} />
 					<Route path="/register" component={RegisterForm} />
-					<ProtectedRoute
-						path="/accesso-confermato"
-						component={AccessGranted}
-					/>
 					<Route path="/verify" component={Verify} />
 					<Route exact path="/">
 						<main className="splash">

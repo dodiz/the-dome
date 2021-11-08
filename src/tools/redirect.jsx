@@ -17,7 +17,7 @@ export function IsUserRedirect({ component: Component, ...rest }) {
 		<Route
 			{...rest}
 			render={props =>
-				user ? <Redirect to="/accesso-confermato" /> : <Component {...props} />
+				user ? <Redirect to="/accesso" /> : <Component {...props} />
 			}
 		/>
 	)
