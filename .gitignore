@@ -13,6 +13,7 @@
 
 # firebase
 firebase-debug.log
+/.firebase
 
 # production
 /build
