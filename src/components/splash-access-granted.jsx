@@ -27,7 +27,12 @@ const AccessGranted = props => {
 				</div>
 			) : (
 				<div className="fullview-box">
-					<Text>Devi verificare la tua email prima di procedere</Text>
+					<Text as="p">
+						Ti abbiamo inviato una mail all'indirizzo <em>{user.email}</em>
+						<br />
+						Clicca sul link che hai ricevuto nella mail per continuare su{" "}
+						<em>The Dome Project</em>
+					</Text>
 				</div>
 			)}
 		</div>
