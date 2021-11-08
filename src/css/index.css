@@ -557,12 +557,9 @@ div.arwes-card__line {
 }
 .form-checkbox {
 	align-items: center;
-	border-radius: 100px;
 	display: flex;
-	font-weight: 700;
-}
-.form-checkbox:last-of-type {
-	margin: 0;
+	font-size: 1.5rem;
+	margin: 2rem 0;
 }
 .form-checkbox__input {
 	clip: rect(0 0 0 0);

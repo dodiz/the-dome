@@ -36,21 +36,19 @@ const Textarea = ({ name, label, error, value, ...rest }) => {
 
 const Checkbox = ({ name, label, value, ...rest }) => {
 	return (
-		<div className="form-group">
-			<label className="form-checkbox" htmlFor={name}>
-				<input
-					type="checkbox"
-					className="form-checkbox__input"
-					id={name}
-					checked={value}
-					{...rest}
-				/>
-				<span className="form-checkbox__track">
-					<span className="form-checkbox__indicator" />
-				</span>
-				{label}
-			</label>
-		</div>
+		<label className="form-checkbox" htmlFor={name}>
+			<input
+				type="checkbox"
+				className="form-checkbox__input"
+				id={name}
+				checked={value}
+				{...rest}
+			/>
+			<span className="form-checkbox__track">
+				<span className="form-checkbox__indicator" />
+			</span>
+			{label}
+		</label>
 	)
 }
 
