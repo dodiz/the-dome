@@ -12,14 +12,7 @@
 /resources
 
 # firebase
-/functions
-.firebaserc
-database.rules.json
 firebase-debug.log
-firebase.json
-firestore.indexes.json
-firestore.rules
-storage.rules
 
 # production
 /build
