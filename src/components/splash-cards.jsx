@@ -1,24 +1,29 @@
 import React from "react"
 import { Card, Text, Button } from "@arwes/core"
+
 import withScrollAnimation from "../hoc/withScrollAnimation"
 
-const CardComponent = props => (
+import humansImage from "../media/races/humans.jpg"
+import mutantsImage from "../media/races/mutants.jpg"
+import robotsImage from "../media/races/robots.jpg"
+
+const CardComponent = ({ src, title, children }) => (
 	<Card
 		image={{
-			src: props.image
+			src
 		}}
-		title={<h2 className="h2">{props.title}</h2>}
+		title={<h2 className="h2">{title}</h2>}
 		className="card"
 		options={
 			<Button className="card__button" palette="secondary">
 				<Text>Scopri</Text>
 			</Button>
 		}>
-		<Text as="p">{props.children}</Text>
+		<Text as="p">{children}</Text>
 	</Card>
 )
 
-const Cards = props => {
+const Cards = () => {
 	return (
 		<section className="cards-container">
 			<div className="splash__title">
@@ -27,21 +32,21 @@ const Cards = props => {
 				</Text>
 			</div>
 			<div className="cards">
-				<CardComponent image="/images/races/humans.png" title="Umani">
+				<CardComponent src={humansImage} title="Umani">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
 					atque consequuntur veniam explicabo voluptatibus vel perferendis rem
 					quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
 					reiciendis consectetur neque. Error, quod voluptate recusandae
 					accusamus et animi incidunt
 				</CardComponent>
-				<CardComponent title="Mutanti" image="/images/races/mutants.png">
+				<CardComponent src={mutantsImage} title="Mutanti">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
 					atque consequuntur veniam explicabo voluptatibus vel perferendis rem
 					quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
 					reiciendis consectetur neque. Error, quod voluptate recusandae
 					accusamus et animi incidunt
 				</CardComponent>
-				<CardComponent image="/images/races/robots.png" title="Sintetici">
+				<CardComponent src={robotsImage} title="Sintetici">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
 					atque consequuntur veniam explicabo voluptatibus vel perferendis rem
 					quisquam repudiandae qui natus fugiat voluptas, inventore laboriosam
