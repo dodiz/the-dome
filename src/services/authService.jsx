@@ -1,11 +1,12 @@
 import {
-	getAuth,
+	applyActionCode,
 	createUserWithEmailAndPassword,
+	getAuth,
 	onAuthStateChanged,
 	sendEmailVerification,
-	applyActionCode,
 	signInWithEmailAndPassword,
-	signOut
+	signOut,
+	updateProfile
 } from "firebase/auth"
 
 function signup(username, email, password) {
@@ -14,6 +15,9 @@ function signup(username, email, password) {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then(async userCredential => {
 				try {
+					await updateProfile(userCredential.user, {
+						displayName: username
+					})
 					await sendEmailVerification(userCredential.user)
 					resolve()
 				} catch (e) {
