@@ -5,11 +5,13 @@ import { Link } from "react-router-dom"
 
 import Form from "./common/form"
 import authService from "../services/authService"
+import { toast } from "react-toastify"
 
 class RegisterForm extends Form {
 	state = {
 		currentStep: 1,
 		steps: 2,
+		isSubmitted: false,
 		data: {
 			email: "",
 			username: "",
@@ -30,16 +32,25 @@ class RegisterForm extends Form {
 			.email({ tlds: { allow: false } })
 			.required()
 			.label("Email"),
-		password: Joi.string().required().label("Password"),
+		password: Joi.string().min(6).required().label("Password"),
 		rpassword: Joi.string().valid(Joi.ref("password"))
 	})
 
 	doSubmit = async () => {
 		const { username, email, password } = this.state.data
-		const res = await authService.signUp(username, email, password)
+		try {
+			await authService.signup(username, email, password)
+			const isSubmitted = true
+			this.setState({ isSubmitted })
+		} catch (e) {
+			toast.error(e)
+			this.setState({ currentStep: 1 })
+		}
 	}
 
 	render() {
+		const { isSubmitted } = this.state
+
 		return (
 			<div className="fullview">
 				<form onSubmit={this.handleSubmit} className="fullview-box">
@@ -56,13 +67,21 @@ class RegisterForm extends Form {
 						{this.renderInput("rpassword", "conferma password", "", "Password")}
 						{this.renderButton("Registrati")}
 					</this.RenderStep>
-					<div className="fullview-box__links">
+					<div className="form-footer">
 						<Text>
 							<Link to="/login">
 								<em>Hai già un account? Accedi</em>
 							</Link>
 						</Text>
 					</div>
+					{isSubmitted && (
+						<div className="alert--info">
+							<Text>
+								Ti abbiamo mandato una mail all'indirizzo{" "}
+								<em>{this.state.data.email}</em>
+							</Text>
+						</div>
+					)}
 				</form>
 			</div>
 		)

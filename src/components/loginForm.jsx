@@ -60,7 +60,7 @@ class LoginForm extends Form {
 							{this.renderCheckbox("keepConnection", "Resta collegato")}
 							{this.renderButton("Accedi")}
 						</this.RenderStep>
-						<div className="fullview-box__links">
+						<div className="form-footer">
 							<Text>
 								<Link to="">
 									<em>Password dimenticata?</em>
