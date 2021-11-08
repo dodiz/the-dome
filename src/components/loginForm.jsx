@@ -1,11 +1,12 @@
 import React from "react"
 import Joi from "../classes/joi"
-import { Text } from "@arwes/core"
+import { Text, Button, FrameCorners } from "@arwes/core"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
 
-import auth from "../services/authService"
 import Form from "./common/form"
+import auth from "../services/authService"
+import { AuthContext } from "./../context/authContext"
 
 class LoginForm extends Form {
 	state = {
@@ -32,58 +33,41 @@ class LoginForm extends Form {
 	doSubmit = async () => {
 		try {
 			const { email, password } = this.state.data
-			const { displayName } = await auth.login(email, password)
-			this.setState({ displayName })
-			setTimeout(() => this.props.history.push("/land"), 2000)
+			await auth.login(email, password)
 		} catch (ex) {
 			toast.error("Accesso negato")
 		}
 	}
 
 	render() {
-		const { displayName } = this.state
-
 		return (
 			<div className="fullview">
-				{!displayName ? (
-					<form onSubmit={this.handleSubmit} className="fullview-box">
-						<this.RenderStep step={1} fields={["email"]}>
-							{this.renderInput(
-								"email",
-								"Identificazione richiesta",
-								"your@mail.com",
-								"email"
-							)}
-						</this.RenderStep>
-						<this.RenderStep step={2} fields={["password", "keepConnection"]}>
-							{this.renderInput("password", "Password", "Password", "Password")}
-							{this.renderCheckbox("keepConnection", "Resta collegato")}
-							{this.renderButton("Accedi")}
-						</this.RenderStep>
-						<div className="form-footer">
-							<Text>
-								<Link to="">
-									<em>Password dimenticata?</em>
-								</Link>
-								<br />
-								<Link to="/register">
-									<em>Non hai un account? Registrati</em>
-								</Link>
-							</Text>
-						</div>
-					</form>
-				) : (
-					<div
-						className="fullview-box"
-						style={{ textAlign: "center", fontSize: "2rem" }}>
-						<Text as="h1" className="heading--success">
-							ACCESS GRANTED
-						</Text>
-						<Text as="h3" palette="secondary">
-							Bentornato, <em>{displayName}</em>
+				<form onSubmit={this.handleSubmit} className="fullview-box">
+					<this.RenderStep step={1} fields={["email"]}>
+						{this.renderInput(
+							"email",
+							"Identificazione richiesta",
+							"your@mail.com",
+							"email"
+						)}
+					</this.RenderStep>
+					<this.RenderStep step={2} fields={["password", "keepConnection"]}>
+						{this.renderInput("password", "Password", "Password", "Password")}
+						{this.renderCheckbox("keepConnection", "Resta collegato")}
+						{this.renderButton("Accedi")}
+					</this.RenderStep>
+					<div className="form-footer">
+						<Text>
+							<Link to="">
+								<em>Password dimenticata?</em>
+							</Link>
+							<br />
+							<Link to="/register">
+								<em>Non hai un account? Registrati</em>
+							</Link>
 						</Text>
 					</div>
-				)}
+				</form>
 			</div>
 		)
 	}
