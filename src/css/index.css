@@ -130,6 +130,14 @@ h6 {
 	letter-spacing: 3px;
 	margin: 1rem 0 1rem 0;
 }
+/* UTILITY MARGINS */
+.mt-1 {
+	margin-top: 1rem;
+}
+.mb-1 {
+	margin-top: 1rem;
+}
+
 /* HEADINGS */
 .no-margin {
 	margin: 0;
@@ -494,7 +502,6 @@ div.arwes-card__line {
 }
 
 /* FORM */
-
 .form-label {
 	display: block;
 }
