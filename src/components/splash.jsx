@@ -13,10 +13,11 @@ import Verify from "./verify"
 import InfoPage from "./splash-info"
 import LoginForm from "./loginForm"
 import RegisterForm from "./registerForm"
+import AccessGranted from "./splash-access-granted"
 import PrivacyPage from "./splash-privacy"
 import Background from "./background"
 
-import { IsUserRedirect } from "../tools/redirect"
+import { IsUserRedirect, ProtectedRoute } from "../tools/redirect"
 
 import "../css/splash.css"
 
@@ -46,7 +47,8 @@ class SplashPage extends Component {
 		const stickyPaths =
 			this.props.location.pathname === "/login" ||
 			this.props.location.pathname === "/register" ||
-			this.props.location.pathname === "/verify"
+			this.props.location.pathname === "/verify" ||
+			this.props.location.pathname === "/accesso-confermato"
 
 		return (
 			<div>
@@ -60,6 +62,10 @@ class SplashPage extends Component {
 					<Route path="/privacy" component={PrivacyPage} />
 					<IsUserRedirect path="/login" component={LoginForm} />
 					<IsUserRedirect path="/register" component={RegisterForm} />
+					<ProtectedRoute
+						path="/accesso-confermato"
+						component={AccessGranted}
+					/>
 					<Route path="/verify" component={Verify} />
 					<Route exact path="/">
 						<main className="splash">
