@@ -12,12 +12,14 @@ import GroupsIcon from "../media/icons/suitcase.svg"
 import LogoutIcon from "../media/icons/power.svg"
 import AddPgIcon from "../media/icons/user-add.svg"
 
+import authService from "../services/authService"
+
 import "../css/menu.css"
 
 const MenuOption = ({ title, src, ...rest }) => (
-	<div className="menu__icon menu__icon--animate">
+	<div className="menu__icon menu__icon--animate" {...rest}>
 		<div className="menu__icon-text">{title}</div>
-		<Icon padding secondary src={src} {...rest} />
+		<Icon padding secondary src={src} />
 	</div>
 )
 
@@ -68,7 +70,11 @@ class Menu extends React.Component {
 				<MenuOption title="Agenda" src={QuestIcon} />
 				<MenuOption title="Manuale" src={GuideIcon} />
 				<MenuOption title="Corporazioni" src={GroupsIcon} />
-				<MenuOption title="Logout" src={LogoutIcon} />
+				<MenuOption
+					onClick={() => authService.logout()}
+					title="Logout"
+					src={LogoutIcon}
+				/>
 				<MenuOption title="Crea un pg" src={AddPgIcon} />
 			</div>
 		)
