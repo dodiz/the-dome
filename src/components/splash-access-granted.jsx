@@ -3,23 +3,23 @@ import { Text, Button, FrameCorners } from "@arwes/core"
 
 import { useAuth } from "../context/authContext"
 
-const AccessGranted = () => {
+const AccessGranted = props => {
 	const user = useAuth()
 
 	return (
 		<div className="fullview">
 			{user.emailVerified ? (
-				<div className="fullview-box">
+				<div className="fullview-box m-auto t-center">
 					<Text as="h2" className="heading--success">
 						Accesso confermato
 					</Text>
-					<Text palette="secondary">
-						Bentornato, <em>{user.email}</em>
+					<Text as="h4">
+						Bentornato, <em>{user.displayName}</em>
 					</Text>
-					<div className="btn form-btn">
+					<div className="btn form-btn mt-1">
 						<Button
 							className="m-auto"
-							onClick={() => this.props.history.push("/land")}
+							onClick={() => props.history.push("/land")}
 							FrameComponent={FrameCorners}>
 							Continua
 						</Button>
