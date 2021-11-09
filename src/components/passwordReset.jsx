@@ -1,7 +1,7 @@
 import React from "react"
 import Joi from "../classes/joi"
 import Form from "./common/form"
-import authService from "../services/authService"
+import { resetPassword } from "../services/authService"
 import { toast } from "react-toastify"
 
 class PasswordReset extends Form {
@@ -25,8 +25,7 @@ class PasswordReset extends Form {
 	doSubmit = () => {
 		const params = new URLSearchParams(this.props.location.search)
 		const code = params.get("oobCode")
-		authService
-			.resetPassword(code)
+		resetPassword(code)
 			.then(() => {
 				toast.success("Password reimpostata con successo")
 				this.props.history.push("/login")

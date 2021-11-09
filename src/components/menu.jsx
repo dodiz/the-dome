@@ -12,7 +12,7 @@ import GroupsIcon from "../media/icons/suitcase.svg"
 import LogoutIcon from "../media/icons/power.svg"
 import AddPgIcon from "../media/icons/user-add.svg"
 
-import authService from "../services/authService"
+import { logout } from "../services/authService"
 
 import "../css/menu.css"
 
@@ -96,11 +96,7 @@ class Menu extends React.Component {
 					title="Corporazioni"
 					src={GroupsIcon}
 				/>
-				<MenuOption
-					onClick={() => authService.logout()}
-					title="Logout"
-					src={LogoutIcon}
-				/>
+				<MenuOption onClick={logout} title="Logout" src={LogoutIcon} />
 				<MenuOption
 					onClick={() => this.onMenuSelected("/land/crea-pg")}
 					title="Crea un pg"

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
 
 import Form from "./common/form"
-import authService from "../services/authService"
+import { login } from "../services/authService"
 
 class LoginForm extends Form {
 	state = {
@@ -30,7 +30,7 @@ class LoginForm extends Form {
 	doSubmit = async () => {
 		try {
 			const { email, password } = this.state.data
-			await authService.login(email, password)
+			await login(email, password)
 		} catch (ex) {
 			toast.error("Accesso negato")
 		}

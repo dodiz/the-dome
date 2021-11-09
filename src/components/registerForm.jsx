@@ -4,7 +4,7 @@ import { Text } from "@arwes/core"
 import { Link } from "react-router-dom"
 
 import Form from "./common/form"
-import authService from "../services/authService"
+import { signup } from "../services/authService"
 import { toast } from "react-toastify"
 
 class RegisterForm extends Form {
@@ -43,7 +43,7 @@ class RegisterForm extends Form {
 	doSubmit = async () => {
 		const { username, email, password } = this.state.data
 		try {
-			await authService.signup(username, email, password)
+			await signup(username, email, password)
 			const isSubmitted = true
 			this.setState({ isSubmitted })
 		} catch (e) {

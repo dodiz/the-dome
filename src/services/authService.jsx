@@ -11,8 +11,19 @@ import {
 	verifyPasswordResetCode,
 	confirmPasswordReset
 } from "firebase/auth"
+import { getFirestore, setDoc, doc } from "firebase/firestore"
 
-function signup(username, email, password) {
+const db = getFirestore()
+
+function addUserToFirestore({ id, email, username }) {
+	setDoc(doc(db, "users", id), {
+		email,
+		username,
+		date: new Date(Date.now())
+	})
+}
+
+export function signup(username, email, password) {
 	const auth = getAuth()
 	return new Promise((resolve, reject) => {
 		createUserWithEmailAndPassword(auth, email, password)
@@ -34,7 +45,7 @@ function signup(username, email, password) {
 			})
 	})
 }
-function verifyEmail(code) {
+export function verifyEmail(code) {
 	return new Promise((resolve, reject) => {
 		const auth = getAuth()
 		applyActionCode(auth, code)
@@ -48,15 +59,15 @@ function verifyEmail(code) {
 			})
 	})
 }
-function sendPasswordReset(email) {
+export function sendPasswordReset(email) {
 	const auth = getAuth()
 	return sendPasswordResetEmail(auth, email)
 }
-function authListener(cb) {
+export function authListener(cb) {
 	const auth = getAuth()
 	return onAuthStateChanged(auth, cb)
 }
-async function login(email, password) {
+export async function login(email, password) {
 	return new Promise((resolve, reject) => {
 		const auth = getAuth()
 		signInWithEmailAndPassword(auth, email, password)
@@ -68,11 +79,11 @@ async function login(email, password) {
 			})
 	})
 }
-function logout() {
+export function logout() {
 	const auth = getAuth()
 	return signOut(auth)
 }
-function resetPassword(code, newPassword) {
+export function resetPassword(code, newPassword) {
 	const auth = getAuth()
 	return new Promise((resolve, reject) => {
 		verifyPasswordResetCode(auth, code)
@@ -89,14 +100,4 @@ function resetPassword(code, newPassword) {
 				reject("Il codice indicato non è valido, ripeti la procedura")
 			)
 	})
-}
-
-export default {
-	signup,
-	login,
-	logout,
-	authListener,
-	verifyEmail,
-	sendPasswordReset,
-	resetPassword
 }
