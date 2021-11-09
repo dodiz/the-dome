@@ -1,5 +1,6 @@
 import React from "react"
 import anime from "animejs"
+import { withRouter } from "react-router"
 
 import Icon from "./common/icon"
 
@@ -107,4 +108,4 @@ class Menu extends React.Component {
 	}
 }
 
-export default Menu
+export default withRouter(Menu)

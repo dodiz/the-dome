@@ -15,11 +15,13 @@ class Land extends Component {
 			<PgProvider>
 				<main className="land">
 					<UI />
-					<Switch>
-						<Route path="/land/crea-pg" component={CreatePg} />
-						<Route exact path="/land" component={Map} />
-					</Switch>
-					<Menu history={this.props.history} />
+					<div className="land__content">
+						<Switch>
+							<Route path="/land/crea-pg" component={CreatePg} />
+							<Route exact path="/land" component={Map} />
+						</Switch>
+					</div>
+					<Menu />
 				</main>
 			</PgProvider>
 		)
