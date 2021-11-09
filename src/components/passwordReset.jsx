@@ -38,7 +38,12 @@ class PasswordReset extends Form {
 		return (
 			<div className="fullview">
 				<form className="fullview-box">
-					{this.renderInput("password", "Inserisci una nuova password")}
+					{this.renderInput(
+						"password",
+						"Inserisci una nuova password",
+						"",
+						"password"
+					)}
 					{this.renderButton("Modifica password")}
 				</form>
 			</div>
