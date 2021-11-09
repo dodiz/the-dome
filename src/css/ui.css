@@ -63,6 +63,11 @@ div.ui__header {
 	text-shadow: 0 0 5px var(--color-secondary);
 	font-size: 1.7rem;
 	text-align: center;
+	cursor: pointer;
+	transition: filter 0.3s;
+}
+div.ui__header:hover {
+	filter: drop-shadow(0 0 0px var(--color-secondary));
 }
 .ui__toggler .arwes-frame {
 	width: 100%;
