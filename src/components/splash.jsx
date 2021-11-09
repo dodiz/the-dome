@@ -8,12 +8,14 @@ import Navbar from "./splash-navbar"
 import Cards from "./splash-cards"
 import Features from "./splash-features"
 import SplashMenu from "./splash-menu"
+
 import Verify from "./verify"
+import PasswordReset from "./passwordReset"
 
 import InfoPage from "./splash-info"
 import LoginForm from "./loginForm"
 import RegisterForm from "./registerForm"
-import AccessGranted from "./splash-access-granted"
+import AccessGranted from "./access"
 import PrivacyPage from "./splash-privacy"
 import Background from "./background"
 
@@ -48,7 +50,8 @@ class SplashPage extends Component {
 			this.props.location.pathname === "/login" ||
 			this.props.location.pathname === "/register" ||
 			this.props.location.pathname === "/verify" ||
-			this.props.location.pathname === "/accesso"
+			this.props.location.pathname === "/accesso" ||
+			this.props.location.pathname === "/password-reset"
 
 		return (
 			<div>
@@ -62,6 +65,7 @@ class SplashPage extends Component {
 					<Route path="/privacy" component={PrivacyPage} />
 					<IsUserRedirect path="/login" component={LoginForm} />
 					<ProtectedRoute path="/accesso" component={AccessGranted} />
+					<Route path="/password-reset" component={PasswordReset} />
 					<Route path="/register" component={RegisterForm} />
 					<Route path="/verify" component={Verify} />
 					<Route exact path="/">
