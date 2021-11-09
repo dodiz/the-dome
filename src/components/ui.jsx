@@ -10,24 +10,41 @@ import PgMenuUI from "./ui-pg-menu"
 import MenuUI from "./ui-menu"
 import NewsUI from "./ui-news"
 
-import MessagesUI from "./ui-messages"
-import SocialUI from "./ui-social"
 import OnlineUI from "./ui-online"
-import ForumUI from "./ui-forum"
+import PreviewUI from "./common/ui-preview"
 
 import "../css/ui.css"
+import socialService from "../services/socialService"
 
 class UI extends React.Component {
 	state = {
 		health: 0,
 		stamina: 0,
-		selectedMenu: 1,
+		selectedMenu: 0,
 		expandMobile: false,
 		expandPgMenu: false,
 		expandOnline: false,
 		expandNews: false,
 		selectedPg: null
 	}
+
+	previews = [
+		{},
+		{
+			title: "Social",
+			getService: socialService.getPosts,
+			onPgSelect: this.handlePgClick
+		},
+		{
+			title: "Forum",
+			getService: socialService.getPosts
+		},
+		{
+			title: "Messaggi",
+			getService: socialService.getPosts
+		}
+	]
+
 	toggleExpand = item => {
 		this.setState(prev => ({ expandMobile: false, [item]: !prev[item] }))
 	}
@@ -87,10 +104,10 @@ class UI extends React.Component {
 						<PgUI
 							health={90}
 							stamina={80}
-							onClick={() => this.toggleExpand("expandPgMenu")}
+							onOpenMenu={() => this.toggleExpand("expandPgMenu")}
 						/>
 						<MenuUI selectedMenu={selectedMenu} onSelect={this.selectMenu} />
-						{selectedMenu === 1 && (
+						{selectedMenu === 0 ? (
 							<FrameBox className="ui__box">
 								<h4
 									className="ui__title"
@@ -102,10 +119,13 @@ class UI extends React.Component {
 									onSelectUser={this.handlePgClick}
 								/>
 							</FrameBox>
+						) : (
+							<PreviewUI
+								title={this.previews[selectedMenu].title}
+								getService={this.previews[selectedMenu].getService}
+								onPgSelect={this.previews[selectedMenu].onPgSelect}
+							/>
 						)}
-						{selectedMenu === 2 && <SocialUI onPgSelect={this.handlePgClick} />}
-						{selectedMenu === 3 && <ForumUI />}
-						{selectedMenu === 4 && <MessagesUI />}
 						<FrameBox palette="secondary" className="ui__box">
 							<h4
 								onClick={() => this.toggleExpand("expandNews")}

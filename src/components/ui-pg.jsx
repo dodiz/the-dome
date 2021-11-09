@@ -47,13 +47,13 @@ const BarUI = ({ id, label, flip, level, levelClass }) => {
 	)
 }
 
-const PgUI = ({ health, stamina, onClick }) => {
+const PgUI = ({ health, stamina, onOpenMenu }) => {
 	const healthLevelClass = health < 15 ? "danger" : health < 70 ? "warning" : ""
 	const staminaLevelClass =
 		stamina < 15 ? "danger" : stamina < 70 ? "warning" : ""
 
 	return (
-		<FrameHexagon hover onClick={onClick} className="ui__pg">
+		<FrameHexagon hover onClick={onOpenMenu} className="ui__pg">
 			<div className="flex">
 				<img
 					alt=""
