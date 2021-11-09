@@ -144,7 +144,9 @@ h6 {
 	margin-left: auto;
 	margin-right: auto;
 }
-
+.click {
+	cursor: pointer;
+}
 /* HEADINGS */
 .no-margin {
 	margin: 0;
