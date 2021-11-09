@@ -57,6 +57,7 @@ const Checkbox = ({ name, label, value, error, ...rest }) => {
 
 class Form extends Component {
 	state = {
+		isSubmitting: false,
 		steps: 0,
 		currentStep: 1,
 		data: {},
@@ -81,13 +82,14 @@ class Form extends Component {
 		return error ? error.details[0].message : null
 	}
 
-	handleSubmit = e => {
+	handleSubmit = async e => {
 		e.preventDefault()
+		if (this.state.isSubmitting) return
 		const errors = this.validate()
-		this.setState({ errors: errors || {} })
+		this.setState({ errors: errors || {}, isSubmitting: true })
 		if (errors) return
-
-		this.doSubmit()
+		await this.doSubmit()
+		this.setState({ isSubmitting: false })
 	}
 
 	handleChange = ({ target: input }) => {
