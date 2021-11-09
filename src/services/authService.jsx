@@ -4,9 +4,12 @@ import {
 	getAuth,
 	onAuthStateChanged,
 	sendEmailVerification,
+	sendPasswordResetEmail,
 	signInWithEmailAndPassword,
 	signOut,
-	updateProfile
+	updateProfile,
+	verifyPasswordResetCode,
+	confirmPasswordReset
 } from "firebase/auth"
 
 function signup(username, email, password) {
@@ -45,11 +48,14 @@ function verifyEmail(code) {
 			})
 	})
 }
+function sendPasswordReset(email) {
+	const auth = getAuth()
+	return sendPasswordResetEmail(auth, email)
+}
 function authListener(cb) {
 	const auth = getAuth()
 	return onAuthStateChanged(auth, cb)
 }
-
 async function login(email, password) {
 	return new Promise((resolve, reject) => {
 		const auth = getAuth()
@@ -62,10 +68,27 @@ async function login(email, password) {
 			})
 	})
 }
-
 function logout() {
 	const auth = getAuth()
 	return signOut(auth)
+}
+function resetPassword(code, newPassword) {
+	const auth = getAuth()
+	return new Promise((resolve, reject) => {
+		verifyPasswordResetCode(auth, code)
+			.then(() => {
+				confirmPasswordReset(auth, code, newPassword)
+					.then(() => resolve())
+					.catch(() =>
+						reject(
+							"Errore generico, ripeti la procedura di reimpostazione password"
+						)
+					)
+			})
+			.catch(() =>
+				reject("Il codice indicato non è valido, ripeti la procedura")
+			)
+	})
 }
 
 export default {
@@ -73,5 +96,7 @@ export default {
 	login,
 	logout,
 	authListener,
-	verifyEmail
+	verifyEmail,
+	sendPasswordReset,
+	resetPassword
 }
