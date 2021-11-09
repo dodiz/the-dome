@@ -35,7 +35,7 @@ div.menu__icon .icon__image {
 div.menu__icon--first .icon__image {
 	width: 35px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1440px) {
 	.menu {
 		right: 6rem;
 	}
