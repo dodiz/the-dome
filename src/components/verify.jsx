@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Text, Button, FrameCorners } from "@arwes/core"
 
-import authService from "../services/authService"
+import { verifyEmail } from "../services/authService"
 import { toast } from "react-toastify"
 
 const Verify = ({ history, location }) => {
@@ -10,8 +10,7 @@ const Verify = ({ history, location }) => {
 	useEffect(() => {
 		const params = new URLSearchParams(location.search)
 		const code = params.get("oobCode")
-		authService
-			.verifyEmail(code)
+		verifyEmail(code)
 			.then(() => {
 				setIsVerified(true)
 			})
