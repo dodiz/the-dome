@@ -3,7 +3,7 @@ import { Text, Button, FrameCorners } from "@arwes/core"
 
 import { useAuth } from "../context/authContext"
 
-const AccessGranted = props => {
+const Access = props => {
 	const user = useAuth()
 
 	return (
@@ -42,4 +42,4 @@ const AccessGranted = props => {
 	)
 }
 
-export default AccessGranted
+export default Access

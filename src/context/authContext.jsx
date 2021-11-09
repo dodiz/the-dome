@@ -4,8 +4,7 @@ import { authListener } from "../services/authService"
 export const AuthContext = React.createContext()
 
 export function useAuth() {
-	const currentUser = useContext(AuthContext)
-	return currentUser
+	return useContext(AuthContext)
 }
 
 function AuthProvider({ children }) {
@@ -14,7 +13,7 @@ function AuthProvider({ children }) {
 	useEffect(() => {
 		const unsubscribe = authListener(user => setCurrentUser(user))
 
-		return () => unsubscribe
+		return () => unsubscribe()
 	}, [])
 
 	return (

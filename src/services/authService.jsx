@@ -34,6 +34,7 @@ export function signup(username, email, password) {
 					})
 					await sendEmailVerification(userCredential.user)
 					await addUserToFirestore(userCredential.user.uid, email, username)
+					await logout()
 					resolve()
 				} catch (e) {
 					reject(e.message)
