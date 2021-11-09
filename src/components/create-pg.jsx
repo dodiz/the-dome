@@ -3,9 +3,14 @@ import Form from "./common/form"
 import { Text } from "@arwes/core"
 
 class CreatePg extends Form {
+	state = {
+		data: {},
+		errors: {}
+	}
+
 	render() {
 		return (
-			<div>
+			<div className="land__content">
 				<Text as="h1" className="m-auto">
 					Creazione del personaggio
 				</Text>
