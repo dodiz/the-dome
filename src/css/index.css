@@ -140,6 +140,9 @@ h6 {
 .mb-1 {
 	margin-bottom: 1rem;
 }
+.mb-2 {
+	margin-bottom: 2rem;
+}
 .m-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -623,6 +626,18 @@ div.arwes-card__line {
 	.form-checkbox__indicator {
 	background: var(--color-accent);
 	transform: translateX(20px);
+}
+select.form-select,
+select:focus.form-select,
+select:target.form-select,
+.form-select > option:focus,
+.form-select > option:selected,
+.form-select > option:target,
+.form-select > option:hover,
+.form-select > option {
+	background: transparent !important;
+	outline: none !important;
+	color: red;
 }
 /* LIST GROUP */
 .list-group {
