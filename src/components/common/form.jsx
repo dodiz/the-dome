@@ -5,7 +5,7 @@ const Select = ({ name, label, error, options, ...rest }) => {
 	return (
 		<div className="form-group">
 			<label htmlFor={name}>{label}</label>
-			<select name={name} className="form-control" {...rest}>
+			<select name={name} className="form-control form-select" {...rest}>
 				{options.map(option => (
 					<option key={option._id} value={option._id}>
 						{option.label}
@@ -102,7 +102,10 @@ class Form extends Component {
 		if (this.state.isSubmitting) return
 		const errors = this.validate()
 		this.setState({ errors: errors || {}, isSubmitting: true })
-		if (errors) return
+		if (errors) {
+			this.setState({ isSubmitting: false })
+			return
+		}
 		await this.doSubmit()
 		this.setState({ isSubmitting: false })
 	}
