@@ -4,3 +4,10 @@ async function getPgData() {
 		stamina: 50
 	}
 }
+function pgListener() {
+	return null
+}
+
+export default {
+	pgListener
+}
