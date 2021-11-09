@@ -1,17 +1,24 @@
 import React from "react"
 import { Text, FrameLines } from "@arwes/core"
+import { withRouter } from "react-router"
 
 import SunIcon from "../media/icons/weather/sun.svg"
 import dome from "../media/dome.png"
+
 import "../css/weather.css"
 
-class WeatherUI extends React.Component {
+class HeaderUI extends React.Component {
 	printDate() {
 		const date = new Date(Date.now())
 		return `${date.getDate()} / ${date.getMonth() + 1} / ${
 			date.getFullYear() + 50
 		}`
 	}
+
+	pushHome = () => {
+		this.props.history.push("/land")
+	}
+
 	render() {
 		return (
 			<FrameLines
@@ -20,7 +27,7 @@ class WeatherUI extends React.Component {
 				smallLineLength={20}
 				hideShapes
 				className="ui__header">
-				<div className="flex">
+				<div className="flex" onClick={this.pushHome}>
 					<img
 						alt="logo"
 						className="ui__logo animate__animated animate__bounceIn animate__delay-1s"
@@ -40,4 +47,4 @@ class WeatherUI extends React.Component {
 	}
 }
 
-export default WeatherUI
+export default withRouter(HeaderUI)
