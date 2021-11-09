@@ -3,6 +3,7 @@ import { FrameCorners } from "@arwes/core"
 
 import Brand from "./brand"
 import Icon from "./common/icon"
+import homeIcon from "../media/icons/home.svg"
 
 const MobileHeadUI = ({ onExpand, isExpanded }) => {
 	return (
@@ -19,7 +20,7 @@ const MobileHeadUI = ({ onExpand, isExpanded }) => {
 						secondary={isExpanded}
 						padding
 						className="ui__head-icon"
-						src="/images/icons/globe.svg"
+						src={homeIcon}
 						onClick={onExpand}
 					/>
 				</div>
