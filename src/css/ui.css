@@ -15,7 +15,7 @@ div.ui__content {
 }
 @media screen and (min-width: 1024px) {
 	div.ui {
-		width: 200px;
+		width: 230px;
 		margin-right: 1rem;
 		margin-bottom: 0;
 	}
@@ -25,7 +25,7 @@ div.ui__content {
 }
 @media screen and (min-width: 1440px) {
 	div.ui {
-		width: 300px;
+		width: 250px;
 		margin-right: 1rem;
 	}
 }
@@ -61,7 +61,7 @@ div.ui__box {
 div.ui__header {
 	font-weight: bold;
 	text-shadow: 0 0 5px var(--color-secondary);
-	font-size: 2rem;
+	font-size: 1.7rem;
 	text-align: center;
 }
 .ui__toggler .arwes-frame {

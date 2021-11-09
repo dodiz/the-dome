@@ -48,6 +48,12 @@ class Menu extends React.Component {
 
 		this.setState({ open: !open })
 	}
+
+	onMenuSelected = path => {
+		this.toggleMenu()
+		this.props.history.push(path)
+	}
+
 	render() {
 		return (
 			<div className="menu">
@@ -65,17 +71,41 @@ class Menu extends React.Component {
 					/>
 				</div>
 
-				<MenuOption title="Negozio" src={ShopIcon} />
-				<MenuOption title="Settings" src={SettingsIcon} />
-				<MenuOption title="Agenda" src={QuestIcon} />
-				<MenuOption title="Manuale" src={GuideIcon} />
-				<MenuOption title="Corporazioni" src={GroupsIcon} />
+				<MenuOption
+					onClick={() => this.onMenuSelected("/land/negozio")}
+					title="Negozio"
+					src={ShopIcon}
+				/>
+				<MenuOption
+					onClick={() => this.onMenuSelected("/land/impostazioni")}
+					title="Settings"
+					src={SettingsIcon}
+				/>
+				<MenuOption
+					onClick={() => this.onMenuSelected("/land/agenda")}
+					title="Agenda"
+					src={QuestIcon}
+				/>
+				<MenuOption
+					onClick={() => this.onMenuSelected("/land/manuale")}
+					title="Manuale"
+					src={GuideIcon}
+				/>
+				<MenuOption
+					onClick={() => this.onMenuSelected("/land/corporazioni")}
+					title="Corporazioni"
+					src={GroupsIcon}
+				/>
 				<MenuOption
 					onClick={() => authService.logout()}
 					title="Logout"
 					src={LogoutIcon}
 				/>
-				<MenuOption title="Crea un pg" src={AddPgIcon} />
+				<MenuOption
+					onClick={() => this.onMenuSelected("/land/crea-pg")}
+					title="Crea un pg"
+					src={AddPgIcon}
+				/>
 			</div>
 		)
 	}
