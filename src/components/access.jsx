@@ -32,6 +32,9 @@ const AccessGranted = props => {
 						<br />
 						Clicca sul link che hai ricevuto nella mail per continuare su{" "}
 						<em>The Dome Project</em>
+						<br />
+						Se visualizzi questo messaggio dopo aver verificato il tuo indirizzo
+						email, aggiorna la pagina.
 					</Text>
 				</div>
 			)}

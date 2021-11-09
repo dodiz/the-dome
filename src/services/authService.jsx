@@ -15,7 +15,7 @@ import { getFirestore, setDoc, doc } from "firebase/firestore"
 
 const db = getFirestore()
 
-function addUserToFirestore({ id, email, username }) {
+function addUserToFirestore(id, email, username) {
 	setDoc(doc(db, "users", id), {
 		email,
 		username,
@@ -33,6 +33,7 @@ export function signup(username, email, password) {
 						displayName: username
 					})
 					await sendEmailVerification(userCredential.user)
+					await addUserToFirestore(userCredential.user.uid, email, username)
 					resolve()
 				} catch (e) {
 					reject(e.message)

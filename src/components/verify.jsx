@@ -1,40 +1,103 @@
-import React, { useState, useEffect } from "react"
-import { Text, Button, FrameCorners } from "@arwes/core"
-
-import { verifyEmail } from "../services/authService"
+import React from "react"
+import { Button, Text, FrameCorners } from "@arwes/core"
 import { toast } from "react-toastify"
 
-const Verify = ({ history, location }) => {
-	const [isVerified, setIsVerified] = useState(false)
+import Joi from "../classes/joi"
+import Form from "./common/form"
+import { resetPassword, verifyEmail } from "../services/authService"
 
-	useEffect(() => {
-		const params = new URLSearchParams(location.search)
+class Verify extends Form {
+	state = {
+		data: {
+			password: ""
+		},
+		errors: {}
+	}
+
+	schema = Joi.object({
+		password: Joi.string().min(6).required().label("Password")
+	})
+
+	getParams = () => {
+		const params = new URLSearchParams(this.props.location.search)
 		const code = params.get("oobCode")
-		verifyEmail(code)
+		const mode = params.get("mode")
+		return {
+			code,
+			mode
+		}
+	}
+
+	componentDidMount() {
+		const { code, mode } = this.getParams()
+		if (!code) this.props.history.replace("/")
+		if (mode === "verifyEmail")
+			verifyEmail(code)
+				.then(() => {
+					this.setState({ isVerified: true })
+				})
+				.catch(e => toast.error(e))
+	}
+
+	doSubmit = () => {
+		const code = this.getParams()
+		resetPassword(code)
 			.then(() => {
-				setIsVerified(true)
+				toast.success("Password reimpostata con successo")
+				this.props.history.push("/login")
 			})
 			.catch(e => toast.error(e))
-	}, [])
+	}
 
-	return (
-		<div className="fullview">
-			<div className="fullview-box">
-				<Text as="h3">verifica account</Text>
-				{isVerified && (
-					<Text>Il tuo account è stato verificato con successo</Text>
-				)}
-				<div className="form-btn btn mt-1 m-auto">
-					<Button
-						className="m-auto"
-						FrameComponent={FrameCorners}
-						onClick={() => history.push("/login")}>
-						Accedi al login
-					</Button>
+	renderResetPassword = () => {
+		return (
+			<div className="fullview">
+				<form onSubmit={this.handleSubmit} className="fullview-box">
+					{this.renderInput(
+						"password",
+						"Inserisci una nuova password",
+						"",
+						"password"
+					)}
+					{this.renderButton("Modifica password")}
+				</form>
+			</div>
+		)
+	}
+
+	renderVerifyEmail = () => {
+		const { isVerified } = this.state
+
+		return (
+			<div className="fullview">
+				<div className="fullview-box">
+					<Text as="h3">
+						{!isVerified
+							? "Verifica account in corso ..."
+							: "Verifica completata"}{" "}
+					</Text>
+					{isVerified && (
+						<Text>Il tuo account è stato verificato con successo</Text>
+					)}
+					<div className="form-btn btn mt-1 m-auto">
+						<Button
+							className="m-auto"
+							FrameComponent={FrameCorners}
+							onClick={() => this.props.history.push("/login")}>
+							Accedi al login
+						</Button>
+					</div>
 				</div>
 			</div>
-		</div>
-	)
+		)
+	}
+
+	render() {
+		const { mode } = this.getParams()
+
+		if (mode === "resetPassword") return this.renderResetPassword()
+		if (mode === "verifyEmail") return this.renderVerifyEmail()
+	}
 }
 
 export default Verify
