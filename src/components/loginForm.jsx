@@ -4,8 +4,9 @@ import { Text } from "@arwes/core"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
 
+import { login, sendPasswordReset } from "../services/authService"
+
 import Form from "./common/form"
-import { login } from "../services/authService"
 
 class LoginForm extends Form {
 	state = {
@@ -49,7 +50,7 @@ class LoginForm extends Form {
 		}
 		//No errors, send email
 		try {
-			await authService.sendPasswordReset(value)
+			await sendPasswordReset(value)
 			toast.info("Controlla la casella di posta")
 		} catch (e) {
 			toast.error("Si è verificato un errore")
