@@ -34,3 +34,9 @@ body {
 	text-align: center;
 	cursor: pointer;
 }
+
+@media screen and (min-width: 768px) {
+	.land__content {
+		margin: 0 3rem;
+	}
+}
