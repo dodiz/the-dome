@@ -1,12 +1,11 @@
 import React from "react"
 import Joi from "../classes/joi"
-import { Text, Button, FrameCorners } from "@arwes/core"
+import { Text } from "@arwes/core"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
 
 import Form from "./common/form"
-import auth from "../services/authService"
-import { AuthContext } from "./../context/authContext"
+import authService from "../services/authService"
 
 class LoginForm extends Form {
 	state = {
@@ -15,8 +14,7 @@ class LoginForm extends Form {
 		displayName: "",
 		data: {
 			email: "",
-			password: "",
-			keepConnection: false
+			password: ""
 		},
 		errors: {}
 	}
@@ -26,16 +24,35 @@ class LoginForm extends Form {
 			.email({ tlds: { allow: false } })
 			.required()
 			.label("Email"),
-		password: Joi.string().required().label("Password"),
-		keepConnection: Joi.boolean()
+		password: Joi.string().required().label("Password")
 	})
 
 	doSubmit = async () => {
 		try {
 			const { email, password } = this.state.data
-			await auth.login(email, password)
+			await authService.login(email, password)
 		} catch (ex) {
 			toast.error("Accesso negato")
+		}
+	}
+
+	handlePasswordRetrieve = async () => {
+		const name = "email"
+		const value = this.state.data.email
+
+		const errors = { ...this.state.errors }
+		const errorMessage = this.validateProperty({ name, value })
+		if (errorMessage) {
+			errors[name] = errorMessage
+			this.setState({ errors })
+			return
+		}
+		//No errors, send email
+		try {
+			await authService.sendPasswordReset(value)
+			toast.info("Controlla la casella di posta")
+		} catch (e) {
+			toast.error("Si è verificato un errore")
 		}
 	}
 
@@ -51,17 +68,15 @@ class LoginForm extends Form {
 							"email"
 						)}
 					</this.RenderStep>
-					<this.RenderStep step={2} fields={["password", "keepConnection"]}>
+					<this.RenderStep step={2} fields={["password"]}>
 						{this.renderInput("password", "Password", "Password", "Password")}
-						{this.renderCheckbox("keepConnection", "Resta collegato")}
 						{this.renderButton("Accedi")}
 					</this.RenderStep>
 					<div className="form-footer">
 						<Text>
-							<Link to="">
+							<div className="click" onClick={this.handlePasswordRetrieve}>
 								<em>Password dimenticata?</em>
-							</Link>
-							<br />
+							</div>
 							<Link to="/register">
 								<em>Non hai un account? Registrati</em>
 							</Link>
