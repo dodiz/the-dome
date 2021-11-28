@@ -51,12 +51,11 @@ class Map extends Component {
 			<FrameCorners
 				origins={["left", "top", "right", "bottom"]}
 				palette="secondary"
-				cornerWidth={3}
+				cornerWidth={2}
 				animator={{ animate: this.state.animate }}
-				cornerLength={50}
+				cornerLength={40}
 				showContentLines
-				hideShapes
-				className="map-box">
+				hideShapes>
 				<div ref={this.mapRef} className="map">
 					<div className="map__pattern" />
 				</div>

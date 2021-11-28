@@ -35,8 +35,67 @@ body {
 	cursor: pointer;
 }
 
+.land__content {
+	width: 100%;
+	height: 100%;
+}
+.land__content > .arwes-frame {
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+}
+.land__content > .arwes-frame > .arwes-frame__content {
+	height: 100%;
+	overflow: auto;
+}
+
+/* STATS */
+.stats-grid {
+	grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
+	grid-gap: 2rem;
+	align-items: center;
+	justify-items: center;
+}
 @media screen and (min-width: 768px) {
-	.land__content {
-		margin: 0 3rem;
+	.stats-grid {
+		grid-template: 1fr 1fr 1fr / 1fr 1fr;
 	}
+}
+@media screen and (min-width: 1024px) {
+	.stats-grid {
+		grid-template: 1fr 1fr / 1fr 1fr 1fr;
+	}
+}
+/* BAR */
+
+.bar {
+	width: 100px;
+	height: 20px;
+	border: 2px solid var(--color-primary);
+	box-shadow: 0 0 2px var(--color-secondary);
+	background: #00f7f711;
+	padding: 2px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.bar__q {
+	width: 20%;
+	height: 100%;
+	margin-right: 2px;
+	transition: background 0.3s;
+	border: 1px solid var(--color-secondary);
+}
+.bar__q.hover {
+	cursor: pointer;
+}
+.bar__q.hover:hover,
+.bar__q.hover.active:hover {
+	background: var(--color-secondary);
+}
+.bar__q.active {
+	background: var(--color-accent);
+}
+.bar__q:last-child {
+	margin-right: 0;
 }

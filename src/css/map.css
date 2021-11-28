@@ -1,19 +1,8 @@
-/* MAP */
-div.map-box {
-	display: flex;
-	width: 100%;
-	height: 100%;
-	padding: 4px;
-}
-.map-box .arwes-frame__content {
-	width: 100%;
-}
-
 .map {
 	height: 100%;
+	width: 100%;
 	background: url("../media/map/base.jpg");
 	position: relative;
-	overflow: hidden;
 	background-position: center center;
 	background-size: cover;
 	opacity: 0;

@@ -143,9 +143,22 @@ h6 {
 .mb-2 {
 	margin-bottom: 2rem;
 }
+.mbt-1,
+.mtb-1 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.mbt-2,
+.mtb-2 {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
 .m-auto {
 	margin-left: auto;
 	margin-right: auto;
+}
+.p-1 {
+	padding: 1rem;
 }
 .click {
 	cursor: pointer;
@@ -197,22 +210,38 @@ em {
 /* LINK */
 .link {
 	color: #cccccc;
-	text-shadow: 0 0 5px var(--color-secondary);
-	font-size: 1.6rem;
+	text-shadow: 0 0 2px var(--color-secondary);
 	position: relative;
+	cursor: pointer;
 }
 .link:hover,
 .link--active {
 	color: var(--color-accent);
 	text-shadow: 0 0 3px var(--color-accent);
 }
-@media (min-width: 768px) {
-	.link {
-		font-size: 2.1rem;
-	}
+.link.secondary {
+	color: var(--color-error);
 }
 
 /* ARWES OVERWRITE AND TOOLS */
+.arwes-custom {
+	border: 2px solid var(--color-secondary);
+	box-shadow: 0 0 5px var(--color-secondary),
+		inset 0 0 5px var(--color-secondary);
+	background: #00f7f722;
+}
+.arwes-custom.secondary {
+	border: 2px solid var(--color-accent);
+	box-shadow: 0 0 5px var(--color-accent), inset 0 0 5px var(--color-accent);
+	background: #f7000022;
+}
+.arwes-custom.selected,
+.arwes-custom.selected.nobg {
+	background: var(--color-primary);
+}
+.arwes-custom.nobg {
+	background: none;
+}
 div.arwes-figure__line {
 	background-color: var(--color-accent);
 	box-shadow: 0 0 2px var(--color-accent);
@@ -516,7 +545,7 @@ div.arwes-card__line {
 	display: block;
 }
 .form-group {
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 }
 .form-control,
 .form-control:focus {
@@ -627,17 +656,22 @@ div.arwes-card__line {
 	background: var(--color-accent);
 	transform: translateX(20px);
 }
-select.form-select,
-select:focus.form-select,
-select:target.form-select,
-.form-select > option:focus,
-.form-select > option:selected,
-.form-select > option:target,
-.form-select > option:hover,
-.form-select > option {
-	background: transparent !important;
-	outline: none !important;
-	color: red;
+.form-sticky {
+	position: sticky;
+	top: 0;
+	background: #0a0a0add;
+	padding: 0.5rem;
+}
+.form-full {
+	height: 100%;
+	overflow: auto;
+	display: flex;
+	align-items: "center";
+}
+.form-box {
+	width: 900px;
+	margin: auto;
+	padding: 1rem;
 }
 /* LIST GROUP */
 .list-group {
@@ -712,7 +746,7 @@ select:target.form-select,
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.95);
 	width: 100%;
 	height: 100%;
 	z-index: 9;
@@ -736,4 +770,38 @@ select:target.form-select,
 }
 .flex__extend {
 	flex: 1;
+}
+
+/* CARDS - RAZZE*/
+.cards {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem 2rem 5rem 2rem;
+}
+.card {
+	margin-bottom: 4rem;
+	transition: background 0.3s;
+}
+.card.active {
+	background: #00f7f722;
+}
+
+.card__button span {
+	font-size: 1.6rem;
+}
+@media screen and (min-width: 1024px) {
+	.cards {
+		flex-direction: row;
+		justify-content: center;
+		margin: 2rem auto;
+		width: 85%;
+		max-width: 1024px;
+	}
+	.card {
+		margin-right: 4rem;
+		margin-bottom: 0;
+	}
+	.card:last-child {
+		margin-right: 0;
+	}
 }

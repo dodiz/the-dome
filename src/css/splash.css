@@ -162,12 +162,18 @@
 	display: inline-flex;
 	align-items: center;
 	padding: 0 2rem;
+	font-size: 1.6rem;
 }
 .splash-menu__item {
 	display: inline-block;
 }
 .splash-menu__item:last-child .splash-menu__link {
 	padding-right: 0;
+}
+@media (min-width: 768px) {
+	.splash-menu__link {
+		font-size: 2.1rem;
+	}
 }
 @media (min-width: 1024px) {
 	.splash-menu__item::before {
@@ -232,36 +238,6 @@
 	.feature__content,
 	.feature__image {
 		width: 500px;
-	}
-}
-
-/* CARDS - RAZZE*/
-.cards {
-	display: flex;
-	flex-direction: column;
-	margin: 2rem 2rem 5rem 2rem;
-}
-.card {
-	margin-bottom: 4rem;
-}
-
-.card__button span {
-	font-size: 1.6rem;
-}
-@media screen and (min-width: 1024px) {
-	.cards {
-		flex-direction: row;
-		justify-content: center;
-		margin: 2rem auto;
-		width: 85%;
-		max-width: 1024px;
-	}
-	.card {
-		margin-right: 4rem;
-		margin-bottom: 0;
-	}
-	.card:last-child {
-		margin-right: 0;
 	}
 }
 

@@ -4,7 +4,9 @@ import { Button, FrameCorners, Text } from "@arwes/core"
 const Select = ({ name, label, error, options, ...rest }) => {
 	return (
 		<div className="form-group">
-			<label htmlFor={name}>{label}</label>
+			<label htmlFor={name}>
+				<h3>{label}</h3>
+			</label>
 			<select name={name} className="form-control form-select" {...rest}>
 				{options.map(option => (
 					<option key={option._id} value={option._id}>
@@ -22,9 +24,7 @@ const Input = ({ name, label, error, ...rest }) => {
 		<div className="form-group">
 			{label && (
 				<label htmlFor="">
-					<Text as="h3" className="h3" palette="secondary">
-						{label}
-					</Text>
+					<h3 className="h3">{label}</h3>
 				</label>
 			)}
 			<input name={name} className="form-control" {...rest} />
@@ -111,15 +111,18 @@ class Form extends Component {
 	}
 
 	handleChange = ({ target: input }) => {
+		const errors = this.handleError(input)
+		const data = { ...this.state.data }
+		data[input.name] = input.value
+		this.setState({ data, errors })
+	}
+	handleError = input => {
 		const errors = { ...this.state.errors }
 		const errorMessage = this.validateProperty(input)
 
 		if (errorMessage) errors[input.name] = errorMessage
 		else delete errors[input.name]
-
-		const data = { ...this.state.data }
-		data[input.name] = input.value
-		this.setState({ data, errors })
+		return errors
 	}
 
 	renderInput(name, label, placeholder = "", type = "text") {
@@ -168,7 +171,6 @@ class Form extends Component {
 			/>
 		)
 	}
-
 	renderSelect(name, label, options) {
 		const { data, errors } = this.state
 		return (
@@ -182,7 +184,6 @@ class Form extends Component {
 			/>
 		)
 	}
-
 	renderButton(label) {
 		return (
 			<div className="form-btn btn">
@@ -190,7 +191,6 @@ class Form extends Component {
 			</div>
 		)
 	}
-
 	nextStep = e => {
 		e.preventDefault()
 		const { currentStep } = this.state
@@ -203,12 +203,11 @@ class Form extends Component {
 	}
 
 	RenderStep = ({ step, fields, children }) => {
-		const { currentStep, steps } = this.state
+		const { currentStep, steps, errors, data } = this.state
 
 		let isValidated = true
 		fields.forEach(field => {
-			if (this.state.errors[field] || !this.state.data[field])
-				isValidated = false
+			if (errors[field] || !data[field]) isValidated = false
 		})
 
 		return (
@@ -218,6 +217,7 @@ class Form extends Component {
 					<div className="btn form-steps">
 						{currentStep > 1 && (
 							<Button
+								animator={{ activate: true }}
 								FrameComponent={FrameCorners}
 								className={
 									currentStep !== this.state.steps ? "form-step-margin" : ""
@@ -226,8 +226,12 @@ class Form extends Component {
 								<Text>Indietro</Text>
 							</Button>
 						)}
-						{currentStep < steps && isValidated && (
-							<Button FrameComponent={FrameCorners} onClick={this.nextStep}>
+
+						{isValidated && currentStep < steps && (
+							<Button
+								animator={{ activate: true }}
+								FrameComponent={FrameCorners}
+								onClick={this.nextStep}>
 								<Text>Procedi</Text>
 							</Button>
 						)}

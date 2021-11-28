@@ -1,0 +1,19 @@
+.skills-grid {
+	grid-gap: 2rem;
+	grid-template-columns: 1fr;
+}
+.perks-grid {
+	grid-gap: 2rem;
+	grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (min-width: 768px) {
+	.skills-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.skills-grid {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}

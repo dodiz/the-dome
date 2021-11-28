@@ -33,7 +33,7 @@ class Menu extends React.Component {
 		const { open } = this.state
 		const duration = 400
 		const delay = 50
-		const space = 8
+		const space = 5
 		const targets = ".menu__icon--animate"
 		const easing = "easeOutCubic"
 		anime({
@@ -41,7 +41,7 @@ class Menu extends React.Component {
 			easing,
 			opacity: open ? 0 : 1,
 			bottom: {
-				value: open ? 0 : (_, i) => `${space * (i + 1)}vh`,
+				value: open ? 0 : (_, i) => `${space * (i + 1)}rem`,
 				duration,
 				delay: (_, i, t) => delay * (open ? i : t - i)
 			}
