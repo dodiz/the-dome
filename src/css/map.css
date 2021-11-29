@@ -4,7 +4,7 @@
 	background: url("../media/map/base.jpg");
 	position: relative;
 	background-position: center center;
-	background-size: cover;
+	background-size: 100% 100%;
 }
 
 .map__pattern {
@@ -26,22 +26,22 @@
 	width: 100%;
 	height: 100%;
 }
-.map__indicator-line {
+.map__indicator-g * {
 	stroke: var(--color-accent);
 	filter: drop-shadow(0 0 3px var(--color-accent));
 	fill: var(--color-accent);
-	stroke-width: 2;
 	transition: all 0.3s;
+	stroke-width: 2;
+}
+.map__indicator-line {
+	animation: animateLine 1s linear alternate infinite;
 }
 .map__indicator-square {
-	stroke: var(--color-accent);
-	fill: none;
-	filter: drop-shadow(0 0 3px var(--color-accent));
-	stroke-width: 4;
-	transition: all 0.3s;
+	fill: #f29f6721;
+	animation: animateSquare 1s linear reverse infinite;
 }
-.map__indicator-square.small {
-	stroke-width: 1;
+.map__indicator-circle {
+	fill: none;
 }
 .map__indicator-text {
 	text-transform: uppercase;
@@ -58,4 +58,15 @@
 }
 .map__indicator-text:hover {
 	fill: #eee;
+}
+
+@keyframes animateLine {
+	from {
+		stroke-width: 0;
+	}
+}
+@keyframes animateSquare {
+	from {
+		stroke-dashoffset: 0;
+	}
 }
