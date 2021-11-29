@@ -61,7 +61,8 @@
 	transition: all 0.3s;
 	cursor: pointer;
 }
-.map__location:hover .map__path {
+.map__location:hover .map__path,
+.map__location.selected .map__path {
 	stroke: var(--color-accent);
 	filter: drop-shadow(0 0 3px var(--color-accent));
 	fill: #f29f6721;
