@@ -5,6 +5,9 @@
 	position: relative;
 	background-position: center center;
 	background-size: 100% 100%;
+	opacity: 0;
+	animation: resetOpacity 1s 0.5s forwards;
+	overflow: hidden;
 }
 
 .map__pattern {
@@ -14,10 +17,16 @@
 	width: 100%;
 	height: 100%;
 	background: url("../media/map/pattern_grid.png");
-	transition: transform 0.5s;
+	transform: scale(0);
+	animation: resetScale 1s 1s forwards;
 }
-.map:hover .map__pattern {
-	transform: scale(1.05);
+.map__box {
+	position: absolute;
+	top: 10%;
+	right: 0;
+	width: 300px;
+	height: 200px;
+	z-index: 2;
 }
 .map__indicator {
 	position: absolute;
@@ -38,12 +47,28 @@
 }
 .map__indicator-square {
 	fill: #f29f6721;
-	animation: animateSquare 1s linear reverse infinite;
+	animation: animateSquare 3s linear reverse infinite;
 }
 .map__indicator-circle {
 	fill: none;
 }
-.map__indicator-text {
+.map__location {
+	cursor: pointer;
+}
+.map__path {
+	fill: #ffffff01;
+	stroke: 0.1;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.map__location:hover .map__path {
+	stroke: var(--color-accent);
+	filter: drop-shadow(0 0 3px var(--color-accent));
+	fill: #f29f6721;
+	transition: all 0.3s;
+	stroke-width: 2;
+}
+.map__text {
 	text-transform: uppercase;
 	font-family: var(--font-secondary);
 	font-weight: bold;
@@ -53,13 +78,12 @@
 	text-shadow: 1px 1px 3px black;
 	text-shadow: 1px 1px 1px black;
 	text-shadow: 1px 1px 5px black;
-	cursor: pointer;
 	transition: fill 0.3s;
 }
-.map__indicator-text:hover {
+.map__text:hover,
+.map__location:hover .map__text {
 	fill: #eee;
 }
-
 @keyframes animateLine {
 	from {
 		stroke-width: 0;

@@ -4,7 +4,7 @@ import { FrameCorners, FrameBox, Text, List } from "@arwes/core"
 
 import withSound from "./../hoc/withSound"
 
-import { locations } from "../config/locations"
+//import { locations } from "../config/locations"
 
 import "../css/map.css"
 
@@ -14,6 +14,26 @@ const viewPort = {
 	x: 1980,
 	y: 1080
 }
+const offset = 100
+
+const locations = [
+	{
+		_id: "mera",
+		label: "mera",
+		chats: [],
+		path: "M 37 681 L 112 622 L 223 587 L 295 591 L 374 617 L 457 679 L 501 746 L 521 842 L 421 946 L 36 916 L 8 769 L 37 681 M 0 1140",
+		x: 250,
+		y: 810
+	},
+	{
+		_id: "honiara",
+		label: "Honiara",
+		chats: [],
+		path: "M 0 228 L 49 175 L 75 166 L 197 207 L 192 252 L 182 293 L 170 318 L 137 340 L 120 376 L 113 433 L 51 443 L 1 444",
+		x: 100,
+		y: 267
+	}
+]
 
 const SvgMap = ({ x, y, onSelectLocation }) => (
 	<svg
@@ -30,7 +50,6 @@ const SvgMap = ({ x, y, onSelectLocation }) => (
 			<stop offset="0%" style={{ stopColor: "#666", stopOpacity: 1 }} />
 			<stop offset="80%" style={{ stopColor: "#fff", stopOpacity: 1 }} />
 		</linearGradient>
-
 		<g className="map__indicator-g">
 			{/* VERTICAL LINE */}
 			<path d={"M " + x + " 0 " + "V 1080"} className="map__indicator-line" />
@@ -43,9 +62,9 @@ const SvgMap = ({ x, y, onSelectLocation }) => (
 				r={rect}
 				width={rect}
 				height={rect}
-				strokeDasharray={`${rect} ${rect * 4 - rect}`}
-				strokeDashoffset={rect * 4}
-				className="map__indicator-square "
+				strokeDasharray={(Math.PI * rect) / 4}
+				strokeDashoffset={Math.PI * rect * 2}
+				className="map__indicator-square"
 			/>
 			<circle
 				cx={x}
@@ -56,66 +75,45 @@ const SvgMap = ({ x, y, onSelectLocation }) => (
 		</g>
 		{/* TEXT LOCATIONS */}
 		{locations.map(location => (
-			<text
-				className="map__indicator-text"
-				dominant-baseline="middle"
-				fontSize={23}
-				onClick={() => onSelectLocation(location)}
-				x={location.x}
-				y={location.y}
-				text-anchor="middle">
-				{location.label}
-			</text>
+			<g className="map__location" onClick={() => onSelectLocation(location)}>
+				<path d={location.path} className="map__path" />
+				<text
+					className="map__text"
+					dominant-baseline="middle"
+					fontSize={23}
+					x={location.x}
+					y={location.y}
+					text-anchor="middle">
+					{location.label}
+				</text>
+			</g>
 		))}
 	</svg>
 )
 
 const BoxMap = ({ location, chats }) => (
-	<FrameBox
-		style={{
-			position: "absolute",
-			top: "15px",
-			right: "15px",
-			width: "300px",
-			height: "200px",
-			zIndex: 2
-		}}>
-		<Text as="h3">{location}</Text>
-		<ul>
-			{chats.map(chat => (
-				<li key={chat._id}>{chat.label}</li>
-			))}
-		</ul>
-	</FrameBox>
+	<div className="map__box">
+		<FrameBox>
+			<Text as="h3">{location}</Text>
+			<ul>
+				{chats.map(chat => (
+					<li key={chat._id}>{chat.label}</li>
+				))}
+			</ul>
+		</FrameBox>
+	</div>
 )
 
 class Map extends Component {
 	state = {
-		x: 100,
-		y: 100,
+		x: offset,
+		y: offset,
 		location: "",
 		chats: []
 	}
 
 	componentDidMount() {
-		this.draw()
-	}
-	draw = () => {
-		anime({
-			targets: ".map__pattern",
-			scale: {
-				value: [0, 1],
-				delay: 300,
-				duration: 300
-			}
-		})
-		anime({
-			targets: ".map",
-			opacity: {
-				value: [0, 1],
-				delay: 500
-			}
-		})
+		setTimeout(() => this.setState({ x: offset, y: viewPort.y - offset }), 1000)
 	}
 
 	handleZoneSelection = location => {
