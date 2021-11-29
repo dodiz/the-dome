@@ -36,9 +36,9 @@
 	height: 100%;
 }
 .map__indicator-g * {
-	stroke: var(--color-accent);
-	filter: drop-shadow(0 0 3px var(--color-accent));
-	fill: var(--color-accent);
+	stroke: var(--color-success);
+	filter: drop-shadow(0 0 3px var(--color-success));
+	fill: var(--color-success);
 	transition: all 0.3s;
 	stroke-width: 2;
 }
