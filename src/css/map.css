@@ -31,19 +31,31 @@
 	filter: drop-shadow(0 0 3px var(--color-accent));
 	fill: var(--color-accent);
 	stroke-width: 2;
+	transition: all 0.3s;
 }
 .map__indicator-square {
 	stroke: var(--color-accent);
 	fill: none;
 	filter: drop-shadow(0 0 3px var(--color-accent));
 	stroke-width: 4;
+	transition: all 0.3s;
 }
 .map__indicator-square.small {
 	stroke-width: 1;
 }
 .map__indicator-text {
 	text-transform: uppercase;
-	font-family: impact;
-	font-size: 3rem;
-	letter-spacing: 0.3px;
+	font-family: var(--font-secondary);
+	font-weight: bold;
+	letter-spacing: 2px;
+	fill: url(#text-grad);
+	text-shadow: 1px 1px 1px black;
+	text-shadow: 1px 1px 3px black;
+	text-shadow: 1px 1px 1px black;
+	text-shadow: 1px 1px 5px black;
+	cursor: pointer;
+	transition: fill 0.3s;
+}
+.map__indicator-text:hover {
+	fill: #eee;
 }

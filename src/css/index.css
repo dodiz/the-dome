@@ -23,6 +23,7 @@
 	--color-border: #ccc;
 
 	--font-primary: "averox";
+	--font-secondary: "gardane";
 
 	--toastify-color-info: var(--color-secondary);
 	--toastify-color-success: var(--color-success);
