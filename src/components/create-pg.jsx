@@ -388,9 +388,11 @@ class CreatePg extends Form {
 							</div>
 						) : null}
 
-						<em>
-							Punti distribuiti: {skillPoints} / {misc.totalSkillLevels}
-						</em>
+						<div className="mt-1">
+							<em>
+								Punti distribuiti: {skillPoints} / {misc.totalSkillLevels}
+							</em>
+						</div>
 					</this.RenderStep>
 					<this.RenderStep step={7} fields={[]}>
 						<Text as="h2" className="m-auto">

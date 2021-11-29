@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from "react"
 import { useHistory } from "react-router"
-import CircleUI from "../media/circle-ui.svg"
-import RadialMenu from "../classes/radial-menu"
+
 import withSound from "./../hoc/withSound"
+
+import RadialMenu from "../classes/radial-menu"
+
+import CircleUI from "../media/circle-ui.svg"
 
 const menuItems = [
 	{

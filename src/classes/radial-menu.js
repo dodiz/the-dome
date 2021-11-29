@@ -40,7 +40,7 @@ RadialMenu.prototype.open = function () {
 
         // wait DOM commands to apply and then set class to allow transition to take effect
         RadialMenu.nextTick( function () {
-            self.currentMenu.setAttribute( 'class', 'menu' );
+            self.currentMenu.setAttribute( 'class', 'radial-menu' );
         } );
     }
 };

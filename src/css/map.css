@@ -5,7 +5,6 @@
 	position: relative;
 	background-position: center center;
 	background-size: cover;
-	opacity: 0;
 }
 
 .map__pattern {
@@ -19,4 +18,32 @@
 }
 .map:hover .map__pattern {
 	transform: scale(1.05);
+}
+.map__indicator {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.map__indicator-line {
+	stroke: var(--color-accent);
+	filter: drop-shadow(0 0 3px var(--color-accent));
+	fill: var(--color-accent);
+	stroke-width: 2;
+}
+.map__indicator-square {
+	stroke: var(--color-accent);
+	fill: none;
+	filter: drop-shadow(0 0 3px var(--color-accent));
+	stroke-width: 4;
+}
+.map__indicator-square.small {
+	stroke-width: 1;
+}
+.map__indicator-text {
+	text-transform: uppercase;
+	font-family: impact;
+	font-size: 3rem;
+	letter-spacing: 0.3px;
 }

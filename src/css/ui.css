@@ -191,7 +191,7 @@ div.ui__pg {
 svg.icons {
 	display: none;
 }
-svg.menu {
+.radial-menu {
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -200,47 +200,46 @@ svg.menu {
 	transform: translate(-50%, -50%);
 	transition-timing-function: ease-out;
 }
-svg.menu.inner {
+.radial-menu.inner {
 	transform: translate(-50%, -50%) scale(0) rotate(-10deg);
 	opacity: 0;
 	visibility: hidden;
 }
-svg.menu.outer {
+.radial-menu.outer {
 	transform: translate(-50%, -50%) scale(1.5) rotate(10deg);
 	opacity: 0;
 	visibility: hidden;
 }
-svg.menu > g > path {
+.radial-menu > g > path {
 	filter: drop-shadow(0 0 2px var(--color-secondary));
 	fill: #00f7f722;
 }
-svg.menu > g.sector > path {
+.radial-menu > g.sector > path {
 	cursor: pointer;
-	/*transition: 0.1s;*/
 }
-svg.menu > g.sector > text,
-svg.menu > g.sector > use {
+.radial-menu > g.sector > text,
+.radial-menu > g.sector > use {
 	cursor: pointer;
 	fill: #fff;
 	font-family: var(--font-primary);
 	font-weight: bold;
-	font-size: 0.4rem;
+	font-size: 0.5rem;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
-svg.menu > g.sector:hover > path {
+.radial-menu > g.sector:hover > path {
 	fill: #00f7f744;
 }
-svg.menu > g.center:hover > circle {
+.radial-menu > g.center:hover > circle {
 	fill: var(--color-warning);
 	opacity: 0.5;
 }
-svg.menu > g.center > circle {
+.radial-menu > g.center > circle {
 	cursor: pointer;
 	fill: #00000040;
 }
-svg.menu > g.center > text,
-svg.menu > g.center > use {
+.radial-menu > g.center > text,
+.radial-menu > g.center > use {
 	cursor: pointer;
 	fill: white;
 }
