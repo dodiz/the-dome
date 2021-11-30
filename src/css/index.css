@@ -14,6 +14,7 @@
 	/* 00F8F8F8 backup secondary*/
 	--color-secondary: #73e4de;
 	--color-accent: #f29f67;
+	--color-error2: #f70000;
 	--color-success: rgb(102, 255, 102);
 	--color-warning: #f1c40f;
 	--color-error: var(--color-accent);
