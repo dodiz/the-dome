@@ -1,6 +1,10 @@
 .manage {
-	grid-template-columns: 200px 1fr;
+	grid-template-columns: 1fr 200px;
 	grid-gap: 2rem;
+}
+.manage-content {
+	height: 100vh;
+	overflow-y: auto;
 }
 .manage-frame {
 	box-shadow: inset 0 0 5px var(--color-secondary);

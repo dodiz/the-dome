@@ -241,6 +241,20 @@ const skills = [
 	}
 ]
 
-export function getAllSkills() {
+function get(category) {
+	return skills.filter(skill => skill.category === category)
+}
+function getFromId(id) {
+	return skills.find(skill => skill._id === id)
+}
+function getAll() {
 	return skills
 }
+
+const skillService = {
+	get,
+	getAll,
+	getFromId
+}
+
+export default skillService

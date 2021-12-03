@@ -17,10 +17,14 @@ const chatsRef = collection(db, chatsPath)
 function update(id, data) {
 	return setDoc(doc(chatsRef, id), data)
 }
-function getSingle(id) {
+function getFromId(id) {
 	return new Promise(async (resolve, reject) => {
-		const chat = await getDoc(doc(db, chatsPath, id))
-		resolve(chat.data())
+		try {
+			const chat = await getDoc(doc(db, chatsPath, id))
+			resolve(chat.data())
+		} catch (e) {
+			reject("Chat non trovata")
+		}
 	})
 }
 async function get(id) {
@@ -38,7 +42,7 @@ async function remove(id) {
 const chatService = {
 	update,
 	get,
-	getSingle,
+	getFromId,
 	remove
 }
 

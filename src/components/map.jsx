@@ -3,7 +3,7 @@ import { FrameCorners, FrameLines, Text } from "@arwes/core"
 
 import withSound from "./../hoc/withSound"
 import chatService from "../services/chatService"
-import { locations as _locations } from "../config/locations"
+import { locations as _locations } from "../config/locationsData"
 
 import "../css/map.css"
 

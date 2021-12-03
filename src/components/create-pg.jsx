@@ -7,21 +7,12 @@ import Form from "./common/form"
 import Bar from "./common/bar"
 import Modal from "./common/modal"
 
-import { getAllSkills } from "../services/skillsService"
+import skillService from "../services/skillService"
 import { getPowers } from "../services/powersService"
 
-import {
-	jobs,
-	races,
-	factions,
-	stats,
-	misc,
-	skillsCategories,
-	height,
-	weight,
-	bonuses,
-	maluses
-} from "../config/gdrInfo"
+import { jobs, races, factions, misc, height, weight } from "../config/gdrData"
+
+import { bonuses, maluses, skillsCategories, stats } from "../config/skillsData"
 
 import "../css/create.css"
 
@@ -64,8 +55,14 @@ class CreatePg extends Form {
 	}
 
 	schema = Joi.object({
-		first: Joi.string().min(5).max(10).required(),
-		last: Joi.string().min(5).max(10).required(),
+		first: Joi.string()
+			.min(misc.minNameLength)
+			.max(misc.maxNameLength)
+			.required(),
+		last: Joi.string()
+			.min(misc.minNameLength)
+			.max(misc.maxNameLength)
+			.required(),
 		born: Joi.date().required(),
 		gender: Joi.any(),
 		height: Joi.number().min(height.min).max(height.max).required(),
@@ -148,7 +145,7 @@ class CreatePg extends Form {
 		this.setState({ modalInfo })
 	}
 	loadSkills = () => {
-		const skills = getAllSkills()
+		const skills = skillService.getAll()
 		this.setState({ skills })
 	}
 	loadPowers = race => {
@@ -305,7 +302,7 @@ class CreatePg extends Form {
 							))}
 						</div>
 					</this.RenderStep>
-					<this.RenderStep step={6} fields={["skillPoints"]}>
+					<this.RenderStep step={1} fields={["skillPoints"]}>
 						<Text as="h2" className="m-auto">
 							Abilità
 						</Text>
