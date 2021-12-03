@@ -38,9 +38,7 @@ const Textarea = ({ name, label, error, value, ...rest }) => {
 		<div className="form-group">
 			{label && (
 				<label htmlFor="">
-					<Text as="h3" className="h3" palette="secondary">
-						{label}
-					</Text>
+					<h3 className="h3">{label}</h3>
 				</label>
 			)}
 			<textarea value={value} name={name} {...rest} className="form-control" />
@@ -97,17 +95,14 @@ class Form extends Component {
 		return error ? error.details[0].message : null
 	}
 
-	handleSubmit = async e => {
+	handleSubmit = e => {
 		e.preventDefault()
-		if (this.state.isSubmitting) return
 		const errors = this.validate()
-		this.setState({ errors: errors || {}, isSubmitting: true })
+		this.setState({ errors: errors || {} })
 		if (errors) {
-			this.setState({ isSubmitting: false })
 			return
 		}
-		await this.doSubmit()
-		this.setState({ isSubmitting: false })
+		this.doSubmit()
 	}
 
 	handleChange = ({ target: input }) => {
@@ -201,7 +196,6 @@ class Form extends Component {
 		const { currentStep } = this.state
 		this.setState({ currentStep: currentStep - 1 })
 	}
-
 	RenderStep = ({ step, fields, children }) => {
 		const { currentStep, steps, errors, data } = this.state
 

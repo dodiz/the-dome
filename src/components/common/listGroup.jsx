@@ -47,13 +47,13 @@ export default function ListGroup({
 					/>
 				</div>
 				<div className="collapsible__content">
-					{items.map(item => (
+					{items.map((item, i) => (
 						<li
+							key={i}
 							onClick={() => selectItem(item)}
 							className={`link list-group__item ${
 								selectedItem === item && "link--active"
-							} `}
-							key={item[valueProperty]}>
+							} `}>
 							{item[textProperty]}
 						</li>
 					))}

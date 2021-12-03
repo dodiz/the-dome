@@ -8,6 +8,7 @@
 	opacity: 0;
 	animation: resetOpacity 1s 0.5s forwards;
 	overflow: hidden;
+	z-index: 0;
 }
 
 .map__pattern {
@@ -20,14 +21,56 @@
 	transform: scale(0);
 	animation: resetScale 1s 1s forwards;
 }
-.map__box {
+
+/* MAP BOX*/
+.map-box {
 	position: absolute;
-	top: 10%;
-	right: 0;
+	top: 2rem;
+	right: 4rem;
+	z-index: 1;
 	width: 300px;
-	height: 200px;
-	z-index: 2;
+	bottom: 6rem;
 }
+.map-box .arwes-frame {
+	width: 100%;
+	background: var(--color-primary-opacity);
+	height: 100%;
+}
+.map-box .arwes-frame__content {
+	height: 100%;
+}
+.map-box-grid {
+	grid-template-rows: auto 200px 150px 1fr;
+	grid-gap: 1rem;
+	height: 100%;
+}
+.map-box__image {
+	width: 100%;
+	height: 100%;
+	border: 1px solid var(--color-secondary);
+	box-shadow: 0 0 3px var(--color-secondary);
+}
+.map-box__description {
+	overflow: auto;
+	font-size: 1.3rem;
+}
+.map-box__chat {
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;
+	background: var(--color-primary-opacity);
+	border: 1px solid var(--color-secondary);
+}
+.map-box__chats-container {
+	position: relative;
+}
+.map-box__chats {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+}
+/* INDICATOR */
 .map__indicator {
 	position: absolute;
 	top: 0;

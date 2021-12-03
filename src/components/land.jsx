@@ -3,9 +3,11 @@ import { Route, Switch } from "react-router"
 import PgProvider from "./../context/pgContext"
 
 import Menu from "./menu"
-import Map from "./map"
 import UI from "./ui"
+
+import Map from "./map"
 import CreatePg from "./create-pg"
+import Manage from "./manage"
 
 import "../css/land.css"
 
@@ -18,6 +20,7 @@ class Land extends Component {
 					<div className="land__content">
 						<Switch>
 							<Route path="/land/crea-pg" component={CreatePg} />
+							<Route path="/land/manage" component={Manage} />
 							<Route exact path="/land" component={Map} />
 						</Switch>
 					</div>

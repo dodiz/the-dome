@@ -11,6 +11,7 @@
 }
 :root {
 	--color-primary: #02161a;
+	--color-primary-opacity: #02161aaa;
 	/* 00F8F8F8 backup secondary*/
 	--color-secondary: #73e4de;
 	--color-accent: #f29f67;
@@ -159,8 +160,20 @@ h6 {
 	margin-left: auto;
 	margin-right: auto;
 }
+.ml-auto {
+	margin-left: auto;
+}
+.mr-auto {
+	margin-right: auto;
+}
 .p-1 {
 	padding: 1rem;
+}
+.p-small {
+	padding: 0.5rem;
+}
+.m-small {
+	margin: 0.5rem;
 }
 .click {
 	cursor: pointer;
@@ -657,6 +670,10 @@ div.arwes-card__line {
 	.form-checkbox__indicator {
 	background: var(--color-accent);
 	transform: translateX(20px);
+}
+.form-select option {
+	color: var(--color-secondary);
+	background: var(--color-primary);
 }
 .form-sticky {
 	position: sticky;

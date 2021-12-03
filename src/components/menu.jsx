@@ -17,9 +17,43 @@ import { logout } from "../services/authService"
 
 import "../css/menu.css"
 
-const MenuOption = ({ title, src, ...rest }) => (
+const menu = [
+	{
+		label: "Negozio",
+		icon: ShopIcon
+	},
+	{
+		label: "Settings",
+		path: "impostazione",
+		icon: SettingsIcon
+	},
+	{
+		label: "Agenda",
+		icon: QuestIcon
+	},
+	{
+		label: "Manuale",
+		icon: GuideIcon
+	},
+	{
+		label: "Corporazioni",
+		icon: GroupsIcon
+	},
+	{
+		label: "Crea un pg",
+		path: "crea-pg",
+		icon: AddPgIcon
+	},
+	{
+		label: "Gestione",
+		path: "manage",
+		icon: AddPgIcon
+	}
+]
+
+const MenuOption = ({ label, src, ...rest }) => (
 	<div className="menu__icon menu__icon--animate" {...rest}>
-		<div className="menu__icon-text">{title}</div>
+		<div className="menu__icon-text">{label}</div>
 		<Icon padding secondary src={src} />
 	</div>
 )
@@ -71,38 +105,19 @@ class Menu extends React.Component {
 						padding
 					/>
 				</div>
-
-				<MenuOption
-					onClick={() => this.onMenuSelected("/land/negozio")}
-					title="Negozio"
-					src={ShopIcon}
-				/>
-				<MenuOption
-					onClick={() => this.onMenuSelected("/land/impostazioni")}
-					title="Settings"
-					src={SettingsIcon}
-				/>
-				<MenuOption
-					onClick={() => this.onMenuSelected("/land/agenda")}
-					title="Agenda"
-					src={QuestIcon}
-				/>
-				<MenuOption
-					onClick={() => this.onMenuSelected("/land/manuale")}
-					title="Manuale"
-					src={GuideIcon}
-				/>
-				<MenuOption
-					onClick={() => this.onMenuSelected("/land/corporazioni")}
-					title="Corporazioni"
-					src={GroupsIcon}
-				/>
-				<MenuOption onClick={logout} title="Logout" src={LogoutIcon} />
-				<MenuOption
-					onClick={() => this.onMenuSelected("/land/crea-pg")}
-					title="Crea un pg"
-					src={AddPgIcon}
-				/>
+				{menu.map(item => (
+					<MenuOption
+						key={item.label}
+						onClick={() =>
+							this.onMenuSelected(
+								`/land/${item.path ? item.path : item.label.toLowerCase()}`
+							)
+						}
+						label={item.label}
+						src={item.icon}
+					/>
+				))}
+				<MenuOption onClick={logout} label="Logout" src={LogoutIcon} />
 			</div>
 		)
 	}

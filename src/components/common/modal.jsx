@@ -1,5 +1,6 @@
 import React from "react"
 import BModal from "react-bootstrap/Modal"
+
 import { FrameLines, Text } from "@arwes/core"
 
 const Modal = ({ title, children, palette, small, ...rest }) => {
