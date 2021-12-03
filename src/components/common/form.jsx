@@ -7,7 +7,12 @@ const Select = ({ name, label, error, options, ...rest }) => {
 			<label htmlFor={name}>
 				<h3>{label}</h3>
 			</label>
-			<select name={name} className="form-control form-select" {...rest}>
+			<select
+				name={name}
+				defaultValue="default"
+				className="form-control form-select"
+				{...rest}>
+				<option value="default">Seleziona ...</option>
 				{options.map(option => (
 					<option key={option._id} value={option._id}>
 						{option.label}

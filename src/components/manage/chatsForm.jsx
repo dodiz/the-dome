@@ -24,7 +24,7 @@ class ChatsForm extends Form {
 	schema = Joi.object({
 		label: Joi.string().required(),
 		location: Joi.string(),
-		description: Joi.string(),
+		description: Joi.any(),
 		closed: Joi.boolean()
 	})
 

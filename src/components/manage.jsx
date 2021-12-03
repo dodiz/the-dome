@@ -43,7 +43,7 @@ const Manage = () => {
 	}
 
 	return (
-		<FrameCorners cornerWidth={2} cornerLength={40} hideShapes>
+		<div>
 			<div className="grid manage">
 				<ListGroup
 					items={menu}
@@ -62,7 +62,7 @@ const Manage = () => {
 					</Switch>
 				</div>
 			</div>
-		</FrameCorners>
+		</div>
 	)
 }
 
