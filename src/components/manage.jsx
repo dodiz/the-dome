@@ -4,12 +4,14 @@ import { Switch, Route, Link, useHistory, useLocation } from "react-router-dom"
 import ListGroup from "./common/listGroup"
 import ChatsForm from "./manage/m-chats"
 import SkillsForm from "./manage/m-skills"
+import PowersForm from "./manage/m-powers"
 import ManageHub from "./manage/m-hub"
 
 import skillService from "../services/skillService"
+import powerService from "../services/powerService"
 import chatService from "../services/chatService"
 
-import { skillsCategories } from "../config/skillsData"
+import { skillsCategories, powersCategories } from "../config/skillsData"
 import { locations } from "../config/locationsData"
 
 import "../css/manage.css"
@@ -87,15 +89,15 @@ const Manage = () => {
 								/>
 							)}
 						/>
-						<Route path="/land/manage/skills/:id" component={SkillsForm} />
+						<Route path="/land/manage/poteri/:id" component={PowersForm} />
 						<Route
 							path="/land/manage/poteri"
 							render={props => (
 								<ManageHub
 									label="poteri"
-									categories={skillsCategories}
-									service={skillService}
-									path="skills"
+									categories={powersCategories}
+									service={powerService}
+									path="poteri"
 									{...props}
 								/>
 							)}

@@ -90,3 +90,13 @@ export const maluses = [
             "eiowpiepo qw iepoqw ioepiqw oepiqw eopi qwpoei qwopei qwpo eiqw po "
     }
 ]
+export const powersCategories = [
+    {
+        _id: "mutant",
+        label: "Mutante",
+    },
+    {
+        _id: "robot",
+        label: "Robot",
+    }
+]

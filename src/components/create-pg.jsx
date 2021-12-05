@@ -8,7 +8,7 @@ import Bar from "./common/bar"
 import Modal from "./common/modal"
 
 import skillService from "../services/skillService"
-import { getPowers } from "../services/powersService"
+import powerService from "../services/powerService"
 
 import { jobs, races, factions, misc, height, weight } from "../config/gdrData"
 
@@ -149,7 +149,7 @@ class CreatePg extends Form {
 		this.setState({ skills })
 	}
 	loadPowers = race => {
-		const powers = getPowers(race)
+		const powers = powerService.getFromCategory(race)
 		this.setState({ powers })
 	}
 	componentDidMount() {

@@ -3,12 +3,13 @@ import {
 	updateDoc,
 	doc,
 	getDoc,
+	setDoc,
 	deleteField
 } from "firebase/firestore"
 
 const db = getFirestore()
-const docRef = doc(db, "private/skills")
-const categoryLabel = "category"
+const docRef = doc(db, "private/powers")
+const categoryLabel = "race"
 
 async function getFromCategory(category) {
 	return new Promise(async (resolve, reject) => {
@@ -61,7 +62,8 @@ async function remove(id) {
 		[id]: deleteField()
 	})
 }
-const skillService = {
+
+const powerService = {
 	getFromCategory,
 	get,
 	getFromId,
@@ -69,4 +71,4 @@ const skillService = {
 	remove
 }
 
-export default skillService
+export default powerService
