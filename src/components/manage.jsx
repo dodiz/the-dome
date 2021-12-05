@@ -89,6 +89,19 @@ const Manage = () => {
 						/>
 						<Route path="/land/manage/skills/:id" component={SkillsForm} />
 						<Route
+							path="/land/manage/poteri"
+							render={props => (
+								<ManageHub
+									label="poteri"
+									categories={skillsCategories}
+									service={skillService}
+									path="skills"
+									{...props}
+								/>
+							)}
+						/>
+						<Route path="/land/manage/skills/:id" component={SkillsForm} />
+						<Route
 							path="/land/manage/skills"
 							render={props => (
 								<ManageHub
