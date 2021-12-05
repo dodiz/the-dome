@@ -54,6 +54,30 @@ export const skillsCategories = [
         label: "Skill pratiche"
     }
 ]
+export const powersCategories = [
+    {
+        _id: "mutant",
+        label: "Mutante",
+    },
+    {
+        _id: "robot",
+        label: "Sintentico",
+    }
+]
+export const effectsCategories = [
+    {
+        _id: "desease",
+        label: "Malattie"
+    },
+    {
+        _id: "from_objects",
+        label: "Alterazioni da oggetti"
+    },
+    {
+        _id: "from_powers",
+        label: "Alterazioni da poteri"
+    }
+]
 export const bonuses = [
     {
         _id: "vantaggio1",
@@ -174,15 +198,5 @@ export const factions = [
                 voluptates possimus?
             </>
         )
-    }
-]
-export const powersCategories = [
-    {
-        _id: "mutant",
-        label: "Mutante",
-    },
-    {
-        _id: "robot",
-        label: "Sintentico",
     }
 ]

@@ -18,8 +18,8 @@ class ManageForm extends Form {
 			const data = await this.service.getFromId(id)
 			this.setState({ id, data: this.mapToViewModel(data) })
 			if (this.mount) this.mount()
-		} catch (ex) {
-			toast.error(ex)
+		} catch (e) {
+			toast.error(e)
 			this.props.history.replace("/not-found")
 		}
 	}
@@ -51,8 +51,8 @@ class ManageForm extends Form {
 			await this.service.update(id, data)
 			toast.success("Operazione completata")
 			this.props.history.push(this.path)
-		} catch (ex) {
-			toast.error(ex)
+		} catch (e) {
+			toast.error(e)
 		}
 	}
 }

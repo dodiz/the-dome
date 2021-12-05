@@ -64,7 +64,6 @@ class SkillsForm extends ManageForm {
 				knowledge: skill.knowledge
 			}))
 			const knowledges = skills.filter(skill => skill.knowledge)
-			console.log(skills)
 			this.setState({ knowledges, skills })
 		} catch (e) {
 			toast.error("Impossibile recuperare le skill")

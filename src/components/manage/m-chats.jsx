@@ -3,7 +3,7 @@ import React from "react"
 import Joi from "../../classes/joi"
 import ManageForm from "./m-form"
 
-import chatService from "../../services/chatService"
+import { chatService } from "../../services/dbService"
 import { factions as factionsList } from "../../config/categoriesData"
 import { locations } from "../../config/locationsData"
 import { formatToId } from "../../tools/format"
@@ -36,11 +36,6 @@ class ChatsForm extends ManageForm {
 		factions: Joi.array(),
 		closed: Joi.boolean()
 	})
-
-	componentDidUpdate(prevProps, prevState) {
-		console.log(this.state.data)
-	}
-
 	render() {
 		const { label, factions } = this.state.data
 		return (

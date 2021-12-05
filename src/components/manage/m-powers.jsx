@@ -18,29 +18,31 @@ class SkillsForm extends ManageForm {
 		id: "",
 		skills: [],
 		data: {
-			label: "",
+			defense: [],
 			description: "",
-			stat: "",
+			label: "",
+			maxDamage: 0,
+			minDamage: 0,
 			race: "",
 			stamina: 0,
-			targetPgs: false,
+			stat: "",
 			targetAmbience: false,
-			minDamage: 0,
-			maxDamage: 0,
-			defense: []
+			targetPgs: false
 		},
 		errors: {}
 	}
 
 	schema = Joi.object({
+		defense: Joi.array(),
+		description: Joi.any(),
 		label: Joi.string().required(),
+		maxDamage: Joi.number(),
+		minDamage: Joi.number(),
 		race: Joi.string().required(),
 		stamina: Joi.number().min(0).required(),
 		stat: Joi.string().required(),
-		description: Joi.any(),
-		targetPgs: Joi.boolean(),
 		targetAmbience: Joi.boolean(),
-		defense: Joi.array()
+		targetPgs: Joi.boolean()
 	})
 
 	mount = async () => {
@@ -55,18 +57,6 @@ class SkillsForm extends ManageForm {
 			toast.error("Impossibile recuperare le skill")
 		}
 	}
-
-	handleDefenseSelection = id => {
-		const { data } = this.state
-		const { defense: _defense } = data
-		const defense = [..._defense]
-		if (defense.find(d => d === id)) {
-			const index = defense.indexOf(id)
-			delete defense[index]
-		} else defense.push(id)
-		this.setState({ data: { ...data, defense } })
-	}
-
 	render() {
 		const { label, defense } = this.state.data
 		const { skills } = this.state
@@ -89,7 +79,9 @@ class SkillsForm extends ManageForm {
 						<div className="flex start wrap">
 							{skills.map(skill => (
 								<div
-									onClick={() => this.handleDefenseSelection(skill.value)}
+									onClick={() =>
+										this.handleListSelection("defense", skill.value)
+									}
 									className={`p-small m-small label ${
 										defense.find(d => d === skill.value) ? "selected" : ""
 									}`}>

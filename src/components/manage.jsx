@@ -2,20 +2,29 @@ import React from "react"
 import { Switch, Route, Link, useHistory, useLocation } from "react-router-dom"
 
 import ListGroup from "./common/listGroup"
+
 import ChatsForm from "./manage/m-chats"
 import SkillsForm from "./manage/m-skills"
 import ItemsForm from "./manage/m-items"
 import PowersForm from "./manage/m-powers"
+import EffectsForm from "./manage/m-effects"
 import ManageHub from "./manage/m-hub"
 
-import { skillService, powerService, shopService } from "../services/dbService"
-import chatService from "../services/chatService"
+import {
+	skillService,
+	powerService,
+	shopService,
+	chatService,
+	effectService
+} from "../services/dbService"
 
 import {
 	skillsCategories,
+	effectsCategories,
 	powersCategories,
 	shopCategories
 } from "../config/categoriesData"
+
 import { locations } from "../config/locationsData"
 
 import "../css/manage.css"
@@ -115,6 +124,19 @@ const Manage = () => {
 									categories={skillsCategories}
 									service={skillService}
 									path="skills"
+									{...props}
+								/>
+							)}
+						/>
+						<Route path="/land/manage/effetti/:id" component={EffectsForm} />
+						<Route
+							path="/land/manage/effetti"
+							render={props => (
+								<ManageHub
+									label="effetti"
+									categories={effectsCategories}
+									service={effectService}
+									path="effetti"
 									{...props}
 								/>
 							)}

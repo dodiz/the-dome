@@ -438,9 +438,13 @@ div.arwes-card__line {
 	cursor: pointer;
 	transition: all 0.3s;
 }
-.label:hover,
+.label:hover {
+	color: #000;
+	background: var(--color-accent);
+	box-shadow: 0 0 5px var(--color-accent);
+}
 .label.selected {
-	color: #0a0a0a;
+	color: #000;
 	background: var(--color-success);
 	box-shadow: 0 0 5px var(--color-success);
 }

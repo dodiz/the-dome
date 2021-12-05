@@ -24,7 +24,7 @@ const ManageHub = ({ label, categories, service, path }) => {
 			setItems(items)
 			setCurrent(prev => (category == prev ? null : category))
 		} catch (e) {
-			toast.error("Si è verificato un errore con l'eliminazione")
+			toast.error(e)
 		}
 	}
 
