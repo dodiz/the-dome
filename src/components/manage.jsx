@@ -4,13 +4,18 @@ import { Switch, Route, Link, useHistory, useLocation } from "react-router-dom"
 import ListGroup from "./common/listGroup"
 import ChatsForm from "./manage/m-chats"
 import SkillsForm from "./manage/m-skills"
+import ItemsForm from "./manage/m-items"
 import PowersForm from "./manage/m-powers"
 import ManageHub from "./manage/m-hub"
 
-import { skillService, powerService } from "../services/dbService"
+import { skillService, powerService, shopService } from "../services/dbService"
 import chatService from "../services/chatService"
 
-import { skillsCategories, powersCategories } from "../config/categories"
+import {
+	skillsCategories,
+	powersCategories,
+	shopCategories
+} from "../config/categoriesData"
 import { locations } from "../config/locationsData"
 
 import "../css/manage.css"
@@ -41,8 +46,8 @@ const menu = [
 		value: "/land/manage/effetti"
 	},
 	{
-		name: "Negozio",
-		value: "/land/manage/negozio"
+		name: "Mercato",
+		value: "/land/manage/mercato"
 	},
 	{
 		name: "Utenti",
@@ -110,6 +115,19 @@ const Manage = () => {
 									categories={skillsCategories}
 									service={skillService}
 									path="skills"
+									{...props}
+								/>
+							)}
+						/>
+						<Route path="/land/manage/mercato/:id" component={ItemsForm} />
+						<Route
+							path="/land/manage/mercato"
+							render={props => (
+								<ManageHub
+									label="mercato"
+									categories={shopCategories}
+									service={shopService}
+									path="mercato"
 									{...props}
 								/>
 							)}

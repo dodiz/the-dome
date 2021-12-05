@@ -47,8 +47,9 @@ class DbService {
 						...items[key]
 					})
 				})
+				const sorted = _items.sort((a, b) => (a._id < b._id ? -1 : 1))
 
-				resolve(_items)
+				resolve(sorted)
 			} catch (e) {
 				reject("Si è verificato un errore")
 			}

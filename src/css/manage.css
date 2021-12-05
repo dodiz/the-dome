@@ -1,6 +1,5 @@
 .manage {
-	grid-template-columns: 1fr 200px;
-	grid-gap: 2rem;
+	grid-template-columns: 1fr;
 }
 .manage-content {
 	height: 100vh;
@@ -8,4 +7,11 @@
 }
 .manage-frame {
 	box-shadow: inset 0 0 5px var(--color-secondary);
+}
+
+@media (min-width: 1024px) {
+	.manage {
+		grid-template-columns: 1fr 200px;
+		grid-gap: 2rem;
+	}
 }

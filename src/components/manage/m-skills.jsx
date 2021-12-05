@@ -5,7 +5,7 @@ import Joi from "../../classes/joi"
 import ManageForm from "./m-form"
 
 import { skillService } from "../../services/dbService"
-import { skillsCategories, stats } from "../../config/categories"
+import { skillsCategories, stats } from "../../config/categoriesData"
 
 import { formatToId } from "../../tools/format"
 
@@ -25,8 +25,11 @@ class SkillsForm extends ManageForm {
 			stat: "",
 			category: "",
 			stamina: 0,
-			offensive: false,
+			targetPgs: false,
+			targetAmbience: false,
 			toolOnly: false,
+			damageMin: 0,
+			damageMax: 0,
 			knowledge: false,
 			reliance: "",
 			relianceLv: 0,
@@ -40,11 +43,14 @@ class SkillsForm extends ManageForm {
 		category: Joi.string().required(),
 		stamina: Joi.number().min(0).required(),
 		stat: Joi.string().required(),
-		description: Joi.any(),
-		offensive: Joi.boolean(),
+		description: Joi.string().allow(""),
+		targetPgs: Joi.boolean(),
+		targetAmbience: Joi.boolean(),
+		damageMin: Joi.number(),
+		damageMax: Joi.number(),
 		toolOnly: Joi.boolean(),
 		knowledge: Joi.boolean(),
-		reliance: Joi.any(),
+		reliance: Joi.string().allow(""),
 		relianceLv: Joi.number(),
 		defense: Joi.array()
 	})
@@ -54,24 +60,15 @@ class SkillsForm extends ManageForm {
 			const _skills = await skillService.get()
 			const skills = _skills.map(skill => ({
 				label: skill.label,
-				value: skill._id
+				value: skill._id,
+				knowledge: skill.knowledge
 			}))
 			const knowledges = skills.filter(skill => skill.knowledge)
+			console.log(skills)
 			this.setState({ knowledges, skills })
 		} catch (e) {
 			toast.error("Impossibile recuperare le skill")
 		}
-	}
-
-	handleDefenseSelection = id => {
-		const { data } = this.state
-		const { defense: _defense } = data
-		const defense = [..._defense]
-		if (defense.find(d => d === id)) {
-			const index = defense.indexOf(id)
-			delete defense[index]
-		} else defense.push(id)
-		this.setState({ data: { ...data, defense } })
 	}
 
 	render() {
@@ -87,7 +84,10 @@ class SkillsForm extends ManageForm {
 					{this.renderSelect("stat", "Statistica", stats)}
 					{this.renderTextarea("description", "Descrizione", "descrizione")}
 					{this.renderInput("stamina", "Stamina utilizzata", "", "number")}
-					{this.renderCheckbox("offensive", "Offensiva")}
+					{this.renderInput("damageMin", "Danno minimo", "", "number")}
+					{this.renderInput("damageMax", "Danno massimo", "", "number")}
+					{this.renderCheckbox("targetPgs", "Utilizza su personaggi")}
+					{this.renderCheckbox("targetAmbience", "Utilizza su ambiente")}
 					{this.renderCheckbox("toolOnly", "Solo con oggetto")}
 					{this.renderCheckbox("knowledge", "Disciplina")}
 					{!knowledge &&
@@ -99,7 +99,9 @@ class SkillsForm extends ManageForm {
 						<div className="flex start wrap">
 							{skills.map(skill => (
 								<div
-									onClick={() => this.handleDefenseSelection(skill.value)}
+									onClick={() =>
+										this.handleListSelection("defense", skill.value)
+									}
 									className={`p-small m-small label ${
 										defense.find(d => d === skill.value) ? "selected" : ""
 									}`}>

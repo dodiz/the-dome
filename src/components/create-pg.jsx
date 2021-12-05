@@ -9,9 +9,16 @@ import Modal from "./common/modal"
 
 import { skillService, powerService } from "../services/dbService"
 
-import { jobs, races, factions, misc, height, weight } from "../config/gdrData"
+import { jobs, misc, height, weight } from "../config/gdrData"
 
-import { bonuses, maluses, skillsCategories, stats } from "../config/categories"
+import {
+	bonuses,
+	maluses,
+	skillsCategories,
+	stats,
+	races,
+	factions
+} from "../config/categoriesData"
 
 import "../css/create.css"
 

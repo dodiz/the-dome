@@ -1,7 +1,3 @@
-import humanImage from "../media/races/humans.jpg"
-import mutantImage from "../media/races/mutants.jpg"
-import robotImage from "../media/races/robots.jpg"
-
 export const misc = {
 	minNameLength: 4,
 	maxNameLength: 10,
@@ -13,7 +9,6 @@ export const misc = {
 	buyableSkills: 15,
 	maxSkillLevelOnCreate: 6
 }
-
 export const height = {
 	max: 200,
 	min: 120
@@ -25,7 +20,8 @@ export const weight = {
 export const jobs = [
 	{
 		_id: "job1",
-		label: "Lavoro 1"
+		label: "Lavoro 1",
+		faction: ""
 	},
 
 	{
@@ -39,69 +35,5 @@ export const jobs = [
 	{
 		_id: "job4",
 		label: "Lavoro 4"
-	}
-]
-export const races = [
-	{
-		_id: "human",
-		label: "Umano",
-		img: humanImage,
-		description: (
-			<>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facere
-				dicta. Mollitia voluptatibus culpa voluptatum pariatur distinctio
-				reprehenderit tempora expedita!
-			</>
-		)
-	},
-	{
-		_id: "mutant",
-		label: "Mutante",
-		img: mutantImage,
-		description: (
-			<>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facere
-				dicta. Mollitia voluptatibus culpa voluptatum pariatur distinctio
-				reprehenderit tempora expedita!
-			</>
-		)
-	},
-	{
-		_id: "robot",
-		label: "Robot",
-		img: robotImage,
-		description: (
-			<>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, facere
-				dicta. Mollitia voluptatibus culpa voluptatum pariatur distinctio
-				reprehenderit tempora expedita!
-			</>
-		)
-	}
-]
-export const factions = [
-	{
-		_id: "faction 1",
-		label: "Netturbino",
-		img: humanImage,
-		description: (
-			<>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus placeat
-				tenetur blanditiis corrupti expedita mollitia dolor iste delectus
-				voluptates possimus?
-			</>
-		)
-	},
-	{
-		_id: "faction 2",
-		label: "Sindaco leghista",
-		img: mutantImage,
-		description: (
-			<>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus placeat
-				tenetur blanditiis corrupti expedita mollitia dolor iste delectus
-				voluptates possimus?
-			</>
-		)
 	}
 ]

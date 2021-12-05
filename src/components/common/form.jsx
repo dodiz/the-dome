@@ -12,7 +12,7 @@ const Select = ({ name, label, error, options, ...rest }) => {
 				defaultValue="default"
 				className="form-control form-select"
 				{...rest}>
-				<option value="default">Seleziona ...</option>
+				<option value="">Seleziona ...</option>
 				{options.map(option => (
 					<option key={option._id} value={option._id}>
 						{option.label}

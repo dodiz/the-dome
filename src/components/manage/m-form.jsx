@@ -33,6 +33,17 @@ class ManageForm extends Form {
 		return _data
 	}
 
+	handleListSelection = (_list, id) => {
+		const { data } = this.state
+		const { [_list]: __list } = data
+		const list = [...__list]
+		if (list.find(i => i === id)) {
+			const index = list.indexOf(id)
+			list.splice(index, 1)
+		} else list.push(id)
+		this.setState({ data: { ...data, [_list]: list } })
+	}
+
 	doSubmit = async () => {
 		try {
 			const { data } = this.state

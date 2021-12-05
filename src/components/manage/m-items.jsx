@@ -4,15 +4,15 @@ import { toast } from "react-toastify"
 import Joi from "../../classes/joi"
 import ManageForm from "./m-form"
 
-import { skillService, powerService } from "../../services/dbService"
-import { powersCategories, stats } from "../../config/categoriesData"
+import { skillService, shopService } from "../../services/dbService"
+import { shopCategories, stats } from "../../config/categoriesData"
 
 import { formatToId } from "../../tools/format"
-class SkillsForm extends ManageForm {
+class ShopForm extends ManageForm {
 	constructor() {
 		super()
-		this.service = powerService
-		this.path = "/land/manage/poteri"
+		this.service = shopService
+		this.path = "/land/manage/mercato"
 	}
 	state = {
 		id: "",
@@ -23,10 +23,7 @@ class SkillsForm extends ManageForm {
 			stat: "",
 			race: "",
 			stamina: 0,
-			targetPgs: false,
-			targetAmbience: false,
-			minDamage: 0,
-			maxDamage: 0,
+			offensive: false,
 			defense: []
 		},
 		errors: {}
@@ -38,8 +35,7 @@ class SkillsForm extends ManageForm {
 		stamina: Joi.number().min(0).required(),
 		stat: Joi.string().required(),
 		description: Joi.any(),
-		targetPgs: Joi.boolean(),
-		targetAmbience: Joi.boolean(),
+		offensive: Joi.boolean(),
 		defense: Joi.array()
 	})
 
@@ -76,14 +72,11 @@ class SkillsForm extends ManageForm {
 				<form onSubmit={this.handleSubmit}>
 					<p>Id: {formatToId(label)}</p>
 					{this.renderInput("label", "Nome")}
-					{this.renderSelect("race", "Categoria", powersCategories)}
+					{this.renderSelect("race", "Categoria", shopCategories)}
 					{this.renderSelect("stat", "Statistica", stats)}
 					{this.renderTextarea("description", "Descrizione", "descrizione")}
 					{this.renderInput("stamina", "Stamina utilizzata", "", "number")}
-					{this.renderInput("minDamage", "Danno minimo", "", "number")}
-					{this.renderInput("maxDamage", "Danno massimo", "", "number")}
-					{this.renderCheckbox("targetPgs", "Utilizza su personaggi")}
-					{this.renderCheckbox("targetAmbience", "Utilizza su ambiente")}
+					{this.renderCheckbox("offensive", "Offensiva")}
 					<div className="mtb-1">
 						<h3>Difesa</h3>
 						<div className="flex start wrap">
@@ -105,4 +98,4 @@ class SkillsForm extends ManageForm {
 	}
 }
 
-export default SkillsForm
+export default ShopForm
