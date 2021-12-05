@@ -7,12 +7,11 @@ import Form from "./common/form"
 import Bar from "./common/bar"
 import Modal from "./common/modal"
 
-import skillService from "../services/skillService"
-import powerService from "../services/powerService"
+import { skillService, powerService } from "../services/dbService"
 
 import { jobs, races, factions, misc, height, weight } from "../config/gdrData"
 
-import { bonuses, maluses, skillsCategories, stats } from "../config/skillsData"
+import { bonuses, maluses, skillsCategories, stats } from "../config/categories"
 
 import "../css/create.css"
 

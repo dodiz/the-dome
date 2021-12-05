@@ -4,9 +4,8 @@ import { toast } from "react-toastify"
 import Joi from "../../classes/joi"
 import ManageForm from "./m-form"
 
-import powerService from "../../services/powerService"
-import skillService from "../../services/skillService"
-import { powersCategories, stats } from "../../config/skillsData"
+import { skillService, powerService } from "../../services/dbService"
+import { powersCategories, stats } from "../../config/categories"
 
 import { formatToId } from "../../tools/format"
 class SkillsForm extends ManageForm {

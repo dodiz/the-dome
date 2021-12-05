@@ -4,8 +4,8 @@ import { toast } from "react-toastify"
 import Joi from "../../classes/joi"
 import ManageForm from "./m-form"
 
-import skillService from "../../services/skillService"
-import { skillsCategories, stats } from "../../config/skillsData"
+import { skillService } from "../../services/dbService"
+import { skillsCategories, stats } from "../../config/categories"
 
 import { formatToId } from "../../tools/format"
 

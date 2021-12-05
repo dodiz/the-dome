@@ -22,7 +22,6 @@ export const weight = {
 	max: 300,
 	min: 40
 }
-
 export const jobs = [
 	{
 		_id: "job1",

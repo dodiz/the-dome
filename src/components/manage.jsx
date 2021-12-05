@@ -7,11 +7,10 @@ import SkillsForm from "./manage/m-skills"
 import PowersForm from "./manage/m-powers"
 import ManageHub from "./manage/m-hub"
 
-import skillService from "../services/skillService"
-import powerService from "../services/powerService"
+import { skillService, powerService } from "../services/dbService"
 import chatService from "../services/chatService"
 
-import { skillsCategories, powersCategories } from "../config/skillsData"
+import { skillsCategories, powersCategories } from "../config/categories"
 import { locations } from "../config/locationsData"
 
 import "../css/manage.css"
