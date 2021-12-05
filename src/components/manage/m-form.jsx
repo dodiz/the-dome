@@ -5,22 +5,30 @@ import Form from "../common/form"
 import { formatToId } from "../../tools/format"
 
 class ManageForm extends Form {
+	state = {
+		id: "",
+		data: {},
+		errors: {}
+	}
+
 	async componentDidMount() {
 		const id = this.props.match.params.id
 		if (id === "new") return
 		try {
 			const data = await this.service.getFromId(id)
 			this.setState({ id, data: this.mapToViewModel(data) })
+			if (this.mount) this.mount()
 		} catch (ex) {
 			toast.error(ex)
 			this.props.history.replace("/not-found")
 		}
 	}
 
-	mapToViewModel(data) {
+	mapToViewModel(model) {
 		const _data = {}
+		const { data } = this.state
 		Object.keys(data).forEach(key => {
-			_data[key] = data[key]
+			_data[key] = model[key] || data[key]
 		})
 		return _data
 	}

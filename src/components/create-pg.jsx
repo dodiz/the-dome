@@ -144,8 +144,8 @@ class CreatePg extends Form {
 		const modalInfo = info ? { ...info } : null
 		this.setState({ modalInfo })
 	}
-	loadSkills = () => {
-		const skills = skillService.getAll()
+	loadSkills = async () => {
+		const skills = await skillService.get()
 		this.setState({ skills })
 	}
 	loadPowers = race => {
@@ -302,7 +302,7 @@ class CreatePg extends Form {
 							))}
 						</div>
 					</this.RenderStep>
-					<this.RenderStep step={1} fields={["skillPoints"]}>
+					<this.RenderStep step={6} fields={["skillPoints"]}>
 						<Text as="h2" className="m-auto">
 							Abilità
 						</Text>

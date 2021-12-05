@@ -116,7 +116,7 @@ class Map extends Component {
 
 	handleZoneSelection = async location => {
 		this.props.sounds.assemble.play()
-		const chats = await chatService.get(location._id)
+		const chats = await chatService.getFromCategory(location._id)
 		const { x, y } = location
 		this.setState({ x, y, location, chats })
 	}
@@ -135,7 +135,6 @@ class Map extends Component {
 						onClose={this.handleCloseBox}
 					/>
 				) : null}
-
 				<FrameCorners
 					palette="secondary"
 					cornerWidth={2}

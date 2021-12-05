@@ -11,7 +11,6 @@ class ChatsForm extends ManageForm {
 	constructor() {
 		super()
 		this.service = chatService
-		this.isNew = true
 		this.path = "/land/manage/chats"
 	}
 
@@ -36,15 +35,15 @@ class ChatsForm extends ManageForm {
 	render() {
 		const { label } = this.state.data
 		return (
-			<div>
-				<h2>{this.isNew ? "Nuova Chat" : `Modifica ${label}`}</h2>
+			<div className="pb-1">
+				<h2>Aggiungi / Modifica chat</h2>
 				<form onSubmit={this.handleSubmit}>
 					<p>Id: {formatToId(label)}</p>
 					{this.renderInput("label", "Nome")}
 					{this.renderSelect("location", "Zona", locations)}
 					{this.renderTextarea("description", "Descrizione", "descrizione")}
 					{this.renderCheckbox("closed", "Disabilita chat")}
-					{this.renderButton(this.isNew ? "Aggiungi" : "Modifica")}
+					{this.renderButton("Conferma")}
 				</form>
 			</div>
 		)

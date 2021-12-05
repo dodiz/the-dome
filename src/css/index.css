@@ -433,6 +433,16 @@ div.arwes-card__line {
 	box-shadow: 0 0 5px var(--color-accent);
 }
 
+/* LABEL */
+.label {
+	background: var(--color-primary);
+	cursor: pointer;
+	transition: background 0.3s;
+}
+.label:hover,
+.label.selected {
+	background: var(--color-error2);
+}
 /* Icon */
 .icon {
 	filter: drop-shadow(0 0 2px var(--color-secondary));
@@ -797,6 +807,9 @@ div.arwes-card__line {
 .flex.start {
 	justify-content: flex-start;
 }
+.flex.wrap {
+	flex-wrap: wrap;
+}
 .flex__extend {
 	flex: 1;
 }
@@ -814,7 +827,6 @@ div.arwes-card__line {
 .card.active {
 	background: #00f7f722;
 }
-
 .card__button span {
 	font-size: 1.6rem;
 }

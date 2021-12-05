@@ -27,7 +27,7 @@ function getFromId(id) {
 		}
 	})
 }
-async function get(id) {
+async function getFromCategory(id) {
 	const q = query(chatsRef, where("location", "==", id))
 	const querySnapshot = await getDocs(q)
 	const _chats = []
@@ -41,7 +41,7 @@ async function remove(id) {
 
 const chatService = {
 	update,
-	get,
+	getFromCategory,
 	getFromId,
 	remove
 }

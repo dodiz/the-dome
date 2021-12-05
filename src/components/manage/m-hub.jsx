@@ -12,15 +12,20 @@ const ManageHub = ({ label, categories, service, path }) => {
 			const index = _items.indexOf(item)
 			_items.splice(index, 1)
 			await service.remove(item._id)
+			toast.success("Elemento eliminato")
 			setItems(_items)
-		} catch {
-			toast.error("Impossibile cancellare la chat")
+		} catch (e) {
+			toast.error(e)
 		}
 	}
 	async function load(category) {
-		const items = await service.get(category._id)
-		setItems(items)
-		setCurrent(prev => (category == prev ? null : category))
+		try {
+			const items = await service.getFromCategory(category._id)
+			setItems(items)
+			setCurrent(prev => (category == prev ? null : category))
+		} catch (e) {
+			toast.error("Si è verificato un errore con l'eliminazione")
+		}
 	}
 
 	return (
