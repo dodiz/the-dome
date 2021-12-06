@@ -2,13 +2,13 @@ import React from "react"
 import { Switch, Route, Link, useHistory, useLocation } from "react-router-dom"
 
 import ListGroup from "./common/listGroup"
+import ManageHub from "./common/m-hub"
 
 import ChatsForm from "./manage/m-chats"
 import SkillsForm from "./manage/m-skills"
-import ItemsForm from "./manage/m-items"
+import ShopForm from "./manage/m-shop"
 import PowersForm from "./manage/m-powers"
 import EffectsForm from "./manage/m-effects"
-import ManageHub from "./manage/m-hub"
 
 import {
 	skillService,
@@ -141,7 +141,7 @@ const Manage = () => {
 								/>
 							)}
 						/>
-						<Route path="/land/manage/mercato/:id" component={ItemsForm} />
+						<Route path="/land/manage/mercato/:id" component={ShopForm} />
 						<Route
 							path="/land/manage/mercato"
 							render={props => (

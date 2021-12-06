@@ -124,8 +124,8 @@ export const shopCategories = [
         label: "categoria 1"
     },
     {
-        _id: "categoria_2",
-        label: "categoria 2"
+        _id: "kit",
+        label: "Kit"
     },
     {
         _id: "categoria_3",
@@ -134,6 +134,23 @@ export const shopCategories = [
     {
         _id: "categoria_4",
         label: "categoria 4"
+    }
+]
+export const markets = [
+    {
+        _id: "mera",
+        label: "Mercato di mera",
+        factions: ["mera"]
+    },
+    {
+        _id: "deserto",
+        label: "Mercato della nave",
+        factions: ["deserto"]
+    },
+    {
+        _id: "bazar",
+        label: "Mercato del bazar",
+        factions: ["mera", "deserto"]
     }
 ]
 export const races = [

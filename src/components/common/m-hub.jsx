@@ -22,7 +22,7 @@ const ManageHub = ({ label, categories, service, path }) => {
 		try {
 			const items = await service.getFromCategory(category._id)
 			setItems(items)
-			setCurrent(prev => (category == prev ? null : category))
+			setCurrent(prev => (category === prev ? null : category))
 		} catch (e) {
 			toast.error(e)
 		}

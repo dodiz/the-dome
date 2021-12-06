@@ -2,13 +2,18 @@ import React from "react"
 import { toast } from "react-toastify"
 
 import Joi from "../../classes/joi"
-import ManageForm from "./m-form"
+import ManageForm from "../common/m-form"
 
-import { skillService, powerService } from "../../services/dbService"
+import {
+	powerService,
+	skillService,
+	effectService
+} from "../../services/dbService"
 import { powersCategories, stats } from "../../config/categoriesData"
 
 import { formatToId } from "../../tools/format"
-class SkillsForm extends ManageForm {
+
+class PowersForm extends ManageForm {
 	constructor() {
 		super()
 		this.service = powerService
@@ -16,10 +21,12 @@ class SkillsForm extends ManageForm {
 	}
 	state = {
 		id: "",
-		skills: [],
+		_skills: [],
+		_effects: [],
 		data: {
 			defense: [],
 			description: "",
+			effect: "",
 			label: "",
 			maxDamage: 0,
 			minDamage: 0,
@@ -35,6 +42,7 @@ class SkillsForm extends ManageForm {
 	schema = Joi.object({
 		defense: Joi.array(),
 		description: Joi.any(),
+		effect: Joi.string().allow(""),
 		label: Joi.string().required(),
 		maxDamage: Joi.number(),
 		minDamage: Joi.number(),
@@ -46,20 +54,23 @@ class SkillsForm extends ManageForm {
 	})
 
 	mount = async () => {
-		try {
-			const _skills = await skillService.get()
-			const skills = _skills.map(skill => ({
-				label: skill.label,
-				value: skill._id
-			}))
-			this.setState({ skills })
-		} catch (e) {
-			toast.error("Impossibile recuperare le skill")
-		}
+		skillService
+			.get()
+			.then(_skills => {
+				const _knowledges = _skills.filter(skill => skill.knowledge)
+				this.setState({ _knowledges, _skills })
+			})
+			.catch(e => toast.error(e))
+		effectService
+			.get()
+			.then(_effects => {
+				this.setState({ _effects })
+			})
+			.catch(e => toast.error("Nessun effetto presente"))
 	}
 	render() {
 		const { label, defense } = this.state.data
-		const { skills } = this.state
+		const { _skills, _effects } = this.state
 		return (
 			<div className="pb-2">
 				<h2>Aggiungi / modifica Skill</h2>
@@ -74,22 +85,8 @@ class SkillsForm extends ManageForm {
 					{this.renderInput("maxDamage", "Danno massimo", "", "number")}
 					{this.renderCheckbox("targetPgs", "Utilizza su personaggi")}
 					{this.renderCheckbox("targetAmbience", "Utilizza su ambiente")}
-					<div className="mtb-1">
-						<h3>Difesa</h3>
-						<div className="flex start wrap">
-							{skills.map(skill => (
-								<div
-									onClick={() =>
-										this.handleListSelection("defense", skill.value)
-									}
-									className={`p-small m-small label ${
-										defense.find(d => d === skill.value) ? "selected" : ""
-									}`}>
-									{skill.label}
-								</div>
-							))}
-						</div>
-					</div>
+					{this.renderList("Difesa", _skills, defense, "defense")}
+					{this.renderSelect("effect", "Effetto", _effects)}
 					{this.renderButton("Conferma")}
 				</form>
 			</div>
@@ -97,4 +94,4 @@ class SkillsForm extends ManageForm {
 	}
 }
 
-export default SkillsForm
+export default PowersForm

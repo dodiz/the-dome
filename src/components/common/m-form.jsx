@@ -1,6 +1,6 @@
 import { toast } from "react-toastify"
 
-import Form from "../common/form"
+import Form from "./form"
 
 import { formatToId } from "../../tools/format"
 
@@ -23,7 +23,6 @@ class ManageForm extends Form {
 			this.props.history.replace("/not-found")
 		}
 	}
-
 	mapToViewModel(model) {
 		const _data = {}
 		const { data } = this.state
@@ -42,6 +41,27 @@ class ManageForm extends Form {
 			list.splice(index, 1)
 		} else list.push(id)
 		this.setState({ data: { ...data, [_list]: list } })
+	}
+	renderList = (title, list, field, fieldName, valueProperty = "_id") => {
+		return (
+			<div className="mtb-1">
+				<h3>{title}</h3>
+				<div className="flex start wrap">
+					{list.map(item => (
+						<div
+							key={item[valueProperty]}
+							onClick={() =>
+								this.handleListSelection(fieldName, item[valueProperty])
+							}
+							className={`p-small m-small label ${
+								field.find(f => f === item[valueProperty]) ? "selected" : ""
+							}`}>
+							{item.label}
+						</div>
+					))}
+				</div>
+			</div>
+		)
 	}
 
 	doSubmit = async () => {

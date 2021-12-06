@@ -1,20 +1,30 @@
 import React, { Component } from "react"
 import { Button, FrameCorners, Text } from "@arwes/core"
 
-const Select = ({ name, label, error, options, ...rest }) => {
+const Select = ({
+	name,
+	label,
+	onChange,
+	error,
+	options,
+	value,
+	valueProperty = "_id",
+	...rest
+}) => {
 	return (
 		<div className="form-group">
 			<label htmlFor={name}>
 				<h3>{label}</h3>
 			</label>
 			<select
+				value={value || ""}
+				onChange={onChange}
 				name={name}
-				defaultValue="default"
 				className="form-control form-select"
 				{...rest}>
 				<option value="">Seleziona ...</option>
-				{options.map(option => (
-					<option key={option._id} value={option._id}>
+				{options.map((option, i) => (
+					<option key={i} value={option[valueProperty]}>
 						{option.label}
 					</option>
 				))}
@@ -23,7 +33,6 @@ const Select = ({ name, label, error, options, ...rest }) => {
 		</div>
 	)
 }
-
 const Input = ({ name, label, error, ...rest }) => {
 	return (
 		<div className="form-group">
@@ -37,7 +46,6 @@ const Input = ({ name, label, error, ...rest }) => {
 		</div>
 	)
 }
-
 const Textarea = ({ name, label, error, value, ...rest }) => {
 	return (
 		<div className="form-group">
@@ -51,7 +59,6 @@ const Textarea = ({ name, label, error, value, ...rest }) => {
 		</div>
 	)
 }
-
 const Checkbox = ({ name, label, value, error, ...rest }) => {
 	return (
 		<div>
@@ -91,7 +98,6 @@ class Form extends Component {
 
 		return errors
 	}
-
 	validateProperty = ({ name, value }) => {
 		const schema = this.schema.extract(name)
 		const refs = schema._refs.refs
@@ -109,7 +115,6 @@ class Form extends Component {
 		}
 		this.doSubmit()
 	}
-
 	handleChange = ({ target: input }) => {
 		const errors = this.handleError(input)
 		const data = { ...this.state.data }
@@ -191,6 +196,7 @@ class Form extends Component {
 			</div>
 		)
 	}
+
 	nextStep = e => {
 		e.preventDefault()
 		const { currentStep } = this.state

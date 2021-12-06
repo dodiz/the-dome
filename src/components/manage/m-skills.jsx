@@ -2,7 +2,7 @@ import React from "react"
 import { toast } from "react-toastify"
 
 import Joi from "../../classes/joi"
-import ManageForm from "./m-form"
+import ManageForm from "../common/m-form"
 
 import { skillService } from "../../services/dbService"
 import { skillsCategories, stats } from "../../config/categoriesData"
@@ -17,8 +17,8 @@ class SkillsForm extends ManageForm {
 	}
 	state = {
 		id: "",
-		skills: [],
-		knowledges: [],
+		_skills: [],
+		_knowledges: [],
 		data: {
 			label: "",
 			description: "",
@@ -55,24 +55,19 @@ class SkillsForm extends ManageForm {
 		defense: Joi.array()
 	})
 
-	mount = async () => {
-		try {
-			const _skills = await skillService.get()
-			const skills = _skills.map(skill => ({
-				label: skill.label,
-				value: skill._id,
-				knowledge: skill.knowledge
-			}))
-			const knowledges = skills.filter(skill => skill.knowledge)
-			this.setState({ knowledges, skills })
-		} catch (e) {
-			toast.error("Impossibile recuperare le skill")
-		}
+	mount = () => {
+		skillService
+			.get()
+			.then(_skills => {
+				const _knowledges = _skills.filter(skill => skill.knowledge)
+				this.setState({ _knowledges, _skills })
+			})
+			.catch(e => toast.error(e))
 	}
 
 	render() {
 		const { label, reliance, knowledge, defense } = this.state.data
-		const { knowledges, skills } = this.state
+		const { _knowledges, _skills } = this.state
 		return (
 			<div className="pb-2">
 				<h2>Aggiungi / modifica Skill</h2>
@@ -90,25 +85,11 @@ class SkillsForm extends ManageForm {
 					{this.renderCheckbox("toolOnly", "Solo con oggetto")}
 					{this.renderCheckbox("knowledge", "Disciplina")}
 					{!knowledge &&
-						this.renderSelect("reliance", "Dipendenza", knowledges)}
+						this.renderSelect("reliance", "Dipendenza", _knowledges)}
 					{reliance &&
 						this.renderInput("relianceLv", "Livello minimo", "", "number")}
-					<div className="mtb-1">
-						<h3>Difesa</h3>
-						<div className="flex start wrap">
-							{skills.map(skill => (
-								<div
-									onClick={() =>
-										this.handleListSelection("defense", skill.value)
-									}
-									className={`p-small m-small label ${
-										defense.find(d => d === skill.value) ? "selected" : ""
-									}`}>
-									{skill.label}
-								</div>
-							))}
-						</div>
-					</div>
+
+					{this.renderList("Difesa", _skills, defense, "defense")}
 					{this.renderButton("Conferma")}
 				</form>
 			</div>

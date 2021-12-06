@@ -32,9 +32,9 @@ const SvgMap = ({ x, y, onSelectLocation, current, locations }) => (
 		</linearGradient>
 		<g className="map__indicator-g">
 			{/* VERTICAL LINE */}
-			<path d={"M " + x + " 0 " + "V 1080"} className="map__indicator-line" />
+			<path d={`M ${x} 0 V ${viewPort.y}`} className="map__indicator-line" />
 			{/* HORIZONTAL LINE */}
-			<path d={"M 0 " + y + " H 1980"} className="map__indicator-line" />
+			<path d={`M 0 ${y} H ${viewPort.x}`} className="map__indicator-line" />
 			{/* INDICATOR */}
 			<circle
 				cx={x}
@@ -54,18 +54,19 @@ const SvgMap = ({ x, y, onSelectLocation, current, locations }) => (
 			/>
 		</g>
 		{/* TEXT LOCATIONS */}
-		{locations.map(location => (
+		{locations.map((location, i) => (
 			<g
-				className={`map__location ${current == location ? " selected" : ""}`}
+				key={i}
+				className={`map__location ${current === location ? "selected" : ""}`}
 				onClick={() => onSelectLocation(location)}>
 				<path d={location.path} className="map__path" />
 				<text
 					className="map__text"
-					dominant-baseline="middle"
+					dominantBaseline="middle"
 					fontSize={30}
 					x={location.x}
 					y={location.y}
-					text-anchor="middle">
+					textAnchor="middle">
 					{location.label}
 				</text>
 			</g>
@@ -146,7 +147,7 @@ class Map extends Component {
 						<SvgMap
 							x={x}
 							y={y}
-							location={location}
+							current={location}
 							locations={locations}
 							onSelectLocation={this.handleZoneSelection}
 						/>

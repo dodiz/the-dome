@@ -28,11 +28,7 @@ class DbService {
 					)
 					resolve(filtered)
 				})
-				.catch(e =>
-					reject(
-						"Si è verificato un errore, impossibile recuperare gli elementi"
-					)
-				)
+				.catch(e => reject("La categoria risulta vuota"))
 		})
 	}
 	getFromId = id => {
@@ -51,7 +47,7 @@ class DbService {
 				const result = await getDoc(this.docRef)
 				const items = result.data()
 				const _items = []
-				Object.keys(items).map(key => {
+				Object.keys(items).forEach(key => {
 					_items.push({
 						_id: key,
 						...items[key]
@@ -65,11 +61,17 @@ class DbService {
 			}
 		})
 	}
+	create = () => {
+		return setDoc(this.docRef, {})
+	}
+
 	update = (id, data) => {
 		return new Promise((resolve, reject) => {
 			updateDoc(this.docRef, { [id]: data })
 				.then(() => resolve())
-				.catch(ex => reject("Si è verificato un errore con l'aggiornamento"))
+				.catch(ex => {
+					reject("Si è verificato un errore con l'aggiornamento")
+				})
 		})
 	}
 	remove = id => {
@@ -85,7 +87,6 @@ class DbService {
 		})
 	}
 }
-
 class DbServiceMultiple {
 	constructor(collectionName, categoryLabel = "category") {
 		this.collectionRef = collection(db, collectionName)
@@ -156,6 +157,6 @@ class DbServiceMultiple {
 
 export const skillService = new DbService("skills")
 export const powerService = new DbService("powers", "race")
-export const effectService = new DbService("effects")
-export const shopService = new DbService("items")
+export const effectService = new DbService("effects", "category")
+export const shopService = new DbService("items", "category")
 export const chatService = new DbServiceMultiple("chats", "location")

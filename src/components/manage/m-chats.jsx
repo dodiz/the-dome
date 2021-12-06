@@ -1,7 +1,7 @@
 import React from "react"
 
 import Joi from "../../classes/joi"
-import ManageForm from "./m-form"
+import ManageForm from "../common/m-form"
 
 import { chatService } from "../../services/dbService"
 import { factions as factionsList } from "../../config/categoriesData"
@@ -48,22 +48,13 @@ class ChatsForm extends ManageForm {
 					{this.renderTextarea("description", "Descrizione", "descrizione")}
 					{this.renderTextarea("notes", "Note")}
 					{this.renderCheckbox("closed", "Disabilita chat")}
-					<div className="mtb-1">
-						<h3>Fazioni abilitate</h3>
-						<div className="flex start wrap">
-							{factionsList.map(faction => (
-								<div
-									onClick={() =>
-										this.handleListSelection("factions", faction._id)
-									}
-									className={`p-small m-small label ${
-										factions.find(f => f === faction._id) ? "selected" : ""
-									}`}>
-									{faction.label}
-								</div>
-							))}
-						</div>
-					</div>
+					{this.renderList(
+						"Fazioni abilitate",
+						factionsList,
+						factions,
+						"factions",
+						"_id"
+					)}
 					{this.renderButton("Conferma")}
 				</form>
 			</div>
