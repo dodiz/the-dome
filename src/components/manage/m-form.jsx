@@ -13,11 +13,11 @@ class ManageForm extends Form {
 
 	async componentDidMount() {
 		const id = this.props.match.params.id
+		if (this.mount) this.mount()
 		if (id === "new") return
 		try {
 			const data = await this.service.getFromId(id)
 			this.setState({ id, data: this.mapToViewModel(data) })
-			if (this.mount) this.mount()
 		} catch (e) {
 			toast.error(e)
 			this.props.history.replace("/not-found")
